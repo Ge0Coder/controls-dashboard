@@ -48,6 +48,29 @@ def text_to_html(text: str) -> str:
     ) if paras else ""
 
 
+_SENT_RE = re.compile(r'(?<=[.!?])\s+(?=[A-Z"])')
+
+
+def _truncate_ai_html(text: str, max_sentences: int = 2) -> str:
+    """Show first max_sentences then hide the rest behind a Read more toggle."""
+    if not text:
+        return ""
+    sentences = _SENT_RE.split(text.strip())
+    if len(sentences) <= max_sentences:
+        return text_to_html(text)
+    uid = f"rm{abs(hash(text[:40])) % 999983}"
+    e = html_mod.escape
+    visible = e(" ".join(sentences[:max_sentences]))
+    rest    = e(" ".join(sentences[max_sentences:]))
+    return (
+        f'<p class="ai-p">{visible} '
+        f'<span id="{uid}" style="display:none">{rest}</span>'
+        f'<a class="rm-toggle" href="#" '
+        f'onclick="rmToggle(\'{uid}\',this);return false">'
+        f'Read more &rarr;</a></p>'
+    )
+
+
 def kev_severity(vuln: dict[str, Any]) -> str:
     if vuln.get("knownRansomwareCampaignUse", "Unknown") == "Known":
         return "critical"
@@ -277,7 +300,7 @@ def _vendor_nodes(articles: list[dict], cisa_vulns: list[dict]) -> str:
 def _article_items(articles: list[dict[str, str]]) -> str:
     e = html_mod.escape
     items = []
-    for a in articles:
+    for a in articles[:5]:
         is_critical = a["source"] == "CISA ICS Advisories"
         dot = (
             '<span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span>'
@@ -310,7 +333,7 @@ def _article_items(articles: list[dict[str, str]]) -> str:
 def _kev_rows(vulns: list[dict[str, Any]]) -> str:
     e = html_mod.escape
     rows = []
-    for v in vulns:
+    for v in vulns[:3]:
         sev = kev_severity(v)
         badge = (
             '<span class="sev sev-critical">CRITICAL</span>'
@@ -367,21 +390,37 @@ a:hover{text-decoration:underline}
   text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;
 }
 
-/* Header */
+/* Header / Hero */
 header{
-  background:var(--surf);border-bottom:1px solid var(--bord);
-  padding:12px 24px;display:flex;justify-content:space-between;
-  align-items:center;flex-wrap:wrap;gap:8px;
+  background:var(--surf);border-bottom:2px solid var(--bord);
+  padding:28px 24px 22px;display:grid;
+  grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
+  position:relative;
 }
-header h1{font-family:var(--mono);font-size:1rem;letter-spacing:.08em;color:var(--green)}
-.header-right{display:flex;align-items:center;gap:12px}
-.ts{font-size:.75rem;color:var(--muted)}
+header::after{
+  content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 0%,var(--green) 25%,var(--green) 75%,transparent 100%);
+  opacity:.6;
+}
+.hero-center{text-align:center}
+header h1{
+  font-family:var(--mono);font-size:1.75rem;letter-spacing:.06em;
+  color:var(--green);text-shadow:0 0 48px rgba(57,211,83,.4);line-height:1.2;
+}
+.hero-sub{
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-top:6px;
+}
+.hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ts{font-size:.7rem;color:var(--muted);text-align:right;line-height:1.5}
 .theme-btn{
   background:var(--surf2);border:1px solid var(--bord);color:var(--text);
   border-radius:6px;padding:5px 12px;cursor:pointer;font-size:.8rem;
   transition:background .15s;font-family:var(--sans);
 }
 .theme-btn:hover{background:var(--bord)}
+.rm-toggle{font-size:.78rem;color:var(--link);margin-left:4px;white-space:nowrap}
+.ai-p{margin:.5em 0;font-size:.88rem}
 
 /* Stats Bar */
 .stats-bar{
@@ -530,6 +569,11 @@ _JS = """\
     if(saved === 'light') apply('light');
   }catch(e){}
 })();
+function rmToggle(id,a){
+  var s=document.getElementById(id);
+  if(s.style.display==='none'){s.style.display='inline';a.textContent='Read less ←';}
+  else{s.style.display='none';a.innerHTML='Read more →';}
+}
 """
 
 
@@ -547,11 +591,11 @@ def render_html(
     threat_level   = summaries.get("threat_level", "amber")
     threat_summary = summaries.get("threat_summary", "")
     fact_html      = text_to_html(summaries.get("interesting_fact", ""))
-    news_html      = text_to_html(summaries.get("news_summary", ""))
-    cisa_html      = text_to_html(summaries.get("cisa_summary", ""))
-    tech_html      = text_to_html(summaries.get("tech_spotlight", ""))
-    std_html       = text_to_html(summaries.get("standards_watch", ""))
-    inc_html       = text_to_html(summaries.get("incident_of_week", ""))
+    news_html      = _truncate_ai_html(summaries.get("news_summary", ""))
+    cisa_html      = _truncate_ai_html(summaries.get("cisa_summary", ""))
+    tech_html      = _truncate_ai_html(summaries.get("tech_spotlight", ""))
+    std_html       = _truncate_ai_html(summaries.get("standards_watch", ""))
+    inc_html       = _truncate_ai_html(summaries.get("incident_of_week", ""))
 
     kev_count      = len(cisa_vulns)
     critical_count = sum(1 for v in cisa_vulns if kev_severity(v) == "critical")
@@ -577,10 +621,14 @@ def render_html(
 </div>
 
 <header>
-  <h1>&#9881; Controls Engineering Daily</h1>
-  <div class="header-right">
-    <span class="ts">Built {ts} &nbsp;&#124;&nbsp; Anthropic Claude</span>
+  <div></div>
+  <div class="hero-center">
+    <h1>&#9881; Controls Engineering Daily</h1>
+    <p class="hero-sub">ICS &middot; OT &middot; SCADA Intelligence Briefing</p>
+  </div>
+  <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
+    <span class="ts">Built {ts}<br>Anthropic Claude</span>
   </div>
 </header>
 
