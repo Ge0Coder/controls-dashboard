@@ -404,7 +404,7 @@ header::after{
 }
 .hero-center{text-align:center}
 header h1{
-  font-family:var(--mono);font-size:1.75rem;letter-spacing:.06em;
+  font-family:'Rajdhani',var(--sans);font-size:1.9rem;font-weight:700;letter-spacing:.08em;
   color:var(--green);text-shadow:0 0 48px rgba(57,211,83,.4);line-height:1.2;
 }
 .hero-sub{
@@ -611,6 +611,8 @@ def render_html(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Controls Engineering Daily &#8212; {ts}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>{_CSS}</style>
 </head>
 <body>
@@ -623,7 +625,7 @@ def render_html(
 <header>
   <div></div>
   <div class="hero-center">
-    <h1>&#9881; Controls Engineering Daily</h1>
+    <h1>&#128187; Controls Engineering Daily</h1>
     <p class="hero-sub">ICS &middot; OT &middot; SCADA Intelligence Briefing</p>
   </div>
   <div class="hero-right">
