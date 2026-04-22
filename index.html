@@ -1,178 +1,417 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily — 2026-04-22 19:36 UTC</title>
-  <style>:root{--bg:#0d1117;--surf:#161b22;--bord:#30363d;--text:#c9d1d9;--muted:#8b949e;
-      --green:#39d353;--amber:#e3b341;--red:#f85149;--link:#58a6ff;--r:6px;
-      --mono:"Courier New",monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
+  <title>Controls Engineering Daily &#8212; 2026-04-22 20:02 UTC</title>
+  <style>:root{
+  --bg:#0d1117;--surf:#161b22;--surf2:#1c2128;--bord:#30363d;
+  --text:#c9d1d9;--muted:#8b949e;--green:#39d353;--amber:#e3b341;
+  --red:#f85149;--link:#58a6ff;--r:8px;
+  --mono:"Courier New",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f6f8fa;--surf:#ffffff;--surf2:#f0f3f6;--bord:#d0d7de;
+  --text:#24292f;--muted:#656d76;--green:#1a7f37;--amber:#9a6700;
+  --red:#cf222e;--link:#0969da;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6}
-a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
-header{background:var(--surf);border-bottom:1px solid var(--bord);padding:14px 24px;
-       display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Heat Strip */
+.heat-strip{
+  width:100%;padding:9px 24px;display:flex;align-items:center;gap:12px;
+  font-size:.82rem;font-weight:500;letter-spacing:.02em;
+}
+.heat-strip.green{background:#0d2a12;border-bottom:2px solid var(--green);color:var(--green)}
+.heat-strip.amber{background:#2a1f00;border-bottom:2px solid var(--amber);color:var(--amber)}
+.heat-strip.red{background:#2a0000;border-bottom:2px solid var(--red);color:var(--red)}
+[data-theme="light"] .heat-strip.green{background:#dafbe1;color:#1a7f37}
+[data-theme="light"] .heat-strip.amber{background:#fff8c5;color:#9a6700}
+[data-theme="light"] .heat-strip.red{background:#ffebe9;color:#cf222e}
+.heat-label{
+  font-family:var(--mono);font-size:.68rem;font-weight:700;
+  padding:2px 8px;border-radius:4px;border:1px solid currentColor;
+  text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;
+}
+
+/* Header */
+header{
+  background:var(--surf);border-bottom:1px solid var(--bord);
+  padding:12px 24px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:8px;
+}
 header h1{font-family:var(--mono);font-size:1rem;letter-spacing:.08em;color:var(--green)}
+.header-right{display:flex;align-items:center;gap:12px}
 .ts{font-size:.75rem;color:var(--muted)}
-main{max-width:1320px;margin:0 auto;padding:20px 16px;
-     display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.theme-btn{
+  background:var(--surf2);border:1px solid var(--bord);color:var(--text);
+  border-radius:6px;padding:5px 12px;cursor:pointer;font-size:.8rem;
+  transition:background .15s;font-family:var(--sans);
+}
+.theme-btn:hover{background:var(--bord)}
+
+/* Stats Bar */
+.stats-bar{
+  max-width:1320px;margin:0 auto;padding:12px 16px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.stat-card{
+  background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);
+  padding:10px 18px;display:flex;align-items:center;gap:10px;
+  flex:1;min-width:150px;
+}
+.stat-icon{font-size:1.2rem;line-height:1}
+.stat-val{font-size:1.3rem;font-weight:700;font-family:var(--mono);line-height:1.2}
+.stat-lbl{font-size:.68rem;color:var(--muted);margin-top:1px}
+.stat-val.red{color:var(--red)}
+.stat-val.amber{color:var(--amber)}
+.stat-val.green{color:var(--green)}
+.stat-val.blue{color:var(--link)}
+
+/* Main Grid */
+main{
+  max-width:1320px;margin:0 auto;padding:16px;
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
 .span2{grid-column:1/-1}
 section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden}
-.sh{padding:10px 16px;border-bottom:1px solid var(--bord);display:flex;align-items:center;gap:8px}
+
+/* Section Header */
+.sh{
+  padding:10px 16px;border-bottom:1px solid var(--bord);
+  display:flex;align-items:center;gap:8px;
+}
 .sh h2{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.dg{background:var(--green)}.da{background:var(--amber)}.dr{background:var(--red)}
+.sh-icon{font-size:.9rem;line-height:1}
 .sb{padding:16px}
 .ai-text p{margin:.5em 0;font-size:.88rem}
-.fact-box{background:#0d2a12;border:1px solid #39d35366;border-radius:var(--r);
-          padding:16px;color:var(--green);font-size:.92rem;line-height:1.7}
+
+/* Dots */
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dg{background:var(--green)}
+.da{background:var(--amber)}
+.dr{background:var(--red)}
+
+@keyframes pulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(248,81,73,.5)}
+  50%{opacity:.8;box-shadow:0 0 0 6px rgba(248,81,73,0)}
+}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+
+/* Vendor Radar */
+.vendor-grid{display:flex;flex-wrap:wrap;gap:12px;padding:16px}
+.vendor-node{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  background:var(--surf2);border:1px solid var(--bord);border-radius:var(--r);
+  padding:14px 18px;min-width:100px;transition:border-color .2s;
+}
+.vendor-node.active{border-color:var(--amber)}
+.vendor-node.critical{border-color:var(--red)}
+.vendor-indicator{
+  width:14px;height:14px;border-radius:50%;background:var(--bord);transition:background .2s;
+}
+.vendor-node.active .vendor-indicator{background:var(--amber)}
+.vendor-node.critical .vendor-indicator{background:var(--red);animation:pulse 1.8s ease-in-out infinite}
+.vendor-name{font-size:.78rem;font-weight:600}
+.vendor-count{font-size:.65rem;color:var(--muted);font-family:var(--mono)}
+
+/* Fact Box */
+.fact-box{
+  background:var(--surf2);border:1px solid rgba(57,211,83,.25);border-radius:var(--r);
+  padding:16px;color:var(--green);font-size:.9rem;line-height:1.7;
+}
 .fact-box p{margin:.3em 0}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-.card{background:var(--bg);border:1px solid var(--bord);border-radius:var(--r);padding:12px}
-.badge{display:inline-block;font-size:.68rem;background:#21262d;border:1px solid var(--bord);
-       color:var(--muted);padding:2px 7px;border-radius:12px;margin-bottom:5px;font-family:var(--mono)}
-.card h3{font-size:.82rem;font-weight:600;line-height:1.4;margin:4px 0}
-.pub-date{font-size:.7rem;color:var(--muted);margin-bottom:5px}
-.excerpt{font-size:.78rem;color:var(--muted)}
+
+/* Collapsed News */
+.news-list{display:flex;flex-direction:column}
+details{border-bottom:1px solid var(--bord)}
+details:last-child{border-bottom:none}
+summary{
+  padding:10px 14px;cursor:pointer;list-style:none;
+  display:flex;align-items:flex-start;gap:8px;font-size:.84rem;
+  user-select:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{
+  content:"›";color:var(--muted);flex-shrink:0;font-size:1.1rem;
+  line-height:1.3;transition:transform .15s;
+}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{background:var(--surf2)}
+.sum-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
+.sum-badge{
+  font-size:.62rem;background:var(--surf2);border:1px solid var(--bord);
+  color:var(--muted);padding:1px 6px;border-radius:10px;font-family:var(--mono);white-space:nowrap;
+}
+.sum-title{font-size:.84rem;line-height:1.4}
+.sum-critical .sum-title{color:var(--red)}
+.detail-body{padding:6px 14px 14px 30px;font-size:.8rem;color:var(--muted)}
+.detail-body p{margin-bottom:6px}
+.read-more{font-size:.78rem;color:var(--link)}
+
+/* Severity Badges */
+.sev{
+  display:inline-block;font-size:.62rem;font-family:var(--mono);
+  padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap;
+}
+.sev-critical{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.4)}
+.sev-high{background:rgba(227,179,65,.12);color:var(--amber);border:1px solid rgba(227,179,65,.35)}
+
+/* KEV Table */
 table{width:100%;border-collapse:collapse;font-size:.78rem}
-th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--bord);color:var(--muted);
-   font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
-td{padding:6px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+th{
+  text-align:left;padding:8px 10px;border-bottom:1px solid var(--bord);
+  color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;
+}
+td{padding:6px 10px;border-bottom:1px solid var(--surf2);vertical-align:top}
 tr:last-child td{border-bottom:none}
 .cve{font-family:var(--mono);color:var(--amber);font-size:.76rem;white-space:nowrap}
-footer{text-align:center;padding:20px;font-size:.72rem;color:var(--muted);
-       border-top:1px solid var(--bord);margin-top:4px}
-@media(max-width:768px){main{grid-template-columns:1fr}.span2{grid-column:1}}
+
+/* Footer */
+footer{
+  text-align:center;padding:20px;font-size:.72rem;color:var(--muted);
+  border-top:1px solid var(--bord);margin-top:4px;
+}
+
+@media(max-width:768px){
+  main{grid-template-columns:1fr}
+  .span2{grid-column:1}
+  .stats-bar{gap:8px}
+}
 </style>
 </head>
 <body>
+
+<div class="heat-strip amber">
+  <span class="heat-label">&#9888; AMBER</span>
+  <span>Heavy Siemens advisory day with multiple auth-bypass flaws; Venezuelan energy sector hit by new Lotus Wiper malware.</span>
+</div>
+
 <header>
   <h1>&#9881; Controls Engineering Daily</h1>
-  <span class="ts">Built 2026-04-22 19:36 UTC &nbsp;|&nbsp; Powered by Anthropic Claude</span>
+  <div class="header-right">
+    <span class="ts">Built 2026-04-22 20:02 UTC &nbsp;&#124;&nbsp; Anthropic Claude</span>
+    <button class="theme-btn" id="themeBtn">&#9728; Light</button>
+  </div>
 </header>
+
+<div class="stats-bar">
+  <div class="stat-card">
+    <span class="stat-icon">&#128737;</span>
+    <div>
+      <div class="stat-val amber">27</div>
+      <div class="stat-lbl">KEVs this month</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <span class="stat-icon">&#128225;</span>
+    <div>
+      <div class="stat-val green">6</div>
+      <div class="stat-lbl">ICS advisories</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <span class="stat-icon">&#128308;</span>
+    <div>
+      <div class="stat-val red">3</div>
+      <div class="stat-lbl">Critical (ransomware)</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <span class="stat-icon">&#128240;</span>
+    <div>
+      <div class="stat-val blue">18</div>
+      <div class="stat-lbl">Articles today</div>
+    </div>
+  </div>
+</div>
 
 <main>
 
-  <!-- Daily Fact -->
+  <!-- Vendor Threat Radar -->
   <div class="span2">
     <section>
-      <div class="sh"><span class="dot dg"></span><h2>Today's Fact</h2></div>
-      <div class="sb"><div class="fact-box"><p>The FragAttacks vulnerabilities surfacing in this week&#x27;s SCALANCE advisory (CVE-2020-24588 and friends) are design flaws in the 802.11 standard itself, not bugs in a specific vendor&#x27;s code — meaning every Wi-Fi chipset ever made is affected to some degree. One of them, the aggregation attack, exploits a single unauthenticated bit in the frame header that tells the receiver whether the payload is an A-MSDU or a regular frame, letting an attacker smuggle arbitrary packets into an encrypted WPA2/WPA3 session. That&#x27;s why industrial wireless gear keeps getting re-patched for these six-year-old CVEs: the fix lives in firmware, not in the protocol.</p></div></div>
+      <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
+      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">4 mentions</div></div>
+<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
+<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
+<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
+<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Honeywell</div><div class="vendor-count">No mentions</div></div></div>
     </section>
   </div>
 
+  <!-- Knowledge Bite -->
+  <section>
+    <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
+    <div class="sb"><div class="fact-box"><p>The FragAttacks vulnerabilities resurfacing in this week&#x27;s SCALANCE advisory were originally disclosed in 2020, yet they affect the fundamental 802.11 frame aggregation design — meaning every Wi-Fi chipset ever made is theoretically susceptible. What is surprising is that the practical attack requires the victim to be tricked into connecting to an attacker-controlled server, so on an air-gapped shop-floor wireless network with no internet egress, the real-world exploitability drops dramatically. It is a useful case study in why raw CVSS scores mislead in OT contexts.</p></div></div>
+  </section>
+
+  <!-- Tech Spotlight -->
+  <section>
+    <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
+    <div class="sb ai-text"><p>OPC UA over TSN (Time-Sensitive Networking) continues to edge from demo booths into real deployments, and 2026 is shaping up to be the year where several large automotive and semiconductor fabs commit to it for new lines. The promise is simple: a single converged Ethernet network carrying deterministic motion control traffic, standard OPC UA PubSub telemetry, and regular IT traffic — replacing the historical split between fieldbus (Profinet IRT, EtherCAT, Sercos) and the supervisory network. TSN provides the bounded latency and zero jitter via IEEE 802.1Qbv time-aware shaping, while OPC UA PubSub provides the vendor-neutral data model on top.</p><p>The practical implication for controls engineers is that your network switches become safety-critical assets in a way they never were before. A misconfigured TSN schedule or a switch that fails to honour gate control lists will cause drive faults, not just slow SCADA updates. You will need PTP (IEEE 1588) time synchronisation engineered end-to-end, and your cybersecurity posture has to account for the fact that an attacker on the converged network can potentially disrupt motion control by flooding non-scheduled queues or tampering with PTP.</p><p>Adoption challenges remain real. TSN-capable switches from Cisco, Hirschmann, Siemens and Moxa are available but pricey, and the configuration tooling (CNC — Centralised Network Configuration) is still maturing and mostly vendor-specific despite IEEE 802.1Qcc. Multi-vendor interoperability at line speed is improving but not turnkey. For brownfield sites, the realistic path is TSN islands for new cells bridged to legacy Profinet, not a rip-and-replace.</p></div>
+  </section>
+
+  <!-- Standards Watch -->
+  <section>
+    <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
+    <div class="sb ai-text"><p>IEC 62443-3-2 (Security Risk Assessment for System Design) and 62443-4-2 (Component Requirements) remain the two parts most directly relevant to day-to-day engineering work, and the ISA99 committee has been actively working on a second edition of 4-2 to better address cloud-connected components, wireless, and — importantly — virtualised PLCs and software-defined control. If you are specifying new equipment, 4-2 Security Level 2 is quietly becoming the de facto procurement baseline in European utilities and pharma, with SL3 required for safety-adjacent components.</p><p>On the regulatory side, the EU Cyber Resilience Act (CRA) enforcement dates are now firmly on the horizon: the main obligations on manufacturers apply from December 2027, but vulnerability reporting obligations kick in earlier, in September 2026. For OT vendors this is a bigger deal than NIS2 because CRA attaches cybersecurity requirements directly to products placed on the EU market, with CE-marking implications. Controls engineers should expect vendors to start shipping SBOMs and signed firmware as standard, and to update procurement specs to require CRA conformity declarations.</p><p>NIST also quietly updated the OT overlay in SP 800-82 Rev 3 guidance addenda, with more concrete mappings to IEC 62443 zones and conduits. If your site uses NIST CSF 2.0 as its top-level framework but engineers work in 62443 terms, the mapping tables are genuinely useful for bridging the auditor-engineer conversation.</p></div>
+  </section>
+
+  <!-- Incident of the Week -->
+  <section>
+    <div class="sh">
+      <span class="dot dr pulse"></span>
+      <h2>Incident of the Week</h2>
+    </div>
+    <div class="sb ai-text"><p>This week&#x27;s spotlight is the Lotus Wiper campaign against Venezuela&#x27;s energy sector, disclosed this week by multiple researchers. The malware was deployed in the days prior to US military action in the region and specifically targets recovery mechanisms — it deletes shadow copies, corrupts boot records, overwrites physical drives in random-order chunks to defeat partial recovery, and systematically wipes files by extension. Early reporting suggests initial access was via stolen VPN credentials into an engineering contractor&#x27;s remote access, followed by lateral movement through a flat Windows domain that spanned both corporate and generation-plant networks.</p><p>What makes this relevant rather than just geopolitical news is the architecture that enabled it. The affected utilities reportedly had domain trusts extending into the OT environment, with engineering workstations dual-homed between IT and control networks, and historian servers reachable from the corporate domain via SMB. Once the wiper executed on the domain controllers, it propagated via Group Policy and scheduled tasks — the same playbook as NotPetya in 2017 and the Ukrainian attacks of 2022 and 2023.</p><p>Lessons for controls engineers: first, a separate OT Active Directory forest (or no AD in OT at all) is worth the operational pain — shared domains are a single point of catastrophic failure. Second, remote access for contractors must terminate in a jump host with MFA and session recording, not route directly into the control network. Third, test your recovery from bare metal, not just from backups — Lotus Wiper specifically targets the recovery path, and many sites discover during an incident that their gold images, engineering project files, and PLC backups all live on the same file server that just got wiped.</p></div>
+  </section>
+
   <!-- News Digest -->
-  <section>
-    <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-    <div class="sb ai-text"><p>CISA published a heavy slate of ICS advisories this week, with Siemens dominating the list. Siemens Industrial Edge Management has an authorization bypass that lets an unauthenticated remote attacker slip past authentication and reach connected Edge devices via the remote connection feature — a serious concern for anyone using IEM to manage distributed edge compute at the plant. SINEC NMS (pre-V4.0 SP3) has a similar authorization bypass that allows arbitrary account password resets, and RUGGEDCOM CROSSBOW Station Access Controller carries a code execution and DoS flaw. SCALANCE W-700 802.11n wireless APs are affected by the older FragAttacks family (CVE-2020-24588 and related), fixed in firmware 6.6.0 — worth planning into wireless maintenance windows for any cell/area networks relying on them.</p><p>On the field-device side, SenseLive X3050 Modbus gateways (V1.523) have eleven new CVEs that collectively allow complete device takeover; these gateways often sit directly on RS-485 loops bridging meters and sensors to TCP, so exposure should be audited immediately. Silex Technology SD-330AC industrial wireless clients and the AMC Manager platform also have multiple flaws permitting unauthenticated code execution, DoS, and configuration tampering — a reminder that wireless bridge hardware is frequently forgotten during patch cycles.</p><p>Beyond advisories, SecurityWeek reports a new wiper dubbed Lotus Wiper that targeted the Venezuelan energy sector before recent US intervention, specifically attacking recovery mechanisms and systematically deleting files — a textbook destructive OT playbook worth reviewing against your own backup isolation and recovery drills. The UK&#x27;s cyber chief warned that Russia, Iran, and China pose the most serious threats and that British industry should expect to be targeted at scale in any conflict escalation. A Mirai variant is also now exploiting a year-old flaw in discontinued D-Link routers, which occasionally end up in small remote sites or contractor networks bridging into OT.</p><p>For the supply-chain-minded, SecurityWeek&#x27;s piece on SBOMs argues that raw SBOM and VEX data aren&#x27;t translating into actionable defense without a governance-driven intelligence layer — relevant for controls teams being asked to consume SBOMs from vendors like Rockwell, Siemens, and Schneider without the tooling to act on them. SANS ISC also published a useful piece on using EPSS to triage the daily CVE flood, which is a practical approach when you&#x27;re juggling IT and OT patch queues with very different risk profiles.</p></div>
-  </section>
-
-  <!-- CISA Digest -->
-  <section>
-    <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-    <div class="sb ai-text"><p>The most OT-relevant KEV additions this period are the three Cisco Catalyst SD-WAN Manager entries (CVE-2026-20122, 20128, 20133), covering malicious file upload via the API, recoverable credential storage, and sensitive-information exposure. SD-WAN Manager is increasingly used to stitch together remote sites, substations, and plants, so compromise here can expose the management plane for an entire WAN fabric — prioritize patching and verify that the management interface is not reachable from process networks. Fortinet FortiClient EMS (CVE-2026-21643) SQL injection and Ivanti EPMM (CVE-2026-1340) unauthenticated RCE are both being actively exploited and commonly appear on engineering laptops and mobile HMIs that roam between corporate and OT zones.</p><p>Several Microsoft entries are worth flagging for engineering workstations: a Defender privilege escalation (CVE-2026-33825), a SharePoint spoofing flaw (CVE-2026-32201) which matters if SharePoint hosts P&amp;IDs or procedures, plus older but freshly-KEV-listed Office/Excel (CVE-2009-0238) and VBA (CVE-2012-1854) RCEs — a reminder that legacy Office macros are still a viable entry vector onto engineering PCs that open vendor-supplied spreadsheets. Apache ActiveMQ (CVE-2026-34197) code injection is also relevant where ActiveMQ is embedded in historian or MES middleware.</p><p>Practical remediation: patch internet-exposed management tools (SD-WAN Manager, EPMM, FortiClient EMS) first, enforce MFA on those consoles, block OT-to-Internet egress from engineering workstations, and audit any SharePoint, ActiveMQ, or Exchange instances that touch the Purdue Level 3/3.5 boundary.</p></div>
-  </section>
-
-  <!-- Raw Feed -->
   <div class="span2">
     <section>
-      <div class="sh"><span class="dot dg"></span>
-        <h2>Raw Feed &mdash; 18 articles</h2></div>
-      <div class="sb">
-        <div class="card-grid"><article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-12" target="_blank" rel="noopener">SenseLive X3050</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+      <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
+      <div class="sb ai-text"><p>CISA issued a notably heavy batch of ICS advisories this week, dominated by Siemens products that are staples on many plant floors. Industrial Edge Management carries an authorization bypass that lets an unauthenticated remote attacker reach connected Edge Devices via the remote connection feature — a direct path from enterprise into edge compute. SINEC NMS has a similar authorization bypass allowing arbitrary user password resets, RUGGEDCOM CROSSBOW Station Access Controller has an RCE/DoS flaw, and SCALANCE W-700 802.11n wireless access points pick up a bundle of older Wi-Fi stack CVEs (the FragAttacks family). If you run Siemens networking or Edge in production, this is a coordinated patch cycle worth scheduling rather than treating as individual tickets.</p><p>Two third-party OT devices round out the advisories. SenseLive X3050, a widely deployed Modbus/IIoT gateway, has eleven CVEs in V1.523 that collectively enable full device takeover — if you have these at remote pumping, metering, or solar sites, treat them as compromised-until-patched and verify they are not reachable from the internet. Silex SD-330AC industrial Wi-Fi bridges and their AMC Manager controller have RCE, DoS, and unauthenticated configuration change flaws; these devices commonly backhaul machine data in factories and the AMC Manager&#x27;s unauthenticated config change is particularly nasty because it can persist attacker settings across reboots.</p><p>On the threat side, SecurityWeek reports a new wiper dubbed Lotus Wiper deployed against Venezuela&#x27;s energy sector just before US military intervention there — it targets recovery mechanisms, overwrites drives, and systematically deletes files. The pattern mirrors earlier wipers used against Ukrainian energy (HermeticWiper, Industroyer2) and is another reminder that geopolitical escalation routinely spills into OT. The UK&#x27;s cyber chief separately warned British operators that Russia, Iran, and China now drive the most serious attacks and urged readiness for scale attacks tied to any international conflict.</p><p>Also worth noting: a Mirai variant is actively exploiting a year-old command injection flaw in discontinued D-Link routers, a reminder that consumer-grade gear used as cellular or remote-site routers in OT still gets weaponised long after EOL. And the SBOM debate heated up again, with researchers arguing SBOMs without a governance and VEX intelligence layer are failing to stop supply chain attacks — a relevant point as NIS2 and CRA drive SBOM requirements into European OT procurement.</p></div>
+    </section>
+  </div>
+
+  <!-- Collapsed Feed -->
+  <div class="span2">
+    <section>
+      <div class="sh">
+        <span class="sh-icon">&#128240;</span>
+        <h2>Today&#39;s Feed &mdash; 18 articles</h2>
+      </div>
+      <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">SenseLive X3050</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
 Successful exploitation of these vulnerabilities could allow an attacker to take complete control of the device.
 The following versions of SenseLive X3050 are affected:
 
-X3050 V1.523 (CVE-2026-40630, CVE-2026-25720, CVE-20…</p></article>
-<article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-11" target="_blank" rel="noopener">Siemens Industrial Edge Management</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+X3050 V1.523 (CVE-2026-40630, CVE-2026-25720, CVE-2026-35503, CVE-2026-39462, CVE-2026-27843, CVE-2026-40431, CVE-2026-40623, CVE-20</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-12" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens Industrial Edge Management</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-Industrial Edge Management contains an authorization bypass vulnerability that could be exploited by an unauthenticated remote attacker to circumvent authentication and to access connected Industrial Edge Devices through t…</p></article>
-<article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-10" target="_blank" rel="noopener">Silex Technology SD-330AC and AMC Manager</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+Industrial Edge Management contains an authorization bypass vulnerability that could be exploited by an unauthenticated remote attacker to circumvent authentication and to access connected Industrial Edge Devices through the remote connection feature. Siemens has released new versions for the affected</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-11" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Silex Technology SD-330AC and AMC Manager</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
 Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary code, cause a denial-of-service, or configuration information may be altered without authentication.
-The following versions of S…</p></article>
-<article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-09" target="_blank" rel="noopener">Siemens SINEC NMS</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+The following versions of Silex Technology SD-330AC and AMC Manager are affected:
+
+SD-330AC &amp;lt;=1.42 (CVE-</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-10" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens SINEC NMS</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-SINEC NMS before V4.0 SP3 contains an Authorization Bypass vulnerability that could allow an attacker to bypass authorization checks, leading to the ability to reset the password of any arbitrary user account. Siemens has …</p></article>
-<article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-08" target="_blank" rel="noopener">Siemens RUGGEDCOM CROSSBOW Station Access Controller (SAC)</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+SINEC NMS before V4.0 SP3 contains an Authorization Bypass vulnerability that could allow an attacker to bypass authorization checks, leading to the ability to reset the password of any arbitrary user account. Siemens has released a new version for SINEC NMS and recommends to update to the latest vers</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-09" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens RUGGEDCOM CROSSBOW Station Access Controller (SAC)</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains a vulnerability that could allow an attacker to achieve arbitrary code execution and to create a denial of service condition. Siemens has released a new version f…</p></article>
-<article class="card"><span class="badge">CISA ICS Advisories</span><h3><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-07" target="_blank" rel="noopener">Siemens SCALANCE</a></h3><p class="pub-date">Tue, 21 Apr 26 12:00:00 +0000</p><p class="excerpt">View CSAF
+RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains a vulnerability that could allow an attacker to achieve arbitrary code execution and to create a denial of service condition. Siemens has released a new version for RUGGEDCOM CROSSBOW Station Access Controller (SAC) and recommends to update t</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-08" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens SCALANCE</span></div></summary><div class="detail-body"><p>View CSAF
 Summary
 SCALANCE W-700 IEEE 802.11n family before V6.6.0 are affected by multiple vulnerabilities. Siemens has released a new version for SCALANCE W-700 IEEE 802.11n family and recommends to update to the latest version.
-The follo…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/after-bluesky-mastodon-targeted-in-ddos-attack/" target="_blank" rel="noopener">After Bluesky, Mastodon Targeted in DDoS Attack</a></h3><p class="pub-date">Wed, 22 Apr 2026 14:26:00 +0000</p><p class="excerpt">The DDoS attack caused a major outage, but Mastodon mitigated it within a few hours.
-The post After Bluesky, Mastodon Targeted in DDoS Attack appeared first on SecurityWeek.…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/most-serious-cyberattacks-against-the-uk-now-from-russia-iran-and-china-cyber-chief-says/" target="_blank" rel="noopener">Most Serious Cyberattacks Against the UK Now From Russia, Iran and China, Cyber Chief Says</a></h3><p class="pub-date">Wed, 22 Apr 2026 12:57:01 +0000</p><p class="excerpt">British businesses need to prepare themselves to defend against cyberattacks because the U.K. could be targeted “at scale,” if it became involved in an international conflict.
-The post Most Serious Cyberattacks Against the UK Now From Russi…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/new-wiper-malware-targeted-venezuelan-energy-sector-prior-to-us-intervention/" target="_blank" rel="noopener">New Wiper Malware Targeted Venezuelan Energy Sector Prior to US Intervention</a></h3><p class="pub-date">Wed, 22 Apr 2026 12:10:28 +0000</p><p class="excerpt">Dubbed Lotus Wiper, the malware targets recovery mechanisms, overwrites drives, and systematically deletes files.
-The post New Wiper Malware Targeted Venezuelan Energy Sector Prior to US Intervention  appeared first on SecurityWeek.…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/mirai-botnet-targets-flaw-in-discontinued-d-link-routers/" target="_blank" rel="noopener">Mirai Botnet Targets Flaw in Discontinued D-Link Routers</a></h3><p class="pub-date">Wed, 22 Apr 2026 11:44:07 +0000</p><p class="excerpt">The exploitation of the command injection vulnerability started one year after public disclosure and PoC exploit code publication.
-The post Mirai Botnet Targets Flaw in Discontinued D-Link Routers appeared first on SecurityWeek.…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/are-sboms-failing-supply-chain-attacks-rise-as-security-teams-struggle-with-sbom-data/" target="_blank" rel="noopener">Are SBOMs Failing? Supply Chain Attacks Rise as Security Teams Struggle With SBOM Data</a></h3><p class="pub-date">Wed, 22 Apr 2026 11:30:00 +0000</p><p class="excerpt">Researcher says the missing piece is a governance-driven intelligence layer that turns SBOM and VEX data into explainable security decisions.
-The post Are SBOMs Failing? Supply Chain Attacks Rise as Security Teams Struggle With SBOM Data ap…</p></article>
-<article class="card"><span class="badge">SecurityWeek</span><h3><a href="https://www.securityweek.com/claude-mythos-finds-271-firefox-vulnerabilities/" target="_blank" rel="noopener">Claude Mythos Finds 271 Firefox Vulnerabilities</a></h3><p class="pub-date">Wed, 22 Apr 2026 11:27:46 +0000</p><p class="excerpt">All the flaws could have also been found by an elite human researcher, according to Mozilla.
-The post Claude Mythos Finds 271 Firefox Vulnerabilities appeared first on SecurityWeek.…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32918" target="_blank" rel="noopener">ISC Stormcast For Wednesday, April 22nd, 2026 https://isc.sans.edu/podcastdetail/9902, (Wed, Apr 22nd)</a></h3><p class="pub-date">Wed, 22 Apr 2026 02:00:03 GMT</p><p class="excerpt">(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32888" target="_blank" rel="noopener">&amp;#x5b;Guest Diary&amp;#x5d; Beyond Cryptojacking: Telegram tdata as a Credential Harvesting Vector, Lessons from a Honeypot Incident, (Wed, Apr 22nd)</a></h3><p class="pub-date">Wed, 22 Apr 2026 00:03:04 GMT</p><p class="excerpt">&amp;#x26;#x5b;This is a Guest Diary by L. Carty, an ISC intern as part of the SANS.edu Bachelor&amp;#x26;&amp;#x26;#x23&amp;#x26;#x3b;39&amp;#x26;#x3b;s Degree in Applied Cybersecurity (BACS) program &amp;#x26;#x5b;1&amp;#x5d;.&amp;#x5d;&amp;#xd;…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32910" target="_blank" rel="noopener">A .WAV With A Payload, (Tue, Apr 21st)</a></h3><p class="pub-date">Tue, 21 Apr 2026 07:14:56 GMT</p><p class="excerpt">There have been reports of threat actors using a .wav file as a vector for malware.&amp;#xd;…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32916" target="_blank" rel="noopener">ISC Stormcast For Tuesday, April 21st, 2026 https://isc.sans.edu/podcastdetail/9900, (Tue, Apr 21st)</a></h3><p class="pub-date">Tue, 21 Apr 2026 02:00:02 GMT</p><p class="excerpt">(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32914" target="_blank" rel="noopener">Handling the CVE Flood With EPSS, (Mon, Apr 20th)</a></h3><p class="pub-date">Mon, 20 Apr 2026 06:43:22 GMT</p><p class="excerpt">Every morning, security people around the world face the same ritual: opening their vulnerability feed to find a lot of new CVE entries that appeared overnight. Over the past decade, this flood has become a defining challenge of modern defe…</p></article>
-<article class="card"><span class="badge">SANS ISC</span><h3><a href="https://isc.sans.edu/diary/rss/32912" target="_blank" rel="noopener">ISC Stormcast For Monday, April 20th, 2026 https://isc.sans.edu/podcastdetail/9898, (Mon, Apr 20th)</a></h3><p class="pub-date">Mon, 20 Apr 2026 02:00:03 GMT</p><p class="excerpt">(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.…</p></article></div>
-      </div>
+The following versions of Siemens SCALANCE are affected:
+
+SCALANCE W721-1 RJ45 (6GK5721-1</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-07" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">After Bluesky, Mastodon Targeted in DDoS Attack</span></div></summary><div class="detail-body"><p>The DDoS attack caused a major outage, but Mastodon mitigated it within a few hours.
+The post After Bluesky, Mastodon Targeted in DDoS Attack appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/after-bluesky-mastodon-targeted-in-ddos-attack/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">Most Serious Cyberattacks Against the UK Now From Russia, Iran and China, Cyber Chief Says</span></div></summary><div class="detail-body"><p>British businesses need to prepare themselves to defend against cyberattacks because the U.K. could be targeted “at scale,” if it became involved in an international conflict.
+The post Most Serious Cyberattacks Against the UK Now From Russia, Iran and China, Cyber Chief Says appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/most-serious-cyberattacks-against-the-uk-now-from-russia-iran-and-china-cyber-chief-says/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">New Wiper Malware Targeted Venezuelan Energy Sector Prior to US Intervention</span></div></summary><div class="detail-body"><p>Dubbed Lotus Wiper, the malware targets recovery mechanisms, overwrites drives, and systematically deletes files.
+The post New Wiper Malware Targeted Venezuelan Energy Sector Prior to US Intervention  appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/new-wiper-malware-targeted-venezuelan-energy-sector-prior-to-us-intervention/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">Mirai Botnet Targets Flaw in Discontinued D-Link Routers</span></div></summary><div class="detail-body"><p>The exploitation of the command injection vulnerability started one year after public disclosure and PoC exploit code publication.
+The post Mirai Botnet Targets Flaw in Discontinued D-Link Routers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/mirai-botnet-targets-flaw-in-discontinued-d-link-routers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">Are SBOMs Failing? Supply Chain Attacks Rise as Security Teams Struggle With SBOM Data</span></div></summary><div class="detail-body"><p>Researcher says the missing piece is a governance-driven intelligence layer that turns SBOM and VEX data into explainable security decisions.
+The post Are SBOMs Failing? Supply Chain Attacks Rise as Security Teams Struggle With SBOM Data appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/are-sboms-failing-supply-chain-attacks-rise-as-security-teams-struggle-with-sbom-data/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">Claude Mythos Finds 271 Firefox Vulnerabilities</span></div></summary><div class="detail-body"><p>All the flaws could have also been found by an elite human researcher, according to Mozilla.
+The post Claude Mythos Finds 271 Firefox Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/claude-mythos-finds-271-firefox-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">ISC Stormcast For Wednesday, April 22nd, 2026 https://isc.sans.edu/podcastdetail/9902, (Wed, Apr 22nd)</span></div></summary><div class="detail-body"><p>(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32918" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Wed, 22 Apr 2026</span></div><span class="sum-title">&amp;#x5b;Guest Diary&amp;#x5d; Beyond Cryptojacking: Telegram tdata as a Credential Harvesting Vector, Lessons from a Honeypot Incident, (Wed, Apr 22nd)</span></div></summary><div class="detail-body"><p>&amp;#x26;#x5b;This is a Guest Diary by L. Carty, an ISC intern as part of the SANS.edu Bachelor&amp;#x26;&amp;#x26;#x23&amp;#x26;#x3b;39&amp;#x26;#x3b;s Degree in Applied Cybersecurity (BACS) program &amp;#x26;#x5b;1&amp;#x5d;.&amp;#x5d;&amp;#xd;</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32888" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 2026</span></div><span class="sum-title">A .WAV With A Payload, (Tue, Apr 21st)</span></div></summary><div class="detail-body"><p>There have been reports of threat actors using a .wav file as a vector for malware.&amp;#xd;</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32910" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 2026</span></div><span class="sum-title">ISC Stormcast For Tuesday, April 21st, 2026 https://isc.sans.edu/podcastdetail/9900, (Tue, Apr 21st)</span></div></summary><div class="detail-body"><p>(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32916" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Mon, 20 Apr 2026</span></div><span class="sum-title">Handling the CVE Flood With EPSS, (Mon, Apr 20th)</span></div></summary><div class="detail-body"><p>Every morning, security people around the world face the same ritual: opening their vulnerability feed to find a lot of new CVE entries that appeared overnight. Over the past decade, this flood has become a defining challenge of modern defensive security. Some numbers&amp;#x5b;1&amp;#x5d;:&amp;#xd;</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32914" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SANS ISC</span><span style="font-size:.65rem;color:var(--muted)">Mon, 20 Apr 2026</span></div><span class="sum-title">ISC Stormcast For Monday, April 20th, 2026 https://isc.sans.edu/podcastdetail/9898, (Mon, Apr 20th)</span></div></summary><div class="detail-body"><p>(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.</p><a class="read-more" href="https://isc.sans.edu/diary/rss/32912" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+    </section>
+  </div>
+
+  <!-- CISA Digest -->
+  <div class="span2">
+    <section>
+      <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
+      <div class="sb ai-text"><p>KEV additions over the last 30 days have been enterprise-IT heavy but several entries matter to OT engineers because these systems usually sit in the DMZ or management plane adjacent to the control network. Cisco Catalyst SD-WAN Manager picked up three KEV entries (CVE-2026-20122, 20128, 20133) covering privileged API abuse, credential exposure, and sensitive information disclosure. SD-WAN is increasingly the WAN fabric between corporate and plant sites; a compromised SD-WAN Manager is effectively a skeleton key to every remote facility. Patch and audit admin accounts immediately.</p><p>Today&#x27;s addition is CVE-2026-33825 in Microsoft Defender, a local privilege escalation — relevant on engineering workstations and HMI servers running Defender. Also notable: Fortinet FortiClient EMS SQL injection (CVE-2026-21643), Ivanti EPMM unauthenticated RCE (CVE-2026-1340), and Apache ActiveMQ code injection (CVE-2026-34197). ActiveMQ in particular shows up in historian and MES stacks more often than people realise. The PaperCut flaw (CVE-2023-27351) is flagged as actively used in ransomware — printing infrastructure is frequently the pivot point from IT into OT during ransomware sweeps.</p><p>Practical priorities: patch any internet-reachable SD-WAN Manager, FortiClient EMS, and Ivanti EPMM this week; inventory ActiveMQ instances in your historian/MES chain; and confirm Defender and SharePoint patch levels on engineering workstations. The re-appearance of very old Office and VBA CVEs (2009, 2012) on the KEV list underlines that unpatched engineering laptops opening vendor-supplied spreadsheets remain a real initial-access vector.</p></div>
     </section>
   </div>
 
   <!-- CISA KEV Table -->
   <div class="span2">
     <section>
-      <div class="sh"><span class="dot dr"></span>
-        <h2>CISA KEV &mdash; 27 entries in last 30 days</h2></div>
+      <div class="sh">
+        <span class="dot dr pulse"></span>
+        <h2>CISA KEV &mdash; 27 entries &middot; last 30 days</h2>
+      </div>
       <div class="sb" style="overflow-x:auto">
         <table>
           <thead>
             <tr>
-              <th>CVE</th><th>Date Added</th><th>Vendor</th>
-              <th>Product</th><th>Vulnerability</th>
+              <th>Severity</th><th>CVE</th><th>Date Added</th>
+              <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="cve">CVE-2026-33825</span></td><td>2026-04-22</td><td>Microsoft</td><td>Defender</td><td>Microsoft Defender Insufficient Granularity of Access Control Vulnerab</td></tr>
-<tr><td><span class="cve">CVE-2026-20122</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manger</td><td>Cisco Catalyst SD-WAN Manager Incorrect Use of Privileged APIs Vulnera</td></tr>
-<tr><td><span class="cve">CVE-2026-20133</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manager</td><td>Cisco Catalyst SD-WAN Manager Exposure of Sensitive Information to an </td></tr>
-<tr><td><span class="cve">CVE-2025-2749</span></td><td>2026-04-20</td><td>Kentico</td><td>Kentico Xperience</td><td>Kentico Xperience Path Traversal Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2023-27351</span></td><td>2026-04-20</td><td>PaperCut</td><td>NG/MF</td><td>PaperCut NG/MF Improper Authentication Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2025-48700</span></td><td>2026-04-20</td><td>Synacor</td><td>Zimbra Collaboration Suite (ZCS)</td><td>Synacor Zimbra Collaboration Suite (ZCS) Cross-site Scripting Vulnerab</td></tr>
-<tr><td><span class="cve">CVE-2026-20128</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manager</td><td>Cisco Catalyst SD-WAN Manager Storing Passwords in a Recoverable Forma</td></tr>
-<tr><td><span class="cve">CVE-2025-32975</span></td><td>2026-04-20</td><td>Quest</td><td>KACE Systems Management Appliance (SMA)</td><td>Quest KACE Systems Management Appliance (SMA) Improper Authentication </td></tr>
-<tr><td><span class="cve">CVE-2024-27199</span></td><td>2026-04-20</td><td>JetBrains</td><td>TeamCity</td><td>JetBrains TeamCity Relative Path Traversal Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-34197</span></td><td>2026-04-16</td><td>Apache</td><td>ActiveMQ</td><td>Apache ActiveMQ Improper Input Validation Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2009-0238</span></td><td>2026-04-14</td><td>Microsoft</td><td>Office</td><td>Microsoft Office Remote Code Execution</td></tr>
-<tr><td><span class="cve">CVE-2026-32201</span></td><td>2026-04-14</td><td>Microsoft</td><td>SharePoint Server</td><td>Microsoft SharePoint Server Improper Input Validation Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2012-1854</span></td><td>2026-04-13</td><td>Microsoft</td><td>Visual Basic for Applications (VBA)</td><td>Microsoft Visual Basic for Applications Insecure Library Loading Vulne</td></tr>
-<tr><td><span class="cve">CVE-2025-60710</span></td><td>2026-04-13</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Link Following Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2023-21529</span></td><td>2026-04-13</td><td>Microsoft</td><td>Exchange Server</td><td>Microsoft Exchange Server Deserialization of Untrusted Data Vulnerabil</td></tr>
-<tr><td><span class="cve">CVE-2023-36424</span></td><td>2026-04-13</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Out-of-Bounds Read Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2020-9715</span></td><td>2026-04-13</td><td>Adobe</td><td>Acrobat</td><td>Adobe Acrobat Use-After-Free Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-21643</span></td><td>2026-04-13</td><td>Fortinet</td><td>FortiClient EMS</td><td>Fortinet FortiClient EMS SQL Injection Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-34621</span></td><td>2026-04-13</td><td>Adobe</td><td>Acrobat and Reader</td><td>Adobe Acrobat and Reader Prototype Pollution Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-1340</span></td><td>2026-04-08</td><td>Ivanti</td><td>Endpoint Manager Mobile (EPMM)</td><td>Ivanti Endpoint Manager Mobile (EPMM) Code Injection Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-35616</span></td><td>2026-04-06</td><td>Fortinet</td><td>FortiClient EMS</td><td>Fortinet FortiClient EMS Improper Access Control Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-3502</span></td><td>2026-04-02</td><td>TrueConf</td><td>Client</td><td>TrueConf Client Download of Code Without Integrity Check Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-5281</span></td><td>2026-04-01</td><td>Google</td><td>Dawn</td><td>Google Dawn Use-After-Free Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-3055</span></td><td>2026-03-30</td><td>Citrix</td><td>NetScaler</td><td>Citrix NetScaler Out-of-Bounds Read Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2025-53521</span></td><td>2026-03-27</td><td>F5</td><td>BIG-IP</td><td>F5 BIG-IP Stack-Based Buffer Overflow Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-33634</span></td><td>2026-03-26</td><td>Aquasecurity</td><td>Trivy</td><td>Aquasecurity Trivy Embedded Malicious Code Vulnerability</td></tr>
-<tr><td><span class="cve">CVE-2026-33017</span></td><td>2026-03-25</td><td>Langflow</td><td>Langflow</td><td>Langflow Code Injection Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33825</span></td><td>2026-04-22</td><td>Microsoft</td><td>Defender</td><td>Microsoft Defender Insufficient Granularity of Access Control Vulnerab</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20122</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manger</td><td>Cisco Catalyst SD-WAN Manager Incorrect Use of Privileged APIs Vulnera</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20133</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manager</td><td>Cisco Catalyst SD-WAN Manager Exposure of Sensitive Information to an </td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-2749</span></td><td>2026-04-20</td><td>Kentico</td><td>Kentico Xperience</td><td>Kentico Xperience Path Traversal Vulnerability</td></tr>
+<tr><td><span class="sev sev-critical">CRITICAL</span></td><td><span class="cve">CVE-2023-27351</span></td><td>2026-04-20</td><td>PaperCut</td><td>NG/MF</td><td>PaperCut NG/MF Improper Authentication Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-48700</span></td><td>2026-04-20</td><td>Synacor</td><td>Zimbra Collaboration Suite (ZCS)</td><td>Synacor Zimbra Collaboration Suite (ZCS) Cross-site Scripting Vulnerab</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20128</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manager</td><td>Cisco Catalyst SD-WAN Manager Storing Passwords in a Recoverable Forma</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-32975</span></td><td>2026-04-20</td><td>Quest</td><td>KACE Systems Management Appliance (SMA)</td><td>Quest KACE Systems Management Appliance (SMA) Improper Authentication </td></tr>
+<tr><td><span class="sev sev-critical">CRITICAL</span></td><td><span class="cve">CVE-2024-27199</span></td><td>2026-04-20</td><td>JetBrains</td><td>TeamCity</td><td>JetBrains TeamCity Relative Path Traversal Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-34197</span></td><td>2026-04-16</td><td>Apache</td><td>ActiveMQ</td><td>Apache ActiveMQ Improper Input Validation Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2009-0238</span></td><td>2026-04-14</td><td>Microsoft</td><td>Office</td><td>Microsoft Office Remote Code Execution</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-32201</span></td><td>2026-04-14</td><td>Microsoft</td><td>SharePoint Server</td><td>Microsoft SharePoint Server Improper Input Validation Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2012-1854</span></td><td>2026-04-13</td><td>Microsoft</td><td>Visual Basic for Applications (VBA)</td><td>Microsoft Visual Basic for Applications Insecure Library Loading Vulne</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-60710</span></td><td>2026-04-13</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Link Following Vulnerability</td></tr>
+<tr><td><span class="sev sev-critical">CRITICAL</span></td><td><span class="cve">CVE-2023-21529</span></td><td>2026-04-13</td><td>Microsoft</td><td>Exchange Server</td><td>Microsoft Exchange Server Deserialization of Untrusted Data Vulnerabil</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2023-36424</span></td><td>2026-04-13</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Out-of-Bounds Read Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2020-9715</span></td><td>2026-04-13</td><td>Adobe</td><td>Acrobat</td><td>Adobe Acrobat Use-After-Free Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-21643</span></td><td>2026-04-13</td><td>Fortinet</td><td>FortiClient EMS</td><td>Fortinet FortiClient EMS SQL Injection Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-34621</span></td><td>2026-04-13</td><td>Adobe</td><td>Acrobat and Reader</td><td>Adobe Acrobat and Reader Prototype Pollution Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-1340</span></td><td>2026-04-08</td><td>Ivanti</td><td>Endpoint Manager Mobile (EPMM)</td><td>Ivanti Endpoint Manager Mobile (EPMM) Code Injection Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-35616</span></td><td>2026-04-06</td><td>Fortinet</td><td>FortiClient EMS</td><td>Fortinet FortiClient EMS Improper Access Control Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-3502</span></td><td>2026-04-02</td><td>TrueConf</td><td>Client</td><td>TrueConf Client Download of Code Without Integrity Check Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-5281</span></td><td>2026-04-01</td><td>Google</td><td>Dawn</td><td>Google Dawn Use-After-Free Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-3055</span></td><td>2026-03-30</td><td>Citrix</td><td>NetScaler</td><td>Citrix NetScaler Out-of-Bounds Read Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-53521</span></td><td>2026-03-27</td><td>F5</td><td>BIG-IP</td><td>F5 BIG-IP Stack-Based Buffer Overflow Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33634</span></td><td>2026-03-26</td><td>Aquasecurity</td><td>Trivy</td><td>Aquasecurity Trivy Embedded Malicious Code Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33017</span></td><td>2026-03-25</td><td>Langflow</td><td>Langflow</td><td>Langflow Code Injection Vulnerability</td></tr></tbody>
         </table>
       </div>
     </section>
   </div>
 
 </main>
+
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-04-22 19:36 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-04-22 20:02 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
+
+<script>(function(){
+  var html = document.documentElement;
+  var btn  = document.getElementById('themeBtn');
+  function apply(t){
+    html.setAttribute('data-theme', t);
+    btn.textContent = t === 'dark' ? '☀ Light' : '🌙 Dark';
+    try{ localStorage.setItem('ced-theme', t); }catch(e){}
+  }
+  btn.addEventListener('click', function(){
+    apply(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+  try{
+    var saved = localStorage.getItem('ced-theme');
+    if(saved === 'light') apply('light');
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
