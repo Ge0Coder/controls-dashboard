@@ -324,7 +324,7 @@ def _article_items(articles: list[dict[str, str]]) -> str:
             f'<span class="sum-badge">{e(a["source"])}</span>'
             f'<span style="font-size:.65rem;color:var(--muted)">{pub}</span>'
             f'</div>'
-            f'<span class="sum-title">{e(a["title"])}</span>'
+            f'<span class="sum-title"><a href="{e(a["link"])}" target="_blank" rel="noopener">{e(a["title"])}</a></span>'
             f'</div>'
             f'</summary>'
             f'<div class="detail-body">'
@@ -452,7 +452,13 @@ main{
   display:grid;grid-template-columns:1fr 1fr;gap:16px;
 }
 .span2{grid-column:1/-1}
-section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden}
+section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden;transition:box-shadow .2s,border-color .2s}
+section:hover{box-shadow:0 6px 28px rgba(0,0,0,.4)}
+[data-theme="light"] section:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+section.s-green{border-top:3px solid var(--green)}
+section.s-amber{border-top:3px solid var(--amber)}
+section.s-red  {border-top:3px solid var(--red)}
+section.s-blue {border-top:3px solid var(--link)}
 
 /* Section Header */
 .sh{
@@ -556,6 +562,18 @@ footer{
   .span2{grid-column:1}
   .stats-bar{gap:8px}
 }
+/* Dot grid body background */
+body{background-image:radial-gradient(circle,rgba(48,54,61,.55) 1px,transparent 1px);background-size:28px 28px}
+[data-theme="light"] body{background-image:radial-gradient(circle,rgba(208,215,222,.9) 1px,transparent 1px)}
+/* Section source footer */
+.sec-foot{padding:8px 16px;border-top:1px solid var(--bord);font-size:.7rem;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sec-foot::before{content:"Sources:";font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);opacity:.55;flex-shrink:0}
+.sec-foot a{color:var(--muted);transition:color .15s}
+.sec-foot a:hover{color:var(--link);text-decoration:none}
+/* Article title links */
+.sum-title a{color:inherit;text-decoration:none}
+.sum-title a:hover{color:var(--link)}
+.sum-critical .sum-title a{color:var(--red)}
 """
 
 _JS = """\
@@ -675,50 +693,64 @@ def render_html(
 
   <!-- Vendor Threat Radar -->
   <div class="span2">
-    <section>
+    <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
       <div class="vendor-grid">{_vendor_nodes(articles, cisa_vulns)}</div>
     </section>
   </div>
 
   <!-- Knowledge Bite -->
-  <section>
+  <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
     <div class="sb"><div class="fact-box">{fact_html}</div></div>
   </section>
 
   <!-- Tech Spotlight -->
-  <section>
+  <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
     <div class="sb ai-text">{tech_html}</div>
+    <div class="sec-foot">
+      <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
+      <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
+    </div>
   </section>
 
   <!-- Standards Watch -->
-  <section>
+  <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
     <div class="sb ai-text">{std_html}</div>
+    <div class="sec-foot">
+      <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
+      <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
+      <a href="https://www.nist.gov" target="_blank" rel="noopener">NIST &#8599;</a>
+    </div>
   </section>
 
   <!-- Incident of the Week -->
-  <section>
-    <div class="sh">
-      <span class="dot dr pulse"></span>
-      <h2>Incident of the Week</h2>
-    </div>
+  <section class="s-red">
+    <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
     <div class="sb ai-text">{inc_html}</div>
+    <div class="sec-foot">
+      <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
+    </div>
   </section>
 
   <!-- News Digest -->
   <div class="span2">
-    <section>
+    <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
       <div class="sb ai-text">{news_html}</div>
+      <div class="sec-foot">
+        <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
+        <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
+        <a href="https://www.securityweek.com" target="_blank" rel="noopener">SecurityWeek &#8599;</a>
+      </div>
     </section>
   </div>
 
   <!-- Collapsed Feed -->
   <div class="span2">
-    <section>
+    <section class="s-green">
       <div class="sh">
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; {article_count} articles</h2>
@@ -729,15 +761,18 @@ def render_html(
 
   <!-- CISA Digest -->
   <div class="span2">
-    <section>
+    <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
       <div class="sb ai-text">{cisa_html}</div>
+      <div class="sec-foot">
+        <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
+      </div>
     </section>
   </div>
 
   <!-- CISA KEV Table -->
   <div class="span2">
-    <section>
+    <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
         <h2>CISA KEV &mdash; {kev_count} entries &middot; last {KEV_LOOKBACK_DAYS} days</h2>
@@ -752,6 +787,9 @@ def render_html(
           </thead>
           <tbody>{_kev_rows(cisa_vulns)}</tbody>
         </table>
+      </div>
+      <div class="sec-foot">
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV Catalog &#8599;</a>
       </div>
     </section>
   </div>
