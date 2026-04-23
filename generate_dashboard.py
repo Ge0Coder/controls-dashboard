@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Controls Engineering Daily Dashboard Generator."""
+from __future__ import annotations
 
+import argparse
 import html as html_mod
 import json
 import os
@@ -11,8 +13,12 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-import anthropic
-import feedparser
+try:
+    import anthropic
+    import feedparser
+except ImportError:
+    anthropic = None  # type: ignore[assignment]
+    feedparser = None  # type: ignore[assignment]
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
@@ -762,29 +768,99 @@ def render_html(
 </html>"""
 
 
+# ── Mock Data ─────────────────────────────────────────────────────────────────
+
+_MOCK_SUMMARIES: dict[str, Any] = {
+    "threat_level": "amber",
+    "threat_summary": "Elevated activity across OT networks; two actively exploited Siemens PLCs and a Rockwell HMI flaw under ransomware use.",
+    "news_summary": (
+        "A coordinated campaign targeting industrial control systems in the energy sector has been attributed to a state-aligned threat actor, with confirmed intrusions across five utilities in Europe. "
+        "Researchers at Dragos have published indicators of compromise tied to the VOLTZITE group, which has refined its lateral movement techniques to avoid triggering standard IT-side detections. "
+        "Separately, Rockwell Automation has issued an out-of-band patch for a critical remote code execution flaw in FactoryTalk View SE that is already being scanned for in the wild. "
+        "On the standards front, ISA/IEC 62443-4-2 conformance testing has begun at two new accredited labs, signalling a move toward vendor certification becoming a procurement requirement. "
+        "Automation World reports that digital twin adoption in brownfield facilities has accelerated, with cost of retrofit sensors cited as the primary remaining barrier."
+    ),
+    "cisa_summary": (
+        "Three of this month's KEV additions are directly relevant to OT environments: a Siemens S7 PLC firmware flaw allows unauthenticated memory reads over port 102, a Schneider Electric Modicon authentication bypass gives network-adjacent attackers full configuration access, and a Moxa serial gateway vulnerability enables persistent backdoor installation. "
+        "All three have confirmed exploitation in the wild and CISA has set remediation deadlines under BOD 22-01. "
+        "Asset owners unable to patch immediately should consider network segmentation controls and anomaly detection rules as interim mitigations until vendor patches can be validated in test environments."
+    ),
+    "interesting_fact": (
+        "The Stuxnet worm, discovered in 2010, contained four separate zero-day exploits — an unprecedented number for a single piece of malware at the time. "
+        "It targeted Siemens Step 7 software and specific models of Siemens S7-315 and S7-417 PLCs, making it the first publicly known malware designed to cause physical damage to industrial machinery."
+    ),
+    "tech_spotlight": (
+        "OPC UA over TSN (Time-Sensitive Networking) is emerging as the convergence point between IT and OT networking, combining OPC UA's vendor-neutral data modelling with TSN's deterministic Ethernet guarantees. "
+        "For controls engineers, the practical implication is a single Ethernet cable carrying both hard real-time control traffic and standard IT data at wire speed, eliminating the need for separate fieldbus cabling on new installations. "
+        "Adoption is currently limited by the cost of TSN-capable switches and the need for network-wide clock synchronisation via IEEE 802.1AS, but several major PLC vendors have committed to TSN-enabled hardware in their next product cycles."
+    ),
+    "standards_watch": (
+        "IEC 62443-2-4 has entered its final FDIS ballot phase, with publication expected in Q3 2026; the revision tightens requirements for service provider security programmes and introduces explicit coverage of cloud-hosted SCADA components for the first time. "
+        "NIST has released a second public draft of SP 800-82 Rev 3 covering OT security, adding a new section on AI/ML systems integrated into control loops and requesting comment by end of May. "
+        "The ISA99 committee has also published a white paper clarifying how IEC 62443 applies to wireless sensor networks in Zone 0 and Zone 1 hazardous areas, addressing a long-standing gap for oil and gas practitioners."
+    ),
+    "incident_of_week": (
+        "In March 2024, a water treatment facility in Indiana experienced an unauthorised change to its chlorine dosing setpoints after an attacker gained access via a remote desktop connection left open on the SCADA HMI — an account that had not been used in over two years but was never disabled. "
+        "The change was caught by an operator conducting a routine check before any water reached the distribution network, but the incident highlights how unmanaged remote access credentials remain one of the most exploited vectors in water sector ICS. "
+        "Key lessons: audit and disable all dormant remote access accounts quarterly, enforce MFA on every remote session into the OT network, and ensure HMI change logs are reviewed daily rather than only in response to alarms."
+    ),
+}
+
+_MOCK_ARTICLES = [
+    {"source": "CISA ICS Advisories", "title": "ICSA-24-011-01: Siemens SIMATIC S7-1500 Authentication Bypass", "link": "#", "summary": "A critical authentication bypass in Siemens SIMATIC S7-1500 PLCs allows unauthenticated remote attackers to read and write process data over port 102. Siemens has released firmware v3.1.2 addressing the issue.", "published": "2026-04-22"},
+    {"source": "CISA ICS Advisories", "title": "ICSA-24-011-02: Rockwell FactoryTalk View SE Remote Code Execution", "link": "#", "summary": "An out-of-bounds write vulnerability in FactoryTalk View SE v13 and earlier allows network-adjacent attackers to execute arbitrary code. No authentication is required to exploit this flaw.", "published": "2026-04-22"},
+    {"source": "SecurityWeek",         "title": "VOLTZITE Group Expands Targeting to European Energy Utilities", "link": "#", "summary": "Dragos researchers have linked a series of intrusions at five European energy utilities to the VOLTZITE threat group, known for long-dwell-time campaigns in OT environments. New TTPs include abuse of legitimate remote monitoring tools.", "published": "2026-04-22"},
+    {"source": "Control Engineering",  "title": "Digital Twin Adoption Accelerates in Brownfield Process Plants", "link": "#", "summary": "A new survey finds 41% of process plant operators have deployed digital twins for at least one production unit, up from 18% in 2023. Retrofit sensor cost remains the top barrier for older facilities.", "published": "2026-04-21"},
+    {"source": "Automation World",     "title": "OPC UA over TSN: What Controls Engineers Need to Know", "link": "#", "summary": "As TSN-capable hardware reaches the market, controls engineers face decisions about migration paths from legacy fieldbus. This overview covers the key protocol differences and interoperability considerations.", "published": "2026-04-21"},
+    {"source": "SANS ISC",             "title": "Scanning Activity Targeting Modbus TCP Port 502 Spikes", "link": "#", "summary": "SANS Internet Storm Center has observed a significant increase in Modbus TCP port 502 scanning from multiple source IPs over the past 72 hours. Asset owners with internet-exposed Modbus devices should audit firewall rules immediately.", "published": "2026-04-22"},
+    {"source": "SecurityWeek",         "title": "Schneider Electric Patches Modicon Authentication Bypass", "link": "#", "summary": "Schneider Electric has issued a critical patch for Modicon M340 and M580 PLCs addressing an authentication bypass exploitable from the local network. The flaw was reported via coordinated disclosure.", "published": "2026-04-21"},
+]
+
+_MOCK_KEV = [
+    {"cveID": "CVE-2024-0001", "dateAdded": "2026-04-22", "vendorProject": "Siemens", "product": "SIMATIC S7-1500", "vulnerabilityName": "Siemens S7-1500 Authentication Bypass", "shortDescription": "Authentication bypass allowing unauthenticated memory read/write over S7 protocol.", "knownRansomwareCampaignUse": "Known"},
+    {"cveID": "CVE-2024-0002", "dateAdded": "2026-04-20", "vendorProject": "Rockwell Automation", "product": "FactoryTalk View SE", "vulnerabilityName": "Rockwell FactoryTalk View SE Remote Code Execution", "shortDescription": "Out-of-bounds write enabling remote code execution without authentication.", "knownRansomwareCampaignUse": "Known"},
+    {"cveID": "CVE-2024-0003", "dateAdded": "2026-04-18", "vendorProject": "Schneider Electric", "product": "Modicon M340/M580", "vulnerabilityName": "Schneider Modicon Authentication Bypass", "shortDescription": "Network-adjacent attacker can bypass authentication and gain full PLC access.", "knownRansomwareCampaignUse": "Unknown"},
+    {"cveID": "CVE-2024-0004", "dateAdded": "2026-04-15", "vendorProject": "Moxa", "product": "NPort Serial Gateway", "vulnerabilityName": "Moxa NPort Backdoor Installation", "shortDescription": "Persistent backdoor can be installed via unauthenticated management interface.", "knownRansomwareCampaignUse": "Unknown"},
+]
+
+
 # ── Entry Point ────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("Error: ANTHROPIC_API_KEY environment variable not set.", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Controls Engineering Dashboard Generator")
+    parser.add_argument("--mock", action="store_true", help="Skip API calls and use placeholder data (fast local iteration)")
+    args = parser.parse_args()
 
-    print("Fetching RSS feeds...")
-    articles = fetch_rss_feeds()
-    print(f"  {len(articles)} articles from {len(RSS_FEEDS)} feeds")
+    if args.mock:
+        print("Mock mode — skipping RSS, CISA, and Claude calls.")
+        articles   = _MOCK_ARTICLES
+        cisa_vulns = _MOCK_KEV
+        summaries  = _MOCK_SUMMARIES
+    else:
+        if anthropic is None or feedparser is None:
+            print("Error: run  pip install anthropic feedparser  first.", file=sys.stderr)
+            sys.exit(1)
 
-    print("Fetching CISA KEV...")
-    cisa_vulns = fetch_cisa_kev()
-    print(f"  {len(cisa_vulns)} CVEs added in last {KEV_LOOKBACK_DAYS} days")
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            print("Error: ANTHROPIC_API_KEY environment variable not set.", file=sys.stderr)
+            sys.exit(1)
 
-    print("Calling Claude (claude-opus-4-7)...")
-    client = anthropic.Anthropic()
-    try:
-        summaries = summarise_with_claude(articles, cisa_vulns, client)
-    except anthropic.APIError as exc:
-        print(f"Claude API error: {exc}", file=sys.stderr)
-        sys.exit(1)
-    print("  Done")
+        print("Fetching RSS feeds...")
+        articles = fetch_rss_feeds()
+        print(f"  {len(articles)} articles from {len(RSS_FEEDS)} feeds")
+
+        print("Fetching CISA KEV...")
+        cisa_vulns = fetch_cisa_kev()
+        print(f"  {len(cisa_vulns)} CVEs added in last {KEV_LOOKBACK_DAYS} days")
+
+        print("Calling Claude (claude-opus-4-7)...")
+        client = anthropic.Anthropic()
+        try:
+            summaries = summarise_with_claude(articles, cisa_vulns, client)
+        except anthropic.APIError as exc:
+            print(f"Claude API error: {exc}", file=sys.stderr)
+            sys.exit(1)
+        print("  Done")
 
     build_time   = datetime.now(timezone.utc)
     html_content = render_html(articles, cisa_vulns, summaries, build_time)
