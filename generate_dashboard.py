@@ -37,6 +37,52 @@ MAX_ITEMS_PER_FEED = 6
 KEV_LOOKBACK_DAYS  = 30
 VENDORS = ["Siemens", "Rockwell", "Schneider", "ABB", "Honeywell"]
 
+_KNOWN_ACRONYMS: dict[str, str] = {
+    "SCADA":        "Supervisory Control and Data Acquisition — software for centrally monitoring and controlling industrial processes.",
+    "HMI":          "Human-Machine Interface — the screen or software operators use to interact with a control system.",
+    "DCS":          "Distributed Control System — control architecture distributing processing across multiple plant-floor controllers.",
+    "PLC":          "Programmable Logic Controller — a ruggedised industrial computer that automates electromechanical processes.",
+    "RTU":          "Remote Terminal Unit — connects physical field equipment to a SCADA system.",
+    "IED":          "Intelligent Electronic Device — a microprocessor-based relay or controller used in power systems.",
+    "OPC":          "OLE for Process Control — standards for data exchange between Windows software and industrial hardware.",
+    "OPC-UA":       "OPC Unified Architecture — a platform-independent industrial data-exchange standard.",
+    "HART":         "Highway Addressable Remote Transducer — digital communication protocol overlaid on 4-20mA field instrument loops.",
+    "Modbus":       "Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
+    "Profibus":     "Process Field Bus — fieldbus standard for serial communication in control systems.",
+    "Profinet":     "Process Field Network — industrial Ethernet standard for real-time automation communication.",
+    "EtherNet/IP":  "Ethernet Industrial Protocol — industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+    "IEC 62443":    "International standard series for securing industrial automation and control systems.",
+    "ISA-95":       "Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+    "CVSS":         "Common Vulnerability Scoring System — a 0–10 score representing software vulnerability severity.",
+    "KEV":          "Known Exploited Vulnerabilities — CISA's catalog of CVEs confirmed actively exploited in the wild.",
+    "CVE":          "Common Vulnerabilities and Exposures — a standardised identifier for disclosed security vulnerabilities.",
+    "OT":           "Operational Technology — hardware and software controlling physical devices and industrial processes.",
+    "IT":           "Information Technology — computer systems and networks used to process and store business data.",
+    "ICS":          "Industrial Control System — umbrella term for SCADA, DCS, PLCs, and related control technologies.",
+    "CISA":         "US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+    "TSN":          "Time-Sensitive Networking — IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
+    "MES":          "Manufacturing Execution System — software tracking and managing plant-floor production in real time.",
+    "MPC":          "Model Predictive Control — advanced strategy optimising multiple variables simultaneously against process constraints.",
+    "PID":          "Proportional-Integral-Derivative controller — the dominant feedback control algorithm across the process industries.",
+    "ISA":          "International Society of Automation — professional body publishing industrial automation standards.",
+    "IEC":          "International Electrotechnical Commission — global standards body for electrical and electronic technologies.",
+    "NIST":         "National Institute of Standards and Technology — US agency publishing widely-adopted cybersecurity frameworks.",
+    "ERP":          "Enterprise Resource Planning — business software managing procurement, finance, and production scheduling.",
+    "AI":           "Artificial Intelligence — machine reasoning systems used for process optimisation and diagnostics.",
+    "ML":           "Machine Learning — data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+    "FEED":         "Front-End Engineering and Design — the project phase defining scope and cost before detailed design.",
+    "WirelessHART": "Wireless mesh extension of the HART protocol for self-organising networks of field instruments.",
+    "historian":    "Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
+}
+
+_ACRONYM_SCAN_RE = re.compile(r'\b[A-Z][A-Z0-9]{1,5}\b')
+_ACRONYM_IGNORE = frozenset({
+    "US", "UK", "EU", "UN", "CEO", "CFO", "CTO", "COO", "VP", "OK",
+    "AM", "PM", "UTC", "EST", "PST", "GMT",
+    "PDF", "URL", "HTML", "CSS", "JSON", "XML", "HTTP", "HTTPS", "FTP",
+    "SSH", "UDP", "DNS", "TCP", "IP", "ID", "HQ",
+})
+
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 _TAG_RE = re.compile(r"<[^>]+>")
@@ -108,6 +154,63 @@ def count_vendor_mentions(vendor: str, articles: list[dict], cisa_vulns: list[di
         if name_lower in (kev.get("vendorProject", "") + " " + kev.get("product", "")).lower():
             count += 1
     return count
+
+
+# ── Acronym Discovery ─────────────────────────────────────────────────────────
+
+def extract_unknown_acronyms(
+    summaries: dict[str, Any],
+    known: dict[str, str],
+) -> list[str]:
+    """Scan summary text for uppercase acronyms not already in known dict."""
+    known_lower = {k.lower() for k in known}
+    found: set[str] = set()
+    for value in summaries.values():
+        if isinstance(value, str):
+            for match in _ACRONYM_SCAN_RE.findall(value):
+                if match.lower() not in known_lower and match not in _ACRONYM_IGNORE:
+                    found.add(match)
+    return sorted(found)
+
+
+def define_new_acronyms(
+    acronyms: list[str],
+    client: anthropic.Anthropic,
+) -> dict[str, str]:
+    """Call Claude Haiku to define unknown acronyms; return {ACRONYM: definition}."""
+    if not acronyms:
+        return {}
+    prompt = (
+        "You are a definitions assistant for industrial controls engineers. "
+        "For each term below, give a single plain-English definition sentence (under 15 words). "
+        "Reply ONLY with a valid JSON object mapping each term to its definition string. "
+        "If a term is not a meaningful domain acronym, map it to an empty string.\n\n"
+        "Terms: " + ", ".join(acronyms)
+    )
+    try:
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=1024,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = response.content[0].text.strip()
+        if raw.startswith("```"):
+            raw = re.sub(r"^```[a-z]*\n?", "", raw)
+            raw = re.sub(r"\n?```$", "", raw)
+        defs = json.loads(raw)
+        return {k: v for k, v in defs.items() if v}
+    except Exception as exc:
+        print(f"  Acronym define error: {exc}", file=sys.stderr)
+        return {}
+
+
+def build_acronym_defs_js(defs: dict[str, str]) -> str:
+    """Render the ACRONYM_DEFS JS variable assignment from a Python dict."""
+    items = ",\n  ".join(
+        f"{json.dumps(k)}:{json.dumps(v)}"
+        for k, v in sorted(defs.items(), key=lambda x: x[0].lower())
+    )
+    return f"var ACRONYM_DEFS={{\n  {items}\n}};"
 
 
 # ── Data Fetching ──────────────────────────────────────────────────────────────
@@ -393,7 +496,7 @@ _CSS = """\
   --red:#cf222e;--link:#0969da;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6}
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -416,10 +519,20 @@ a:hover{text-decoration:underline}
 
 /* Header / Hero */
 header{
-  background:var(--surf);border-bottom:2px solid var(--bord);
+  background-color:var(--surf);
+  background-image:
+    linear-gradient(rgba(57,211,83,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,211,83,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+  border-bottom:2px solid var(--bord);
   padding:28px 24px 22px;display:grid;
   grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
   position:relative;
+}
+[data-theme="light"] header{
+  background-image:
+    linear-gradient(rgba(36,41,47,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(36,41,47,.05) 1px,transparent 1px);
 }
 header::after{
   content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
@@ -467,7 +580,7 @@ header h1{
 /* Main Grid */
 main{
   max-width:1320px;margin:0 auto;padding:16px;
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
 }
 .span2{grid-column:1/-1}
 section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden;transition:box-shadow .2s,border-color .2s}
@@ -483,9 +596,9 @@ section.s-blue {border-top:3px solid var(--link)}
   padding:10px 16px;border-bottom:1px solid var(--bord);
   display:flex;align-items:center;gap:8px;
 }
-.sh h2{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.sh h2{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 .sh-icon{font-size:.9rem;line-height:1}
-.sb{padding:16px}
+.sb{padding:18px}
 .ai-text p{margin:.5em 0;font-size:.88rem}
 
 /* Dots */
@@ -576,9 +689,25 @@ footer{
 }
 
 @media(max-width:768px){
-  main{grid-template-columns:1fr}
+  main{grid-template-columns:1fr;padding:12px;gap:12px}
   .span2{grid-column:1}
-  .stats-bar{gap:8px}
+  .stats-bar{padding:8px 12px;gap:8px}
+  .stat-card{min-width:calc(50% - 4px);flex:0 0 calc(50% - 4px)}
+  header{padding:16px;grid-template-columns:1fr auto}
+  .hero-center h1{font-size:1.3rem}
+  .hero-sub{display:none}
+  .heat-strip{padding:8px 12px;font-size:.75rem}
+  .briefing-card{padding:16px}
+  .briefing-body{font-size:1rem}
+  .briefing-wrap{padding:0 12px 4px}
+  .acro-bar-wrap{padding:6px 12px 10px}
+  .acro-bar{flex-direction:column;align-items:stretch}
+  .acro-input{max-width:100%}
+  summary{min-height:44px;padding:12px 14px}
+  .vendor-grid{gap:8px}
+  .vendor-node{min-width:80px;padding:10px 12px}
+  td,th{padding:5px 8px;font-size:.72rem}
+  .theme-btn{padding:6px 10px}
 }
 /* Dot grid body background */
 body{background-image:radial-gradient(circle,rgba(48,54,61,.55) 1px,transparent 1px);background-size:28px 28px}
@@ -596,14 +725,14 @@ body{background-image:radial-gradient(circle,rgba(48,54,61,.55) 1px,transparent 
 .briefing-wrap{max-width:1320px;margin:0 auto;padding:0 16px 4px}
 .briefing-card{
   background:var(--surf);border:1px solid var(--bord);border-left:4px solid var(--green);
-  border-radius:var(--r);padding:20px 24px;
+  border-radius:var(--r);padding:24px 30px 22px;
   background-image:linear-gradient(135deg,rgba(57,211,83,.04) 0%,transparent 55%);
 }
 [data-theme="light"] .briefing-card{background-image:linear-gradient(135deg,rgba(26,127,55,.05) 0%,transparent 55%)}
 .briefing-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.briefing-label{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--green)}
+.briefing-label{font-family:var(--mono);font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--green)}
 .briefing-date{font-size:.68rem;color:var(--muted);margin-left:auto}
-.briefing-body{font-size:.96rem;line-height:1.75}
+.briefing-body{font-size:1rem;line-height:1.8}
 .briefing-body p{margin:.35em 0}
 /* Acronym Bar */
 .acro-bar-wrap{max-width:1320px;margin:0 auto;padding:6px 16px 10px}
@@ -647,33 +776,6 @@ function rmToggle(id,a){
   else{s.style.display='none';a.innerHTML='Read more →';}
 }
 
-var ACRONYM_DEFS={
-  "SCADA":      "Supervisory Control and Data Acquisition — software platform used to monitor and control industrial processes from a central location",
-  "HMI":        "Human-Machine Interface — the screen, panel, or software operators use to interact with a control system",
-  "DCS":        "Distributed Control System — a control architecture where processing is distributed across multiple controllers located throughout the plant",
-  "PLC":        "Programmable Logic Controller — a ruggedised industrial computer used to automate electromechanical processes",
-  "OPC-UA":     "OPC Unified Architecture — a platform-independent, service-oriented standard for industrial data exchange, successor to classic OPC",
-  "OPC":        "OLE for Process Control — a set of standards enabling data exchange between Windows-based software and industrial hardware",
-  "RTU":        "Remote Terminal Unit — a microprocessor-controlled device that connects physical field equipment to a SCADA system",
-  "IED":        "Intelligent Electronic Device — a microprocessor-based controller used in power systems, such as protection relays and bay controllers",
-  "HART":       "Highway Addressable Remote Transducer — a protocol overlaid on 4-20mA loops allowing digital data exchange with smart field instruments",
-  "Modbus":     "A serial communication protocol developed in 1979 for PLCs; still widely used for simple device communication over RS-232, RS-485, and TCP/IP",
-  "Profibus":   "Process Field Bus — a fieldbus standard for serial communication between field devices and control systems",
-  "Profinet":   "Process Field Network — an industrial Ethernet standard for automation, providing real-time communication and replacing Profibus in many new installations",
-  "EtherNet/IP":"Ethernet Industrial Protocol — an industrial network standard using standard Ethernet hardware with the Common Industrial Protocol (CIP)",
-  "IEC 62443":  "An international series of standards defining requirements for securing industrial automation and control systems across their lifecycle",
-  "ISA-95":     "An international standard (also IEC 62264) for integrating enterprise resource planning (ERP) systems with manufacturing and control systems",
-  "CVSS":       "Common Vulnerability Scoring System — a 0-10 numerical score representing the severity and exploitability of a software vulnerability",
-  "KEV":        "Known Exploited Vulnerabilities — CISA's catalog of vulnerabilities confirmed to be actively exploited in the wild",
-  "CVE":        "Common Vulnerabilities and Exposures — a standardised identifier (e.g. CVE-2024-1234) for publicly disclosed cybersecurity vulnerabilities",
-  "OT":         "Operational Technology — hardware and software that monitors and controls physical devices, processes, and infrastructure",
-  "IT":         "Information Technology — computer systems, networks, and software used to process and store business data",
-  "ICS":        "Industrial Control System — an umbrella term covering SCADA, DCS, PLCs, and other systems used to control industrial processes",
-  "CISA":       "Cybersecurity and Infrastructure Security Agency — the US federal agency responsible for critical infrastructure security and resilience",
-  "TSN":        "Time-Sensitive Networking — IEEE 802.1 extensions to Ethernet providing deterministic, bounded-latency communication for real-time control",
-  "MES":        "Manufacturing Execution System — software that tracks, monitors, and manages production activities on the plant floor in real time",
-  "historian":  "A software application (e.g. OSIsoft PI, Aveva Historian) that collects, stores, and retrieves time-series process data from control systems"
-};
 
 (function(){
   var inp=document.getElementById('acroInput'),res=document.getElementById('acroResult');
@@ -683,7 +785,7 @@ var ACRONYM_DEFS={
     if(!q){res.innerHTML='';return;}
     var key=Object.keys(ACRONYM_DEFS).find(function(k){return k.toLowerCase()===q.toLowerCase();});
     res.innerHTML=key
-      ?'<strong>'+key+'</strong> — '+ACRONYM_DEFS[key]
+      ?ACRONYM_DEFS[key]
       :'<span style="opacity:.5">No definition found</span>';
   });
 })();
@@ -737,9 +839,11 @@ def render_html(
     cisa_vulns: list[dict[str, Any]],
     summaries: dict[str, Any],
     build_time: datetime,
+    acronym_defs: dict[str, str] | None = None,
 ) -> str:
     ts = build_time.strftime("%Y-%m-%d %H:%M UTC")
     e  = html_mod.escape
+    acro_js = build_acronym_defs_js(acronym_defs if acronym_defs is not None else _KNOWN_ACRONYMS)
 
     threat_level   = summaries.get("threat_level", "amber")
     threat_summary = summaries.get("threat_summary", "")
@@ -962,7 +1066,8 @@ def render_html(
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
-<script>{_JS}</script>
+<script>{acro_js}
+{_JS}</script>
 </body>
 </html>"""
 
@@ -1042,9 +1147,10 @@ def main() -> None:
 
     if args.mock:
         print("Mock mode — skipping RSS, CISA, and Claude calls.")
-        articles   = _MOCK_ARTICLES
-        cisa_vulns = _MOCK_KEV
-        summaries  = _MOCK_SUMMARIES
+        articles      = _MOCK_ARTICLES
+        cisa_vulns    = _MOCK_KEV
+        summaries     = _MOCK_SUMMARIES
+        acronym_defs  = _KNOWN_ACRONYMS
     else:
         if anthropic is None or feedparser is None:
             print("Error: run  pip install anthropic feedparser  first.", file=sys.stderr)
@@ -1071,8 +1177,19 @@ def main() -> None:
             sys.exit(1)
         print("  Done")
 
+        print("Scanning for new acronyms...")
+        unknown = extract_unknown_acronyms(summaries, _KNOWN_ACRONYMS)
+        if unknown:
+            print(f"  Found {len(unknown)} new: {', '.join(unknown)}")
+            new_defs = define_new_acronyms(unknown, client)
+            acronym_defs = {**_KNOWN_ACRONYMS, **new_defs}
+            print(f"  Defined {len(new_defs)}")
+        else:
+            acronym_defs = _KNOWN_ACRONYMS
+            print("  No new acronyms")
+
     build_time   = datetime.now(timezone.utc)
-    html_content = render_html(articles, cisa_vulns, summaries, build_time)
+    html_content = render_html(articles, cisa_vulns, summaries, build_time, acronym_defs)
 
     out = Path("index.html")
     out.write_text(html_content, encoding="utf-8")
