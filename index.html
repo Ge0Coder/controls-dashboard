@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-04-22 20:17 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-04-23 20:37 UTC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
   --bg:#0d1117;--surf:#161b22;--surf2:#1c2128;--bord:#30363d;
   --text:#c9d1d9;--muted:#8b949e;--green:#39d353;--amber:#e3b341;
@@ -17,7 +19,7 @@
   --red:#cf222e;--link:#0969da;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6}
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -40,10 +42,20 @@ a:hover{text-decoration:underline}
 
 /* Header / Hero */
 header{
-  background:var(--surf);border-bottom:2px solid var(--bord);
+  background-color:var(--surf);
+  background-image:
+    linear-gradient(rgba(57,211,83,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,211,83,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+  border-bottom:2px solid var(--bord);
   padding:28px 24px 22px;display:grid;
   grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
   position:relative;
+}
+[data-theme="light"] header{
+  background-image:
+    linear-gradient(rgba(36,41,47,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(36,41,47,.05) 1px,transparent 1px);
 }
 header::after{
   content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
@@ -52,8 +64,8 @@ header::after{
 }
 .hero-center{text-align:center}
 header h1{
-  font-family:var(--mono);font-size:1.75rem;letter-spacing:.06em;
-  color:var(--green);text-shadow:0 0 48px rgba(57,211,83,.4);line-height:1.2;
+  font-family:'Rajdhani',var(--sans);font-size:1.9rem;font-weight:700;letter-spacing:.08em;
+  color:var(--green);line-height:1.2;
 }
 .hero-sub{
   font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
@@ -91,19 +103,25 @@ header h1{
 /* Main Grid */
 main{
   max-width:1320px;margin:0 auto;padding:16px;
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
 }
 .span2{grid-column:1/-1}
-section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden}
+section{background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);overflow:hidden;transition:box-shadow .2s,border-color .2s}
+section:hover{box-shadow:0 6px 28px rgba(0,0,0,.4)}
+[data-theme="light"] section:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+section.s-green{border-top:3px solid var(--green)}
+section.s-amber{border-top:3px solid var(--amber)}
+section.s-red  {border-top:3px solid var(--red)}
+section.s-blue {border-top:3px solid var(--link)}
 
 /* Section Header */
 .sh{
   padding:10px 16px;border-bottom:1px solid var(--bord);
   display:flex;align-items:center;gap:8px;
 }
-.sh h2{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.sh h2{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 .sh-icon{font-size:.9rem;line-height:1}
-.sb{padding:16px}
+.sb{padding:18px}
 .ai-text p{margin:.5em 0;font-size:.88rem}
 
 /* Dots */
@@ -194,28 +212,91 @@ footer{
 }
 
 @media(max-width:768px){
-  main{grid-template-columns:1fr}
+  main{grid-template-columns:1fr;padding:12px;gap:12px}
   .span2{grid-column:1}
-  .stats-bar{gap:8px}
+  .stats-bar{padding:8px 12px;gap:8px}
+  .stat-card{min-width:calc(50% - 4px);flex:0 0 calc(50% - 4px)}
+  header{padding:16px;grid-template-columns:1fr auto}
+  .hero-center h1{font-size:1.3rem}
+  .hero-sub{display:none}
+  .heat-strip{padding:8px 12px;font-size:.75rem}
+  .briefing-card{padding:16px}
+  .briefing-body{font-size:1rem}
+  .briefing-wrap{padding:0 12px 4px}
+  .acro-bar-wrap{padding:6px 12px 10px}
+  .acro-bar{flex-direction:column;align-items:stretch}
+  .acro-input{max-width:100%}
+  summary{min-height:44px;padding:12px 14px}
+  .vendor-grid{gap:8px}
+  .vendor-node{min-width:80px;padding:10px 12px}
+  td,th{padding:5px 8px;font-size:.72rem}
+  .theme-btn{padding:6px 10px}
 }
+/* Dot grid body background */
+body{background-image:radial-gradient(circle,rgba(48,54,61,.55) 1px,transparent 1px);background-size:28px 28px}
+[data-theme="light"] body{background-image:radial-gradient(circle,rgba(208,215,222,.9) 1px,transparent 1px)}
+/* Section source footer */
+.sec-foot{padding:8px 16px;border-top:1px solid var(--bord);font-size:.7rem;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sec-foot::before{content:"Sources:";font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);opacity:.55;flex-shrink:0}
+.sec-foot a{color:var(--muted);transition:color .15s}
+.sec-foot a:hover{color:var(--link);text-decoration:none}
+/* Article title links */
+.sum-title a{color:inherit;text-decoration:none}
+.sum-title a:hover{color:var(--link)}
+.sum-critical .sum-title a{color:var(--red)}
+/* Morning Briefing */
+.briefing-wrap{max-width:1320px;margin:0 auto;padding:0 16px 4px}
+.briefing-card{
+  background:var(--surf);border:1px solid var(--bord);border-left:4px solid var(--green);
+  border-radius:var(--r);padding:24px 30px 22px;
+  background-image:linear-gradient(135deg,rgba(57,211,83,.04) 0%,transparent 55%);
+}
+[data-theme="light"] .briefing-card{background-image:linear-gradient(135deg,rgba(26,127,55,.05) 0%,transparent 55%)}
+.briefing-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.briefing-label{font-family:var(--mono);font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--green)}
+.briefing-date{font-size:.68rem;color:var(--muted);margin-left:auto}
+.briefing-body{font-size:1rem;line-height:1.8}
+.briefing-body p{margin:.35em 0}
+/* Acronym Bar */
+.acro-bar-wrap{max-width:1320px;margin:0 auto;padding:6px 16px 10px}
+.acro-bar{
+  background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);
+  padding:9px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.acro-bar-label{font-size:.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;font-family:var(--mono);flex-shrink:0}
+.acro-input{
+  flex:1;min-width:160px;max-width:280px;background:var(--surf2);
+  border:1px solid var(--bord);border-radius:5px;padding:5px 10px;
+  color:var(--text);font-size:.84rem;font-family:var(--mono);
+  outline:none;transition:border-color .15s;
+}
+.acro-input:focus{border-color:var(--link)}
+.acro-result{font-size:.8rem;color:var(--muted);flex:1;line-height:1.5;min-width:160px}
+.acro-result strong{color:var(--link);font-family:var(--mono)}
+/* Engineering Curiosity */
+.curiosity-box{display:flex;gap:16px;align-items:flex-start}
+.curiosity-icon{font-size:2.2rem;line-height:1;flex-shrink:0;opacity:.6;margin-top:2px}
+.curiosity-body p{margin:.4em 0;font-size:.88rem;line-height:1.65}
+/* Acronym tooltips */
+abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-underline-offset:3px}
 </style>
 </head>
 <body>
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy Siemens advisory load (auth bypass in Industrial Edge, SINEC NMS, CROSSBOW SAC, SCALANCE) plus wiper activity against energy sector.</span>
+  <span>Multiple critical ICS advisories including a 9.8 CVSS flaw in Intrado 911 gateways and a GNSS receiver vulnerability; KEV list growing fast.</span>
 </div>
 
 <header>
   <div></div>
   <div class="hero-center">
-    <h1>&#9881; Controls Engineering Daily</h1>
+    <h1>&#128187; Controls Engineering Daily</h1>
     <p class="hero-sub">ICS &middot; OT &middot; SCADA Intelligence Briefing</p>
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-04-22 20:17 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-04-23 20:37 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -223,7 +304,7 @@ footer{
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">27</div>
+      <div class="stat-val amber">28</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -250,13 +331,32 @@ footer{
   </div>
 </div>
 
+<div class="briefing-wrap">
+  <div class="briefing-card">
+    <div class="briefing-head">
+      <span>&#9728;</span>
+      <span class="briefing-label">Morning Briefing</span>
+      <span class="briefing-date">2026-04-23 20:37 UTC</span>
+    </div>
+    <div class="briefing-body"><p>Patch Cisco Catalyst SD-WAN Manager today if you run it — three new KEV entries this week (CVE-2026-20122/20133/20128) cover privileged API abuse and recoverable credential storage, and these devices often sit in OT WAN paths to remote sites. Secondary priority: the CVSS 9.4 Carlson VASCO-B GNSS receiver flaw (upgrade to 1.4.0+) and the CVSS 9.8 Intrado 911 Emergency Gateway vulnerability, both of which touch life-safety-adjacent systems. If you manage IP cameras on plant networks, today is also a good day to confirm Milesight and Xiongmai firmware levels and verify they&#x27;re not reachable from the control VLAN.</p></div>
+  </div>
+</div>
+
+<div class="acro-bar-wrap">
+  <div class="acro-bar">
+    <span class="acro-bar-label">&#128270; Acronym Lookup</span>
+    <input type="text" id="acroInput" class="acro-input" placeholder="Type SCADA, HMI, PLC, DCS&hellip;" autocomplete="off" spellcheck="false">
+    <div id="acroResult" class="acro-result"></div>
+  </div>
+</div>
+
 <main>
 
   <!-- Vendor Threat Radar -->
   <div class="span2">
-    <section>
+    <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
-      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">4 mentions</div></div>
+      <div class="vendor-grid"><div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
@@ -265,85 +365,155 @@ footer{
   </div>
 
   <!-- Knowledge Bite -->
-  <section>
+  <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The RUGGEDCOM CROSSBOW product line flagged in today&#x27;s advisory traces back to a small Canadian firm acquired by Siemens in 2013, and its Station Access Controller is still the de facto secure gateway into hundreds of North American substations for IED configuration. A single unpatched SAC effectively holds the keys to every relay behind it — which is why NERC CIP treats it as an Electronic Access Control or Monitoring System (EACMS), subject to the same controls as the assets it protects.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The very first documented industrial &#x27;cyber&#x27; incident predates the internet: in 1982, a CIA-doctored SCADA software package reportedly caused a Siberian natural gas pipeline to explode with a force visible from orbit — roughly 3 kilotons. While historians still debate the full details, the Farewell Dossier episode is often cited as proof that supply-chain tampering of control logic was understood as a nation-state weapon decades before Stuxnet.</p></div></div>
+  </section>
+
+  <!-- Engineering Curiosity -->
+  <section class="s-blue">
+    <div class="sh"><span class="sh-icon">&#9883;</span><h2>Engineering Curiosity</h2></div>
+    <div class="sb">
+      <div class="curiosity-box">
+        <div class="curiosity-icon">&#9883;</div>
+        <div class="curiosity-body ai-text"><p>The PID controller&#x27;s integral term has a surprisingly nautical origin: Elmer Sperry and Nicolas Minorsky developed the three-term control law in the 1910s and 1920s specifically to automate ship steering, with Minorsky&#x27;s 1922 paper on the USS New Mexico deriving the equations by watching helmsmen compensate for steady crosswinds — the integral term literally models what an experienced sailor does when they notice the ship consistently drifting to one side. Nearly every temperature loop, flow loop, and servo drive on your plant floor is running an algorithm first tuned against ocean swells a century ago.</p></div>
+      </div>
+    </div>
   </section>
 
   <!-- Tech Spotlight -->
-  <section>
+  <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on OPC UA FX (Field eXchange), the extension of OPC UA down to controller-to-controller and controller-to-device communication over TSN (Time-Sensitive Networking). Traditional OPC UA has lived at the supervisory layer, bridging PLCs to MES and historians. <span id="rm285271" style="display:none">OPC UA FX, finalised in its first release by the OPC Foundation and now showing up in products from Siemens, Rockwell, Beckhoff, B&amp;R and Phoenix Contact, pushes the same information-model-based, secure-by-default protocol into deterministic field communications — the space historically owned by Profinet IRT, EtherCAT and EtherNet/IP CIP Motion. For controls engineers, the practical implication is a potential future where a Rockwell ControlLogix and a Siemens S7-1500 can exchange motion-grade data natively, without gateways, using signed and encrypted messages and a shared information model. That is a genuine shift from today&#x27;s brand-locked fieldbus reality. TSN provides the bounded latency; OPC UA FX provides the semantics and security. Adoption challenges are substantial, however. TSN switches remain expensive and configuration is non-trivial (CNC, gPTP, stream reservation). Tooling for cross-vendor engineering is still immature, and many plant networks lack the managed-switch infrastructure to support TSN end-to-end. Expect to see OPC UA FX first in greenfield machine-builder applications and packaging lines before it reaches brownfield process plants, where Profinet and EtherNet/IP will dominate for another decade.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm285271',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on GNSS resilience in OT — timely given the Carlson VASCO-B advisory. Modern plants increasingly depend on GNSS for precision time (PTP/IEEE 1588 grandmasters often discipline from GPS), for positioning in mobile equipment, and for RTK-corrected automation in mining, agriculture, and construction. <span id="rm371356" style="display:none">What many engineers don&#x27;t appreciate is that a compromised or spoofed GNSS receiver doesn&#x27;t just affect location — it can drift substation time sync, break synchrophasor measurements, or nudge autonomous haul trucks off course. The practical implication is that GNSS receivers should be treated as first-class OT assets: firmware-managed, network-segmented, and monitored. Spoofing attacks using sub-$500 SDR hardware have been publicly demonstrated against commercial receivers since 2013, and the threat has only cheapened. For critical timing applications, consider multi-constellation (GPS+Galileo+GLONASS) receivers with anti-spoofing (OSNMA on Galileo is now operational), holdover-capable oscillators (OCXO or rubidium) that can ride through hours of jamming, and cross-checks against PTP or NTP reference sources. If your time discipline comes from a single rooftop antenna with no holdover, you have a single point of failure that a $200 jammer in a passing vehicle can trigger.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm371356',this);return false">Read more &rarr;</a></p></div>
+    <div class="sec-foot">
+      <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
+      <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
+    </div>
   </section>
 
   <!-- Standards Watch -->
-  <section>
+  <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to see steady evolution rather than headline changes. The most practically important recent activity is the continuing rollout of IEC 62443-2-1 (2024 edition), which restructured the security program requirements for asset owners around a more risk-based, outcome-oriented model and aligns better with ISO/IEC 27001 language. <span id="rm693067" style="display:none">If your site&#x27;s OT security program was built against the 2010 edition, it&#x27;s worth a gap assessment — the new version places much heavier emphasis on documented risk assessments per zone and conduit, and on supplier security requirements flowing from 62443-2-4. On the product side, IEC 62443-4-2 certifications are now effectively a procurement prerequisite for new PLCs, RTUs and network gear at most tier-1 operators. When reviewing today&#x27;s Siemens advisories, note that the affected products&#x27; Security Levels under 62443-4-2 are a useful lens: a flaw that breaks SL-2 authentication claims (like the Industrial Edge Management auth bypass) is materially more serious than a configuration-hardening gap. Separately, NIST SP 800-82 Rev 3 remains the most practical cross-reference document for US operators mapping 62443 concepts onto NIST CSF 2.0 and, for utilities, NERC CIP. If you haven&#x27;t looked at Rev 3&#x27;s updated guidance on remote access and cloud-connected OT, it&#x27;s worth the read — it directly addresses architectures like the Siemens Industrial Edge model implicated in today&#x27;s advisory.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm693067',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) remains the part most frequently misapplied in the field. Engineers often default to treating the whole plant as one zone, when the standard explicitly calls for decomposing the SuC into zones and conduits based on criticality, functional grouping, and required Security Level (SL-T). <span id="rm958732" style="display:none">With GNSS receivers, network cameras, and SD-WAN appliances all landing in recent advisories, it&#x27;s worth revisiting whether those assets are actually bounded by a conduit with documented dataflows and countermeasures, or whether they&#x27;re quietly bridging your levels. On the NIST side, the Cybersecurity Framework 2.0 &#x27;Govern&#x27; function continues to reshape how asset owners document OT risk ownership — particularly around third-party/vendor remote access, which ties directly to this week&#x27;s Abnormal AI findings on trusted-relationship abuse. If you haven&#x27;t updated your vendor access procedures to reflect CSF 2.0&#x27;s GV.SC (Supply Chain Risk Management) category, that&#x27;s a useful Q2 action item. Also keep an eye on ISA/IEC 62443-2-1 Edition 2, which continues to move through balloting and tightens requirements around patch management programs for asset owners — a gap most sites still struggle with for embedded devices like cameras and GNSS gear.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm958732',this);return false">Read more &rarr;</a></p></div>
+    <div class="sec-foot">
+      <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
+      <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
+      <a href="https://www.nist.gov" target="_blank" rel="noopener">NIST &#8599;</a>
+    </div>
   </section>
 
   <!-- Incident of the Week -->
-  <section>
-    <div class="sh">
-      <span class="dot dr pulse"></span>
-      <h2>Incident of the Week</h2>
+  <section class="s-red">
+    <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s retrospective is the 2021 Oldsmar, Florida water treatment near-miss, which remains a foundational teaching case five years on. An attacker accessed the HMI of a small water utility via TeamViewer (shared password, Windows 7, direct internet exposure) and briefly raised the sodium hydroxide setpoint from 100 ppm to 11,100 ppm. <span id="rm609990" style="display:none">An alert operator watching the screen noticed the cursor moving and reverted the change within minutes; downstream pH alarms would have caught it regardless, but the human-in-the-loop was the effective control. Three lessons still apply directly today. First, remote access tools installed &#x27;temporarily&#x27; during COVID never got uninstalled at thousands of sites — audit your engineering workstations for TeamViewer, AnyDesk, ScreenConnect, and similar. Second, setpoint changes on safety-relevant variables should have engineering limits enforced in the PLC itself, not just the HMI; an HMI limit is a suggestion, a PLC rung is a control. Third, operator vigilance is a genuine layer of defence but should never be the only one — independent alarm limits on downstream quality variables (pH, conductivity, turbidity) are what would have actually prevented harm if the operator had stepped away for coffee. Re-read the CISA advisory AA21-042A this week if you haven&#x27;t lately.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm609990',this);return false">Read more &rarr;</a></p></div>
+    <div class="sec-foot">
+      <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the newly disclosed Lotus Wiper campaign against Venezuela&#x27;s energy sector, reported by SecurityWeek just ahead of recent US operations in the region. Lotus is a destructive wiper — not ransomware — designed to overwrite drive contents, delete files systematically, and specifically target recovery mechanisms such as volume shadow copies and boot records. <span id="rm179745" style="display:none">Early analysis suggests initial access through compromised IT infrastructure followed by lateral movement toward OT-adjacent Windows systems: engineering workstations, historians, and HMI servers. The pattern echoes Industroyer2, AcidRain and HermeticWiper: state-aligned actors using destructive malware against energy infrastructure at geopolitically significant moments. What distinguishes Lotus is the deliberate targeting of recovery artefacts, indicating the attackers studied typical restoration workflows and sought to maximise downtime rather than simply destroy data. Lessons for controls engineers: first, backups must be offline or immutable — if your HMI and historian backups sit on the same domain as the assets they protect, a wiper will take them too. Second, maintain known-good gold images and tested bare-metal restore procedures for every engineering workstation and HMI; recovery time, not just data integrity, is the metric that matters during a wiper event. Third, segment the IT-OT boundary aggressively and monitor for the unusual administrative behaviours (mass WMI, PsExec, shadow-copy deletion) that precede wiper detonation — these are detectable hours before the destructive payload fires.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm179745',this);return false">Read more &rarr;</a></p></div>
   </section>
 
   <!-- News Digest -->
   <div class="span2">
-    <section>
+    <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Today&#x27;s CISA ICS advisory batch is dominated by Siemens, with four separate advisories covering Industrial Edge Management, SINEC NMS, RUGGEDCOM CROSSBOW Station Access Controller, and the SCALANCE W-700 wireless family. The Industrial Edge Management flaw is particularly concerning: an unauthenticated remote attacker can bypass authorization and reach connected Edge Devices through the remote connection feature, effectively pivoting from the management layer straight into the field. <span id="rm27032" style="display:none">SINEC NMS (pre-V4.0 SP3) suffers an authorization bypass that permits resetting any user&#x27;s password, while the CROSSBOW SAC advisory warns of arbitrary code execution and DoS in the substation access controller widely used in utilities. Patching priorities for any Siemens-heavy site are clear this week. Beyond Siemens, CISA flagged SenseLive X3050 (eleven CVEs, complete device takeover possible) and Silex Technology&#x27;s SD-330AC serial device server and AMC Manager, both of which show up in OEM skids and legacy retrofits. These are the sort of small, often-forgotten edge gateways that live on flat networks and rarely get firmware attention — worth an asset-inventory sweep. SecurityWeek reports a new wiper dubbed Lotus Wiper that hit the Venezuelan energy sector just prior to US intervention, overwriting drives and deliberately destroying recovery mechanisms. This is the second destructive-malware-against-energy event in recent memory and reinforces that ransomware is not the only destructive threat OT operators face; offline, air-gapped backups and tested bare-metal recovery remain essential. The UK&#x27;s cyber chief separately warned that Russia, Iran and China are now behind the most serious attacks on British infrastructure and that industry should prepare for at-scale targeting if the UK is drawn into conflict. On the commodity-threat side, a Mirai variant has begun exploiting a year-old command-injection flaw in discontinued D-Link routers — a reminder that end-of-life networking gear at remote sites (pump stations, telemetry huts) is prime botnet fodder. SANS ISC also published a useful piece on using EPSS to triage the CVE flood, which is directly applicable to OT teams drowning in vendor advisories like today&#x27;s.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm27032',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA issued a notable batch of ICS advisories today, with the standout being a CVSS 9.8 file manipulation vulnerability (CVE-2026-6074) in the Intrado 911 Emergency Gateway affecting versions 5.x through 7.x. While not a traditional plant-floor device, any site relying on E911 routing for life-safety should coordinate with telecom/IT to patch immediately. <span id="rm589572" style="display:none">Equally relevant to field operations is a CVSS 9.4 flaw in Carlson Software&#x27;s VASCO-B GNSS Receiver (&lt;1.4.0) that allows remote attackers to alter critical system functions — a concern for survey, construction, and any automation leveraging RTK GNSS for positioning or time sync. On the video and perimeter side, CISA disclosed multiple RCE and crash vulnerabilities in Milesight cameras (MS-Cxx63/64 series ≤51.7.0.77-r12) and an authentication bypass in Hangzhou Xiongmai XM530 IP cameras. IP cameras remain one of the most commonly overlooked OT-adjacent devices on plant networks, often dual-homed and rarely patched. Segment them off your control VLAN and confirm firmware levels this week. On the broader security scene, Palo Alto Networks researchers demonstrated &#x27;Zealot,&#x27; a multi-agent AI capable of autonomous cloud reconnaissance, exploitation, and exfiltration with minimal human oversight — a preview of what defenders will face as agentic attackers mature. Abnormal AI&#x27;s &#x27;Behavioral Shift&#x27; report highlights how adversaries are abandoning technical exploits in favour of weaponising trusted internal workflows, which has direct implications for engineers who routinely grant vendor remote access. Apple also patched an actively exploited Notification Services flaw (CVE-2026-28950) in iOS 26.4.2 and 18.7.8 — worth pushing to any iPhones/iPads used for HMI apps or mobile operator rounds.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm589572',this);return false">Read more &rarr;</a></p></div>
+      <div class="sec-foot">
+        <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
+        <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
+        <a href="https://www.securityweek.com" target="_blank" rel="noopener">SecurityWeek &#8599;</a>
+      </div>
     </section>
   </div>
 
   <!-- Collapsed Feed -->
   <div class="span2">
-    <section>
+    <section class="s-green">
       <div class="sh">
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 18 articles</h2>
       </div>
-      <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">SenseLive X3050</span></div></summary><div class="detail-body"><p>View CSAF
+      <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 23 Apr 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-06" target="_blank" rel="noopener">Intrado 911 Emergency Gateway (EGW)</a></span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-Successful exploitation of these vulnerabilities could allow an attacker to take complete control of the device.
-The following versions of SenseLive X3050 are affected:
+Successful exploitation of this vulnerability could allow an attacker to read, modify, or delete files.
+The following versions of Intrado 911 Emergency Gateway (EGW) are affected:
 
-X3050 V1.523 (CVE-2026-40630, CVE-2026-25720, CVE-2026-35503, CVE-2026-39462, CVE-2026-27843, CVE-2026-40431, CVE-2026-40623, CVE-20</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-12" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens Industrial Edge Management</span></div></summary><div class="detail-body"><p>View CSAF
-Summary
-Industrial Edge Management contains an authorization bypass vulnerability that could be exploited by an unauthenticated remote attacker to circumvent authentication and to access connected Industrial Edge Devices through the remote connection feature. Siemens has released new versions for the affected</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-11" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Silex Technology SD-330AC and AMC Manager</span></div></summary><div class="detail-body"><p>View CSAF
-Summary
-Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary code, cause a denial-of-service, or configuration information may be altered without authentication.
-The following versions of Silex Technology SD-330AC and AMC Manager are affected:
+Emergency Gateway 7.x (CVE-2026-6074)
+Emergency Gateway 6.x (CVE-2026-6074)
+Emergency Gateway 5.x (CVE-2026-6074)
 
-SD-330AC &amp;lt;=1.42 (CVE-</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-10" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens SINEC NMS</span></div></summary><div class="detail-body"><p>View CSAF
+
+
+
+
+CV</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-06" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 23 Apr 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-05" target="_blank" rel="noopener">Hangzhou Xiongmai Technology Co., Ltd XM530 IP Camera</a></span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-SINEC NMS before V4.0 SP3 contains an Authorization Bypass vulnerability that could allow an attacker to bypass authorization checks, leading to the ability to reset the password of any arbitrary user account. Siemens has released a new version for SINEC NMS and recommends to update to the latest vers</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-09" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 21 Apr 26 1</span></div><span class="sum-title">Siemens RUGGEDCOM CROSSBOW Station Access Controller (SAC)</span></div></summary><div class="detail-body"><p>View CSAF
+Successful exploitation of this vulnerability could allow an attacker to bypass authentication and have remote access to sensitive information on the device.
+The following versions of Hangzhou Xiongmai Technology Co., Ltd XM530 IP Camera are affected:
+
+IP Camera XM530V200_X6-WEQ_8M firmware V5.00.R02.</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-05" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 23 Apr 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-04" target="_blank" rel="noopener">SpiceJet Online Booking System</a></span></div></summary><div class="detail-body"><p>View CSAF
 Summary
-RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains a vulnerability that could allow an attacker to achieve arbitrary code execution and to create a denial of service condition. Siemens has released a new version for RUGGEDCOM CROSSBOW Station Access Controller (SAC) and recommends to update t</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-111-08" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+Successful exploitation of these vulnerabilities could allow an attacker to disclose sensitive information.
+The following versions of SpiceJet Online Booking System are affected:
+
+Online Booking System vers:all/* (CVE-2026-6375, CVE-2026-6376)
+
+
+
+
+
+CVSS
+Vendor
+Equipment
+Vulnerabilities
+
+
+
+
+v3 7.5
+Spic</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-04" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 23 Apr 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-03" target="_blank" rel="noopener">Milesight Cameras</a></span></div></summary><div class="detail-body"><p>View CSAF
+Summary
+Successful exploitation of these vulnerabilities could crash the device being accessed or allow remote code execution.
+The following versions of Milesight Cameras are affected:
+
+MS-Cxx63-PD &amp;lt;=51.7.0.77-r12 (CVE-2026-28747, CVE-2026-27785, CVE-2026-32644, CVE-2026-32649, CVE-2026-20766)
+MS-Cxx64-xPD</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-03" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 23 Apr 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-02" target="_blank" rel="noopener">Carlson Software VASCO-B GNSS Receiver</a></span></div></summary><div class="detail-body"><p>View CSAF
+Summary
+Successful exploitation of this vulnerability could enable a remote attacker to alter critical system functions or disrupt device operation.
+The following versions of Carlson Software VASCO-B GNSS Receiver are affected:
+
+VASCO-B GNSS Receiver &amp;lt;1.4.0 (CVE-2026-3893)
+
+
+
+
+
+CVSS
+Vendor
+Equipment
+Vulner</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-113-02" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
   <!-- CISA Digest -->
   <div class="span2">
-    <section>
+    <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added a large batch to the KEV catalog over the past week, with a heavy Microsoft and Cisco skew. Three Cisco Catalyst SD-WAN Manager vulnerabilities (CVE-2026-20122, 20133, 20128) were added on 20 April, covering malicious file upload via API, sensitive information exposure, and recoverable password storage. <span id="rm31837" style="display:none">SD-WAN Manager is increasingly deployed as the WAN backbone between plants and corporate, so controls engineers should confirm with IT that these appliances have been patched and that management interfaces are not reachable from OT segments. Of particular OT relevance, Fortinet FortiClient EMS (CVE-2026-21643, unauthenticated SQLi) and Ivanti EPMM (CVE-2026-1340, unauthenticated RCE) were added — both are frequently used to manage engineering laptops and mobile HMIs. Also notable is the resurrection of very old bugs: CVE-2009-0238 in Excel and CVE-2012-1854 in VBA. Engineering workstations running legacy Office to open vendor macro-enabled spreadsheets (still common for configuration tools) remain exposed. The PaperCut flaw (CVE-2023-27351) is now confirmed used in ransomware, which matters for any site using PaperCut on the business network adjacent to OT. Practical remediation: prioritise the Cisco SD-WAN trio and the Fortinet/Ivanti management-plane bugs, verify engineering-workstation Office patch levels, and ensure Microsoft Defender (CVE-2026-33825 LPE) is updated on any Windows HMI/EWS where Defender is active.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm31837',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV catalogue added another Cisco Catalyst SD-WAN Manager cluster this week (CVE-2026-20122, -20133, -20128), covering privileged API abuse, sensitive information exposure, and recoverable password storage. SD-WAN Manager sits in many industrial WAN architectures linking remote sites, substations, and pipelines back to central SCADA — if you run Catalyst SD-WAN, patch now and rotate DCA credentials, as the recoverable-format flaw means any prior filesystem access likely means compromised secrets. <span id="rm689432" style="display:none">The most pressing KEV entry today is CVE-2026-39987, a pre-auth RCE in Marimo (the Python notebook platform), which is increasingly used for data science and process analytics work adjacent to plant historians. Also notable are CVE-2026-34197 (Apache ActiveMQ code injection) and CVE-2026-21643 (Fortinet FortiClient EMS SQLi) — both broker/endpoint-management products frequently found in OT DMZs. Microsoft added SharePoint (CVE-2026-32201) and Defender privilege escalation (CVE-2026-33825) entries, alongside a surprising resurrection of CVE-2009-0238 (Excel RCE) and CVE-2012-1854 (VBA), reminders that legacy Office files remain a live initial-access vector in engineering workstations. For controls teams, prioritise in this order: Cisco SD-WAN Manager patching and credential rotation, Fortinet FortiClient EMS (often used to manage jumphosts into OT), and any engineering workstation still running old Office macros. Confirm your historian/analytics environment isn&#x27;t exposing Marimo or ActiveMQ to untrusted networks.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm689432',this);return false">Read more &rarr;</a></p></div>
+      <div class="sec-foot">
+        <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
+      </div>
     </section>
   </div>
 
   <!-- CISA KEV Table -->
   <div class="span2">
-    <section>
+    <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 27 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 28 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -353,10 +523,13 @@ RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains a vulnerability that
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33825</span></td><td>2026-04-22</td><td>Microsoft</td><td>Defender</td><td>Microsoft Defender Insufficient Granularity of Access Control Vulnerab</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20122</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manger</td><td>Cisco Catalyst SD-WAN Manager Incorrect Use of Privileged APIs Vulnera</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20133</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manager</td><td>Cisco Catalyst SD-WAN Manager Exposure of Sensitive Information to an </td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-39987</span></td><td>2026-04-23</td><td>Marimo</td><td>Marimo</td><td>Marimo Remote Code Execution Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33825</span></td><td>2026-04-22</td><td>Microsoft</td><td>Defender</td><td>Microsoft Defender Insufficient Granularity of Access Control Vulnerab</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20122</span></td><td>2026-04-20</td><td>Cisco</td><td>Catalyst SD-WAN Manger</td><td>Cisco Catalyst SD-WAN Manager Incorrect Use of Privileged APIs Vulnera</td></tr></tbody>
         </table>
+      </div>
+      <div class="sec-foot">
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV Catalog &#8599;</a>
       </div>
     </section>
   </div>
@@ -364,31 +537,134 @@ RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains a vulnerability that
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-04-22 20:17 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-04-23 20:37 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
-<script>(function(){
-  var html = document.documentElement;
-  var btn  = document.getElementById('themeBtn');
+<script>var ACRONYM_DEFS={
+  "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "API":"Application Programming Interface; standardized methods for software components to communicate.",
+  "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CSF":"Cybersecurity Framework; NIST guidelines for managing cybersecurity risk.",
+  "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
+  "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
+  "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
+  "EMS":"Energy Management System; software controlling and monitoring electrical power distribution.",
+  "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
+  "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+  "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
+  "GNSS":"Global Navigation Satellite System; satellite-based positioning system for precise location.",
+  "GPS":"Global Positioning System; satellite navigation system providing worldwide location and timing.",
+  "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
+  "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
+  "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
+  "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
+  "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
+  "IEC 62443":"International standard series for securing industrial automation and control systems.",
+  "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization for technical fields.",
+  "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
+  "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
+  "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
+  "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+  "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
+  "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
+  "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
+  "NTP":"Network Time Protocol; synchronizes computer clocks across networks to precise time.",
+  "OCXO":"Oven-Controlled Crystal Oscillator; temperature-stabilized frequency reference for precise timing.",
+  "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
+  "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OSNMA":"Open Service Navigation Message Authentication; GPS signal authentication and integrity verification.",
+  "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
+  "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
+  "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
+  "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
+  "PTP":"Precision Time Protocol; synchronizes clocks on networked devices to nanosecond accuracy.",
+  "RCE":"Remote Code Execution; vulnerability allowing attacker to run arbitrary code remotely.",
+  "RTK":"Real-Time Kinematic; GPS enhancement technique providing centimeter-level positioning accuracy.",
+  "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "SDR":"Software-Defined Radio; radio communication system implemented via software rather than hardware.",
+  "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
+  "USS":"Uninterruptible Power Supply; device providing backup power during electrical outages.",
+  "VBA":"Visual Basic for Applications; macro programming language for Microsoft Office automation.",
+  "VLAN":"Virtual Local Area Network; logical network segment on a physical network infrastructure.",
+  "WAN":"Wide Area Network; computer network spanning large geographic areas.",
+  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
+};
+(function(){
+  var html=document.documentElement,btn=document.getElementById('themeBtn');
   function apply(t){
-    html.setAttribute('data-theme', t);
-    btn.textContent = t === 'dark' ? '☀ Light' : '🌙 Dark';
-    try{ localStorage.setItem('ced-theme', t); }catch(e){}
+    html.setAttribute('data-theme',t);
+    btn.textContent=t==='dark'?'☀ Light':'🌙 Dark';
+    try{localStorage.setItem('ced-theme',t);}catch(e){}
   }
-  btn.addEventListener('click', function(){
-    apply(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  });
-  try{
-    var saved = localStorage.getItem('ced-theme');
-    if(saved === 'light') apply('light');
-  }catch(e){}
+  btn.addEventListener('click',function(){ apply(html.getAttribute('data-theme')==='dark'?'light':'dark'); });
+  try{ var s=localStorage.getItem('ced-theme'); if(s==='light') apply('light'); }catch(e){}
 })();
+
 function rmToggle(id,a){
   var s=document.getElementById(id);
   if(s.style.display==='none'){s.style.display='inline';a.textContent='Read less ←';}
   else{s.style.display='none';a.innerHTML='Read more →';}
 }
+
+
+(function(){
+  var inp=document.getElementById('acroInput'),res=document.getElementById('acroResult');
+  if(!inp) return;
+  inp.addEventListener('input',function(){
+    var q=this.value.trim();
+    if(!q){res.innerHTML='';return;}
+    var key=Object.keys(ACRONYM_DEFS).find(function(k){return k.toLowerCase()===q.toLowerCase();});
+    res.innerHTML=key
+      ?ACRONYM_DEFS[key]
+      :'<span style="opacity:.5">No definition found</span>';
+  });
+})();
+
+function wrapAcronyms(){
+  var skip=['IT','historian'];
+  var terms=Object.keys(ACRONYM_DEFS).filter(function(k){return skip.indexOf(k)<0;})
+    .sort(function(a,b){return b.length-a.length;});
+  var pats=terms.map(function(t){return t.replace(/[-\/\\^$*+?.()|[\]{}]/g,'\\$&');});
+  var re=new RegExp('(?<![A-Za-z0-9])('+pats.join('|')+')(?![A-Za-z0-9])','g');
+  var roots=document.querySelectorAll('.sb,.briefing-body,.detail-body,.fact-box,.curiosity-body');
+  roots.forEach(function(root){
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var tag=n.parentElement&&n.parentElement.tagName;
+        if(!tag) return NodeFilter.FILTER_REJECT;
+        return ['SCRIPT','STYLE','ABBR','A','INPUT','BUTTON','H1','H2','LABEL'].indexOf(tag)>=0
+          ?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes=[],node;
+    while((node=walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(tn){
+      var text=tn.textContent;
+      re.lastIndex=0;
+      if(!re.test(text)) return;
+      re.lastIndex=0;
+      var frag=document.createDocumentFragment(),last=0,m;
+      while((m=re.exec(text))!==null){
+        if(m.index>last) frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+        var abbr=document.createElement('abbr');
+        var key=terms.find(function(k){return k.toLowerCase()===m[0].toLowerCase();});
+        abbr.title=key?ACRONYM_DEFS[key]:'';
+        abbr.textContent=m[0];
+        frag.appendChild(abbr);
+        last=m.index+m[0].length;
+      }
+      if(last<text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      if(frag.childNodes.length) tn.parentNode.replaceChild(frag,tn);
+    });
+  });
+}
+wrapAcronyms();
 </script>
 </body>
 </html>
