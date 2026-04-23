@@ -218,11 +218,29 @@ _OUTPUT_SCHEMA: dict[str, Any] = {
                 "for controls engineers."
             ),
         },
+        "morning_briefing": {
+            "type": "string",
+            "description": (
+                "3-4 sentences summarising the single most important thing a controls engineer "
+                "needs to know today — written as a direct, confident, actionable brief. "
+                "Lead with the most significant development; end with a practical implication."
+            ),
+        },
+        "engineering_curiosity": {
+            "type": "string",
+            "description": (
+                "One surprising or thought-provoking fact about control theory, industrial "
+                "history, physics, or engineering — 3-4 sentences that would make a controls "
+                "engineer pause and think. Avoid cybersecurity topics; favour history, science, "
+                "or the unexpected origins of everyday engineering concepts."
+            ),
+        },
     },
     "required": [
         "threat_level", "threat_summary",
         "news_summary", "cisa_summary", "interesting_fact",
         "tech_spotlight", "standards_watch", "incident_of_week",
+        "morning_briefing", "engineering_curiosity",
     ],
     "additionalProperties": False,
 }
@@ -411,7 +429,7 @@ header::after{
 .hero-center{text-align:center}
 header h1{
   font-family:'Rajdhani',var(--sans);font-size:1.9rem;font-weight:700;letter-spacing:.08em;
-  color:var(--green);text-shadow:0 0 48px rgba(57,211,83,.4);line-height:1.2;
+  color:var(--green);line-height:1.2;
 }
 .hero-sub{
   font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
@@ -574,30 +592,141 @@ body{background-image:radial-gradient(circle,rgba(48,54,61,.55) 1px,transparent 
 .sum-title a{color:inherit;text-decoration:none}
 .sum-title a:hover{color:var(--link)}
 .sum-critical .sum-title a{color:var(--red)}
+/* Morning Briefing */
+.briefing-wrap{max-width:1320px;margin:0 auto;padding:0 16px 4px}
+.briefing-card{
+  background:var(--surf);border:1px solid var(--bord);border-left:4px solid var(--green);
+  border-radius:var(--r);padding:20px 24px;
+  background-image:linear-gradient(135deg,rgba(57,211,83,.04) 0%,transparent 55%);
+}
+[data-theme="light"] .briefing-card{background-image:linear-gradient(135deg,rgba(26,127,55,.05) 0%,transparent 55%)}
+.briefing-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.briefing-label{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--green)}
+.briefing-date{font-size:.68rem;color:var(--muted);margin-left:auto}
+.briefing-body{font-size:.96rem;line-height:1.75}
+.briefing-body p{margin:.35em 0}
+/* Acronym Bar */
+.acro-bar-wrap{max-width:1320px;margin:0 auto;padding:6px 16px 10px}
+.acro-bar{
+  background:var(--surf);border:1px solid var(--bord);border-radius:var(--r);
+  padding:9px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.acro-bar-label{font-size:.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;font-family:var(--mono);flex-shrink:0}
+.acro-input{
+  flex:1;min-width:160px;max-width:280px;background:var(--surf2);
+  border:1px solid var(--bord);border-radius:5px;padding:5px 10px;
+  color:var(--text);font-size:.84rem;font-family:var(--mono);
+  outline:none;transition:border-color .15s;
+}
+.acro-input:focus{border-color:var(--link)}
+.acro-result{font-size:.8rem;color:var(--muted);flex:1;line-height:1.5;min-width:160px}
+.acro-result strong{color:var(--link);font-family:var(--mono)}
+/* Engineering Curiosity */
+.curiosity-box{display:flex;gap:16px;align-items:flex-start}
+.curiosity-icon{font-size:2.2rem;line-height:1;flex-shrink:0;opacity:.6;margin-top:2px}
+.curiosity-body p{margin:.4em 0;font-size:.88rem;line-height:1.65}
+/* Acronym tooltips */
+abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-underline-offset:3px}
 """
 
 _JS = """\
 (function(){
-  var html = document.documentElement;
-  var btn  = document.getElementById('themeBtn');
+  var html=document.documentElement,btn=document.getElementById('themeBtn');
   function apply(t){
-    html.setAttribute('data-theme', t);
-    btn.textContent = t === 'dark' ? '☀ Light' : '🌙 Dark';
-    try{ localStorage.setItem('ced-theme', t); }catch(e){}
+    html.setAttribute('data-theme',t);
+    btn.textContent=t==='dark'?'☀ Light':'🌙 Dark';
+    try{localStorage.setItem('ced-theme',t);}catch(e){}
   }
-  btn.addEventListener('click', function(){
-    apply(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  });
-  try{
-    var saved = localStorage.getItem('ced-theme');
-    if(saved === 'light') apply('light');
-  }catch(e){}
+  btn.addEventListener('click',function(){ apply(html.getAttribute('data-theme')==='dark'?'light':'dark'); });
+  try{ var s=localStorage.getItem('ced-theme'); if(s==='light') apply('light'); }catch(e){}
 })();
+
 function rmToggle(id,a){
   var s=document.getElementById(id);
   if(s.style.display==='none'){s.style.display='inline';a.textContent='Read less ←';}
   else{s.style.display='none';a.innerHTML='Read more →';}
 }
+
+var ACRONYM_DEFS={
+  "SCADA":      "Supervisory Control and Data Acquisition — software platform used to monitor and control industrial processes from a central location",
+  "HMI":        "Human-Machine Interface — the screen, panel, or software operators use to interact with a control system",
+  "DCS":        "Distributed Control System — a control architecture where processing is distributed across multiple controllers located throughout the plant",
+  "PLC":        "Programmable Logic Controller — a ruggedised industrial computer used to automate electromechanical processes",
+  "OPC-UA":     "OPC Unified Architecture — a platform-independent, service-oriented standard for industrial data exchange, successor to classic OPC",
+  "OPC":        "OLE for Process Control — a set of standards enabling data exchange between Windows-based software and industrial hardware",
+  "RTU":        "Remote Terminal Unit — a microprocessor-controlled device that connects physical field equipment to a SCADA system",
+  "IED":        "Intelligent Electronic Device — a microprocessor-based controller used in power systems, such as protection relays and bay controllers",
+  "HART":       "Highway Addressable Remote Transducer — a protocol overlaid on 4-20mA loops allowing digital data exchange with smart field instruments",
+  "Modbus":     "A serial communication protocol developed in 1979 for PLCs; still widely used for simple device communication over RS-232, RS-485, and TCP/IP",
+  "Profibus":   "Process Field Bus — a fieldbus standard for serial communication between field devices and control systems",
+  "Profinet":   "Process Field Network — an industrial Ethernet standard for automation, providing real-time communication and replacing Profibus in many new installations",
+  "EtherNet/IP":"Ethernet Industrial Protocol — an industrial network standard using standard Ethernet hardware with the Common Industrial Protocol (CIP)",
+  "IEC 62443":  "An international series of standards defining requirements for securing industrial automation and control systems across their lifecycle",
+  "ISA-95":     "An international standard (also IEC 62264) for integrating enterprise resource planning (ERP) systems with manufacturing and control systems",
+  "CVSS":       "Common Vulnerability Scoring System — a 0-10 numerical score representing the severity and exploitability of a software vulnerability",
+  "KEV":        "Known Exploited Vulnerabilities — CISA's catalog of vulnerabilities confirmed to be actively exploited in the wild",
+  "CVE":        "Common Vulnerabilities and Exposures — a standardised identifier (e.g. CVE-2024-1234) for publicly disclosed cybersecurity vulnerabilities",
+  "OT":         "Operational Technology — hardware and software that monitors and controls physical devices, processes, and infrastructure",
+  "IT":         "Information Technology — computer systems, networks, and software used to process and store business data",
+  "ICS":        "Industrial Control System — an umbrella term covering SCADA, DCS, PLCs, and other systems used to control industrial processes",
+  "CISA":       "Cybersecurity and Infrastructure Security Agency — the US federal agency responsible for critical infrastructure security and resilience",
+  "TSN":        "Time-Sensitive Networking — IEEE 802.1 extensions to Ethernet providing deterministic, bounded-latency communication for real-time control",
+  "MES":        "Manufacturing Execution System — software that tracks, monitors, and manages production activities on the plant floor in real time",
+  "historian":  "A software application (e.g. OSIsoft PI, Aveva Historian) that collects, stores, and retrieves time-series process data from control systems"
+};
+
+(function(){
+  var inp=document.getElementById('acroInput'),res=document.getElementById('acroResult');
+  if(!inp) return;
+  inp.addEventListener('input',function(){
+    var q=this.value.trim();
+    if(!q){res.innerHTML='';return;}
+    var key=Object.keys(ACRONYM_DEFS).find(function(k){return k.toLowerCase()===q.toLowerCase();});
+    res.innerHTML=key
+      ?'<strong>'+key+'</strong> — '+ACRONYM_DEFS[key]
+      :'<span style="opacity:.5">No definition found</span>';
+  });
+})();
+
+function wrapAcronyms(){
+  var skip=['IT','historian'];
+  var terms=Object.keys(ACRONYM_DEFS).filter(function(k){return skip.indexOf(k)<0;})
+    .sort(function(a,b){return b.length-a.length;});
+  var pats=terms.map(function(t){return t.replace(/[-\\/\\\\^$*+?.()|[\\]{}]/g,'\\\\$&');});
+  var re=new RegExp('(?<![A-Za-z0-9])('+pats.join('|')+')(?![A-Za-z0-9])','g');
+  var roots=document.querySelectorAll('.sb,.briefing-body,.detail-body,.fact-box,.curiosity-body');
+  roots.forEach(function(root){
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var tag=n.parentElement&&n.parentElement.tagName;
+        if(!tag) return NodeFilter.FILTER_REJECT;
+        return ['SCRIPT','STYLE','ABBR','A','INPUT','BUTTON','H1','H2','LABEL'].indexOf(tag)>=0
+          ?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes=[],node;
+    while((node=walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(tn){
+      var text=tn.textContent;
+      re.lastIndex=0;
+      if(!re.test(text)) return;
+      re.lastIndex=0;
+      var frag=document.createDocumentFragment(),last=0,m;
+      while((m=re.exec(text))!==null){
+        if(m.index>last) frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+        var abbr=document.createElement('abbr');
+        var key=terms.find(function(k){return k.toLowerCase()===m[0].toLowerCase();});
+        abbr.title=key?ACRONYM_DEFS[key]:'';
+        abbr.textContent=m[0];
+        frag.appendChild(abbr);
+        last=m.index+m[0].length;
+      }
+      if(last<text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      if(frag.childNodes.length) tn.parentNode.replaceChild(frag,tn);
+    });
+  });
+}
+wrapAcronyms();
 """
 
 
@@ -620,6 +749,8 @@ def render_html(
     tech_html      = _truncate_ai_html(summaries.get("tech_spotlight", ""))
     std_html       = _truncate_ai_html(summaries.get("standards_watch", ""))
     inc_html       = _truncate_ai_html(summaries.get("incident_of_week", ""))
+    briefing_html  = text_to_html(summaries.get("morning_briefing", ""))
+    curiosity_html = text_to_html(summaries.get("engineering_curiosity", ""))
 
     kev_count      = len(cisa_vulns)
     critical_count = sum(1 for v in cisa_vulns if kev_severity(v) == "critical")
@@ -689,6 +820,25 @@ def render_html(
   </div>
 </div>
 
+<div class="briefing-wrap">
+  <div class="briefing-card">
+    <div class="briefing-head">
+      <span>&#9728;</span>
+      <span class="briefing-label">Morning Briefing</span>
+      <span class="briefing-date">{ts}</span>
+    </div>
+    <div class="briefing-body">{briefing_html}</div>
+  </div>
+</div>
+
+<div class="acro-bar-wrap">
+  <div class="acro-bar">
+    <span class="acro-bar-label">&#128270; Acronym Lookup</span>
+    <input type="text" id="acroInput" class="acro-input" placeholder="Type SCADA, HMI, PLC, DCS&hellip;" autocomplete="off" spellcheck="false">
+    <div id="acroResult" class="acro-result"></div>
+  </div>
+</div>
+
 <main>
 
   <!-- Vendor Threat Radar -->
@@ -703,6 +853,17 @@ def render_html(
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
     <div class="sb"><div class="fact-box">{fact_html}</div></div>
+  </section>
+
+  <!-- Engineering Curiosity -->
+  <section class="s-blue">
+    <div class="sh"><span class="sh-icon">&#9883;</span><h2>Engineering Curiosity</h2></div>
+    <div class="sb">
+      <div class="curiosity-box">
+        <div class="curiosity-icon">&#9883;</div>
+        <div class="curiosity-body ai-text">{curiosity_html}</div>
+      </div>
+    </div>
   </section>
 
   <!-- Tech Spotlight -->
@@ -841,6 +1002,16 @@ _MOCK_SUMMARIES: dict[str, Any] = {
         "In late 2023, a petrochemical plant in South Korea experienced an unplanned shutdown of a distillation column after a level transmitter impulse line froze during an unseasonably cold snap — the transmitter continued to output a steady mid-range signal rather than a fault indication, and the control system had no means to distinguish a frozen impulse line from a genuine process reading. "
         "Operators noticed the anomaly only when a downstream flow meter showed feed had stopped, by which time the column had flooded and required a 36-hour recovery. "
         "Key lessons: impulse line heat tracing interlocks should be monitored in the DCS alarm system, transmitter diagnostics such as HART device status should be wired into the asset management system and acted on, and critical level loops in cold climates should have redundant measurement principles such as pairing a dp transmitter with a guided wave radar."
+    ),
+    "morning_briefing": (
+        "The most important development for controls engineers today is ABB's System 800xA edge compute release, which shifts analytics capability directly onto the controller chassis and removes the cloud dependency that has blocked DCS modernisation at data-sensitive and air-gapped sites. "
+        "This directly challenges Emerson and Honeywell's edge strategies and is likely to accelerate competitive responses from both vendors in the coming months. "
+        "If your site is evaluating a DCS refresh or greenfield build within the next 18 months, request a benchmark demo before finalising your vendor shortlist — early adopters typically have more leverage on licensing terms than they will once the product is established."
+    ),
+    "engineering_curiosity": (
+        "The pneumatic controller — the direct mechanical ancestor of today's PID — performed all three control actions using only air pressure, springs, and bellows, with no electronics whatsoever. "
+        "Developed in the 1930s by companies like Fisher Controls and Taylor Instruments, these devices used tiny air pressure changes of a few PSI through copper tubing to carry signals across the plant floor, with proportional band and integral time set physically by adjusting spring tensions and restrictor sizes — the original tuning knobs. "
+        "They were so reliable that several major oil refineries ran pneumatic controllers continuously for over 60 years before finally converting to electronic DCS systems, with some units reportedly still operational into the 2000s."
     ),
 }
 
