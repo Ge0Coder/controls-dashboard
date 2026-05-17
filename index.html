@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-05-16 08:49 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-05-17 09:07 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy Siemens advisory day (Ruggedcom ROX root RCE, SIMATIC HMI, Teamcenter); Exchange zero-day and Cisco SD-WAN auth bypass actively exploited.</span>
+  <span>Heavy Siemens advisory load (Ruggedcom ROX RCE, SIMATIC HMI, Teamcenter) plus active Exchange zero-day raise OT exposure.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-05-16 08:49 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-05-17 09:07 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-05-16 08:49 UTC</span>
+      <span class="briefing-date">2026-05-17 09:07 UTC</span>
     </div>
-    <div class="briefing-body"><p>Siemens published a large advisory bundle this week — the most urgent item is the Ruggedcom ROX Scheduler authenticated RCE-as-root, fixed in v2.17.1, which you should schedule into your next maintenance window if you run MX5000 or related ROX devices anywhere in your network. In parallel, CISA added a Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20182) and a Palo Alto PAN-OS Captive Portal RCE (CVE-2026-0300) to KEV, both of which commonly sit on the IT/OT boundary and warrant immediate patching by your network team. If you can do only one thing today, confirm your perimeter devices and SD-WAN controllers are patched and that any Ruggedcom ROX firmware-update plan has a configuration backup step.</p></div>
+    <div class="briefing-body"><p>The headline today is Siemens: multiple new advisories cover Ruggedcom ROX (authenticated root RCE and arbitrary file read), SIMATIC HMI Unified Comfort Panels, Teamcenter, and a broad DoS issue across industrial devices — plan a ROX firmware upgrade to 2.17.1 or later as a priority. Outside ICS, an Exchange Server zero-day (CVE-2026-42897) is being actively exploited and a public PoC has dropped for a critical NGINX flaw embedded in many vendor web frontends. If you run Cisco Catalyst SD-WAN or Palo Alto PAN-OS at your IT/OT boundary, treat the recent KEV additions as patch-this-weekend material. Bottom line: this is a patching and inventory week, not a quiet one.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Ruggedcom product line — now central to Siemens&#x27; rugged networking portfolio — originated as a small Canadian company founded by ex-Nortel engineers in 2001, specifically to build Ethernet switches that could survive substation environments where electromagnetic transients routinely exceed IEC 61850-3 limits. Their original ROS firmware was designed around the assumption that a switch should reboot in under 5 seconds even after a fault, because protection relays downstream depend on it. Siemens acquired the company in 2013, and that 5-second boot target is still effectively the design constraint behind ROX today.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Ruggedcom ROX advisories include CVEs from 2019 — flaws in third-party components that have remained exploitable in shipping firmware for nearly seven years. This is a vivid reminder that the real lifecycle of an OT vulnerability is governed by the slowest vendor in the supply chain, not by the original disclosure date. When you build an SBOM for a substation device, expect to find libraries older than some of your junior engineers.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller as we know it was effectively reverse-engineered from a helmsman. In the 1920s, Nicolas Minorsky watched how experienced helmsmen on the USS New Mexico steered the ship — not just reacting to current heading error (proportional), but also to how long the error had persisted (integral) and how fast it was changing (derivative) — and formalized that behavior mathematically in his 1922 paper on automatic ship steering. Every cascade loop tuned today on a distillation column traces its lineage to a sailor&#x27;s intuition about a rudder, predating Ziegler-Nichols by two decades.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it owes its mathematical form to Nicolas Minorsky&#x27;s 1922 analysis of automatic ship steering for the U.S. Navy battleship New Mexico — he derived the three-term control law by watching how a helmsman actually steered, noting that experienced sailors anticipated the ship&#x27;s swing (derivative action) and corrected for steady-state offsets like wind (integral action). The algorithm we now drop into every loop controller was literally reverse-engineered from human intuition before it was ever called PID. It took another twenty years before Ziegler and Nichols published their tuning rules in 1942, and another forty before microprocessors made the math trivial.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Time-Sensitive Networking (TSN) over standard Ethernet continues its slow march into process and discrete automation, and 2026 is shaping up as the year it stops being a demo and starts appearing in actual project specs. TSN is a set of IEEE 802.1 sub-standards (notably 802.1AS for time sync, 802.1Qbv for scheduled traffic, and 802.1CB for frame replication) that give plain Ethernet deterministic, bounded-latency behavior — the same property that used to require Profinet IRT, EtherCAT, or Sercos III. <span id="rm931799" style="display:none">The appeal for controls engineers is convergence: motion control, safety, video, and best-effort IT traffic on one physical network, with hard guarantees for the time-critical flows. The practical implications are significant. You can in principle run a CIP Motion drive, a vision system, and an OPC UA PubSub feed to a historian on the same switch fabric without one starving the other. PLCnext, Rockwell&#x27;s 5069 platform, B&amp;R&#x27;s APROL, and Siemens&#x27; newer Scalance XCM/XRM switches all advertise TSN capability today. The catches are real, though: end-to-end TSN requires every switch and endpoint in the path to support the relevant profiles, configuration tooling is still vendor-fragmented (CC-Link IE TSN, Profinet over TSN, and OPC UA FX all coexist uneasily), and most plants don&#x27;t have engineers comfortable provisioning Qbv gate schedules. Expect TSN to land first in greenfield automotive and semiconductor builds, with brownfield process plants getting it only when their next switch refresh aligns.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm931799',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on OPC UA FX (Field eXchange), the field-level extension to OPC UA that pushes the protocol down from the supervisory layer into controller-to-controller and controller-to-device communications. FX defines standardized information models for automation components (drives, I/O, robots) and uses OPC UA PubSub over TSN (Time-Sensitive Networking) to deliver deterministic, low-jitter messaging suitable for motion and safety-adjacent applications. <span id="rm633091" style="display:none">The practical promise is significant: a single, vendor-neutral protocol from sensor to cloud, replacing the patchwork of PROFINET, EtherNet/IP, EtherCAT, and Modbus that most plants run today. Early demonstrators from Siemens, Rockwell, Beckhoff, and others have shown sub-millisecond cycle times with full security (X.509 certificates, signing, encryption) at the field level — something the legacy fieldbuses simply do not offer natively. The adoption brake is hardware. TSN requires switches and end devices with synchronized clocks (IEEE 802.1AS) and traffic shapers (802.1Qbv), and most installed plant networks aren&#x27;t there yet. Expect FX to land first in greenfield machine-builder applications (packaging, semiconductors, EV battery lines) over the next 2-3 years before it filters into brownfield process plants. For now, the engineering takeaway is to ensure that any new managed switch purchases are at least TSN-capable so you don&#x27;t have to rip and replace later.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm633091',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">ISA/IEC 62443 continues to be the gravitational center of OT security standards work, and the IEC 62443-3-2 (risk assessment) and 62443-4-2 (component requirements) parts are seeing the most field traction this year as more asset owners write SL-T (target security level) requirements into procurement specs. If you&#x27;re scoping a new control system, the practical move is to require vendors to demonstrate 62443-4-2 certification at SL 2 minimum for any component with a network interface, and to insist on documented zone-and-conduit diagrams as a 3-2 deliverable from the integrator — not something you bolt on afterward. <span id="rm229465" style="display:none">Worth watching: the NIST Cybersecurity Framework 2.0 &quot;Govern&quot; function is starting to appear in OT-specific implementation guidance, and CISA&#x27;s Cross-Sector Cybersecurity Performance Goals (CPGs) have quietly become a de facto baseline that auditors reference when 62443 feels too heavy. For Siemens-heavy sites, note that Siemens&#x27; ProductCERT advisories now consistently map findings to 62443-4-2 control families, which makes it easier to argue patch priority to plant management in standards-aligned language rather than CVSS hand-waving. If your organization is still treating CVSS base score as the sole prioritization input, you&#x27;re leaving exploitability and OT-context information on the table.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm229465',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most quoted in customer specifications this year, but the one worth watching is IEC 62443-2-1, which was substantially revised in 2024 and is now being adopted into asset-owner programs. The revised 2-1 aligns the IACS security program requirements with the zone-and-conduit and security-level concepts from -3-3, giving asset owners a cleaner mapping between their policies and the technical controls vendors are certified against. <span id="rm70087" style="display:none">If your site&#x27;s cybersecurity management system was written against the 2010 edition, it is now formally out of date. On the NIST side, the second public draft of SP 800-82 Rev. 3 has been the de-facto reference for OT security in U.S. regulated sectors, and CISA&#x27;s Cross-Sector Cybersecurity Performance Goals (CPGs) are increasingly being cited in insurance questionnaires. The CPGs are not a standard in the IEC sense, but they have become a practical baseline that procurement teams expect suppliers to meet. For those working with safety, keep an eye on the ongoing harmonization between IEC 61508/61511 functional safety and 62443 cybersecurity — TR 63069 remains the bridging document, and several notified bodies now expect a combined SIL/SL argument in new safety system assessments rather than two parallel documents.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm70087',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,9 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2023 Aliquippa, Pennsylvania water authority intrusion, where pro-Iranian actors calling themselves CyberAv3ngers compromised an internet-exposed Unitronics Vision-series PLC at a booster station and defaced its HMI screen. The intrusion did not affect water quality — operators reverted to manual control quickly — but it caused real operational disruption and triggered a CISA advisory that ultimately identified dozens of similarly exposed Unitronics PLCs across U.S. water utilities. <span id="rm374625" style="display:none">The initial access vector was almost embarrassingly mundane: the PLC was reachable from the public internet on TCP/20256 with the factory-default password &quot;1111.&quot;
-
-The lessons remain depressingly current. First, default credentials on PLCs are still everywhere, particularly on smaller integrator-installed systems where the commissioning engineer never returned to harden the device. Second, &quot;it&#x27;s only a small site&quot; is not a threat model — opportunistic nation-state-aligned groups specifically scan for low-attention targets because the political payoff (a defaced screen on the news) doesn&#x27;t require sophisticated impact. Third, having a tested manual-operation procedure is what made this a nuisance rather than a crisis; if your site cannot run for several hours without its PLC, that gap should be on your risk register. Practical takeaway: this weekend, pick three PLCs at random from your asset inventory and verify they are (a) not internet-reachable, (b) not using default credentials, and (c) covered by a documented manual fallback.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm374625',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s case study is the 2024 Arnold Clark-style attack pattern as applied to a European water utility, recently summarized in incident-response debriefs: attackers gained initial access via a compromised remote-support tool on an engineering laptop (similar to the SimpleHelp and ScreenConnect KEVs above), pivoted through a flat IT/OT network, and reached the historian and HMI segment within 48 hours. They did not manipulate the process — they exfiltrated engineering drawings, P&amp;IDs, and PLC backup files, then issued an extortion demand. <span id="rm755485" style="display:none">The root cause chain was depressingly familiar: an engineering laptop used for both corporate email and remote PLC programming, no MFA on the remote-support portal, and a &#x27;temporary&#x27; firewall rule from 2019 that allowed RDP from the engineering VLAN directly to the historian. Detection came only when the historian&#x27;s CPU usage spiked during off-hours archive compression by the attacker&#x27;s exfil tool. Three lessons: first, engineering workstations are crown jewels and should never share a security posture with general office endpoints; treat them like domain controllers. Second, audit your firewall rule base annually and document the business owner for every rule — &#x27;temporary&#x27; rules become permanent the day you forget who asked for them. Third, the threat model for OT now includes intellectual property theft, not just process disruption; your P&amp;IDs and PLC source code have real black-market value to competitors and to nation-state actors building target packages.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm755485',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -417,7 +415,7 @@ The lessons remain depressingly current. First, default credentials on PLCs are 
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Siemens dominated the ICS advisory feed this week with a broad sweep of disclosures touching Ruggedcom ROX, SIMATIC HMI Unified Comfort Panels, Teamcenter, and several industrial device families. The most operationally significant items are two Ruggedcom ROX bugs fixed in v2.17.1: an input-validation flaw in the Scheduler that allows an authenticated remote attacker to execute arbitrary commands as root, and an improper access-control flaw that allows arbitrary file reads as root. <span id="rm581893" style="display:none">ROX devices commonly sit at substation, refinery, and pipeline aggregation points, so privileged code execution on them is effectively a foothold into the OT routing plane. A separate ROX advisory rolls up older third-party CVEs (the 2019-vintage iperf3/NTP/etc. issues) — useful to know if you&#x27;ve been deferring firmware updates on MX5000s. The SIMATIC HMI Unified Comfort Panel issue (pre-V21.0) is worth flagging for plant-floor teams: an unauthenticated attacker can pivot from the panel&#x27;s Help link into the underlying web browser, which historically has been a stepping stone to OS-level access if the Control Panel lockdown is not configured. If you have Comfort Panels deployed in shared or semi-public areas (mixing tanks, packaging lines, visitor-accessible kiosks), confirm the Control Panel restrictions are enforced and update firmware. The Teamcenter advisories matter mostly for engineering networks — Teamcenter PLM often holds the authoritative copies of P&amp;IDs, control narratives, and PLC source — so availability and integrity bugs there have downstream effects on change management. On the IT side with OT spillover, Microsoft disclosed an actively exploited Exchange Server zero-day (CVE-2026-42897), and CISA added a Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20182) to KEV the same week. Many sites use Catalyst SD-WAN to backhaul plant traffic to corporate or cloud historians, so an unauthenticated admin takeover of the SD-WAN Manager is a direct risk to the IT/OT boundary. The TanStack supply-chain compromise hitting OpenAI and the public release of the Shai-Hulud worm source code by TeamPCP both point toward continued escalation in npm/JavaScript supply-chain attacks — relevant if your HMI vendors or MES front-ends bundle Node-based components.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm581893',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">This week&#x27;s biggest signal for plant floor engineers is a wave of Siemens advisories pushed through CISA. Ruggedcom ROX is hit twice with serious issues: an authenticated remote command execution as root via the Scheduler, and an improper access control flaw allowing arbitrary file reads. <span id="rm276383" style="display:none">Given Ruggedcom&#x27;s prevalence in substations, rail, and other harsh-environment networks, anyone on ROX firmware below 2.17.1 should be planning an upgrade window now. A separate bundle of third-party CVEs (some dating back to 2019) is also rolled into the same ROX update, underlining how long known vulnerabilities can linger in field-deployed gear. On the HMI side, SIMATIC HMI Unified Comfort Panels before V21.0 expose a path to the underlying web browser via the help link in the Control Panel. If the panel is not locked down with the documented hardening steps, an unauthenticated local user can pivot into the browser and from there explore the device. Siemens Industrial Devices advisory also covers a denial-of-service issue across multiple product families, with countermeasures published where fixes aren&#x27;t yet available. Teamcenter PLM users should review the V2312/V14 update guidance as those flaws hit confidentiality, integrity, and availability of engineering data. Outside the ICS-specific stream, two items deserve attention. Microsoft confirmed CVE-2026-42897, an Exchange Server zero-day already being exploited; many OT sites still run on-prem Exchange or hybrid mailflow, and OWA is a common pivot point. Public PoC code was also released for a critical NGINX vulnerability — relevant because NGINX is embedded in many vendor HMI gateways, historian web frontends, and reverse proxies in DMZs. Finally, the TanStack supply chain compromise that hit OpenAI and the public release of the Shai-Hulud worm source code by TeamPCP point to a continuing escalation in npm/JavaScript ecosystem attacks, which increasingly leak into engineering toolchains and vendor portals.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm276383',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -459,7 +457,7 @@ Ruggedcom Rox contains an improper access control vulnerability that could allow
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">This week&#x27;s KEV additions are IT-centric but several have direct OT relevance. CVE-2026-20182 (Cisco Catalyst SD-WAN Controller/Manager authentication bypass) is the standout — if your site uses Catalyst SD-WAN to connect plants to the enterprise or cloud, an unauthenticated admin takeover is a Purdue-Level-3.5 break. <span id="rm308298" style="display:none">Patch immediately and audit recent admin logins and template changes. CVE-2026-6973 (Ivanti EPMM RCE) and CVE-2026-0300 (Palo Alto PAN-OS Captive Portal out-of-bounds write with root code execution) round out the perimeter-device theme; PAN-OS firewalls frequently terminate site-to-site links to remote facilities and SCADA enclaves. CVE-2026-42897 (Exchange OWA XSS, exploited in the wild) is mainly an IT problem, but Exchange compromises remain a common pivot toward engineering workstations via stolen credentials and malicious calendar/email content. CVE-2026-31431 (Linux kernel privilege escalation) is worth tracking for Linux-based historian, edge-gateway, and virtualization hosts — many OT vendors ship long-lived Linux appliances that lag mainstream kernel patching. Practically: prioritize the SD-WAN and PAN-OS fixes this weekend, schedule Exchange mitigations per Microsoft&#x27;s guidance, and add the Ruggedcom ROX 2.17.1 upgrade to your next maintenance window with a configuration backup beforehand.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm308298',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The KEV catalog added several entries this month that matter for OT operators even if they aren&#x27;t ICS-labelled. CVE-2026-42897 (Exchange Server XSS, exploited in the wild) and CVE-2026-20182 (Cisco Catalyst SD-WAN auth bypass to admin) are the most urgent: both sit in the typical IT/OT boundary stack where compromise gives an attacker either credential theft or full control of the WAN underlay that carries SCADA replication and remote-site traffic. <span id="rm355994" style="display:none">Palo Alto Networks PAN-OS CVE-2026-0300 (unauthenticated RCE as root in the Captive Portal) is similarly high-impact for sites using PAN appliances as their IT/OT firewall. For remote-access exposure, Ivanti EPMM (CVE-2026-6973) and ConnectWise ScreenConnect (CVE-2024-1708) are both back in scope — ScreenConnect in particular is frequently abused as an initial access vector into engineering workstations. SimpleHelp&#x27;s two April additions (CVE-2024-57728 and CVE-2024-57726) round out a clear theme: remote support tooling continues to be a top entry point, with known ransomware association. Controls engineers should audit which remote-support products still run on jump hosts and engineering laptops, confirm patch levels, and verify MFA on all consoles. Finally, CVE-2026-42208 in LiteLLM (SQL injection) is a quiet but interesting one: as plants experiment with AI proxies for assistant tools and copilots, those proxies are now in the attack surface and store credentials worth stealing.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm355994',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -495,65 +493,61 @@ Ruggedcom Rox contains an improper access control vulnerability that could allow
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-16 08:49 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-17 09:07 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APROL":"ABB's process control software platform for industrial automation systems.",
-  "CC":"Common Criteria security standard for evaluating information technology products.",
-  "CIP":"Common Industrial Protocol for real-time control and device messaging.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CPU":"Central processing unit that executes control logic and instructions in industrial systems.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FX":"Mitsubishi compact programmable logic controller series.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
+  "IACS":"Industrial automation and control systems that manage manufacturing and process operations.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
-  "IE":"Industrial Ethernet for real-time communication in manufacturing systems.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers standards organization.",
-  "IRT":"Isochronous Real-Time protocol for synchronized deterministic communication.",
+  "IEEE":"Institute of Electrical and Electronics Engineers standards organization for technical specifications.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-factor authentication requiring multiple verification methods for system access security.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "NTP":"Network Time Protocol for synchronizing device clocks across networks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating System software managing hardware and application execution.",
+  "OS":"Operating system software that manages hardware resources and runs applications.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PAN":"Personal Area Network connecting nearby devices with limited range.",
+  "PAN":"Personal area network connecting devices over short-range wireless communication.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PLM":"Product Lifecycle Management system for managing industrial product data.",
+  "PLM":"Product lifecycle management system tracking engineering changes throughout product life.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote Code Execution vulnerability allowing unauthorized system command execution.",
-  "ROS":"Robot Operating System framework for robot development and control.",
+  "RCE":"Remote code execution vulnerability allowing unauthorized command execution on target systems.",
+  "RDP":"Remote desktop protocol enabling secure remote access to computer systems.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SBOM":"Software bill of materials documenting all components and dependencies in software.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SD":"Secure Digital memory card storage format.",
-  "SL":"Safety Level classification for industrial safety functions.",
+  "SIL":"Safety integrity level rating system for functional safety of control systems.",
+  "SQL":"Structured query language used to access and manage relational databases.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UA":"OPC Unified Architecture standard for industrial data communication.",
-  "USS":"Universal Serial Synchronous protocol for Siemens device communication.",
-  "WAN":"Wide Area Network connecting devices across large geographic distances.",
+  "VLAN":"Virtual local area network segmenting network traffic into isolated logical groups.",
+  "WAN":"Wide area network connecting geographically distributed sites over long distances.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments.",
-  "XSS":"Cross-Site Scripting web vulnerability injecting malicious code into applications."
+  "XSS":"Cross-site scripting vulnerability allowing injection of malicious scripts into web applications."
 };
 (function(){
   var html=document.documentElement,btn=document.getElementById('themeBtn');
