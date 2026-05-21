@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-05-20 10:26 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-05-21 10:41 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Unauthenticated RCE in ScadaBR, ABB CoreSense path traversal, and PAN-OS flaw inside Siemens RUGGEDCOM APE1808 push risk higher.</span>
+  <span>ScadaBR unauth RCE and Siemens RUGGEDCOM PAN-OS root RCE drive elevated OT risk; multiple ICS advisories today.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-05-20 10:26 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-05-21 10:41 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">15</div>
+      <div class="stat-val amber">22</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-05-20 10:26 UTC</span>
+      <span class="briefing-date">2026-05-21 10:41 UTC</span>
     </div>
-    <div class="briefing-body"><p>Patch or pull ScadaBR 1.2.0 today — four new CVEs combine into unauthenticated RCE at CVSS 9.1, and exposure is concentrated in smaller sites that rarely watch advisories. If you operate Siemens RUGGEDCOM APE1808, treat it as a Palo Alto firewall carrying the active KEV CVE-2026-0300 and apply Siemens&#x27; mitigations now. Wider context: Verizon&#x27;s 2026 DBIR confirms vulnerability exploitation has overtaken credential theft as the top breach vector, so your patch backlog is no longer a hygiene issue — it&#x27;s the front door.</p></div>
+    <div class="briefing-body"><p>Your priority today is the Siemens RUGGEDCOM APE1808 advisory: the underlying PAN-OS Captive Portal vulnerability (CVE-2026-0300) is on CISA&#x27;s KEV list and grants unauthenticated root RCE on a device many sites use as their cell-zone firewall. If you operate APE1808s, apply Siemens&#x27; interim countermeasures now — disable Captive Portal where not required and restrict management access — pending the fix release. Secondary priority is ScadaBR 1.2.0, which has unauthenticated RCE (CVSS 9.1) and should be air-gapped or taken offline until you can migrate. Finally, audit engineering workstations for any pip/npm activity tied to the spreading TeamPCP/Shai-Hulud supply-chain worm.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, designed by Modicon in 1979 for the 984 PLC, was specified to fit a complete request/response in under 256 bytes because the target RS-485 multidrop networks could only guarantee tight timing for short frames. That 256-byte PDU limit still shapes every Modbus TCP transaction today — a 47-year-old serial constraint living on inside gigabit Ethernet packets.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, designed by Modicon in 1979 for the 984 PLC, used a 7-bit ASCII mode before RTU binary mode was added — and the spec is still officially maintained as a free, open standard nearly 50 years later. That longevity is also why it has no authentication: when it was designed, the threat model was a noisy factory floor, not a hostile network. Every modern &quot;secure Modbus&quot; variant is essentially trying to retrofit trust onto a protocol that predates TCP/IP.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics. Nicolas Minorsky derived the three-term control law in 1922 from watching helmsmen steer the USS New Mexico, noting that good helmsmen corrected not just for present error but for its rate of change and its accumulated history. The first commercial pneumatic PID controllers (Taylor Instruments, 1940s) implemented integral and derivative action using bellows, flapper-nozzles and carefully sized restrictors — solving differential equations with compressed air decades before op-amps existed.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronic computing by decades — Elmer Sperry&#x27;s gyrocompass-based ship autopilots in the 1910s used mechanical proportional-integral-derivative action, and Nicholas Minorsky formalised the maths in 1922 by observing how a helmsman actually steered a ship. Minorsky noticed the helmsman didn&#x27;t just react to current heading error (P), but also to how long the error had persisted (I) and how fast it was changing (D). Every loop you tune today is a direct descendant of one man watching a sailor at a wheel and writing down what he saw.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA FX (Field eXchange) is quietly moving from spec to shipping product. Released by the OPC Foundation as Part 80+ of the OPC UA suite, FX extends UA&#x27;s information modelling down to controller-to-controller and controller-to-device communication — the territory currently owned by PROFINET, EtherNet/IP and EtherCAT. <span id="rm384797" style="display:none">The key trick is layering UA&#x27;s semantic models (so a &#x27;valve&#x27; or &#x27;drive&#x27; means the same thing to every node) onto deterministic transport via TSN (Time-Sensitive Networking) at the Ethernet layer. For controls engineers the practical promise is one cable and one protocol from sensor to MES, with deterministic cyclic data sharing the wire with engineering, diagnostics and historian traffic — and crucially without protocol gateways translating tags. Beckhoff, Siemens, Rockwell, B&amp;R and Phoenix Contact have all demonstrated interoperable FX devices, and the first Companion Specifications (e.g. for drives via VDMA) are being finalised. Adoption challenges are real: TSN requires switches that actually implement IEEE 802.1Qbv scheduling end-to-end, engineering tools are still catching up, and the security model (UA Secure Channel on every link) adds CPU load that low-end I/O devices struggle with. Expect FX to show up first in greenfield automotive and semiconductor lines where the multi-vendor pain is highest, before trickling into process plants.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm384797',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on OPC UA FX (Field eXchange), the controller-to-controller extension of OPC UA that&#x27;s now moving from spec to silicon. Unlike classic OPC UA, which assumed a client-server hierarchy from PLC up to SCADA, OPC UA FX defines publisher-subscriber semantics and deterministic behaviour suitable for PLC-to-PLC and PLC-to-drive communication — the territory historically owned by PROFINET IRT, EtherCAT, and EtherNet/IP. <span id="rm248563" style="display:none">Combined with Time-Sensitive Networking (TSN) at layer 2, it promises a vendor-neutral, deterministic fieldbus over standard Ethernet. The practical implication for controls engineers is significant but not immediate. Siemens, Rockwell, Beckhoff, B&amp;R, and Schneider have all demonstrated interoperability at Hannover Messe over the past three years, and first-generation products are shipping, but the ecosystem of I/O blocks, drives, and safety devices remains thin compared to PROFINET or EtherCAT. Expect to see OPC UA FX appear first in greenfield hybrid lines (especially automotive and battery manufacturing) where multi-vendor cells are the norm, before it filters down to general machinery. Adoption challenges are real: TSN requires managed switches with proper scheduling support, configuration tooling is still maturing, and diagnostic workflows differ markedly from established fieldbuses. If you&#x27;re scoping a project for 2027 onwards, it&#x27;s worth asking your integrator what their OPC UA FX roadmap looks like — but for a refit on an existing line, sticking with your current fieldbus is still the safer bet.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm248563',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to gain traction as the contractual hook integrators are being asked to satisfy — particularly in European water and energy procurements aligning with NIS2. The newer IEC 62443-2-3 patch management guidance is worth a re-read in light of the Verizon DBIR finding that vulnerability exploitation now leads as initial-access vector; the standard&#x27;s notion of &#x27;patch compatibility statements&#x27; from vendors is exactly the gap that delays OT patching. <span id="rm22860" style="display:none">NIST is finalising updates to SP 800-82 Revision 3 supplemental guidance, with draft material focusing on cloud-connected OT, remote engineering access and SBOM consumption in industrial environments. If you have not yet started cataloguing SBOMs from your PLC, HMI and historian vendors, this is the year to begin — both CRA in Europe and proposed US sector rules are pushing SBOM delivery from &#x27;nice to have&#x27; to procurement requirement. Finally, ISA/IEC 62443-4-2 component-level certification continues to expand: more drives, RTUs and protocol gateways now carry certification, which helps with 3-3 system-level claims. Ask your vendors specifically which SL (Security Level) target they certified to — many products only claim SL1, which is below what most asset owners actually need.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm22860',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to expand into product-specific territory. IEC 62443-4-2, which defines technical security requirements for components (embedded devices, host devices, network devices, software applications), is now the de facto certification target for new PLCs, RTUs, and gateways — and increasingly an explicit requirement in tenders from European utilities and major asset owners. <span id="rm774262" style="display:none">If you&#x27;re specifying new equipment, ask vendors for their 62443-4-2 Security Level (SL) certification rather than accepting generic &quot;62443 compliant&quot; claims, which usually mean the manufacturer&#x27;s processes (4-1) but not the product itself. On the framework side, NIST SP 800-82 Revision 3 remains the most useful free reference for OT-specific risk management and pairs well with the IEC 62443 zones-and-conduits model. For engineers writing or reviewing functional specs, the practical takeaway is to define security requirements in the same document as your I/O list and control philosophy — retrofitting SL-2 or SL-3 capabilities after FAT is painful and expensive. Also worth tracking: the ISA/IEC 62443-3-2 risk assessment methodology is being incorporated by reference into several national OT regulations, including the EU NIS2 implementing acts. Documented zone-and-conduit diagrams with target SLs are becoming an audit expectation, not a nice-to-have.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm774262',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s lesson comes from the still-unfolding TeamPCP supply chain campaign, which since the March Trivy disclosure has now confirmed a Checkmarx Jenkins plugin compromise and a self-propagating &#x27;Mini Shai-Hulud&#x27; worm across npm and PyPI. The vector that pulled GitHub itself in was mundane: an employee installed a poisoned VS Code extension, which exfiltrated credentials and gave attackers access to 3,800 internal repositories. <span id="rm313398" style="display:none">No PLCs were touched — but the build pipelines for tools that touch PLCs absolutely were. What happened mechanically: attackers seeded malicious packages that, when pulled as transitive dependencies into CI/CD pipelines, harvested tokens and then used those tokens to publish further poisoned versions of legitimate packages. Each compromise expanded the blast radius. For OT, the relevant question is: whose CI/CD builds the firmware, edge gateway images, or HMI runtime binaries that arrive on your site? If your integrator&#x27;s Jenkins or npm registry is compromised, your next &#x27;signed&#x27; firmware drop carries that compromise into the control system with full vendor authenticity. Three takeaways. First, treat integrator and OEM development environments as part of your OT threat model — ask for evidence of pipeline hardening, not just product certifications. Second, pin and verify: SBOM ingest plus hash verification on every firmware and software artefact arriving at site, not just the top-level installer. Third, segment engineering workstations from general-purpose IDEs — the controls engineer who needs VS Code for Python scripting should not be doing so on the same machine that flashes safety controllers.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm313398',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s case study is the 2024 American Water Works cyber incident, which remains instructive as related forensic detail continues to emerge in industry reporting. American Water, the largest regulated water utility in the US, detected unauthorised activity in October 2024 that forced it to shut down its customer portal and pause billing. <span id="rm277218" style="display:none">Crucially, the company stated that water and wastewater operations were not impacted — the intrusion was contained to the corporate IT environment. That containment was not luck; it reflected segmentation between business systems (billing, customer service, SAP) and the SCADA networks running treatment plants and distribution. What happened, in essence: attackers gained access to corporate systems, likely via credential compromise or a public-facing application, and the utility&#x27;s incident response playbook called for proactive isolation of customer-facing services while OT remained on its protected side of the Purdue boundary. Public reporting suggests no PLC, HMI, or SCADA system was touched. The lessons for controls engineers are concrete. First, the IT/OT boundary is your single most valuable security control — invest in proving it works through tabletop exercises, not just diagrams. Second, business-side outages can still cripple operations indirectly (no billing, no customer contact, regulatory reporting delays), so OT teams should plan for degraded-mode operation when corporate systems are unavailable. Third, segmentation is only as good as the documented data flows crossing it; every historian replication, AV update path, and remote vendor tunnel is a potential bypass that needs explicit review.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm277218',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA released a heavy batch of ICS advisories overnight. The standout for plant floors is ScadaBR 1.2.0, where four new CVEs (CVE-2026-8602 through 8605) combine missing authentication with input neutralisation flaws to enable unauthenticated remote code execution at CVSS 9.1. <span id="rm761517" style="display:none">Anyone still running ScadaBR — common in pilot lines, university labs and smaller water/wastewater sites — should pull it off any routable network today. ABB CoreSense HM and M10 transformer monitors carry a path traversal allowing unauthenticated access to restricted directories, leading to full system compromise; firmware updates are available. Siemens issued two notable advisories. RUGGEDCOM APE1808 ships Palo Alto PAN-OS as a hosted application, and inherits CVE-2026-0300 — the User-ID/Captive Portal buffer overflow that gives unauthenticated root. This is the same CVE CISA added to KEV on 6 May, so APE1808 owners should assume active scanning. A separate Siemens advisory covers a denial-of-service condition across a broad swathe of industrial devices; fixes are staged, with interim mitigations published. Kieback &amp; Peter DDC4002/4100/4200/4400 building controllers up to 1.12.14 have a browser-takeover bug (CVE-2026-4293) affecting engineers logging into the web UI — a reminder that HMI workstations need their own browser hygiene. On the broader IT side that bleeds into OT, Verizon&#x27;s 2026 DBIR reports vulnerability exploitation has now overtaken credential theft as the leading breach initial-access vector, with patching cycles slipping further behind. The TeamPCP supply chain campaign — already linked to the Trivy and now Checkmarx Jenkins plugin compromises — has spawned a self-spreading &#x27;Mini Shai-Hulud&#x27; worm hitting npm and PyPI, and GitHub has confirmed 3,800 internal repositories were accessed after an employee installed a poisoned VS Code extension. For controls teams, the implication is concrete: developer toolchains feeding your HMI builds, historian connectors and edge gateways are now a primary attack surface. ZKTeco CCTV cameras (SSC335-GC2063-Face) have an authentication bypass via an alternate channel that leaks camera credentials — relevant if you&#x27;ve integrated perimeter cameras into your OT VLAN, which many sites still do despite Purdue Level guidance.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm761517',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA issued a busy slate of ICS advisories today. The standout is ScadaBR 1.2.0, with four CVEs including missing authentication on critical functions enabling unauthenticated remote code execution (CVSS 9.1). <span id="rm366755" style="display:none">Any plant using this open-source SCADA package should isolate it immediately, restrict network exposure, and plan migration — there is no patched release yet that fully addresses the chain. Equally urgent is the Siemens RUGGEDCOM APE1808 advisory: the device hosts Palo Alto PAN-OS, and the User-ID/Captive Portal buffer overflow (CVE-2026-0300, already on CISA&#x27;s KEV list since 6 May) permits unauthenticated root RCE. If you run RUGGEDCOM APE1808 as a perimeter or cell-zone firewall, treat it as an active incident. ABB CoreSense HM and M10 transformer monitoring units have a path traversal flaw allowing unauthenticated access to restricted directories and full compromise — relevant to utilities and any substation using these for DGA/bushing monitoring. Updates are available and should be staged in. Siemens also issued a multi-product industrial device advisory covering a DoS vulnerability across a broad family; check the CSAF list for your installed base. Kieback &amp; Peter DDC4000-series building controllers (≤1.12.14) carry a browser-takeover flaw via CVE-2026-4293 — primarily a risk for engineers using web HMIs on shared workstations. ZKTeco CCTV cameras round out the list with an authentication bypass leaking credentials. On the broader supply-chain front, SANS ISC reports the TeamPCP campaign has escalated significantly: a confirmed compromise of the Checkmarx Jenkins plugin and a self-spreading Mini Shai-Hulud worm now propagating across npm and PyPI. While these primarily threaten IT/devops, any engineering workstation pulling Python libraries for data historians, MQTT clients, or PLC tooling (pycomm3, snap7, opcua-asyncio, etc.) is in scope. Pin dependencies, verify hashes, and avoid `pip install` from engineering laptops connected to the OT network. SecurityWeek also notes Microsoft patched two exploited zero-days (UnDefend and RedSun Defender) and rolled out a mitigation for the YellowKey BitLocker bypass. Engineering workstations and HMI PCs running Windows should be in this month&#x27;s patch cycle.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm366755',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -495,7 +495,7 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most OT-relevant KEV addition of the past two weeks remains CVE-2026-0300 in Palo Alto PAN-OS — the User-ID Authentication Portal out-of-bounds write giving unauthenticated root. Today&#x27;s Siemens advisory confirms this same flaw is reachable through RUGGEDCOM APE1808 application hosting platforms deployed in substations and rail. <span id="rm699597" style="display:none">If you operate APE1808s, treat them as exposed firewalls: apply Siemens&#x27; staged updates, disable Captive Portal where not required, and restrict management plane access to a jump host. Cisco Catalyst SD-WAN (CVE-2026-20182) authentication bypass to admin is another one to flag for sites using SD-WAN as the WAN underlay between plants and corporate — an attacker reaching the vManage controller can effectively redraw your routing and security policies. Ivanti EPMM (CVE-2026-6973) and the ConnectWise ScreenConnect path traversal (CVE-2024-1708, now confirmed used in ransomware) round out the remote-access risks; ScreenConnect in particular is still widely used by integrators for remote PLC support, so audit your vendor remote-access inventory and confirm versions.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm699597',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions this week heavily favour engineering-workstation and remote-access exposure. CVE-2026-0300 (Palo Alto PAN-OS Captive Portal, unauth root RCE) is the most consequential for OT — it directly underpins today&#x27;s Siemens RUGGEDCOM APE1808 advisory, meaning a firewall meant to protect your cell/area zone may itself be the entry point. <span id="rm173340" style="display:none">Apply Palo Alto&#x27;s fix and Siemens&#x27; interim countermeasures (disable Captive Portal where not needed, restrict management plane access) immediately. Also notable: Cisco Catalyst SD-WAN Controller authentication bypass (CVE-2026-20182), Ivanti EPMM authenticated RCE (CVE-2026-6973), and a fresh batch of old Microsoft chestnuts (CVE-2008-4250 Conficker-era SMB, plus 2009–2010 IE/Acrobat bugs) re-added on 20 May — almost certainly because they&#x27;re still being found unpatched in long-lived OT environments running legacy Windows. If you still operate XP/Server 2003/Win7 HMIs, this is your reminder that MS08-067 is still being exploited in 2026. The SimpleHelp and ConnectWise ScreenConnect entries (CVE-2024-57726/57728, CVE-2024-1708) are a direct warning for any site using these for vendor remote support — a common pattern for OEM service contracts. Confirm versions with your integrators and ensure jump-host architectures aren&#x27;t bypassed by a vendor-installed remote tool.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm173340',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -507,7 +507,7 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 15 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 22 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -517,9 +517,9 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-42897</span></td><td>2026-05-15</td><td>Microsoft</td><td>Microsoft</td><td>Microsoft Exchange Server Cross-Site Scripting Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20182</span></td><td>2026-05-14</td><td>Cisco</td><td>Catalyst SD-WAN</td><td>Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-42208</span></td><td>2026-05-08</td><td>BerriAI</td><td>LiteLLM</td><td>BerriAI LiteLLM SQL Injection Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2008-4250</span></td><td>2026-05-20</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Buffer Overflow Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2009-1537</span></td><td>2026-05-20</td><td>Microsoft</td><td>DirectX</td><td>Microsoft DirectX NULL Byte Overwrite Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2009-3459</span></td><td>2026-05-20</td><td>Adobe</td><td>Acrobat and Reader</td><td>Adobe Acrobat and Reader Heap-Based Buffer Overflow Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -531,20 +531,25 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-20 10:26 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-21 10:41 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ABB":"Swiss-Swedish multinational corporation specializing in robotics, power, and automation technology.",
+  "ABB":"Swiss multinational corporation specializing in robotics, power, and automation technology.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "ASCII":"Standard character encoding system representing text using numeric values.",
+  "AV":"Antivirus software that detects and removes malicious software threats.",
+  "CCTV":"Closed-circuit television system for surveillance and monitoring purposes.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CPU":"Central processing unit; the primary computational component of a controller or computer.",
+  "CSAF":"Cybersecurity Advisory Framework for standardized threat and vulnerability information.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
+  "DGA":"Domain Generation Algorithm used to dynamically create malware command-and-control domains.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+  "FAT":"Factory Acceptance Test verifying equipment meets specifications before delivery.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
@@ -553,7 +558,7 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers; develops technical standards for industrial systems.",
+  "IRT":"Infrared Thermography technique using thermal imaging for equipment monitoring.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
@@ -562,27 +567,27 @@ ZKTeco CCTV </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NIS2":"EU Directive establishing cybersecurity requirements for critical infrastructure operators.",
+  "MQTT":"Lightweight publish-subscribe messaging protocol for IoT and control systems.",
+  "NIS2":"European Union directive establishing cybersecurity requirements for critical infrastructure.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original equipment manufacturer; company that designs and produces control systems.",
+  "OEM":"Original Equipment Manufacturer producing equipment or components.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating system; software managing hardware resources and application execution.",
+  "OS":"Operating System software managing computer hardware and resources.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PDU":"Programmable device unit or protocol data unit; data packet structure in industrial networks.",
+  "PAN":"Personal Area Network connecting devices within close proximity wirelessly.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote code execution; unauthorized ability to run code on a system remotely.",
+  "RCE":"Remote Code Execution vulnerability allowing attackers to run arbitrary code remotely.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SBOM":"Software bill of materials; documented list of software components and dependencies.",
+  "SANS":"Information security organization providing training and cybersecurity certifications.",
+  "SAP":"Enterprise resource planning software for managing business operations.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "SMB":"Server Message Block protocol for network file sharing and communication.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UI":"User interface; system for operator interaction with control equipment.",
-  "VDMA":"German Engineering Federation; develops standards for machinery and mechanical engineering.",
-  "VLAN":"Virtual local area network; logically isolated network segment within physical infrastructure.",
-  "WAN":"Wide area network; interconnected computers spanning geographically distributed locations.",
+  "WAN":"Wide Area Network connecting geographically distributed computers and networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
