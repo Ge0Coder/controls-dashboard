@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-05-27 10:57 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-05-28 10:58 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy ABB advisory cluster, Iranian-linked transit attack, and active LiteSpeed/Palo Alto exploitation keep OT defenders on alert.</span>
+  <span>Heavy ABB advisory drop spanning AC500 PLCs, B&amp;R Automation Runtime, Terra AC chargers, and Zenon Remote Transport raises broad OT exposure.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-05-27 10:57 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-05-28 10:58 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">20</div>
+      <div class="stat-val amber">21</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -318,7 +318,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128308;</span>
     <div>
-      <div class="stat-val red">2</div>
+      <div class="stat-val red">1</div>
       <div class="stat-lbl">Critical (ransomware)</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-05-27 10:57 UTC</span>
+      <span class="briefing-date">2026-05-28 10:58 UTC</span>
     </div>
-    <div class="briefing-body"><p>ABB and B&amp;R have dropped six CISA advisories simultaneously, with the AC500 V2 Modbus telegram leak and the Terra AC charger firmware-rewrite flaw being the most operationally consequential — pull the CSAFs and scope your exposure today. Pair that with active exploitation of Palo Alto PAN-OS (CVE-2026-0300, unauth root RCE) and Cisco Catalyst SD-WAN (CVE-2026-20182, auth bypass), both of which commonly sit on the IT/OT boundary. If you do nothing else today, verify your perimeter firewalls and SD-WAN controllers are on current firmware, and start scheduling the ABB patches into your next maintenance window.</p></div>
+    <div class="briefing-body"><p>ABB dropped six CISA advisories overnight covering AC500 V2 PLCs, B&amp;R Automation Runtime, Terra AC chargers, Ability Zenon Remote Transport, Camera Connect, and LVS MConfig — the most consequential being a remote firmware-altering heap corruption in Terra AC and a denial-of-service in B&amp;R&#x27;s System Diagnostics Manager that can stop the controller. If you run any ABB or B&amp;R kit, today is an inventory-and-patch day. In parallel, prioritise the Palo Alto PAN-OS (CVE-2026-0300) and Cisco Catalyst SD-WAN (CVE-2026-20182) KEV entries on your IT/OT boundary — both are unauthenticated paths to administrative control of devices that likely sit directly between your plant and the internet.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Modbus protocol, designed by Modicon in 1979 for the 584 PLC, has no concept of session, encryption, or authentication — yet it still carries roughly 70% of legacy industrial traffic in some surveys. Its longevity is partly because the original spec fits on about 30 pages, making it trivial to implement on 8-bit microcontrollers and embedded gateways. The flip side, as today&#x27;s ABB AC500 advisory shows, is that even confidentiality of past telegrams was never an explicit design goal.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Modbus protocol, first published by Modicon in 1979, was designed with no concept of session, authentication, or message integrity because it was originally intended to run over a short RS-485 cable between a single master and its slaves. Every modern Modbus/TCP vulnerability — including today&#x27;s ABB AC500 telegram-fragment disclosure — ultimately traces back to that 1979 assumption that the wire itself was the security boundary. Forty-seven years later, we are still patching around it.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller&#x27;s integral term has an unexpected ancestor: James Clerk Maxwell&#x27;s 1868 paper &#x27;On Governors&#x27;, written to analyse why Watt&#x27;s centrifugal flyball governor hunted instead of settling. Maxwell&#x27;s analysis — essentially the first stability proof in feedback control — predates the term &#x27;control theory&#x27; by almost a century and was motivated not by industry but by curiosity about telescope drives. The same equations Maxwell scribbled to keep a steam engine steady are what your loop tuner is solving every scan today.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was largely formalised not by a control theorist but by Nicolas Minorsky in 1922, while analysing how helmsmen steered the USS New Mexico. He noticed that experienced helmsmen didn&#x27;t just react to the current heading error (proportional), they also accounted for how fast it was changing (derivative) and how long the ship had been off course (integral) — and he wrote the math down. Almost every loop you tune today is, in essence, a formalisation of what a Navy helmsman was doing intuitively a century ago.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Time-Sensitive Networking (TSN) layered with OPC UA continues its slow march from demo booths into real plants. TSN is a set of IEEE 802.1 standards that turn standard Ethernet into a deterministic medium by adding precise time synchronisation (802.1AS, derived from PTP), traffic scheduling (802.1Qbv), and frame preemption (802.1Qbu). <span id="rm948046" style="display:none">Combined with OPC UA&#x27;s pub/sub model, it offers the long-promised single-network architecture where motion control, safety, and information-layer traffic share the same wire without the determinism penalties of TCP/IP. The practical implications are significant: you can collapse multiple fieldbus segments (Profinet IRT, EtherCAT, Sercos III) into one converged Ethernet, simplify cabinet wiring, and feed cloud or edge analytics directly from the controller without a translation gateway. Vendors like B&amp;R, Siemens, Rockwell and Beckhoff all ship TSN-capable hardware now. The adoption challenges remain real. TSN-capable switches are still 2–4× the cost of managed industrial switches, configuration tooling (CNC/CUC) is immature and largely vendor-specific despite 802.1Qcc, and most installed bases of HMIs, drives, and remote I/O cannot generate scheduled traffic. Expect TSN to land first in greenfield automotive, semiconductor, and packaging lines where the determinism-plus-convergence story justifies the price premium.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm948046',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on time-sensitive networking (TSN) for OPC UA, which is quietly moving from trade-show demo to real plant deployments in 2026. TSN is a set of IEEE 802.1 extensions that turn standard Ethernet into a deterministic transport — bounded latency, scheduled traffic windows, and frame preemption — so that a single physical network can carry motion control traffic alongside SCADA polling and even video, without the jitter that historically forced engineers to deploy parallel fieldbus networks like PROFINET IRT, EtherCAT, or Sercos. <span id="rm201953" style="display:none">For controls engineers the practical implication is significant: a converged OPC UA over TSN architecture means your drive-to-drive synchronisation, your PLC-to-PLC peer messaging, and your historian traffic can live on the same switches, dramatically simplifying cable plant and asset inventory. Major vendors (Siemens, B&amp;R, Beckhoff, Rockwell via CIP Motion over TSN, Schneider) all now ship TSN-capable hardware, and the OPC Foundation&#x27;s UA FX (Field eXchange) specification published the controller-to-controller profile that makes vendor interoperability realistic. The adoption challenges are real. TSN requires every switch in the deterministic path to be TSN-capable and centrally configured (typically via a CNC — Centralised Network Controller), which most brownfield sites cannot retrofit cheaply. Engineering tools for scheduling TSN streams are still vendor-specific and immature, and troubleshooting a misconfigured gate-control list is meaningfully harder than diagnosing a PROFINET topology. Expect TSN to land first in greenfield automotive, semiconductor, and packaging lines before it touches process industries.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm201953',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (Security risk assessment for system design) continues to be the most-cited standard in vendor advisories — including several of today&#x27;s ABB CSAFs, which reference zone-and-conduit segmentation as the recommended compensating control. If you have not formally documented your zones and conduits, the ABB AC500 Modbus-fragment vulnerability is a textbook example of why: even when a controller leaks data, a properly defined conduit limits who can ever reach it to ask. <span id="rm209756" style="display:none">On the NIST side, the long-promised update to SP 800-82 Rev 3 (&#x27;Guide to Operational Technology Security&#x27;) is now the operative baseline for federal and federal-adjacent OT environments, and increasingly referenced by insurers. Notable shifts from Rev 2 include explicit coverage of cloud-connected OT, safety-instrumented system risk, and a tighter mapping to the NIST Cybersecurity Framework 2.0 &#x27;Govern&#x27; function. Practically, this means controls engineers should expect more questions from auditors about who owns risk decisions for OT, not just what controls are deployed. ISA/IEC 62443-4-2 component certification is also accelerating among PLC vendors. If you are specifying new controllers or RTUs in 2026, asking for SL-2 certified components against 62443-4-2 is now a reasonable contractual baseline, not a stretch requirement.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm209756',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (component-level technical requirements) continue to dominate procurement language in 2026, and the ABB advisory cluster today is a useful reminder of why. Most ABB advisories now reference a 62443-4-2 security level the product targets, and increasingly end users are writing SL-2 minimums into capital project specifications. <span id="rm783265" style="display:none">If you are scoping a new line, asking your integrator for the 62443-4-2 conformance evidence (not just the marketing claim) of every PLC, HMI, and gateway is now a defensible baseline. Worth watching: ISA/IEC is progressing work on 62443-2-2 (security program ratings) which aims to give asset owners a measurable maturity score for their operating security program — analogous to how 4-2 rates products. Early drafts suggest it will be more prescriptive than NIST CSF profiles, which should make it easier to benchmark sister sites within a corporation. NIST itself released SP 800-82r3 in 2023 and a companion implementation guide is in public comment, with revised guidance on cloud-connected ICS and remote engineering access that reflects post-COVID realities. For day-to-day work, the most actionable standards activity remains the ISAGCA&#x27;s joint guidance with ISA on secure remote access architectures — particularly relevant given today&#x27;s Zenon Remote Transport vulnerability, which is exactly the class of remote service the guidance addresses.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm783265',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is the LA Metro cyberattack, now attributed by SecurityWeek-cited researchers to Iranian state-sponsored infrastructure despite a hacktivist front group taking public credit. The attack disrupted customer-facing services and triggered fare and signage outages across several lines. <span id="rm23344" style="display:none">While core train control was reportedly unaffected, the corporate and operational IT-OT boundary was where the incident propagated, and recovery required taking several station systems offline. The mechanics followed a familiar pattern: initial access via internet-exposed remote-management infrastructure, credential reuse to pivot into operational support systems, and a public-facing claim of responsibility designed to obscure attribution. Transit and rail operators are particularly exposed because passenger information systems, ticketing, and SCADA frequently share network segments or AD domains in ways that pre-date modern segmentation guidance. Three takeaways for controls engineers: first, hacktivist claims should never end your investigation — assume state involvement until logs and infrastructure indicators say otherwise. Second, the IT/OT boundary is not a firewall, it is a set of identity, time, and patch dependencies; shared AD and shared jump hosts are where these incidents actually cross. Third, exercise your manual fallback procedures: LA Metro kept trains moving partly because operators could fall back to radio dispatch and manual signage. If your plant has no rehearsed degraded-mode operation, you do not have a recovery plan, you have a hope.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm23344',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s instructive case is the ongoing Akira ransomware campaign, which SANS dissected yesterday in a kill-chain reconstruction. Akira affiliates have repeatedly compromised manufacturers and utilities through internet-exposed VPN appliances — typically unpatched SonicWall and Cisco ASA devices — then escalated to domain admin within 24–72 hours and pivoted laterally into OT networks where flat addressing and shared Active Directory let them encrypt engineering workstations, historians, and HMI servers alongside IT systems. <span id="rm855355" style="display:none">What made the reconstruction valuable is the joining of perimeter logs with endpoint telemetry: the SANS analysts showed that the truly diagnostic events sit in the days before encryption — anomalous VPN authentications from unusual ASNs, followed by RDP fan-out and unusual SMB enumeration. By the time the ransom note appears, the OT impact is already locked in. In multiple recent cases, plants lost recipe servers and batch historians, forcing manual operation or full shutdown. Three lessons for controls engineers: first, treat your IT/OT boundary firewall logs as a safety-relevant data source and retain them at least 90 days. Second, ensure engineering workstations and HMI servers do not share a domain or local administrator credentials with the IT estate — credential reuse is what turns an IT ransomware event into an OT outage. Third, have an offline, validated restore path for your PLC programs, HMI projects, and historian databases; tested annually, not just documented.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm855355',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Today&#x27;s docket is dominated by a six-pack of ABB/B&amp;R advisories pushed through CISA. The most operationally significant is the AC500 V2 PLC issue (≤2.5.2, 2.5.3), where residual memory exposes fragments of previously transmitted Modbus telegrams — a confidentiality leak that could disclose process variables, setpoints, or addressing information to anyone able to query the controller. <span id="rm851749" style="display:none">The Terra AC EV charger flaw is more severe, with potential heap corruption leading to firmware rewrite. Also covered: Ability Zenon Remote Transport allowing unauthenticated reboots, Ability Camera Connect bundling an outdated VLC 2.2.4, LVS MConfig leaking sensitive info on the LAN, and a B&amp;R Automation Runtime SDM denial-of-service. Engineers running any ABB/B&amp;R stack should pull the CSAFs and plan firmware windows. On the broader threat front, SecurityWeek attributes the LA Metro cyberattack to Iranian state-sponsored infrastructure despite a hacktivist front — a reminder that transportation OT remains a priority target for state actors, and that public-facing claims of responsibility frequently mask nation-state involvement. The FBI separately warned of Silent Ransom Group operatives physically visiting law firms to plant USB drives, an old-school vector that is equally viable against unattended HMIs, engineering workstations and panel PCs in plants. Supply-chain risk continues to escalate. The &#x27;SymJack&#x27; technique weaponises AI coding agents via malicious repos and symlinks to silently install attacker-controlled MCP servers, and the TeamPCP campaign has now reached GitHub&#x27;s internal codebase and trojanised an officially Microsoft-published Python SDK across three package ecosystems. Any controls team using Python-based historians, MES connectors, or AI copilots for code generation should review dependency provenance and pin versions tightly. Finally, CISA is urging immediate patching of an actively exploited LiteSpeed cPanel zero-day (CVE-2026-48172) granting root-level script execution — relevant if any remote-access or vendor portals in your environment sit behind cPanel-managed infrastructure.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm851749',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">Today&#x27;s headline event for plant floor engineers is a coordinated drop of six CISA advisories covering ABB products — a noteworthy concentration that warrants attention across asset inventories. The AC500 V2 advisory (versions 2.5.2 and 2.5.3 and earlier) describes a buffer-related flaw that can let an attacker recover fragments of previously transmitted Modbus telegrams, which is meaningful where AC500s sit on shared OT segments carrying setpoint or recipe data. <span id="rm816271" style="display:none">The B&amp;R Automation Runtime advisory describes a denial-of-service in the System Diagnostics Manager that can halt the controller — a direct availability concern for any line running B&amp;R PCC or X20 hardware. The Terra AC EV charger advisory is the most severe of the set: a heap memory corruption that potentially permits remote takeover and firmware modification. While not classical process control gear, Terra AC units increasingly sit on the same enterprise/OT boundaries as building and site infrastructure, and a firmware-altering foothold is a meaningful pivot point. The Ability Camera Connect and LVS MConfig advisories are lower-severity but reflect the persistent pattern of bundled third-party components (VLC 2.2.4 in this case) ageing inside vendor installation packages. The Ability Zenon Remote Transport flaw lets an unauthenticated attacker trigger OS reboots via the Remote Transport Service — a clean availability attack against HMI/SCADA servers if the service is network-reachable. On the broader cyber landscape, SANS published a useful Akira ransomware kill-chain reconstruction joining perimeter and endpoint logs — worth reading for OT defenders responsible for IT/OT boundary monitoring, since Akira affiliates have repeatedly pivoted from VPN appliances into flat plant networks. Google launched an &#x27;AI Threat Defense&#x27; platform combining Mandiant, Wiz and Gemini telemetry, and the UK&#x27;s cyber intelligence chief warned of intensifying Russian grey-zone activity — context worth carrying into your next risk review if you operate critical infrastructure in Europe. Practical takeaway: inventory your ABB footprint today. AC500 V2, B&amp;R Automation Runtime, Terra AC, Zenon, Camera Connect, and MConfig all have patches or mitigations available — coordinate with ABB&#x27;s PSIRT advisories and prioritise anything internet-adjacent or in safety-relevant zones.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm816271',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -456,7 +456,7 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The KEV catalogue saw heavy additions over the last week. The standouts for OT-adjacent environments are CVE-2026-0300 in Palo Alto PAN-OS (unauthenticated root RCE in the User-ID Captive Portal — patch immediately on any IT/OT boundary firewall), CVE-2026-20182 in Cisco Catalyst SD-WAN Manager (authentication bypass yielding admin), and CVE-2026-6973 in Ivanti EPMM (authenticated RCE) which is commonly deployed for mobile engineering devices. <span id="rm657026" style="display:none">Trend Micro Apex One on-prem (CVE-2026-34926) is also flagged — directory traversal allowing malicious code to be pushed to agents, a meaningful concern where Apex One protects OT DMZ hosts. CISA also re-added a striking batch of legacy Microsoft vulnerabilities from 2008–2010 (MS08-067 Server Service, DirectShow, IE use-after-frees) on 20 May. These almost certainly reflect active exploitation against unsupported Windows systems still embedded in industrial estates — Windows XP, Server 2003, and unpatched 7 hosts running HMIs, vendor tools, or legacy historians. If you cannot remove these hosts, segment them ruthlessly and disable SMBv1, RPC where feasible, and outbound internet access. The LiteSpeed cPanel (CVE-2026-48172) and cPanel/WHM (CVE-2026-41940) bugs are being exploited in the wild, with the latter linked to known ransomware actors. Anywhere your organisation uses cPanel-hosted infrastructure for vendor portals, remote access, or contractor file exchange, treat as urgent.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm657026',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The last 30 days of KEV additions are heavily IT-weighted but contain several entries OT teams should care about. CVE-2026-20182 (Cisco Catalyst SD-WAN authentication bypass yielding admin) is significant for any site using SD-WAN to backhaul OT traffic between plants — an attacker with controller access can re-route or mirror traffic invisibly. <span id="rm723668" style="display:none">CVE-2026-0300 in Palo Alto PAN-OS (unauthenticated RCE as root in the User-ID Captive Portal) directly threatens the firewalls many sites use as their IT/OT boundary; confirm Captive Portal is disabled if not required and that PAN-OS is patched to current train. The Nx Console (CVE-2026-48027) and TanStack (CVE-2026-45321) supply-chain poisonings on npm reinforce a trend OT engineering teams shouldn&#x27;t ignore: development laptops used to build HMI dashboards, Ignition projects, or Node-RED flows are increasingly the entry vector. If your integrators use npm-based tooling, audit for the affected versions. Also notable is CISA&#x27;s re-listing of several legacy Microsoft and Adobe CVEs from 2008–2010 — a reminder that legacy engineering workstations still running Windows XP/7 in isolated cells remain exploitable by these decade-old bugs if removable media or transient laptops bridge the air gap. For remediation prioritisation: patch PAN-OS and Cisco SD-WAN this week, validate Trend Micro Apex One (CVE-2026-34926) on any engineering workstations, and ensure Ivanti EPMM (CVE-2026-6973) is patched if used to manage field tablets or mobile HMIs.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm723668',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -468,7 +468,7 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 20 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 21 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -478,9 +478,9 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-48172</span></td><td>2026-05-26</td><td>LiteSpeed</td><td>cPanel Plugin</td><td>LiteSpeed cPanel Plugin Privilege Escalation Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-9082</span></td><td>2026-05-22</td><td>Drupal</td><td>Core</td><td>Drupal Core SQL Injection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-34291</span></td><td>2026-05-21</td><td>Langflow</td><td>Langflow</td><td>Langflow Origin Validation Error Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-48027</span></td><td>2026-05-27</td><td>Nx</td><td>Nx Console</td><td>Nx Console Embedded Malicious Code Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-45321</span></td><td>2026-05-27</td><td>TanStack</td><td>TanStack</td><td>TanStack Unspecified Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-8398</span></td><td>2026-05-27</td><td>Daemon</td><td>Daemon Tools Lite</td><td>Daemon Tools Lite Embedded Malicious Code Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -492,24 +492,27 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-27 10:57 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-05-28 10:58 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ABB":"Swiss industrial automation and robotics company",
-  "AC":"Alternating current electrical power",
-  "AC500":"ABB programmable logic controller product line",
+  "ABB":"Swiss-Swedish multinational corporation specializing in robotics, power, and automation technology.",
+  "AC":"Alternating current; electrical current that reverses direction periodically.",
+  "AC500":"ABB's programmable logic controller platform for industrial automation.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "ASA":"American Standards Association; predecessor to ANSI standards organization.",
+  "CIP":"Common Industrial Protocol; industrial networking protocol for real-time data exchange.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CNC":"Computer numerical control machine tool",
+  "CNC":"Computer numerical control; automated machine tool controlled by programmed instructions.",
+  "CSF":"Critical success factor; essential condition required to achieve organizational objectives.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized zone network security perimeter",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
+  "FX":"Mitsubishi compact programmable logic controller series for industrial automation.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
@@ -517,13 +520,13 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers standards organization",
-  "IRT":"Isochronous real-time deterministic network protocol",
+  "IEEE":"Institute of Electrical and Electronics Engineers; professional standards organization.",
+  "IRT":"Isochronous real-time; deterministic communication protocol for synchronized industrial systems.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "LAN":"Local area network for connected devices",
+  "LVS":"Low voltage switchgear; electrical equipment for controlling and protecting low-voltage circuits.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
@@ -531,22 +534,33 @@ ABB became aware of an internally discovered vulnerability in the MConfig produc
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating system software managing hardware resources",
+  "OS":"Operating system; software managing hardware and application program execution.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PCC":"Point of common coupling; interface between customer installation and utility grid.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTP":"Precision time protocol for network synchronization",
-  "RCE":"Remote code execution security vulnerability",
-  "RPC":"Remote procedure call inter-process communication",
+  "PSIRT":"Product Security Incident Response Team; organization handling vendor security issues.",
+  "RCE":"Remote code execution; security vulnerability allowing unauthorized command execution.",
+  "RDP":"Remote Desktop Protocol; Microsoft protocol for remote computer access.",
+  "RED":"Redundancy; system design providing backup components for failure tolerance.",
+  "RS":"Recommended standard; serial communication standard for industrial equipment interconnection.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SDK":"Software development kit for application creation",
+  "SD":"Secure digital; memory card format for data storage.",
+  "SL":"Safety level; designation for functional safety integrity in control systems.",
+  "SMB":"Small and medium-sized business; organization with limited employees and revenue.",
+  "SP":"Service pack; software update bundle providing fixes and improvements.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USB":"Universal serial bus hardware interface standard",
-  "WAN":"Wide area network spanning multiple locations",
-  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
+  "UA":"Unified architecture; standardized platform-independent framework for industrial data exchange.",
+  "USS":"Unified servo system; Siemens protocol for servo motor communication.",
+  "VLC":"Vlans; virtual local area network segments isolating network traffic.",
+  "VPN":"Virtual private network; encrypted connection providing secure remote network access.",
+  "WAN":"Wide area network; computer network spanning geographically dispersed locations.",
+  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments.",
+  "X20":"B&R modular distributed automation platform for industrial control systems."
 };
 (function(){
   var html=document.documentElement,btn=document.getElementById('themeBtn');
