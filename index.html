@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-06-03 11:58 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-06-04 10:40 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Multiple critical ICS advisories (XCharge C6 CVSS 9.8, KMW cameras 9.1) plus actively exploited Linux kernel and PAN-OS flaws affecting OT infrastructure.</span>
+  <span>Heavy CISA ICS advisory day: critical flaws in EV chargers, marine VDR, building access, HVAC tooling and cameras.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-06-03 11:58 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-06-04 10:40 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">23</div>
+      <div class="stat-val amber">24</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-06-03 11:58 UTC</span>
+      <span class="briefing-date">2026-06-04 10:40 UTC</span>
     </div>
-    <div class="briefing-body"><p>Patch priority today is the newly KEV-listed Linux kernel cgroups flaw (CVE-2022-0492) — it is exploited in the wild and affects the kernels running on many edge gateways, IIoT devices, and historian appliances in your plant. Pair that with the Schneider EcoStruxure Machine Expert HVAC advisory if you program Modicon M171/M172, and the XCharge C6 critical (CVSS 9.8) if EV chargers sit on any of your networks. Action: pull a quick inventory of Linux-based OT assets, check kernel versions against the KEV deadline, and confirm engineering workstations running Schneider HVAC tooling are isolated and patched this week.</p></div>
+    <div class="briefing-body"><p>Today&#x27;s CISA load is unusually OT-heavy: a CVSS 9.8 XCharge EV charger flaw, a Schneider EcoStruxure Machine Expert HVAC information-disclosure issue affecting M171/M172 programming workstations, an ABB door-opener actuator vulnerability with physical access consequences, and default credentials in MacGregor VDR marine recorders. If you operate EV charging infrastructure, building automation, or Modicon HVAC controllers, treat patch verification as today&#x27;s priority. Also pull forward the Palo Alto PAN-OS auth bypass (CVE-2026-0257) and the WebLogic T3 flaw from this week&#x27;s KEV — both sit on the IT/OT boundary where remote engineering access lives.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, introduced by Modicon in 1979, was designed assuming the serial line itself was the only security boundary — there is no authentication, no encryption, and no concept of a session. When Modbus/TCP was published in 1999, the spec explicitly preserved this trust model for backwards compatibility, which is why almost every modern Modbus device on an Ethernet network is one routable packet away from being commanded by anyone who can reach it. Modbus is now older than most engineers using it, and its security model is older than the public internet.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Voyage Data Recorder vulnerability disclosed today is the maritime equivalent of compromising an aircraft&#x27;s flight data recorder — VDRs are mandated by SOLAS to survive fire, pressure and impact, yet the cybersecurity baseline historically assumed physical-only threats. A default-credential admin takeover means an attacker could potentially alter or wipe the very evidence used in collision and grounding investigations.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics: Nicolas Minorsky derived the three-term control law in 1922 by watching helmsmen steer the USS New Mexico, noticing that good helmsmen instinctively applied corrections proportional to error, integral of past error, and rate of change — exactly the algorithm we still tune today. The first hardware implementations were pneumatic, using bellows and orifices to perform integration and differentiation with compressed air. Modern digital PID loops in your DCS are doing the same maths an experienced sailor&#x27;s nervous system was doing a century ago, just at 100 ms scan rates instead of human reaction time.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller&#x27;s integral term was effectively invented at sea, not in a factory. Nicolas Minorsky derived three-term control in 1922 while analysing the automatic steering of USS New Mexico, observing how a skilled helmsman applied correction proportional not just to heading error but to its accumulation and rate of change. The mathematics he formalised to mimic that helmsman is the same algorithm now running in every temperature loop and flow controller on your plant — a reminder that some of the most important industrial control theory began as an attempt to copy human intuition.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) is moving from pilot demos into real deployments, and it deserves a fresh look. The combination promises something controls engineers have wanted for decades: a single, deterministic Ethernet network that carries hard-real-time motion data, soft-real-time process I/O, and best-effort enterprise traffic without separate physical networks or proprietary fieldbuses. <span id="rm611340" style="display:none">TSN provides the bounded-latency scheduling at the switch level; OPC UA PubSub provides the semantic, secure, vendor-neutral data model on top. For a controls engineer, the practical implication is that you may eventually replace EtherCAT, PROFINET IRT, and Sercos with a converged stack — but &#x27;eventually&#x27; is doing heavy lifting. Adoption challenges are real: TSN requires switches that support IEEE 802.1Qbv scheduling and proper configuration of gate control lists, which is a level of network engineering most automation vendors aren&#x27;t yet shipping turnkey. Tool support for designing schedules is immature, multi-vendor interoperability still surprises in field trials, and the security story around PubSub key management at scale is not solved. Expect TSN to land first in greenfield automotive and semiconductor lines where the motion-plus-vision-plus-MES convergence justifies the engineering effort.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm611340',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to inch from demonstration to deployment, and 2026 is shaping up as the year it becomes specifiable rather than aspirational. The combination promises deterministic, sub-millisecond Ethernet communication carrying the same semantic information model used at the SCADA layer — meaning one cable and one protocol stack from sensor to cloud, replacing the traditional fieldbus-plus-Ethernet split. <span id="rm429905" style="display:none">The IEC/IEEE 60802 profile, which finally stabilised last year, is what most vendors are now aligning to. For controls engineers the practical implications are mixed. On the upside, motion control, safety and process data can converge on shared infrastructure without the jitter problems that killed earlier &#x27;industrial Ethernet&#x27; convergence attempts; on the downside, TSN configuration is genuinely harder than VLAN-and-QoS networking, requiring centralised network configuration (CNC) tools that few sites have skilled staff for. Early adopters are mostly automotive and semiconductor — industries that can amortise the engineering cost across many identical lines. For brownfield process plants, the realistic near-term play is OPC UA pub/sub over standard Ethernet for line-of-business data, with TSN reserved for new greenfield cells where determinism is a hard requirement.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm429905',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most often misapplied in practice. The standard requires you to partition the system under consideration into zones and conduits, perform an initial cyber risk assessment, and then assign a target security level (SL-T) to each zone — but many organisations stop at drawing a network diagram and calling it segmentation. <span id="rm679724" style="display:none">The standard explicitly expects the SL-T to be driven by consequence analysis, not by what your firewall happens to support. Worth noting that ISA/IEC 62443-2-1, the operational security programme requirements standard, was substantially revised in 2024 to align with the rest of the family and now maps far more cleanly onto NIST CSF 2.0 functions. If your site is being asked to demonstrate compliance with both an NIST-flavoured corporate framework and an IEC 62443 contractual requirement (increasingly common in OEM specifications), the new 2-1 makes that crosswalk much less painful. The companion IEC 62443-3-3 system security requirements remain stable and continue to be the document auditors actually read line by line — keep a copy on your desk.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm679724',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) remains the most-cited standard in this year&#x27;s vendor advisories, and today&#x27;s batch is a good illustration of why. The recurring themes — default credentials (MacGregor VDR), missing integrity checks on firmware download (XCharge), and unverified password change (KMW cameras) — all map directly to foundational requirements in 62443-4-2 that vendors are still failing to meet despite the standard being well over a decade old in its earlier forms. <span id="rm504527" style="display:none">Worth watching: the ISA/IEC 62443-2-1 revision, which restructures the OT cybersecurity management system requirements to align more cleanly with ISO 27001 control families. For asset owners this matters because it makes joint IT/OT certification audits less painful and gives procurement teams a defensible reference when pushing vendors on the 4-1 secure development lifecycle requirements. NIST SP 800-82 Rev 3 is also seeing increased citation in US federal procurement language, particularly around remote access architecture — relevant if you supply or operate anything touching federal critical infrastructure.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm504527',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2021 Oldsmar, Florida water treatment intrusion, because new analysis published over the past year has reframed what we thought happened. The original story — a remote attacker raised sodium hydroxide setpoints from 100 ppm to 11,100 ppm via TeamViewer before an operator noticed and reverted — became the canonical example of remote-access risk in water utilities. <span id="rm501347" style="display:none">Subsequent investigation suggests the &#x27;intrusion&#x27; may have been a misattributed operator action or a contractor session, but the technical exposure was unquestionably real: a shared TeamViewer password, no MFA, flat network, and the HMI directly reachable from the internet-facing remote support PC. The lessons hold regardless of attribution. First, remote access tools deployed during COVID-era &#x27;just get it working&#x27; periods are still in production at thousands of sites and rarely get the same scrutiny as engineered solutions — audit yours. Second, dose-rate and setpoint changes should have engineered limits enforced at the controller, not just at the HMI; a PLC that refuses a physically implausible setpoint is the last line of defence regardless of who is on the keyboard. Third, operator vigilance saved the day — keep your HMI trends visible, your alarms meaningful, and your operators empowered to question a value that &#x27;looks wrong&#x27;.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm501347',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s notable item is the stock exchange espionage campaign disclosed in today&#x27;s news cycle, in which attackers maintained access to a senior executive&#x27;s mailbox for 150 days and exfiltrated data continuously. While not an OT incident per se, it follows the increasingly common pattern seen in pre-positioning attacks against critical infrastructure: long-dwell mailbox compromise used to map organisational structure, identify engineering and operations contacts, and harvest the technical documents (network diagrams, vendor contracts, change records) that make a subsequent OT intrusion dramatically cheaper. <span id="rm149193" style="display:none">The mechanism appears to have been token theft and session persistence rather than password compromise, which is why MFA alone did not stop it. For controls engineers the lessons are threefold: first, treat your own mailbox as an OT asset — it contains the topology of your plant. Second, push for conditional access policies that re-evaluate device posture continuously, not just at sign-in. Third, assume any sensitive engineering document attached to email in the last six months may already be in adversary hands, and plan tabletop exercises accordingly. The 150-day dwell number is the figure to remember: by the time anyone notices, the reconnaissance phase is long complete.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm149193',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA released a notable batch of ICS advisories today touching several product categories controls engineers will care about. Schneider Electric&#x27;s EcoStruxure Machine Expert HVAC — the programming environment for Modicon M171/M172 logic controllers — has a vulnerability that could expose sensitive information including credentials. <span id="rm763142" style="display:none">If you have building HVAC controllers programmed with this toolchain, prioritise patching engineering workstations and rotating any credentials that may have been cached. Separately, ABB&#x27;s Busch-Welcome 2-Wire Door Opener Actuator advisory is a reminder that physical access control devices are increasingly part of the OT attack surface, with successful exploitation granting unauthorised building entry. Two high-severity advisories stand out at the edge of OT/IoT. XCharge C6 EV chargers carry a CVSS 9.8 chain (unsigned firmware download, stack buffer overflow, weak initialisation) allowing admin takeover or code execution — relevant to anyone integrating EV charging into industrial campuses or fleet depots. The MacGregor Voyage Data Recorder G4e (Danelec) below v5.250 ships with default credentials granting administrator access, a serious issue for maritime operators and any shore-side integration. KMW IP cameras and CP Plus NVRs round out a strong week of video-surveillance vulnerabilities — common but often overlooked components on plant networks. On the broader IT side, SecurityWeek is highlighting an HTTP/2 &#x27;compression bomb&#x27; attack that can knock out web servers in seconds using default configurations — worth checking on any HMI or historian web frontends exposed beyond the cell zone. SANS ISC continues to track a phishing surge using SVG file attachments to bypass email gateways; brief your engineering staff, since SVGs look harmless but can carry embedded scripts and links. Microsoft also walked back legal threats against zero-day researchers after community backlash, a useful signal that responsible disclosure norms are holding.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm763142',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA published an unusually dense batch of ICS advisories today, several of which directly affect plant and facility environments. The headline item is the XCharge C6 EV charger, rated CVSSv3 9.8 with a stack of weaknesses including download of code without integrity check, a stack-based buffer overflow, and insecure resource initialisation — collectively enough for remote administrator access or code execution. <span id="rm932068" style="display:none">Sites running C6 chargers in fleet depots, manufacturing car parks or logistics yards should treat this as an internet-exposed asset and isolate it from any shared OT or corporate VLAN until patched. Schneider Electric disclosed a vulnerability in EcoStruxure Machine Expert HVAC, the programming software for Modicon M171/M172 controllers commonly used in chillers, AHUs and BMS skids. The flaw centres on information disclosure that could be leveraged for further attack — engineering workstations are the affected surface, so the practical mitigation is the usual one: keep the programming software off general-purpose laptops, restrict project file handling, and apply Schneider&#x27;s fix when available. ABB also issued an advisory for the Busch-Welcome 2-wire door opener actuator, where exploitation could grant physical building entry — a reminder that converged building systems sit squarely in the OT threat model. On the maritime side, the MacGregor (Danelec) Voyage Data Recorder G4e below v5.250 ships with default credentials (CVSS 8.3), allowing administrator takeover of the ship&#x27;s black-box. Combined with the KMW IP camera unverified password change flaw (CVSS 9.1) and a CP Plus NVR XSS issue, today&#x27;s bulletin is essentially a tour of weak authentication across surveillance and recorder devices — exactly the kind of long-tail gear that rarely gets patched on schedule. In adjacent IT news with OT relevance, Cisco warned that a public PoC now exists for a critical unauthenticated SSRF in Unified Communications Manager, and a VS Code flaw was disclosed enabling one-click GitHub token theft — both worth flagging to any engineering team using VS Code with PLC vendor extensions or Git-based project versioning. A stock exchange espionage campaign reportedly maintained executive mailbox access for 150 days, underscoring how long supply-chain reconnaissance can dwell before any OT impact is felt.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm932068',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -510,7 +510,7 @@ Download of Code Without Integri</p><a class="read-more" href="https://www.cisa.
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The standout KEV addition is CVE-2022-0492, a Linux kernel cgroups v1 improper-authentication flaw now confirmed exploited in the wild. This matters in OT because countless industrial gateways, edge compute nodes, historian appliances, and containerised SCADA components run on Linux kernels where cgroups v1 is still default. <span id="rm578700" style="display:none">The bug enables container escape and privilege escalation — meaning a compromised application container on an edge device could pivot to the host. Inventory your Linux-based field devices, check kernel versions, and prioritise patching anywhere container workloads run near process control. Also significant for OT: CVE-2026-0257 in Palo Alto PAN-OS allows authentication bypass to establish unauthorised VPN sessions — directly relevant if you use Palo Alto for IT/OT segmentation or remote engineering access. CVE-2026-20182 in Cisco Catalyst SD-WAN provides unauthenticated admin takeover, a concern for multi-site manufacturers using SD-WAN to interconnect plants. The Oracle WebLogic T3/IIOP flaw (CVE-2024-21182) and Drupal SQLi (CVE-2026-9082) round out a week heavy on infrastructure perimeter risks. The supply-chain entries — malicious Nx Console and TanStack npm packages — are a reminder that developer toolchains used by integrators are now ransomware-adjacent attack vectors.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm578700',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The KEV catalogue saw heavy additions over the past two weeks but skewed toward IT and developer-tooling exploitation. Most consequential for OT-adjacent infrastructure are CVE-2026-0257 in Palo Alto PAN-OS (authentication bypass enabling unauthorised VPN sessions) and CVE-2024-21182 in Oracle WebLogic (unauthenticated T3/IIOP compromise). <span id="rm828657" style="display:none">Both sit on the IT/OT boundary where remote engineering access, historian replication, and MES integrations terminate — patch perimeter firewalls and any WebLogic-backed manufacturing applications urgently. Two supply-chain entries deserve special attention from controls teams: CVE-2026-48027 (Nx Console) and CVE-2026-45321 (TanStack), both involving malicious npm/extension publications that harvested developer credentials. If your team uses Node-based HMI build pipelines, Ignition module development, or any engineering laptop with npm tooling, audit recent installs and rotate cloud/git tokens. CISA also re-listed several legacy Microsoft and Adobe flaws (going back to MS08-067 / CVE-2008-4250), which is a strong hint that old, unpatched Windows hosts — still common on the plant floor as HMI clients — are being actively re-exploited. For remediation prioritisation: PAN-OS and WebLogic first (perimeter and integration tier), then engineering-workstation hygiene around Nx/TanStack/VS Code, then a sweep for any remaining Windows XP/7/Server 2003 nodes that could be touched by the resurrected legacy CVEs.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm828657',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -522,7 +522,7 @@ Download of Code Without Integri</p><a class="read-more" href="https://www.cisa.
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 23 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 24 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -532,9 +532,9 @@ Download of Code Without Integri</p><a class="read-more" href="https://www.cisa.
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2022-0492</span></td><td>2026-06-02</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Improper Authentication Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-48595</span></td><td>2026-06-02</td><td>Android</td><td>Framework</td><td>Android Framework Integer Overflow Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2024-21182</span></td><td>2026-06-01</td><td>Oracle</td><td>WebLogic Server</td><td>Oracle WebLogic Server Unspecified Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-45247</span></td><td>2026-06-03</td><td>Mirasvit</td><td>Mirasvit Full Page Cache Warmer</td><td>Mirasvit Full Page Cache Warmer Deserialization of Untrusted Data Vuln</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2022-0492</span></td><td>2026-06-02</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Improper Authentication Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-48595</span></td><td>2026-06-02</td><td>Android</td><td>Framework</td><td>Android Framework Integer Overflow Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -546,60 +546,66 @@ Download of Code Without Integri</p><a class="read-more" href="https://www.cisa.
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-03 11:58 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-04 10:40 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ABB":"Swiss-Swedish multinational corporation manufacturing power and automation technologies.",
+  "ABB":"Swedish industrial automation and power company manufacturing drives, robots, and controls.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "BMS":"Battery Management System that monitors and controls rechargeable battery charge and discharge.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CP":"Control Panel; electrical enclosure containing switches, relays, and control devices.",
+  "CNC":"Computer Numerical Control machine tool that automates machining operations via programmed instructions.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+  "EV":"Electric Vehicle powered by rechargeable batteries instead of internal combustion engines.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HVAC":"Heating, Ventilation, and Air Conditioning system for climate control.",
+  "HVAC":"Heating, Ventilation, and Air Conditioning system for building climate control.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization.",
-  "IIOP":"Internet Inter-ORB Protocol; distributed object communication standard.",
-  "IRT":"Isochronous Real Time; real-time communication protocol for industrial networks.",
+  "IEEE":"Institute of Electrical and Electronics Engineers standards organization for technical professionals.",
+  "IIOP":"Internet Inter-ORB Protocol enabling distributed object communication across networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "ISO":"International Organization for Standardization developing voluntary consensus technical standards.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "M171":"Schneider Electric PLC; compact programmable logic controller model.",
-  "M172":"Schneider Electric PLC; compact programmable logic controller model.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-Factor Authentication requiring multiple verification methods to confirm user identity.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer; supplier of equipment or components.",
+  "NVR":"Network Video Recorder that stores surveillance video from IP cameras.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating System; software managing hardware and application execution.",
+  "OS":"Operating System managing computer hardware and software resources.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PC":"Personal Computer; programmable controller or general computing device.",
+  "PAN":"Personal Area Network connecting devices within short-range wireless distance.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "SOLAS":"Safety of Life at Sea maritime convention establishing vessel safety requirements.",
+  "SSRF":"Server-Side Request Forgery attack forcing servers to make unintended requests.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Universal Serial Standard; Siemens serial communication protocol for drives.",
-  "VPN":"Virtual Private Network; encrypted secure communication over public networks.",
-  "WAN":"Wide Area Network; interconnected computer network across large geographic distances.",
-  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
+  "UA":"User Agent identifier indicating client software making web requests.",
+  "USS":"Unified and Structured Supernet protocol for industrial device communication.",
+  "VDR":"Voyage Data Recorder capturing ship operational data for safety investigation.",
+  "VLAN":"Virtual Local Area Network logically segmenting network traffic within switches.",
+  "VPN":"Virtual Private Network encrypting internet traffic through secure remote connections.",
+  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments.",
+  "XSS":"Cross-Site Scripting attack injecting malicious scripts into web application pages."
 };
 (function(){
   var html=document.documentElement,btn=document.getElementById('themeBtn');
