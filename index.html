@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-06-20 10:10 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-06-21 10:31 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>FortiBleed credential theft and a string of perimeter device CVEs (PAN-OS, Check Point, Cisco SD-WAN) put OT network edges at elevated risk.</span>
+  <span>Mass Fortinet credential theft and a Check Point IKEv1 auth bypass put OT perimeter gear directly in the crosshairs this week.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-06-20 10:10 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-06-21 10:31 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">22</div>
+      <div class="stat-val amber">21</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-06-20 10:10 UTC</span>
+      <span class="briefing-date">2026-06-21 10:31 UTC</span>
     </div>
-    <div class="briefing-body"><p>FortiBleed is today&#x27;s headline: roughly half of internet-facing Fortinet firewalls and VPNs have leaked credentials, and many of those terminate vendor and integrator access into plants. Treat any account that touched an exposed FortiGate as compromised — rotate it, including service accounts used by SCADA vendors and EPCs. Pair that with weekend patching of the Check Point IKEv1 bypass and PAN-OS authentication bypass now on CISA&#x27;s KEV list, because the same threat actors are clearly working the OT-adjacent perimeter. If you do nothing else today, pull a list of who has remote access into your sites and verify each path still requires a credential the attackers do not already have.</p></div>
+    <div class="briefing-body"><p>FortiBleed is the headline you cannot ignore this Sunday: roughly 86,000 Fortinet devices have leaked credentials, and the Check Point IKEv1 auth bypass added to CISA KEV on 8 June is being actively exploited by ransomware crews. If your IT/OT boundary or vendor remote access terminates on either platform, treat existing VPN credentials as compromised, force rotation, and verify IKEv2-only configurations before Monday&#x27;s first shift. Pair that with a quick audit of Catalyst SD-WAN Manager patch levels at any remote sites — three of this month&#x27;s KEV entries hit infrastructure typically sitting between plant and corporate.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The PLC scan cycle as we know it — read inputs, solve logic, write outputs — was not invented for safety or determinism but for memory economy. In the late 1960s Dick Morley&#x27;s original Modicon 084 had so little RAM that snapshotting I/O once per cycle was the only way to keep logic-solving consistent without expensive interlocks. The architectural quirk became the defining feature of an entire industry.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The IKEv1 protocol that just produced the Check Point KEV entry was standardized in 1998 and formally deprecated by the IETF in RFC 8247 back in 2017, yet remains enabled by default on a surprising number of OT-facing VPN concentrators because legacy PLC remote-access clients and older vendor laptops never moved to IKEv2. The cryptographic weaknesses in aggressive-mode IKEv1 PSK exchanges have been public since 1999 — meaning some plants are still running a key exchange older than the engineers maintaining it.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics. Nicolas Minorsky derived the three-term control law in 1922 while analysing how helmsmen steered the USS New Mexico, observing that good helmsmen instinctively applied corrections proportional to error, anticipated future error from its rate of change, and compensated for steady drift by integrating past error. The mathematics that runs in every modern controller was essentially reverse-engineered from human intuition aboard a battleship — and Minorsky&#x27;s paper still reads as a remarkably clear description of what your loops are doing right now.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by decades — Elmer Sperry&#x27;s gyrocompass-driven ship autopilots in the 1910s already implemented proportional-plus-derivative action mechanically, and Nicolas Minorsky published the formal three-term theory in 1922 based on observing how helmsmen actually steered the USS New Mexico. What we now teach as a tuning exercise was originally reverse-engineered human behavior. Even more curious: Ziegler and Nichols developed their famous tuning rules in 1942 at Taylor Instrument Companies using pneumatic controllers whose &#x27;integral&#x27; action came from a deliberately leaky bellows, and the rules still work because the underlying math doesn&#x27;t care whether the controller is air, op-amps, or a function block.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA FX (Field eXchange) is quietly moving from specification to silicon. Released as a set of companion specifications by the OPC Foundation, FX extends OPC UA below the controller layer into field devices, with the goal of replacing the patchwork of fieldbuses between PLCs, drives, and I/O blocks with a single information model that runs over standard Ethernet — and, when deterministic timing is required, over Time-Sensitive Networking (TSN). <span id="rm617961" style="display:none">The practical implication is that a drive, a safety controller, and a vision system from three different vendors could expose semantically rich, discoverable data using the same model used by your SCADA northbound. For controls engineers that means less time writing custom AOIs to scrape Modbus or proprietary tags, and clearer paths for diagnostics and asset management. It also means PLC-to-PLC communication across brands becomes a configuration exercise rather than a gateway-and-prayer project. Adoption is the catch. TSN-capable switches and endpoints are still pricier than standard managed switches, vendor implementations of the FX profiles vary in maturity, and the IEC 62443 security overlay for UA FX must be configured carefully — certificates and trust lists at field level are a new operational burden. Expect to see FX first in greenfield automotive and semiconductor plants, then trickle into process industries over the next three to five years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm617961',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) is finally moving from trade-show demo to shipping product, with Siemens, B&amp;R, Beckhoff, and Rockwell all having field-ready stacks in 2026. The promise is a single converged Ethernet fabric that carries deterministic motion-control traffic, standard OPC UA pub/sub telemetry, and regular IT traffic on the same wire, with bounded latency in the microseconds and no need for parallel fieldbus runs. <span id="rm148611" style="display:none">For a controls engineer, that means the long-standing split between a deterministic fieldbus (Profinet IRT, EtherCAT, Sercos) and an information layer (OPC UA, MQTT) can collapse into one cabling plant and one switch fleet. The practical challenges are still considerable. TSN requires switches that support 802.1Qbv scheduled traffic, 802.1AS time sync, and often 802.1CB frame replication — and mixing vendors is rarely as plug-and-play as the marketing suggests. Engineering tools to compute and deploy the gate schedules across a brownfield network are immature, and most plants lack staff who understand both PTP-grade time distribution and traditional control engineering. Expect TSN to land first in greenfield automotive and semiconductor lines where the cable savings justify the learning curve, and to creep into process industries only as switch prices fall and configuration tooling matures. For security, TSN does not change the threat model much — OPC UA still needs its certificate-based security profile enabled, which a worrying number of deployments skip — but the converged fabric does mean a single misconfigured VLAN or compromised switch can now reach both the motion loop and the MES. Network segmentation discipline becomes more, not less, important when the physical separation disappears.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm148611',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2, the standard governing security risk assessment for system design, continues to be the most-cited but least-consistently-applied part of the family. The IEC working groups have been refining guidance on zone and conduit definition to better handle modern realities like cloud-connected historians and remote engineering workstations, where the classical Purdue boundaries no longer fit cleanly. <span id="rm194934" style="display:none">If you are scoping a new project, the current best practice is to define zones by required security level (SL-T) rather than by physical network segment, and to document conduits with explicit data-flow direction and protocol — auditors increasingly ask to see this artifact rather than a network diagram alone. In parallel, NIST SP 800-82 Revision 3 has now been in the field long enough that its emphasis on OT-specific overlays of the SP 800-53 controls is showing up in customer security questionnaires from asset owners. If your organisation builds or integrates systems for US critical infrastructure, expect to be asked which 800-82r3 overlays you implement, particularly around remote access, supply chain, and recovery. Finally, ISA&#x27;s TR84.00.09 on cybersecurity for safety instrumented systems remains the practical reference for the SIS-versus-BPCS-network question. The short version: a SIS should reside in its own zone with conduits that are read-only outward where possible, and any engineering access path should require multi-factor authentication and session recording. Recent VPN bypass CVEs make that last point newly urgent.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm194934',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (component requirements) remain the most actively cited parts of the family in 2026 procurement specs, and several large EPCs are now refusing to release final payment to integrators who cannot demonstrate SL-2 capability on critical components. If you are writing or reviewing automation tenders, expect 62443-4-2 conformance claims to be backed by ISASecure CSA certificates rather than vendor self-attestation — the certification body&#x27;s public registry is the easiest way to verify. <span id="rm606949" style="display:none">NIST SP 800-82 Revision 3 continues to be the de facto English-language reference for OT security program design, and its alignment with the NIST CSF 2.0 Govern function has made it more useful for plant managers trying to translate engineering controls into board-level reporting. The Govern function is where most asset owners are weakest — formal OT risk ownership, supplier risk management, and policy enforcement across plants — and auditors are starting to ask pointed questions about it. Worth watching: ISA-95 Part 2 work on object models for cross-site data exchange is converging with the emerging Asset Administration Shell (IEC 63278) from the Industry 4.0 community. If your roadmap includes a unified namespace or a cross-plant data lake, decisions made in the next 12 months about which information model to standardize on will be hard to reverse.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm606949',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2023 Aliquippa, Pennsylvania water authority intrusion, in which the Cyber Av3ngers group compromised an internet-exposed Unitronics Vision-series PLC at a booster station. The attackers did not exploit a sophisticated vulnerability — the device was reachable on its default port 20256, used the default password &#x27;1111&#x27;, and was directly addressable from the public internet. <span id="rm535407" style="display:none">They defaced the HMI screen and the operator took the station offline; manual control kept water flowing, but the disruption was real and the political message was unmistakable. What made this incident significant was its sheer ordinariness. There was no zero-day, no insider, no nation-state malware — just a small utility that had connected a PLC to the internet for vendor convenience and never changed the credentials. CISA&#x27;s follow-up advisories found dozens of similarly exposed Unitronics devices across US water systems within days. The lessons for controls engineers are unglamorous but enduring. First, never expose a PLC or HMI directly to the internet, even behind a non-standard port; use a properly authenticated remote-access broker or jump host. Second, change default credentials as part of commissioning sign-off, and have a written record that this was done. Third, design for graceful degradation: Aliquippa kept water moving because operators could run the station manually, which is a control-system design choice as much as a procedural one. Resilience at the process layer buys you the time to recover at the cyber layer.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm535407',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2024 Aliquippa, Pennsylvania water authority intrusion, which remains one of the cleanest public examples of how trivial OT exposure can be. Attackers affiliated with the CyberAv3ngers group reached an internet-exposed Unitronics Vision-series PLC at a booster station, defaced its HMI screen with a political message, and forced operators to revert to manual control of pressure regulation. <span id="rm837661" style="display:none">No customer outage occurred, but the station was offline for hours and the incident triggered a CISA advisory and Congressional attention. The root cause was depressingly mundane: the Unitronics PLC was reachable from the public internet on TCP/20256 with the factory default password of 1111. There was no firewall, no VPN, and no monitoring on the OT segment. The attackers used Shodan-style scanning rather than any zero-day. The &#x27;sophistication&#x27; was political branding, not technical. Three lessons for controls engineers. First, assume any device with a public IP will be found within hours — there is no security through obscurity at internet scale. Second, default credentials on field controllers are a board-level risk, not a nuisance: a written, audited credential standard for every PLC, HMI, and VFD model on site is cheap insurance. Third, manual fallback procedures actually saved this utility. If your process cannot run on local manual control for at least a shift, your operational resilience plan is incomplete regardless of how good your cyber controls are.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm837661',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The week&#x27;s dominant story for anyone running an industrial DMZ is FortiBleed: roughly 86,000 internet-accessible Fortinet firewalls and VPN concentrators — about half the exposed population — have had credentials harvested in a large-scale campaign. For plants that rely on FortiGate appliances to terminate vendor remote-access tunnels or to segment IT and OT, this is a credential rotation event, not just a patching event. <span id="rm564502" style="display:none">Assume any account that has authenticated through an exposed FortiGate since the campaign began is compromised, including service accounts used by integrators and SCADA vendors. The Klue supply-chain breach is a quieter but instructive story. Attackers pivoted through Klue&#x27;s Salesforce integration to exfiltrate data from downstream customers including Huntress and Recorded Future. The lesson for OT teams is that third-party SaaS connected to your CRM, ticketing, or asset-management systems is now a credible path to information about your plants — site lists, network diagrams attached to support tickets, and integrator contacts are all attractive reconnaissance targets. On the malware front, CryptoBandits has been observed combining infostealer behaviour with a SOCKS5-over-Tor backdoor, giving operators interactive remote access while masquerading as commodity crimeware. That blurring of categories matters: an alert tagged as a low-priority stealer on an engineering workstation may actually be a foothold for hands-on-keyboard intrusion. Meanwhile SANS ISC flagged phishing using IPv4-mapped IPv6 addresses to evade URL filters, a reminder to verify that OT proxy and DNS controls actually inspect IPv6 traffic rather than blindly passing it. On the geopolitical and corporate side, Macron&#x27;s call for democratic coordination on AI regulation and Cisco&#x27;s acquisition of WideField to bolster Splunk&#x27;s agentic SOC both point at the same underlying trend — AI-driven detection and response is becoming the default assumption in IT SOCs, which will eventually push OT teams to articulate what &#x27;agentic&#x27; monitoring should and should not do near live process control.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm564502',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The week&#x27;s most pressing item for plant-floor engineers is FortiBleed: roughly 86,000 internet-facing Fortinet firewalls and VPN concentrators had credentials stolen — about half of the publicly reachable Fortinet estate. Even if your OT firewalls are not directly exposed, many sites use Fortinet appliances as the IT/OT boundary or for vendor remote access, and stolen creds frequently enable lateral movement into Level 3.5 DMZs. <span id="rm777617" style="display:none">Treat any FortiGate or FortiClient EMS with internet exposure as compromised until rotated, and audit VPN logs for anomalous logins, especially from third-party integrators. The Klue supply-chain breach hit several cybersecurity vendors via their Salesforce instances (Huntress and Recorded Future among them). While not directly OT, it is another reminder that SaaS integrations into your security stack are now a credible pivot — relevant if your SOC or MSSP relies on tools whose tenant data has been quietly exfiltrated. Separately, CryptoBandits malware is being seen routing C2 over Tor via a local SOCKS5 proxy, a TTP that historically defeats simple egress filtering and is worth a fresh look at your OT firewall outbound rules. On the policy side, Macron&#x27;s call for democracies to coordinate on advanced AI regulation foreshadows further compliance burden on AI-enabled SCADA, vision, and anomaly-detection tools you may be piloting. Cisco&#x27;s planned acquisition of WideField to bolster Splunk&#x27;s agentic SOC is also worth tracking — agentic security operations on industrial telemetry is moving from pilot to product faster than most asset owners are prepared to govern. Finally, SANS ISC continues to report a steady drumbeat of phishing and initial-access tradecraft — IPv4-mapped IPv6 phishing URLs and malicious VHDX archives delivering Remcos — both of which bypass naive URL and attachment filters. Engineering workstations remain the soft underbelly of most OT networks; if your project laptops still mount arbitrary removable images or run unsigned email attachments, this is your reminder to push GPO hardening through change control.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm777617',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -448,7 +448,7 @@ The post Cybersecurity Firms Impacted by Klue Supply Chain Attack appeared first
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The KEV additions over the past two weeks are heavily weighted toward perimeter and identity infrastructure that sits directly in front of OT environments. CVE-2026-50751 in Check Point Security Gateway allows unauthenticated VPN access by bypassing IKEv1 authentication and is already linked to ransomware activity. <span id="rm618275" style="display:none">CVE-2026-0257 in Palo Alto PAN-OS similarly permits unauthorised VPN establishment. Cisco Catalyst SD-WAN Manager picked up two entries — CVE-2026-20262 (path traversal) and CVE-2026-20245 (root command execution via crafted file) — both relevant where SD-WAN underlays multi-site plant connectivity. If your remote-access path to a site relies on any of these, treat patching as urgent and audit VPN session logs for anomalies. Several application-layer flaws also warrant attention. CVE-2026-20253 in Splunk Enterprise allows unauthenticated file creation or truncation via a PostgreSQL sidecar — relevant if you&#x27;ve extended Splunk into OT for historian or syslog aggregation. CVE-2026-35273 in Oracle PeopleSoft is being used by ransomware crews, and CVE-2024-21182 in Oracle WebLogic was added as well; both commonly appear in plant business systems and MES adjuncies. CVE-2022-0492, a Linux kernel cgroups v1 privilege-escalation, is an older bug now formally flagged, worth checking on any long-lived Linux-based HMIs, edge gateways, or virtualised historians. Practically, prioritise: patch or mitigate Check Point and PAN-OS VPNs this weekend, rotate Fortinet credentials, audit SD-WAN Manager access, and add the older Linux and WebLogic CVEs to your next maintenance window rather than emergency change.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm618275',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">This month&#x27;s KEV adds include two items with direct OT relevance. CVE-2026-50751 in Check Point Security Gateway is an IKEv1 authentication bypass allowing unauthenticated remote VPN access — known ransomware use. <span id="rm248550" style="display:none">Many process plants terminate vendor remote access on Check Point gateways, so patching to the fixed train and disabling IKEv1 where IKEv2 is supported should be immediate. CVE-2026-0257 in Palo Alto PAN-OS is a similar authentication bypass enabling unauthorized VPN sessions; combined with FortiBleed, every major firewall vendor used at the IT/OT boundary now has an active credential or auth-bypass concern within a single 30-day window. For engineering-adjacent infrastructure, CVE-2026-20253 (Splunk Enterprise unauthenticated file creation/truncation via a PostgreSQL sidecar) and the two Cisco Catalyst SD-WAN Manager flaws (CVE-2026-20262 path traversal and CVE-2026-20245 root command execution) are noteworthy — Catalyst SD-WAN is widely deployed to backhaul remote substations, pump stations, and unmanned facilities. CVE-2024-21182 in Oracle WebLogic (T3/IIOP) is a reminder that historian and MES front-ends often still expose legacy Java middleware. Practical remediation: prioritize the firewall and SD-WAN fixes this weekend, force credential rotation on any internet-reachable VPN, and verify that your OT historian&#x27;s WebLogic tier is either patched or firewalled to a tight allowlist.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm248550',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Cybersecurity Firms Impacted by Klue Supply Chain Attack appeared first
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 22 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 21 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -484,21 +484,24 @@ The post Cybersecurity Firms Impacted by Klue Supply Chain Attack appeared first
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-20 10:10 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-21 10:31 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "BPCS":"Basic Process Control System that performs normal production operations.",
+  "C2":"Command and control system for directing industrial operations or security responses.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CSA":"Cloud Security Alliance; organization defining cloud computing security standards.",
+  "CSF":"Cybersecurity Framework; NIST guidelines for managing industrial cybersecurity risk.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized Zone network segment isolating critical systems from untrusted networks.",
+  "EMS":"Energy Management System; controls and monitors electrical power distribution.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
+  "GPO":"Group Policy Object; Windows domain policy configuration management tool.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
@@ -506,6 +509,9 @@ The post Cybersecurity Firms Impacted by Klue Supply Chain Attack appeared first
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IETF":"Internet Engineering Task Force; develops internet standards and protocols.",
+  "IIOP":"Internet Inter-ORB Protocol; distributed object communication standard.",
+  "IRT":"Isochronous Real-time; real-time protocol for deterministic industrial networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
@@ -514,24 +520,32 @@ The post Cybersecurity Firms Impacted by Klue Supply Chain Attack appeared first
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
+  "MQTT":"Message Queuing Telemetry Transport; lightweight publish-subscribe messaging protocol.",
+  "MSSP":"Managed Security Service Provider; outsourced security monitoring and threat management.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating System software managing computer hardware and application execution.",
+  "OS":"Operating System; software managing hardware and application execution.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PAN":"Personal Area Network; short-range wireless network connecting nearby devices.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RAM":"Random Access Memory providing temporary data storage for active processes.",
+  "PSK":"Pre-Shared Key; symmetric encryption key known to authorized parties.",
+  "PTP":"Precision Time Protocol; synchronizes clocks across networked industrial devices.",
+  "RFC":"Request for Comments; IETF standard specification document.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and research organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIS":"Safety Instrumented System protecting against hazardous process conditions.",
-  "SOC":"Security Operations Center monitoring and responding to cybersecurity incidents.",
-  "SOCKS5":"Protocol enabling secure proxy communication for networked applications.",
+  "SOC":"Security Operations Center; facility monitoring and responding to security incidents.",
+  "SOCKS5":"Socket Secure version 5; proxy protocol for routing network traffic.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VPN":"Virtual Private Network encrypting data transmission across untrusted networks.",
-  "WAN":"Wide Area Network connecting geographically distributed systems over long distances.",
+  "TTP":"Tactics, Techniques, Procedures; adversary methods documented in threat intelligence.",
+  "VFD":"Variable Frequency Drive; electronic device controlling motor speed and torque.",
+  "VLAN":"Virtual Local Area Network; logical network segmentation on physical infrastructure.",
+  "VPN":"Virtual Private Network; encrypted tunnel for secure remote network access.",
+  "WAN":"Wide Area Network; geographically distributed network connecting distant locations.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
