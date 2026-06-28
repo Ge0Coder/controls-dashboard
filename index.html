@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-06-27 09:29 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-06-28 09:58 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>PTC Windchill RCE added to KEV alongside Lantronix EDS5000 root command injection — both directly relevant to OT environments.</span>
+  <span>PTC Windchill/FlexPLM unauth RCE and Lantronix EDS5000 root command injection added to CISA KEV — both hit OT/manufacturing directly.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-06-27 09:29 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-06-28 09:58 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">23</div>
+      <div class="stat-val amber">22</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-06-27 09:29 UTC</span>
+      <span class="briefing-date">2026-06-28 09:58 UTC</span>
     </div>
-    <div class="briefing-body"><p>The headline item for OT this weekend is CISA&#x27;s addition of PTC Windchill (CVE-2026-12569) to the KEV catalogue — an unauthenticated RCE in a PLM platform that sits at the heart of most manufacturing engineering workflows. If your site uses Windchill or FlexPLM, treat this as a Monday-morning emergency patch and verify it is not exposed beyond the engineering zone. Pair that with the Lantronix EDS5000 root-level command injection if you run serial gateways, and the Check Point IKEv1 auth bypass if vendor VPNs terminate on Check Point appliances. The pattern this week is clear: engineering and remote-access infrastructure, not field controllers, are where attackers are getting their wins.</p></div>
+    <div class="briefing-body"><p>Your single most important action this morning: confirm whether your engineering organisation runs PTC Windchill or FlexPLM, and whether any instance is reachable from outside the engineering VLAN. CISA added CVE-2026-12569 to KEV on 25 June — unauthenticated remote code execution, no user interaction. Pair that with the Lantronix EDS5000 root command-injection flaw also added last week, and Monday&#x27;s priority is clear: patch Windchill, then sweep your OT network for forgotten serial gateways and Ubiquiti UniFi devices that need firmware updates.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Lantronix EDS-series devices being patched this week trace their lineage back to the original Lantronix MSS100 from 1998 — one of the first commercial serial-to-Ethernet device servers. A surprising number of plants still run firmware derivatives only two or three major revisions removed from that lineage, which is part of why the same class of command-injection bug keeps reappearing decades later.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Lantronix device server lineage goes back to the early 1990s, and many EDS-class units deployed twenty years ago are still in production today running firmware that predates the concept of secure-by-default. In several documented OT incidents, these little serial gateways have outlived the PLCs they were bolted next to — a reminder that in industrial networks, the smallest, cheapest, least-monitored device is often the longest-lived and the easiest pivot.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller as we know it was effectively reverse-engineered from a helmsman. In the 1920s, Nicolas Minorsky watched US Navy helmsmen steer the USS New Mexico and noticed they didn&#x27;t just respond to current heading error — they also anticipated based on how fast the error was changing and remembered the persistent drift from earlier. He formalised those three behaviours mathematically in 1922, and the proportional-integral-derivative structure that runs in virtually every loop in your plant today is, at its origin, a model of human intuition under load.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics. The first mathematical analysis of proportional-integral-derivative control was published by Nicolas Minorsky in 1922 — not for a chemical plant, but for automatic ship steering on the USS New Mexico. Minorsky derived the three-term control law by watching helmsmen and noticing they intuitively corrected not just for current heading error, but for how fast the error was changing and how long it had persisted. Every loop you tune today is built on a sailor&#x27;s instincts, formalised on a battleship.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on OPC UA FX (Field eXchange), the extension of OPC UA into the controller-to-controller and controller-to-field-device layer. Traditional OPC UA has long handled north–south traffic from PLC to SCADA or MES. <span id="rm830006" style="display:none">FX, finalised in its first release by the OPC Foundation and now appearing in products from Siemens, Rockwell, Schneider, Beckhoff and B&amp;R, standardises east–west exchange between controllers from different vendors using the same information model, security model, and — crucially — running over TSN-capable Ethernet for deterministic timing. The practical implication is significant: for the first time, you can engineer a multi-vendor cell where a Rockwell ControlLogix and a Siemens S7-1500 exchange synchronised process data without a gateway, without proprietary middleware, and with mutual certificate-based authentication built in. For controls engineers this could mean fewer protocol converters, simpler diagnostics, and a security model that finally treats peer controllers as authenticated endpoints rather than implicitly trusted neighbours. Adoption challenges remain real. TSN switch infrastructure is still more expensive than standard managed switches, certificate lifecycle management at the controller level is a genuinely new operational discipline for most plants, and conformance between vendors is still maturing. Expect the next two years to be the proving ground; greenfield automotive and battery plants are leading deployment.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm830006',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to mature as the leading candidate for converged, deterministic industrial Ethernet. The idea is straightforward: replace the alphabet soup of EtherCAT, PROFINET IRT, EtherNet/IP CIP Motion and Sercos III with a single standard Ethernet stack where TSN handles bounded latency at layer 2 and OPC UA PubSub handles the semantics at the application layer. <span id="rm258200" style="display:none">The result is a network where a safety PLC, a motion controller, a vision system and a cloud historian all talk on the same wire with predictable timing. For controls engineers the practical implication is that the line between fieldbus and enterprise network blurs further. You can co-exist hard real-time motion traffic (sub-millisecond cycle times) with bulk MES traffic on the same switch fabric — provided your switches actually support 802.1Qbv scheduling, 802.1AS time sync, and 802.1CB frame replication. That last bit is the catch: TSN-capable industrial switches are still expensive and vendor interoperability, while better than two years ago, remains uneven. Siemens, B&amp;R, Beckhoff, Rockwell and Phoenix Contact all have demos; production deployments at scale are still rare outside automotive and semiconductor. The security angle is double-edged. OPC UA brings strong native security (X.509 certs, signing, encryption), which is a step up from raw PROFINET. But TSN&#x27;s centralised configuration model (the CNC, or Centralised Network Configuration) is a new high-value target — compromise it and you can rewrite traffic schedules across the entire plant.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm258200',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues its slow but steady consolidation as the de facto global OT security standard. The most consequential recent activity is around IEC 62443-2-1, the requirements for an OT cybersecurity management system, which has been revised to align more closely with ISO 27001&#x27;s management-system structure. <span id="rm91941" style="display:none">For asset owners this matters because it makes joint IT/OT certification audits genuinely feasible, rather than the parallel, duplicative exercises many organisations currently run. On the product side, IEC 62443-4-2 component-level certification is now being demanded in procurement specifications across European utilities and increasingly in North American pharma and water sectors. If you are specifying new PLCs, RTUs, or HMIs, asking for a current 62443-4-2 SL2 certificate (with the certified configuration documented) is becoming a reasonable baseline rather than an exotic ask. Be aware that &quot;62443-ready&quot; marketing claims are not the same as a certificate from an accredited body such as TÜV, exida, or ISASecure. In parallel, NIST SP 800-82 Revision 3 remains the most useful free reference for OT security architecture, and the NIST Cybersecurity Framework 2.0&#x27;s added Govern function maps cleanly onto 62443-2-1 governance requirements — a useful crosswalk if you are reporting to a board that thinks in NIST CSF terms but operates plants engineered to IEC.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm91941',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (technical security requirements for components) remain the practical reference points for OT projects this year. The notable trend is that more component vendors — drives, RTUs, HMIs — are now arriving with 62443-4-2 SL2 certifications baked in, which makes the integrator&#x27;s job in 3-3 system-level assessments meaningfully easier. <span id="rm363509" style="display:none">If you are writing new specifications, requiring 4-2 SL2 as a minimum for any networked component is no longer an aspirational ask. On the NIST side, the CSF 2.0 &#x27;Govern&#x27; function added last year continues to filter into OT programs, particularly around supply chain risk management (GV.SC). This matters more than it sounds — it is the bucket where you formally document how you vet PLC firmware sources, manage SBOM expectations from your vendors, and handle end-of-life equipment. Auditors increasingly want to see those processes written down, not just performed. Worth watching: ISA&#x27;s TR84 work on cybersecurity considerations for safety instrumented systems continues to refine the boundary between SIS and BPCS network isolation. The current direction strongly discourages routable connections into SIS, even read-only — a position that conflicts with some vendor &#x27;integrated&#x27; SIS offerings. Expect debate to continue.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm363509',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s case study is the 2024 American Water Works cyber incident, the largest regulated US water utility to publicly confirm a breach. In October 2024 the company detected unauthorised activity in its IT environment, took its MyWater customer portal offline, and paused billing. <span id="rm285514" style="display:none">Critically, the company stated that water and wastewater operations were not affected — but the incident forced a hard look at how cleanly IT and OT were actually separated. What is now better understood about the event is that the initial intrusion vector appears to have been a compromised third-party remote-access pathway used for corporate IT support, and that the decision to proactively isolate systems — including shutting down some interfaces between corporate and operational environments — was what kept OT untouched. In other words, the segmentation worked, but only because the response team trusted it enough to sever connections quickly. Three lessons stand out. First, your IT/OT boundary is only as good as your willingness to actually close it under pressure; practise the disconnect. Second, billing and customer-portal outages have regulatory and reputational consequences even when treatment plants run normally — incident response plans should explicitly cover &quot;OT is fine but the business is degraded&quot; scenarios. Third, third-party remote access remains the single most common initial vector across water, energy, and manufacturing incidents; inventory every vendor tunnel and require MFA plus session recording on all of them.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm285514',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s revisit is the 2023 Aliquippa, Pennsylvania water authority incident, where the Cyber Av3ngers group compromised a Unitronics Vision-series PLC controlling a booster station. The attackers were not sophisticated — the PLC was internet-exposed on TCP/20256 with the default password &#x27;1111&#x27;. <span id="rm329268" style="display:none">They defaced the HMI screen with an anti-Israel message and tripped the station offline. Operators were able to switch to manual control within hours and water service was not interrupted, but the optics were severe and triggered CISA advisories that reverberated through the U.S. water sector for months. What made this notable is how mundane the attack was. No zero-day, no custom malware, no insider — just Shodan, default credentials, and a PLC vendor that shipped product with remote programming enabled by default. Similar exposure surveys after the incident found hundreds of identical Unitronics units worldwide in the same configuration. Three lessons for controls engineers: first, default passwords on PLCs are not a hypothetical risk — they are actively scanned and exploited at scale. Second, the programming/web port on modern compact PLCs (Unitronics 20256, Siemens 102, Modbus 502, Rockwell 44818) should never face the internet, period; if remote access is needed, terminate it in a hardened jump host or VPN. Third, having tested manual fallback procedures is what saved Aliquippa — the operators knew how to run the station without the PLC. That muscle memory is worth more than any firewall.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm329268',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">This week&#x27;s news cycle is dominated by IT and cloud-side stories, but several have downstream implications for OT. The Amazon Q vulnerability that enabled cloud credential theft through malicious repositories is a reminder that as more plants push historian and MES data into AWS for analytics, a compromise of developer AI tooling can cascade into the OT data path. <span id="rm449012" style="display:none">AWS has patched and issued an advisory; engineers using Q in any pipeline that touches plant data should validate scope of access tokens. The widening Klue–Salesforce breach now affects roughly two dozen companies, illustrating how third-party SaaS compromises propagate through supplier ecosystems. Controls engineers may not own these CRMs, but the same pattern — single vendor compromise, dozens of downstream impacts — increasingly applies to remote-access vendors, EDR providers, and cloud-hosted SCADA platforms. The Five Eyes joint AI threat warning called out in SecurityWeek&#x27;s roundup is also worth flagging: agencies are now formally cautioning about adversarial use of generative AI for crafting targeted ICS phishing and reconnaissance. On the technical side, SANS ISC&#x27;s diary on CVE-2024-40766 (SonicWall) makes a point every controls engineer should internalise: patching the binary is not the same as fixing the configuration. The original SonicWall flaw was remediated months ago, but exposed devices remain compromised because legacy local accounts and weak password policies persisted across the upgrade. Many OT perimeter firewalls fall into exactly this pattern — patched but never reconfigured. The Linux Foundation&#x27;s new Akrites project for coordinated open-source vulnerability disclosure is quietly significant. A large amount of embedded firmware in PLCs, RTUs, and gateways ships with Linux and open-source components; a more structured disclosure channel should eventually shorten the gap between upstream fix and vendor-released firmware update.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm449012',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">It is a quiet Sunday on the OT news wire, but two items added to CISA&#x27;s KEV catalog last week dominate the manufacturing risk picture. PTC Windchill and FlexPLM — the PLM backbones used by aerospace, automotive, and discrete manufacturing to manage CAD, BOMs, and engineering change orders — were tagged with CVE-2026-12569, an unauthenticated remote code execution flaw. <span id="rm87744" style="display:none">Windchill servers often sit at the IT/OT boundary feeding MES and shop-floor systems, so an RCE here is more than an IT problem; it is a potential route into engineering data, recipes, and build instructions. The second OT-relevant story is CVE-2025-67038 in the Lantronix EDS5000 device server. These are the small industrial serial-to-Ethernet boxes that bridge legacy RS-232/485 instruments, drives, and meters to TCP/IP networks. The flaw is command injection through the username parameter running as root — a textbook way to convert a forgotten serial gateway into a foothold on the OT LAN. Many sites do not even have an accurate inventory of these devices. In broader security news, SecurityWeek covered an Amazon Q vulnerability that allowed cloud credential theft via malicious repositories — relevant for any plant using AWS-backed historians, digital twins, or cloud SCADA pilots — and the Linux Foundation launched &#x27;Akrites,&#x27; a new open-source vulnerability disclosure project. SANS ISC also flagged ongoing exploitation patterns around CVE-2024-40766 (SonicWall), noting that the patch is widely applied but operators rarely revisited the credential and configuration hygiene the advisory called for — a familiar story in OT firewalls too. Nothing earth-shattering happened over the weekend, but the PTC and Lantronix entries should land directly on plant-floor engineers&#x27; Monday morning checklists.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm87744',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/amazon-q-flaw-enabled-cloud-credential-theft-via-malicious-repositories/" target="_blank" rel="noopener">Amazon Q Flaw Enabled Cloud Credential Theft via Malicious Repositories</a></span></div></summary><div class="detail-body"><p>AWS has patched the vulnerability and published its own advisory to inform customers about the potential impact. 
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Sat, 27 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/" target="_blank" rel="noopener">Chinese Framework Powers 200,000 Scam Sites</a></span></div></summary><div class="detail-body"><p>Threat actors are selling investment scam templates created using the legitimate DCloud Uni-App toolkit.
+The post Chinese Framework Powers 200,000 Scam Sites appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/amazon-q-flaw-enabled-cloud-credential-theft-via-malicious-repositories/" target="_blank" rel="noopener">Amazon Q Flaw Enabled Cloud Credential Theft via Malicious Repositories</a></span></div></summary><div class="detail-body"><p>AWS has patched the vulnerability and published its own advisory to inform customers about the potential impact. 
 The post Amazon Q Flaw Enabled Cloud Credential Theft via Malicious Repositories appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/amazon-q-flaw-enabled-cloud-credential-theft-via-malicious-repositories/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
 <details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/more-klue-breach-victims-identified-as-hackers-get-hacked/" target="_blank" rel="noopener">More Klue Breach Victims Identified as Hackers Get Hacked</a></span></div></summary><div class="detail-body"><p>Roughly two dozen companies have notified their customers of the Klue-Salesforce incident impact.
 The post More Klue Breach Victims Identified as Hackers Get Hacked appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/more-klue-breach-victims-identified-as-hackers-get-hacked/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
 <details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/in-other-news-chinese-mythos-like-ai-tata-electronics-breach-snyk-layoffs/" target="_blank" rel="noopener">In Other News: Chinese Mythos-Like AI, Tata Electronics Breach, Snyk Layoffs</a></span></div></summary><div class="detail-body"><p>Other noteworthy stories that might have slipped under the radar: Russia used Cellebrite to hack activist’s phone, Five Eyes issue urgent AI threat warning, macOS Gaslight backdoor, Scattered Spider guilty pleas.
 The post In Other News: Chinese Mythos-Like AI, Tata Electronics Breach, Snyk Layoffs appeared first on Sec</p><a class="read-more" href="https://www.securityweek.com/in-other-news-chinese-mythos-like-ai-tata-electronics-breach-snyk-layoffs/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
 <details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/nebulock-raises-25-million-for-ai-native-contextual-security/" target="_blank" rel="noopener">Nebulock Raises $25 Million for AI-Native Contextual Security</a></span></div></summary><div class="detail-body"><p>The cybersecurity startup provides threat hunting, proactive detection, and behavioral security analytics.
-The post Nebulock Raises $25 Million for AI-Native Contextual Security appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/nebulock-raises-25-million-for-ai-native-contextual-security/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 26 Jun 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/" target="_blank" rel="noopener">Linux Foundation Unveils New Open Source Security Project Akrites</a></span></div></summary><div class="detail-body"><p>It will provide the tools and channels to report, patch, and disclose open source software vulnerabilities.
-The post Linux Foundation Unveils New Open Source Security Project Akrites appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+The post Nebulock Raises $25 Million for AI-Native Contextual Security appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/nebulock-raises-25-million-for-ai-native-contextual-security/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Linux Foundation Unveils New Open Source Security Project Akrites appea
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most OT-relevant addition this week is CVE-2026-12569 in PTC Windchill and FlexPLM (added 25 June). Windchill is widely deployed as the PLM backbone in manufacturing — holding CAD, BOMs, and engineering change records that feed MES and ERP. <span id="rm146653" style="display:none">An unauthenticated remote code execution against Windchill is a serious supply-chain and IP-theft risk, and in integrated environments it can serve as a pivot point into the manufacturing zone. Patch immediately and verify that Windchill is not directly reachable from the enterprise edge. Also highly relevant: CVE-2025-67038 in the Lantronix EDS5000 device server, a root-level OS command injection via the username field. EDS-series serial-to-Ethernet gateways are common in legacy plants connecting older RS-232/485 instrumentation to TCP networks. Treat any internet- or DMZ-exposed Lantronix device as compromised until proven otherwise, and audit network segmentation around serial gateways. The trio of Ubiquiti UniFi OS flaws (CVE-2026-34908/34909/34910) matter wherever UniFi has crept into OT support networks, guard shacks, or remote pumping stations. Round out the patch list with Cisco Catalyst SD-WAN Manager (two CVEs), Cisco Unified CM SSRF, Check Point Security Gateway IKEv1 auth bypass (ransomware-linked), Splunk Enterprise missing-auth, and Arista EOS tunnel decapsulation. The Check Point IKEv1 issue is especially worth attention if your site uses Check Point gateways to terminate vendor remote-access VPNs into the OT DMZ.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm146653',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The standout KEV addition is CVE-2026-12569 in PTC Windchill and FlexPLM (added 25 June). It is an unauthenticated remote input-validation flaw allowing arbitrary code execution. <span id="rm411737" style="display:none">If your engineering organisation runs Windchill, treat any internet-exposed instance as compromised until proven otherwise, isolate it behind a reverse proxy or VPN immediately, and apply PTC&#x27;s patch. Pay particular attention to integration accounts that Windchill uses to push data to MES, ERP, or shop-floor systems — rotate those credentials after patching. The Lantronix EDS5000 entry (CVE-2025-67038, added 23 June) is the more insidious one for plant engineers. These device servers are deployed in pump stations, substations, packaging lines, and lab benches, often with default credentials and no patching regime. Root-level command injection turns them into a persistent OT pivot point. Find them with a passive Nmap or Nozomi/Claroty sweep on common Lantronix ports (30718/UDP discovery, 9999, 80), upgrade firmware, disable the web UI on the OT side if practical, and put them behind a managed switch ACL. Also worth noting: three Ubiquiti UniFi OS flaws (CVE-2026-34908/34909/34910) covering access control, path traversal, and command injection. UniFi gear has been creeping into OT networks at smaller sites and remote facilities — if you are using it for plant Wi-Fi or VLAN segmentation, patch the controller and audit admin accounts. Check Point Security Gateway&#x27;s IKEv1 auth bypass (CVE-2026-50751) is also flagged as having known ransomware use.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm411737',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Linux Foundation Unveils New Open Source Security Project Akrites appea
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 23 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 22 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -484,24 +484,23 @@ The post Linux Foundation Unveils New Open Source Security Project Akrites appea
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-27 09:29 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-06-28 09:58 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "ACL":"Access Control List; rules defining user permissions to network resources.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "AWS":"Amazon Web Services; cloud computing platform providing on-demand IT resources.",
-  "CAD":"Computer-Aided Design; software for creating digital models and technical drawings.",
+  "BPCS":"Basic Process Control System; primary control system for industrial processes.",
+  "CAD":"Computer-Aided Design; software for creating technical drawings and models.",
+  "CIP":"Common Industrial Protocol; network protocol for industrial device communication.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CM":"Configuration Management; process of controlling and tracking system changes.",
-  "CSF":"Critical Success Factor; key element essential to achieving objectives.",
+  "CNC":"Computer Numerical Control; automated machine tool controlled by programmed instructions.",
+  "CSF":"Critical Success Factor; essential element required for achieving objectives.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized Zone; network segment separating internal networks from untrusted external networks.",
-  "EDR":"Endpoint Detection and Response; security tool monitoring and responding to endpoint threats.",
-  "EDS":"Electronic Data Sheet; document specifying device parameters and technical characteristics.",
-  "EOS":"End of Support; date when vendor stops providing updates or maintenance.",
+  "EDS":"Electronic Data Sheet; file describing device parameters and configuration options.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -512,36 +511,36 @@ The post Linux Foundation Unveils New Open Source Security Project Akrites appea
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IRT":"Instrument Response Time; delay between sensor input and system output.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
-  "ISO":"International Organization for Standardization; develops global standards across industries.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
+  "LAN":"Local Area Network; computers connected within limited geographic area.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating System; core software managing computer hardware and applications.",
+  "OS":"Operating System; software managing hardware and application resources.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PLM":"Product Lifecycle Management; system managing product data throughout its lifespan.",
+  "PLM":"Product Lifecycle Management; system managing product data throughout lifecycle.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTC":"Programmable Temperature Controller; device regulating temperature in industrial processes.",
-  "RCE":"Remote Code Execution; vulnerability allowing attackers to run code on target systems.",
+  "RCE":"Remote Code Execution; vulnerability allowing unauthorized command execution on systems.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "S7":"Siemens S7 PLC; programmable logic controller from Siemens industrial automation line.",
-  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
+  "SBOM":"Software Bill of Materials; inventory of software components and dependencies.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SSRF":"Server-Side Request Forgery; vulnerability allowing attackers to abuse server functionality.",
+  "SIS":"Safety Instrumented System; automated system preventing hazardous conditions.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Unified Structured Syntax; standardized interface for OPC UA server communication.",
-  "WAN":"Wide Area Network; computer network spanning large geographic areas.",
+  "UI":"User Interface; screen elements enabling human-system interaction.",
+  "USS":"Unified Secure Shell; protocol for secure command-line access over network.",
+  "VLAN":"Virtual Local Area Network; logically segregated network within physical infrastructure.",
+  "VPN":"Virtual Private Network; encrypted connection securing data over public networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
