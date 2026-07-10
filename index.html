@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-07-08 09:26 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-07-10 10:25 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Multiple actively-exploited flaws touch OT-adjacent stacks: PTC Windchill/FlexPLM, Lantronix EDS5000, Ubiquiti and Arista EOS.</span>
+  <span>Destructive GigaWiper malware and multiple KEV additions (Lantronix, PTC, Ubiquiti) raise OT exposure risk this week.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-07-08 09:26 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-07-10 10:25 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">21</div>
+      <div class="stat-val amber">18</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-07-08 09:26 UTC</span>
+      <span class="briefing-date">2026-07-10 10:25 UTC</span>
     </div>
-    <div class="briefing-body"><p>Your priority today is patch triage on two OT-adjacent CISA KEV additions: PTC Windchill/FlexPLM (CVE-2026-12569, unauth RCE) and Lantronix EDS5000 serial device servers (CVE-2025-67038, root command injection). Both are being actively exploited and both live in places controls engineers own but rarely patch — PLM systems and the little grey boxes bolted next to legacy PLCs. Pull an asset inventory of Lantronix device servers by OUI and MAC scan today, and get Windchill either patched or firewalled off from anything but engineering workstations. If you self-host Gitea for PLC code or recipes, patch that too — CVE-2026-20896 is under mass exploitation.</p></div>
+    <div class="briefing-body"><p>The most important item today is GigaWiper — a new destructive malware combining wiping, ransomware, and multi-pass overwrite in one payload — because its design pattern matches historical ICS sabotage tooling and any Windows engineering workstation is a plausible target. Combined with fresh CISA KEV entries for Lantronix EDS5000 serial gateways and PTC Windchill (both unauthenticated RCE), the risk profile for the plant-floor perimeter is elevated. Before you close out the week, verify your engineering workstation backups are offline and restorable, and confirm no EDS5000 or Windchill instance is reachable from outside your OT DMZ. If either check fails, that&#x27;s your Monday priority.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Lantronix EDS and its cousins (MOXA NPort, Digi PortServer) collectively expose more legacy serial-only PLCs to Ethernet than any single PLC vendor has ever shipped. Because they translate RS-232/485 to TCP transparently, a compromised device server effectively gives an attacker native Modbus RTU or DF1 access to controllers that were designed in an era when &quot;network security&quot; meant a locked cabinet door.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, published by Modicon in 1979, was designed to run over RS-232 at 9600 baud with no authentication because the physical wire was the security boundary — anyone connected to it was, by definition, trusted. Nearly half a century later, the majority of Modbus TCP deployments still inherit that same trust model, which is why a single misconfigured firewall rule can expose thousands of coils and registers to the open internet. Shodan routinely indexes over 20,000 Modbus endpoints on TCP/502 worldwide.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely. Elmer Sperry&#x27;s gyroscopic ship autopilots in 1911 already implemented proportional, integral and derivative action mechanically, using flywheels and dashpots, to keep US Navy destroyers on heading. Nicholas Minorsky formalized the mathematics in 1922 by watching helmsmen steer — noticing that good ones didn&#x27;t just react to current error, they also anticipated (derivative) and compensated for persistent bias (integral). Every loop you tune today is still, in essence, a mathematical portrait of a competent 1920s sailor.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — the first mathematically-analysed three-term controller was described by Nicolas Minorsky in 1922 for automatic ship steering on the USS New Mexico, using purely mechanical and hydraulic elements. Minorsky derived the derivative term by watching how experienced helmsmen anticipated the ship&#x27;s swing rather than reacting to its current heading, essentially reverse-engineering human intuition into an equation. Every temperature loop you tune today is a direct descendant of a naval officer trying to keep a battleship pointed straight in heavy seas.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Ethernet-APL (Advanced Physical Layer) is finally hitting real project specifications this year and it&#x27;s worth understanding. APL delivers 10 Mbit/s full-duplex Ethernet plus loop power over the same two-wire cabling process instruments have used for decades, and it is intrinsically-safe rated for Zone 0/Division 1 hazardous areas. <span id="rm524387" style="display:none">In practice, this means a Coriolis meter or radar level transmitter can speak PROFINET or EtherNet/IP (and increasingly OPC UA FX) directly to your DCS without a HART multiplexer or fieldbus gateway in between. The practical implication for controls engineers is significant: instrument diagnostics, secondary variables and configuration data that used to be trapped behind HART-IP gateways become first-class citizens on the control network. That&#x27;s great for asset management and predictive maintenance, but it also means every transmitter is now an IP endpoint with a MAC address, a firmware version and — potentially — a CVE. Adoption challenges are real: switch vendors are still catching up on APL field-switch portfolios, cable qualification for existing runs is not always straightforward, and most sites lack a segmentation model for treating instruments as network assets. If you&#x27;re specifying a greenfield unit in 2026, ask your DCS vendor what their APL roadmap looks like before you commit to another decade of 4–20 mA.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm524387',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is Ethernet-APL (Advanced Physical Layer), which is quietly transforming field instrumentation in process industries. Ethernet-APL extends standard 10BASE-T1L two-wire Ethernet with intrinsic safety and bus power, allowing a single twisted pair to carry both power and 10 Mbit/s Ethernet up to 1,000 metres — even into Zone 0 hazardous areas. <span id="rm822108" style="display:none">In practice, this means a Coriolis flowmeter or pH probe in a hazardous chemical plant can speak native TCP/IP (typically PROFINET, EtherNet/IP, or OPC UA) instead of being throttled through a HART multiplexer or 4-20 mA loop. The practical implication is enormous bandwidth uplift for diagnostics and asset management: instead of polling a single process variable every few seconds, you can stream full device telemetry, valve signatures, and secondary variables continuously to a historian or edge analytics platform. Adoption challenges remain, however. APL requires new field switches, new instrument electronics, and — critically — a rethink of cybersecurity, because every field device now has an IP address. Segmentation, certificate management, and secure onboarding (using standards like OPC UA GDS or FDI) become field-level concerns rather than control-room ones. Expect Ethernet-APL to appear in more greenfield process projects through 2027, particularly in pharma and specialty chemicals where data richness justifies the capex.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm822108',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most often cited in new project specs, and increasingly EPCs are being asked to deliver a documented zone-and-conduit model as a contractual deliverable, not just an afterthought. If you haven&#x27;t done one recently, the practical starting point is a data-flow diagram overlaid on your P&amp;IDs — you&#x27;ll typically discover two or three conduits nobody remembered existed, usually involving a vendor remote-support laptop or a historian pulling from a safety system. <span id="rm197653" style="display:none">On the US side, NIST SP 800-82 Rev. 3 remains the reference for OT security guidance and pairs well with the CISA Cross-Sector Cybersecurity Performance Goals (CPGs), which are becoming the de-facto baseline that insurers and auditors check against for water, energy and manufacturing operators. ISA&#x27;s TR84.00.09 on cybersecurity for safety instrumented systems is also worth a re-read if your SIS shares any network infrastructure with the BPCS — the guidance on independence between security countermeasures and safety functions has aged well and is showing up in more FEED-stage HAZOP/LOPA discussions.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm197653',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to gain traction as the de facto reference cited in procurement contracts, particularly in Europe following NIS2 enforcement. The interesting recent development is how asset owners are being pulled into the standard: historically 62443-4-1 and 4-2 were vendor concerns (secure development and component security), but 3-2&#x27;s zone-and-conduit methodology squarely lands on the end user. <span id="rm534929" style="display:none">If you haven&#x27;t produced a formal zone/conduit diagram with target security levels (SL-T) for your plant, that&#x27;s now a common gap flagged in audits. On the US side, NIST SP 800-82 Revision 3 remains the practical reference for OT security programs, and CISA&#x27;s Cross-Sector Cybersecurity Performance Goals (CPGs) are increasingly being mapped against it for critical infrastructure sectors. ISA is also progressing work on ISA/IEC 62443-2-2 (security program ratings), which will provide a scoring methodology for how mature an operator&#x27;s cybersecurity management system actually is — expect insurers and regulators to lean on this once it stabilises. For engineers, the pragmatic action is to ensure your change-management, backup, and remote-access procedures are documented in a form that maps cleanly onto both 62443-2-1 and NIST 800-82 controls; auditors are increasingly asking for evidence, not policy statements.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm534929',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where the Cyber Av3ngers group (linked to Iranian IRGC) defaced a Unitronics Vision-series PLC controlling a booster station. The attackers didn&#x27;t exploit a zero-day — they scanned the internet for Unitronics PLCs exposed on TCP/20256 and logged in using the well-known default password &quot;1111&quot;. <span id="rm429972" style="display:none">Once in, they rewrote the HMI screen with a political message and forced the operator to switch to manual control. The attack succeeded because the PLC was directly internet-reachable, retained factory default credentials, and had no network-layer authentication on its programming protocol. Nobody was hurt and water quality wasn&#x27;t affected, but the case became the reference incident that CISA now cites when pushing operators toward the CPGs. The three lessons that keep applying: (1) assume Shodan already has an inventory of your externally-reachable controllers — check yours before an adversary does; (2) default credentials on PLCs and HMIs are still the number-one initial access vector in water and small manufacturing, ahead of any CVE; (3) even a purely symbolic defacement forces manual operation, which for a small utility with thin staffing is itself a meaningful availability impact.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm429972',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority intrusion, where the Cyber Av3ngers group compromised a Unitronics Vision-series PLC controlling a booster pump station. The attackers didn&#x27;t exploit a sophisticated zero-day — the PLC was exposed to the internet with the default password &#x27;1111&#x27; on TCP/20256, and the group defaced the HMI screen with a political message. <span id="rm874389" style="display:none">Operators noticed only because the PLC went into a fault state and an alarm fired; manual operation kept water service uninterrupted. The root causes were mundane and repeat across the sector: a controller placed directly on the public internet by an integrator, a default credential never changed at commissioning, and no network-level monitoring to detect the connection. Three lessons stand out for controls engineers. First, never accept an integrator handover without verifying that no controller, HMI, or gateway is directly internet-reachable — use Shodan or Censys against your own public IP ranges as a sanity check. Second, treat vendor default credentials as an incident-in-waiting; enforce a commissioning checklist that requires evidence of credential rotation. Third, ensure your safety and manual-operation procedures are practised, because they were the reason Aliquippa was a headline rather than a public health event.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm874389',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The headline items today are enterprise-IT vulnerabilities but several bleed directly into plant environments. Adobe ColdFusion CVE-2026-48282 (CVSS 10) is under active exploitation and remains embedded in many older MES, historian dashboards, and vendor engineering portals — a good day to inventory any ColdFusion instance still living in a DMZ. <span id="rm671589" style="display:none">A critical Gitea authentication-bypass (CVE-2026-20896) is also being exploited in the wild; if your engineering or PLC-code repository sits on a self-hosted Gitea, patch immediately, as attackers are reading secrets and source with a single crafted HTTP header. On the geopolitical side, researchers report an Iran-linked actor using a modular C2 framework and, notably, pivoting through IT service providers to reach high-value Israeli targets. That supply-chain-through-MSP pattern is the same pathway that has previously hit water and manufacturing operators, and it warrants a quick review of what your integrators and remote-support vendors can reach inside your OT network. In a lighter but interesting item, CISA is reportedly piloting Anthropic&#x27;s Mythos LLM to scan government software for flaws — the beginning of AI-driven vulnerability discovery at scale. Expect that same technique to be used against your ICS vendors&#x27; code (by both defenders and adversaries) over the next 12 months. Finally, a small Ohio county government reportedly paid $1M in extortion; a reminder that municipal utilities and water districts remain soft targets and that the ransom economics are not slowing down.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm671589',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The headline concern for OT-adjacent teams this week is GigaWiper, a multi-stage destructive toolkit that bundles a standalone wiper, ransomware-style encryption, and a multi-pass overwrite command into a single backdoor. While no confirmed ICS-targeted campaign has been attributed yet, the design pattern echoes prior industrial disruptors like Industroyer2 and CaddyWiper — sabotage first, extortion as cover. <span id="rm130664" style="display:none">Any Windows-based engineering workstation, historian, or HMI is a plausible landing point, so segmentation and offline configuration backups deserve a hard look today. Two AI-flavoured stories are also worth noting. &#x27;HalluSquatting&#x27; abuses the fact that LLM coding assistants routinely hallucinate non-existent package names; attackers register those names on public repositories with malicious payloads, turning AI-suggested imports into a supply-chain botnet vector. In parallel, researchers uncovered a network of roughly 200 GitHub repositories chaining Go modules and PowerShell loaders to fetch payloads from dead-drop resolvers. Both stories reinforce that anyone pulling code, libraries, or scripts into engineering laptops — including sample PLC drivers or Python OPC UA clients — needs a curated, pinned dependency policy. On the vendor front, Palo Alto Networks issued fixes for 13 PAN-OS vulnerabilities spanning buffer overflow, command injection, SSRF, and authentication bypass. Since PAN firewalls frequently sit at the IT/OT boundary in Purdue level 3.5 DMZs, this patch cycle should be prioritised in your next change window. The UK government&#x27;s rollout of an &#x27;agentic AI defense plan&#x27; also flags the direction regulators are heading: expect procurement questionnaires to soon ask how you validate AI-assisted engineering tools before they touch production.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm130664',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 07 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/county-government-reportedly-paid-1-million-to-cyber-extortion-group/" target="_blank" rel="noopener">County Government Reportedly Paid $1 Million to Cyber Extortion Group</a></span></div></summary><div class="detail-body"><p>The alleged victim, believed to be a small Ohio county, reportedly paid the extortion group to prevent the public release of sensitive stolen data.
-The post County Government Reportedly Paid $1 Million to Cyber Extortion Group appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/county-government-reportedly-paid-1-million-to-cyber-extortion-group/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 07 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/" target="_blank" rel="noopener">Critical Gitea Flaw Under Active Exploitation, Researchers Warn</a></span></div></summary><div class="detail-body"><p>Attackers are exploiting the critical Gitea vulnerability CVE-2026-20896 to bypass authentication with a single HTTP header and access vulnerable repositories and secrets.
-The post Critical Gitea Flaw Under Active Exploitation, Researchers Warn appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 07 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cisa-reportedly-using-anthropics-mythos-to-scan-government-software-for-flaws/" target="_blank" rel="noopener">CISA Reportedly Using Anthropic’s Mythos to Scan Government Software for Flaws</a></span></div></summary><div class="detail-body"><p>The audits are reportedly being spearheaded by CISA’s Attack Surface Evaluation team, a specialized unit tasked with conducting digital defense assessments and simulated hacking exercises.
-The post CISA Reportedly Using Anthropic’s Mythos to Scan Government Software for Flaws appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cisa-reportedly-using-anthropics-mythos-to-scan-government-software-for-flaws/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 07 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/" target="_blank" rel="noopener">Critical Adobe ColdFusion Vulnerability Exploited in Attacks</a></span></div></summary><div class="detail-body"><p>Hackers are exploiting a recently patched critical vulnerability (CVE-2026-48282) in Adobe ColdFusion that carries a CVSS score of 10/10.
-The post Critical Adobe ColdFusion Vulnerability Exploited in Attacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 07 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/iran-linked-hackers-using-modular-cc-framework-in-cyberattacks/" target="_blank" rel="noopener">Iran-Linked Hackers Using Modular C&amp;C Framework in Cyberattacks</a></span></div></summary><div class="detail-body"><p>Researchers say the Iran-linked threat actor used an adaptable modular malware framework and compromised IT service providers to reach high-value targets in Israel.
-The post Iran-Linked Hackers Using Modular C&amp;amp;C Framework in Cyberattacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/iran-linked-hackers-using-modular-cc-framework-in-cyberattacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 10 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/gigawiper-combines-multiple-malware-for-system-level-sabotage/" target="_blank" rel="noopener">GigaWiper Combines Multiple Malware for System-Level Sabotage</a></span></div></summary><div class="detail-body"><p>The backdoor’s destructive capabilities include a standalone wiper, ransomware encryption, and a multi-pass wiping command.
+The post GigaWiper Combines Multiple Malware for System-Level Sabotage appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/gigawiper-combines-multiple-malware-for-system-level-sabotage/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 10 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/hallusquatting-turns-ai-hallucinations-into-botnet-delivery-mechanism/" target="_blank" rel="noopener">‘HalluSquatting’ Turns AI Hallucinations Into Botnet Delivery Mechanism</a></span></div></summary><div class="detail-body"><p>Researchers demonstrate adversarial hallucination squatting against popular AI assistants to achieve remote code execution.
+The post &amp;#8216;HalluSquatting&amp;#8217; Turns AI Hallucinations Into Botnet Delivery Mechanism appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/hallusquatting-turns-ai-hallucinations-into-botnet-delivery-mechanism/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 10 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/network-of-200-github-repositories-used-for-malware-infection/" target="_blank" rel="noopener">Network of 200 GitHub Repositories Used for Malware Infection</a></span></div></summary><div class="detail-body"><p>A Go module is used to load PowerShell code that fetches a resolver from public dead drops to execute Windows malware.
+The post Network of 200 GitHub Repositories Used for Malware Infection appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/network-of-200-github-repositories-used-for-malware-infection/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 09 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/qiz-security-raises-17-million-for-cryptographic-governance-platform/" target="_blank" rel="noopener">QIZ Security Raises $17 Million for Cryptographic Governance Platform</a></span></div></summary><div class="detail-body"><p>The Israeli company has developed a cryptographic posture and post-quantum cryptography management platform.
+The post QIZ Security Raises $17 Million for Cryptographic Governance Platform appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/qiz-security-raises-17-million-for-cryptographic-governance-platform/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 09 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/uk-government-rolls-out-agentic-ai-defense-plan-alongside-industry-pledge/" target="_blank" rel="noopener">UK Government Rolls Out Agentic AI Defense Plan Alongside Industry Pledge</a></span></div></summary><div class="detail-body"><p>Two announcements on July 7, 2026, demonstrate the government’s determination to improve the level of cybersecurity within the UK.
+The post UK Government Rolls Out Agentic AI Defense Plan Alongside Industry Pledge appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/uk-government-rolls-out-agentic-ai-defense-plan-alongside-industry-pledge/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Iran-Linked Hackers Using Modular C&amp;amp;C Framework in Cyberattacks
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Two additions this fortnight stand out for OT teams. CVE-2026-12569 in PTC Windchill and FlexPLM is an unauthenticated RCE reachable over the network — Windchill is the PLM backbone for a large slice of discrete manufacturing, holding CAD, BOM and change-management data. <span id="rm582393" style="display:none">Patch per PTC&#x27;s advisory and, at minimum, ensure Windchill is not reachable from untrusted networks or vendor VPN segments. CVE-2025-67038 in the Lantronix EDS5000 device server is arguably more painful: OS command injection via the username parameter, executed as root, on a serial-to-Ethernet gateway that is often bolted directly to legacy PLCs, RTUs, drives and meters. These devices rarely get patched, are often forgotten in asset inventories, and frequently have their web UIs exposed. Hunt them down by MAC OUI (00:80:A3) and by scanning for their default ports. The Ubiquiti UniFi OS trio (CVE-2026-34908/34909/34910) matters because UniFi has quietly become the wireless and switching layer in many small plants, remote pump stations and integrator-supplied cabinets. Command injection and path traversal on an in-network device puts an attacker one hop from your control LAN. Arista EOS CVE-2026-7473, an incorrect tunnel decapsulation bug, is less dramatic but worth checking if you use EOS as a distribution/core in Purdue Levels 3–3.5. Round out patch planning with the Cisco Unified CM SSRF (CVE-2026-20230), Cisco Catalyst SD-WAN Manager path traversal (CVE-2026-20262) and Splunk Enterprise missing-auth (CVE-2026-20253) if you use Splunk for OT log aggregation — that one lets an unauthenticated caller truncate arbitrary files via a PostgreSQL sidecar endpoint.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm582393',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions over the past two weeks include several entries that directly affect OT and adjacent infrastructure. CVE-2025-67038 in the Lantronix EDS5000 serial device server is particularly notable — it allows OS command injection via the username field, executed as root. <span id="rm935085" style="display:none">EDS devices are commonly deployed as serial-to-Ethernet gateways for legacy PLCs, meters, and RTUs, and are frequently forgotten during patch cycles. Inventory them, restrict management interfaces to a jump host, and apply Lantronix&#x27;s advisory immediately. Similarly, CVE-2026-12569 in PTC Windchill and FlexPLM enables unauthenticated remote code execution; these PLM systems often hold the master CAD, BoM, and change-control data for manufacturing operations. Three Ubiquiti UniFi OS flaws (CVE-2026-34908/34909/34910) cover command injection, path traversal, and improper access control from the local network. UniFi gear increasingly shows up in smaller plants and remote pump stations as &#x27;good enough&#x27; networking; if any of it is reachable from process VLANs, treat it as urgent. Additional entries — Cisco Unified CM SSRF, Cisco Catalyst SD-WAN Manager path traversal, Splunk Enterprise missing auth, Adobe ColdFusion path traversal, and SimpleHelp OIDC signature bypass — matter because these platforms often live in the IT/OT DMZ or support remote-access workflows. Prioritise anything with unauthenticated RCE and network-facing exposure first, then move to authenticated vectors.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm935085',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Iran-Linked Hackers Using Modular C&amp;amp;C Framework in Cyberattacks
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 21 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 18 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -484,33 +484,27 @@ The post Iran-Linked Hackers Using Modular C&amp;amp;C Framework in Cyberattacks
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-08 09:26 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-10 10:25 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "A3":"Toyota problem-solving methodology using single-page structured analysis format.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APL":"Allen-Bradley proprietary industrial automation programming language.",
-  "BOM":"List of components, parts, and materials required for a product.",
-  "BPCS":"Basic process control system managing routine industrial operations.",
-  "C2":"Command and control systems directing operational and tactical decisions.",
-  "CAD":"Software for creating digital drawings and design specifications.",
+  "APL":"Automation Protocol Language for industrial control system programming.",
+  "CAD":"Computer-aided design software for creating technical drawings and models.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CM":"Configuration management controlling and tracking system changes.",
+  "CM":"Configuration management for controlling system changes and documentation.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DF1":"Allen-Bradley proprietary serial communication protocol for industrial devices.",
-  "DMZ":"Network zone isolating critical systems from direct external access.",
-  "EDS":"File format describing electronic device capabilities and parameters.",
-  "EOS":"End-of-support date when vendor ceases product support.",
+  "DMZ":"Demilitarized zone network segment isolating industrial systems from external networks.",
+  "EDS":"Electronic Data Sheet containing device parameters and configuration information.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+  "FDI":"Field Device Integration package for integrating field instruments into systems.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FX":"Mitsubishi compact programmable logic controller product line.",
+  "GDS":"Generic Device Specification defining device communication and capabilities.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
-  "HAZOP":"Systematic hazard analysis identifying process operational deviations.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
@@ -521,36 +515,32 @@ The post Iran-Linked Hackers Using Modular C&amp;amp;C Framework in Cyberattacks
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "LAN":"Local area network connecting devices within single facility.",
-  "LOPA":"Layer of protection analysis evaluating safeguard effectiveness.",
-  "MAC":"Media access control address identifying devices on network.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
-  "MOXA":"Industrial networking equipment manufacturer for harsh environments.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
+  "NIS2":"Network and Information Security Directive 2 establishing EU cybersecurity requirements.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating system software managing computer hardware resources.",
+  "OS":"Operating system managing hardware resources and application execution.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "OUI":"Organizationally unique identifier portion of MAC address.",
+  "PAN":"Personal area network for short-range wireless device communication.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PLM":"Software managing product lifecycle from conception to retirement.",
+  "PLM":"Product lifecycle management system tracking product development and manufacturing.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTC":"PTC Inc., software company providing CAD and PLM solutions.",
-  "RCE":"Remote code execution vulnerability allowing unauthorized system command.",
-  "RS":"Recommended standard for serial data communication protocol.",
+  "RCE":"Remote code execution vulnerability allowing unauthorized command execution.",
+  "RS":"Recommended standard for industrial communication protocols and interfaces.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIS":"Safety instrumented system protecting against hazardous process conditions.",
-  "SSRF":"Server-side request forgery vulnerability exploiting server functionality.",
+  "SL":"Safety level classification for control system safety integrity.",
+  "SSRF":"Server-side request forgery attack exploiting server connections to internal resources.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UA":"OPC unified architecture protocol for industrial data exchange.",
-  "VPN":"Virtual private network providing secure remote access connection.",
-  "WAN":"Wide area network connecting geographically distributed facilities.",
+  "UA":"OPC Unified Architecture standard for industrial data communication and interoperability.",
+  "USS":"Unified Structured Syntax protocol for Siemens drive communication.",
+  "WAN":"Wide area network connecting geographically dispersed industrial facilities and sites.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
