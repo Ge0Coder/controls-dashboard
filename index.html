@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-07-17 09:11 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-07-18 08:49 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Two major food-sector OT disruptions this week (Nichirei, Fairlife) plus active exploitation of SharePoint and KNX flaws.</span>
+  <span>KEV additions include KNX protocol and PTC Windchill flaws; ransomware disrupts frozen food giant Nichirei and naval defense firm TKMS.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-07-17 09:11 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-07-18 08:49 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">25</div>
+      <div class="stat-val amber">24</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-07-17 09:11 UTC</span>
+      <span class="briefing-date">2026-07-18 08:49 UTC</span>
     </div>
-    <div class="briefing-body"><p>Two food-sector manufacturers — Nichirei and Coca-Cola&#x27;s Fairlife — have halted production this week due to cyberattacks, so expect renewed executive interest in your OT resilience posture. Simultaneously, CISA added a KNX protocol flaw (CVE-2023-4346) to the KEV, which matters if you have any building automation touching your plant network — check BCU keys and IP router exposure today. SharePoint CVE-2026-58644 is under active exploitation and likely holds your engineering documentation, so prioritise that patch in your IT liaison meeting. The practical takeaway: validate your degraded-mode production procedures this week — the recurring lesson from every F&amp;B ransomware incident is that IT-side outages cascade into OT stops faster than sites expect.</p></div>
+    <div class="briefing-body"><p>CISA added the KNX protocol authorization weakness (CVE-2023-4346) to the KEV catalog this week — if you have KNX anywhere in building automation, verify that Data Security (extended frames) is enabled and BCU keys have been rotated from defaults. In parallel, PTC Windchill and FlexPLM have an unauthenticated RCE flaw (CVE-2026-12569) now known to be exploited, so audit external exposure of your PLM before Monday. Combined with July&#x27;s 622-CVE Microsoft Patch Tuesday and the ongoing Nichirei ransomware disruption, this is a weekend to confirm your engineering workstations, PLM, and building systems are patched and not directly reachable from the internet.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The KNX BCU (Bus Coupling Unit) key that just landed in CISA&#x27;s KEV is only 4 bytes long — 32 bits — and in many field installations it has never been changed from the factory default of 0xFFFFFFFF. That means the primary line of defence on a building automation bus controlling doors, HVAC, and lighting is often equivalent in strength to a four-character password with no lockout. Worth checking on any site you support.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The KNX protocol, which underpins much of Europe&#x27;s building automation, was originally standardized in 1990 as EIB (European Installation Bus) and predates most modern notions of cybersecurity by decades. Its baseline BCU key is a 32-bit value, and until KNX Data Security was introduced in 2013, virtually all traffic on the bus was cleartext. Many installations still in service today have never been upgraded, which is precisely why this week&#x27;s KEV addition matters.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller&#x27;s derivative term has a surprising origin: it was reverse-engineered from watching helmsmen steer ships. In 1922, Nicolas Minorsky was analysing why experienced helmsmen kept the USS New Mexico on course better than any automatic device of the era, and he noticed they didn&#x27;t just react to heading error — they anticipated based on how fast the error was changing. He formalised that anticipation as the derivative term, giving us the modern three-term controller. Every temperature loop you tune today owes its D-term to a sailor&#x27;s intuition about the sea.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller, which runs an estimated 95% of all industrial control loops, has its practical origins not in a laboratory but on the bridge of a ship. Nicolas Minorsky developed the three-term formulation in 1922 while studying automatic steering for the USS New Mexico, observing how experienced helmsmen anticipated the ship&#x27;s response — the derivative term — rather than simply reacting to heading error. Nearly every temperature loop in your plant today is, in essence, still steering Minorsky&#x27;s battleship.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is Ethernet-APL (Advanced Physical Layer), which is quietly moving from pilot to mainstream deployment in process plants. Ethernet-APL delivers 10 Mbit/s full-duplex Ethernet plus power over a single twisted pair, over distances up to 1,000 m, and — crucially — is intrinsically safe for Zone 0/1 hazardous areas. <span id="rm971622" style="display:none">It effectively replaces 4–20 mA and HART at the field-device level with a proper IP-addressable network, letting you run PROFINET, EtherNet/IP, or OPC UA all the way down to a pressure transmitter. The practical implication is significant: parameterisation, diagnostics, and firmware updates that today require a HART handheld or asset management gateway become native IP traffic. That&#x27;s brilliant for maintenance efficiency but painful for security. Every transmitter is now a network endpoint with a MAC address, a stack, and — inevitably — CVEs. If your OT segmentation model stops at the I/O rack, Ethernet-APL pushes the attack surface right into the field junction box. Adoption challenges remain: switch and field-device costs are still well above traditional 4–20 mA equivalents, and few sites have engineers comfortable troubleshooting both intrinsic-safety barriers and Ethernet at the same time. Expect greenfield chemical, pharma, and LNG projects to lead; brownfield retrofits will take another decade.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm971622',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on agentic AI in engineering workflows — LLM-driven agents that don&#x27;t just answer questions but take actions across tools like historians, CMMS, ticketing systems, and even HMIs. Vendors are increasingly pitching &quot;copilots&quot; that can query a PI historian, correlate an alarm flood with a maintenance order, and draft a work permit, all from a single natural-language prompt. <span id="rm722183" style="display:none">The productivity story is genuine: a shift engineer troubleshooting a batch deviation can compress an hour of tool-hopping into a few minutes. The practical problem, highlighted by this week&#x27;s OpenClaw-via-WhatsApp exploitation, is that agentic systems dramatically expand the blast radius of any prompt-injection or credential compromise. An agent with read/write access to your MES that can be tricked by a poisoned PDF attachment is a fundamentally new class of insider threat. Current adoption challenges include the lack of deterministic behavior (making change control and validation difficult in GxP and SIL environments), unclear audit trails, and vendors reluctant to expose the guardrails or system prompts that govern agent behavior. For now, the pragmatic stance is to allow agents read-only access to OT data via a demilitarized replica, keep write actions behind human approval, and treat every agent identity as a privileged account with full logging. Do not let agentic tools reach beyond Level 3 into supervisory or control layers until industry has settled on validation frameworks — which, realistically, are two or three years away.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm722183',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most often misapplied in the field. The 2020 edition remains current, but the IEC working groups have been consulting on a revised second edition throughout 2025–2026 aimed at tightening the definitions of zones and conduits and improving alignment with 62443-3-3 security levels. <span id="rm806306" style="display:none">If you&#x27;re specifying a new control system this year, insist the vendor&#x27;s risk assessment identifies zone boundaries at the P&amp;ID level, not just the network diagram — that&#x27;s where the current standard is most commonly gamed. On the US side, NIST is progressing SP 800-82 Rev. 3 supplementary guidance targeted at safety instrumented systems and manufacturing, following industry feedback that Rev. 3 (published 2023) was still too IT-oriented for SIS designers. Expect draft material later this year. Meanwhile, ISA&#x27;s TR84.00.09 on cybersecurity for SIS remains the most concrete practical reference if you&#x27;re wrestling with how to satisfy both IEC 61511 and 62443 for a single logic solver. For those in the EU, the Cyber Resilience Act&#x27;s substantive obligations for manufacturers of products with digital elements come into force in December 2027 — 18 months away. If your OEMs haven&#x27;t started talking to you about SBOMs, vulnerability handling processes, and secure-by-default configurations, that&#x27;s a red flag worth raising in your next factory acceptance test.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm806306',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2, the risk assessment and system design standard, continues to be the most-cited framework in tenders and regulator inquiries, but many teams still struggle with the zone-and-conduit exercise. A useful reminder: the standard does not require you to reduce risk to zero, only to a tolerable level defined by your organization, and to document the countermeasures assigned to each conduit. <span id="rm166997" style="display:none">Auditors increasingly ask to see the risk-assessment worksheet alongside the network diagram — if you have one without the other, you have a finding waiting to happen. On the US side, the Pentagon&#x27;s suspension of CMMC Phase 2 audits has caused understandable confusion, but the underlying DFARS 252.204-7012 clause remains in force. Defense manufacturers must still protect CUI to NIST SP 800-171 controls; only the third-party certification requirement is paused. For controls engineers, this means engineering data on CUI-bearing programs — drawings, PLC logic, network diagrams for defense-related production lines — must still be handled per the existing control set, including MFA on engineering workstations and encrypted transfer to subcontractors. Quietly progressing in the background is ISA/IEC 62443-2-1 (the security program requirements for asset owners), which is now aligned much more closely with the risk-based structure of the rest of the family. If your organization is still using the 2010 edition as its reference, it is time to migrate — the newer edition maps cleanly to CSF 2.0 and makes joint IT/OT governance conversations considerably easier.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm166997',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the Coca-Cola Fairlife ransomware attack that forced the suspension of US production. Public details remain limited, but the pattern is now familiar: an IT-side ransomware detonation triggers a precautionary shutdown of manufacturing because the MES, warehouse management, labelling, or quality systems that OT depends on are unavailable or untrusted. <span id="rm493333" style="display:none">Fairlife&#x27;s Canadian operations continued, suggesting network segmentation between geographies limited the blast radius — a small but real win. What controls engineers should take from this: first, know exactly which IT services your production lines cannot run without. If your PLCs can hold recipe and continue for four hours but your labeller stops in fifteen minutes because it can&#x27;t reach a print server, that&#x27;s your real MTTR. Second, test degraded-mode operation. Many sites discover during a real incident that their &#x27;run standalone&#x27; procedures haven&#x27;t been validated since commissioning and no longer match current recipes or SKUs. Third, geographic and business-unit segmentation matters as much as Purdue-level segmentation. Flat Active Directory forests and shared MES instances across sites are what turn a single ransomware event into a multi-plant outage. This is the second major F&amp;B production halt in a fortnight (Nichirei being the other) — the sector is clearly being actively targeted, and boards are paying attention.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm493333',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the ongoing Nichirei disruption. On 13 July the frozen food giant detected unauthorized activity on its systems and, following the now-standard containment playbook, disconnected large portions of its network — including systems supporting production scheduling, order management, and cold-storage logistics. <span id="rm480973" style="display:none">Five days later, restoration is still described as gradual, meaning the operational tail of the event will extend well beyond the initial IT compromise. While Nichirei has not publicly attributed the attack, the pattern — sudden disconnection, gradual recovery, multi-day operational impact on a food producer — is consistent with the ransomware activity that has plagued the sector over the past 24 months. The most likely initial vector, based on comparable incidents, is either a phishing-driven credential compromise or an exposed remote-access appliance; the sector has been repeatedly hit through both. Three lessons stand out for controls engineers. First, cold-chain and batch process environments need genuinely offline recovery capability — not just backups, but the ability to run production locally with cached recipes and local historians when corporate networks are dark. Second, understand which OT functions actually depend on IT: if your MES, LIMS, or shipping system is centralized, that dependency is your real recovery bottleneck. Third, rehearse the disconnect decision. The teams that recover fastest are those where the plant manager and IT security lead have pre-agreed criteria for cutting the uplink, and where the OT side has a documented &quot;island mode&quot; procedure ready to execute.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm480973',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The dominant story for plant floor engineers this week is a pair of food &amp; beverage manufacturing disruptions. Japanese frozen food giant Nichirei disconnected systems on 13 July after a cyberattack and is now beginning a staged restore — a reminder that isolation remains the first-line containment tactic, even when it halts production. <span id="rm144157" style="display:none">Simultaneously, Coca-Cola has suspended US Fairlife production following a ransomware incident; Canadian production and product safety are reportedly unaffected, but the outage underscores how ransomware continues to punch through into OT-adjacent business systems and force manual production halts. On the vulnerability side, a fresh Microsoft SharePoint deserialization flaw (CVE-2026-58644) is being exploited in the wild within days of disclosure. While SharePoint is not a control system, many sites still use it for engineering documentation, MOC workflows, drawings, and shift handover — an attractive pivot for adversaries mapping a plant. Combine that with July&#x27;s Patch Tuesday delivering 622 Microsoft CVEs (62 critical, two already exploited) and IT patch cycles are going to spill into OT change windows. SecurityWeek&#x27;s feature on legacy OT vulnerability disclosure is worth reading in full: it captures the recurring tension between coordinated disclosure and the reality that many DCS, PLC, and safety systems cannot be patched on vendor timelines, if at all. Meanwhile, UK courts sentenced two Scattered Spider members over the 2024 Transport for London attack — the group remains one of the more capable social-engineering threat actors targeting help desks, a common weak point for OT support contracts. Finally, Risk Ledger&#x27;s $32M Series B highlights growing investor appetite for supply chain risk platforms — relevant as EU NIS2 and similar regimes increasingly hold asset owners accountable for third-party integrator and OEM security posture.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm144157',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The most operationally significant story this week is the cyberattack on Nichirei, one of Japan&#x27;s largest frozen food producers, which forced the company to disconnect systems on 13 July and is only now beginning gradual restoration. For controls engineers in food and beverage, this is another reminder that cold-chain and process-critical environments increasingly find themselves collateral in IT-first ransomware events, with recovery times measured in weeks. <span id="rm225954" style="display:none">The pattern of disconnecting to contain, then rebuilding trusted islands, continues to be the de facto playbook. Ransomware also struck TKMS, the German naval defense shipbuilder, underscoring that defense-industrial-base manufacturers remain high-value targets. Even where OT networks themselves are not directly encrypted, engineering document repositories, PLM systems, and CAD/CAM assets are enough of a prize to disrupt production for months. Combined with the Pentagon&#x27;s suspension of CMMC Phase 2 third-party audits, defense suppliers should note that the legal obligation to protect CUI has not gone away — only the enforcement mechanism has paused. July&#x27;s Microsoft Patch Tuesday was extraordinary, with 622 Microsoft vulnerabilities plus 427 in Chromium, 62 rated critical, and two already exploited in the wild. Engineering workstations, historians, and HMIs running Windows are directly in scope, and controls teams should coordinate with IT to schedule patching windows before the exploited flaws mature into commodity malware. Notable in the ICS-adjacent space is the exploitation of OpenClaw AI agents via WhatsApp — an early example of agentic AI being weaponized through consumer messaging, worth watching as similar agents creep into engineering support workflows. On the funding side, Risk Ledger raised $32M for supply-chain risk collaboration and Beacon Security raised $13M for a security data platform. Both reflect continued investor appetite for third-party and telemetry-driven risk tooling — areas where OT asset owners still lag their IT peers.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm225954',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cyberattack-disrupts-operations-of-japanese-frozen-food-giant-nichirei/" target="_blank" rel="noopener">Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei</a></span></div></summary><div class="detail-body"><p>The company disconnected its systems on July 13 and is starting to gradually restore operations.
-The post Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cyberattack-disrupts-operations-of-japanese-frozen-food-giant-nichirei/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/risk-ledger-raises-32-million-in-series-b-funding/" target="_blank" rel="noopener">Risk Ledger Raises $32 Million in Series B Funding</a></span></div></summary><div class="detail-body"><p>The British firm has built a collaborative platform to help organizations address supply chain security risks.
-The post Risk Ledger Raises $32 Million in Series B Funding appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/risk-ledger-raises-32-million-in-series-b-funding/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/fresh-sharepoint-vulnerability-exploited-soon-after-disclosure/" target="_blank" rel="noopener">Fresh SharePoint Vulnerability Exploited Soon After Disclosure</a></span></div></summary><div class="detail-body"><p>The critical-severity security defect allows remote, authenticated attackers to execute arbitrary code on the server.
-The post Fresh SharePoint Vulnerability Exploited Soon After Disclosure appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/fresh-sharepoint-vulnerability-exploited-soon-after-disclosure/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/" target="_blank" rel="noopener">Coca-Cola Suspends US Fairlife Production Due to Ransomware Attack</a></span></div></summary><div class="detail-body"><p>The company says the incident has not affected product quality and safety, nor Fairlife’s Canada production.
-The post Coca-Cola Suspends US Fairlife Production Due to Ransomware Attack appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 16 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/legacy-systems-real-world-impacts-the-reality-of-ot-security/" target="_blank" rel="noopener">Legacy Systems, Real-World Impacts: The Reality of OT Security</a></span></div></summary><div class="detail-body"><p>Legacy systems, safety concerns, and critical infrastructure risks make OT vulnerability disclosure one of cybersecurity&#x27;s most challenging balancing acts.
-The post Legacy Systems, Real-World Impacts: The Reality of OT Security appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/legacy-systems-real-world-impacts-the-reality-of-ot-security/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/in-other-news-iran-tracks-us-military-phones-crashstealer-macos-malware-cvd-blueprint/" target="_blank" rel="noopener">In Other News: Iran Tracks US Military Phones, CrashStealer macOS Malware, CVD Blueprint</a></span></div></summary><div class="detail-body"><p>Noteworthy stories that might have slipped under the radar: OpenClaw AI agents exploited via WhatsApp, ransomware hits naval defense firm TKMS, Lidl discloses data breach.
+The post In Other News: Iran Tracks US Military Phones, CrashStealer macOS Malware, CVD Blueprint appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/in-other-news-iran-tracks-us-military-phones-crashstealer-macos-malware-cvd-blueprint/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/podcast-broken-governance-agentic-ai-and-the-mindstone-agent-exclusive/" target="_blank" rel="noopener">Podcast: Broken Governance, Agentic AI, and the MindStone Agent Exclusive</a></span></div></summary><div class="detail-body"><p>(Video) Artificial intelligence is transforming cybersecurity, but are governance, compliance, and security practices evolving fast enough to keep up?
+The post Podcast: Broken Governance, Agentic AI, and the MindStone Agent Exclusive appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/podcast-broken-governance-agentic-ai-and-the-mindstone-agent-exclusive/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/beacon-security-raises-13-million-for-security-data-platform/" target="_blank" rel="noopener">Beacon Security Raises $13 Million for Security Data Platform</a></span></div></summary><div class="detail-body"><p>The startup helps organizations detect, hunt, and protect their assets across environments at machine speed.
+The post Beacon Security Raises $13 Million for Security Data Platform appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/beacon-security-raises-13-million-for-security-data-platform/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/industry-reactions-to-pentagon-suspending-cmmc-phase-2-feedback-friday/" target="_blank" rel="noopener">Industry Reactions to Pentagon Suspending CMMC Phase 2: Feedback Friday</a></span></div></summary><div class="detail-body"><p>Industry professionals broadly agree that the suspension pauses third-party CMMC audits but not the underlying legal obligation to protect CUI.
+The post Industry Reactions to Pentagon Suspending CMMC Phase 2: Feedback Friday appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/industry-reactions-to-pentagon-suspending-cmmc-phase-2-feedback-friday/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 17 Jul 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cyberattack-disrupts-operations-of-japanese-frozen-food-giant-nichirei/" target="_blank" rel="noopener">Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei</a></span></div></summary><div class="detail-body"><p>The company disconnected its systems on July 13 and is starting to gradually restore operations.
+The post Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cyberattack-disrupts-operations-of-japanese-frozen-food-giant-nichirei/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Legacy Systems, Real-World Impacts: The Reality of OT Security appeared
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The standout OT-relevant KEV addition is CVE-2023-4346 in the KNX protocol&#x27;s Connection Authorization Option 1, added 15 July. The flaw&#x27;s weak account lockout mechanism allows an attacker to brute-force the BCU key, purge devices, and effectively take over KNX installations that rely on the default protection. <span id="rm312653" style="display:none">KNX is widespread in building automation — HVAC, lighting, access — which sits adjacent to many industrial sites and is often on the same converged network as process controls. If you own KNX segments, verify that IP Secure or Data Secure is enabled, that BCU keys have been changed from defaults, and that KNX/IP routers are not reachable from corporate or guest networks. The other cluster worth attention is enterprise-edge appliances feeding into OT: two Fortinet FortiSandbox flaws (CVE-2026-25089, CVE-2026-39808) allow unauthenticated command injection, and two SonicWall SMA1000 issues (CVE-2026-15409/15410) enable SSRF and authenticated RCE. These are the same remote-access and inspection appliances many sites use as their IT/OT boundary or vendor tunnel termination. Patch on priority, and audit any lingering vendor VPN accounts. Also notable: PTC Windchill/FlexPLM (CVE-2026-12569) — a pre-auth RCE in a PLM system that likely holds your CAD, BoMs, and control system configurations. Treat Windchill exposure with the same seriousness as an engineering workstation.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm312653',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The most OT-relevant KEV addition this cycle is CVE-2023-4346, an overly-permissive account lockout weakness in the KNX Protocol Connection Authorization Option 1. An attacker can effectively brute force the BCU key, purge devices, and lock installations out of their own building automation systems. <span id="rm174365" style="display:none">Any facility running KNX for lighting, HVAC, or building services should verify that Option 2 (extended frame with data security) is enabled, that BCU keys have been changed from defaults, and that the KNX/IP interfaces are not directly reachable from corporate or guest networks. This is a rare KEV entry that speaks directly to plant and facility engineers. Also relevant is CVE-2026-12569 in PTC Windchill and FlexPLM — unauthenticated remote code execution against PLM systems that hold bills of material, engineering drawings, and change records for many manufacturers. While not a direct control system compromise, loss of PLM integrity has downstream consequences for MES and quality systems. Patch immediately and audit external exposure. The remainder of the list is dominated by IT stack issues that nevertheless matter for OT: SharePoint deserialization (three separate CVEs this month), Fortinet FortiSandbox command injection, SonicWall SMA1000 SSRF and code injection, Adobe ColdFusion path traversal, and SimpleHelp OIDC signature-bypass. SharePoint and SimpleHelp in particular often host engineering documentation and remote support tooling for OT vendors — treat them as Purdue Level 3.5 assets and prioritize accordingly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm174365',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Legacy Systems, Real-World Impacts: The Reality of OT Security appeared
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 25 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 24 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -484,26 +484,31 @@ The post Legacy Systems, Real-World Impacts: The Reality of OT Security appeared
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-17 09:11 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-18 08:49 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APL":"Automation Protocol Language for industrial process control communications",
-  "BCU":"Basic Control Unit managing low-level device operations in automation systems",
-  "CAD":"Computer-Aided Design software for creating technical drawings and schematics",
+  "BCU":"Battery Control Unit managing power distribution and charging functions.",
+  "CAD":"Computer-Aided Design software for creating technical drawings and models.",
+  "CAM":"Computer-Aided Manufacturing using digital files to control production equipment.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CMMC":"Cybersecurity Maturity Model Certification for defense contractor security requirements.",
+  "CMMS":"Computerized Maintenance Management System tracking equipment maintenance activities.",
+  "CSF":"Critical Success Factor essential to achieving organizational objectives.",
+  "CUI":"Controlled Unclassified Information requiring protection under federal regulations.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
+  "DFARS":"Defense Federal Acquisition Regulation Supplement governing defense contractor requirements.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HVAC":"Heating, Ventilation, and Air Conditioning systems for environmental control",
+  "HVAC":"Heating, Ventilation, and Air Conditioning system controlling environmental conditions.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
@@ -512,34 +517,30 @@ The post Legacy Systems, Real-World Impacts: The Reality of OT Security appeared
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "KNX":"Building automation protocol for electrical installation control and management",
+  "KNX":"Building automation protocol for controlling lighting, heating, and electrical devices.",
+  "LIMS":"Laboratory Information Management System tracking samples and test results.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-Factor Authentication requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
-  "MOC":"Management of Change process for controlling modifications to systems",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MTTR":"Mean Time To Repair measuring average time to restore failed equipment",
-  "NIS2":"Network and Information Systems Directive 2 for EU cybersecurity requirements",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer producing industrial equipment and components",
+  "OIDC":"OpenID Connect protocol enabling secure user authentication and identity verification.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PI":"Process Indicator or Proportional-Integral controller in process control systems.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PLM":"Product Lifecycle Management system tracking products from design to disposal",
+  "PLM":"Product Lifecycle Management system managing product development and documentation.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTC":"Phase-Transfer Catalyst or Programmable Temperature Controller in industrial processes",
-  "RCE":"Remote Code Execution vulnerability allowing unauthorized command execution",
+  "RCE":"Remote Code Execution vulnerability allowing unauthorized command execution on systems.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIS":"Safety Instrumented System protecting against hazardous industrial conditions",
-  "SSRF":"Server-Side Request Forgery attack exploiting trusted server connections",
-  "TR84":"HART Communication Foundation technical recommendation for device integration",
+  "SIL":"Safety Integrity Level rating system for functional safety system reliability.",
+  "SSRF":"Server-Side Request Forgery attack exploiting server trust relationships.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Universal Serial Synchronous protocol for industrial device communications",
-  "VPN":"Virtual Private Network providing secure remote access to control systems",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
