@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-07-18 08:49 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-07-19 09:06 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>KEV additions include KNX protocol and PTC Windchill flaws; ransomware disrupts frozen food giant Nichirei and naval defense firm TKMS.</span>
+  <span>Active SharePoint &amp; FortiSandbox exploitation, KNX protocol flaw added to KEV, and food-sector ransomware at Nichirei keep OT posture elevated.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-07-18 08:49 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-07-19 09:06 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-07-18 08:49 UTC</span>
+      <span class="briefing-date">2026-07-19 09:06 UTC</span>
     </div>
-    <div class="briefing-body"><p>CISA added the KNX protocol authorization weakness (CVE-2023-4346) to the KEV catalog this week — if you have KNX anywhere in building automation, verify that Data Security (extended frames) is enabled and BCU keys have been rotated from defaults. In parallel, PTC Windchill and FlexPLM have an unauthenticated RCE flaw (CVE-2026-12569) now known to be exploited, so audit external exposure of your PLM before Monday. Combined with July&#x27;s 622-CVE Microsoft Patch Tuesday and the ongoing Nichirei ransomware disruption, this is a weekend to confirm your engineering workstations, PLM, and building systems are patched and not directly reachable from the internet.</p></div>
+    <div class="briefing-body"><p>The KNX protocol vulnerability (CVE-2023-4346) added to CISA&#x27;s KEV list on 15 July is the most directly OT-relevant item this week — if you have KNX in building automation, HVAC, or facility access systems, treat this as an immediate audit item and confirm KNX IP interfaces are not reachable from the enterprise network. In parallel, three actively exploited SharePoint CVEs and two Fortinet FortiSandbox flaws should drive urgent patching on any engineering document servers and DMZ security appliances. The Nichirei ransomware event, now in its second week of disruption, is a fresh reminder to validate that your production lines can run for 72 hours with MES and ERP offline. Book time this week to check your KNX inventory, SharePoint patch level, and offline production runbook.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The KNX protocol, which underpins much of Europe&#x27;s building automation, was originally standardized in 1990 as EIB (European Installation Bus) and predates most modern notions of cybersecurity by decades. Its baseline BCU key is a 32-bit value, and until KNX Data Security was introduced in 2013, virtually all traffic on the bus was cleartext. Many installations still in service today have never been upgraded, which is precisely why this week&#x27;s KEV addition matters.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>KNX, the protocol featured in this week&#x27;s KEV addition, traces its origins to the 1990 European Installation Bus and is standardised under ISO/IEC 14543-3. What surprises many engineers is that a single KNX twisted pair can carry both 29V DC bus power and telegrams to over 250 devices per line, with up to 61,455 devices in a fully expanded installation — all without a central controller, using pure peer-to-peer CSMA/CA arbitration.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller, which runs an estimated 95% of all industrial control loops, has its practical origins not in a laboratory but on the bridge of a ship. Nicolas Minorsky developed the three-term formulation in 1922 while studying automatic steering for the USS New Mexico, observing how experienced helmsmen anticipated the ship&#x27;s response — the derivative term — rather than simply reacting to heading error. Nearly every temperature loop in your plant today is, in essence, still steering Minorsky&#x27;s battleship.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by decades. Elmer Sperry&#x27;s gyroscopic ship autopilot from 1911 already used proportional and derivative action to counter rudder overshoot, and Nicolas Minorsky formalised the three-term equation in 1922 while analysing the USS New Mexico&#x27;s steering — observing that a helmsman intuitively applied not just current error but also its rate of change and accumulated history. The tuning rules we still use daily, Ziegler-Nichols, came 20 years later in 1942 from pneumatic controller work at Taylor Instrument. So the next time you tune a loop, you&#x27;re using a technique older than the transistor, born from watching a sailor steer a battleship.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on agentic AI in engineering workflows — LLM-driven agents that don&#x27;t just answer questions but take actions across tools like historians, CMMS, ticketing systems, and even HMIs. Vendors are increasingly pitching &quot;copilots&quot; that can query a PI historian, correlate an alarm flood with a maintenance order, and draft a work permit, all from a single natural-language prompt. <span id="rm722183" style="display:none">The productivity story is genuine: a shift engineer troubleshooting a batch deviation can compress an hour of tool-hopping into a few minutes. The practical problem, highlighted by this week&#x27;s OpenClaw-via-WhatsApp exploitation, is that agentic systems dramatically expand the blast radius of any prompt-injection or credential compromise. An agent with read/write access to your MES that can be tricked by a poisoned PDF attachment is a fundamentally new class of insider threat. Current adoption challenges include the lack of deterministic behavior (making change control and validation difficult in GxP and SIL environments), unclear audit trails, and vendors reluctant to expose the guardrails or system prompts that govern agent behavior. For now, the pragmatic stance is to allow agents read-only access to OT data via a demilitarized replica, keep write actions behind human approval, and treat every agent identity as a privileged account with full logging. Do not let agentic tools reach beyond Level 3 into supervisory or control layers until industry has settled on validation frameworks — which, realistically, are two or three years away.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm722183',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on OPC UA FX (Field eXchange), the field-level extension of OPC UA formally released by the OPC Foundation and now steadily appearing in controller firmware from Siemens, Rockwell, Beckhoff, and B&amp;R. OPC UA FX extends the familiar client-server and pub-sub models down to controller-to-controller and eventually controller-to-device communication, with deterministic behaviour when combined with Time-Sensitive Networking (TSN). <span id="rm985223" style="display:none">The promise is a single, vendor-neutral information model spanning field devices, PLCs, edge, and cloud — replacing the current patchwork of PROFINET, EtherNet/IP, EtherCAT, and Modbus at least at the coordination layer. For controls engineers the practical implication is significant: standardised motion, safety, and diagnostic companion specs mean a servo drive from vendor A can, in principle, be swapped with vendor B&#x27;s without rewriting the application layer. Combined with TSN&#x27;s bounded latency (sub-millisecond cycle times are achievable), OPC UA FX becomes viable for hard real-time control, not just supervisory data. Adoption challenges remain real. TSN requires managed switches with IEEE 802.1Qbv/Qbu support throughout the path, which most brownfield sites don&#x27;t have. Certificate management at the field level is operationally painful — nobody wants to renew PKI on 500 I/O blocks. And the companion specifications for many device classes are still maturing. Expect real production deployments to remain limited to greenfield high-end machinery through 2027, with broader uptake following as switch prices drop.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm985223',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2, the risk assessment and system design standard, continues to be the most-cited framework in tenders and regulator inquiries, but many teams still struggle with the zone-and-conduit exercise. A useful reminder: the standard does not require you to reduce risk to zero, only to a tolerable level defined by your organization, and to document the countermeasures assigned to each conduit. <span id="rm166997" style="display:none">Auditors increasingly ask to see the risk-assessment worksheet alongside the network diagram — if you have one without the other, you have a finding waiting to happen. On the US side, the Pentagon&#x27;s suspension of CMMC Phase 2 audits has caused understandable confusion, but the underlying DFARS 252.204-7012 clause remains in force. Defense manufacturers must still protect CUI to NIST SP 800-171 controls; only the third-party certification requirement is paused. For controls engineers, this means engineering data on CUI-bearing programs — drawings, PLC logic, network diagrams for defense-related production lines — must still be handled per the existing control set, including MFA on engineering workstations and encrypted transfer to subcontractors. Quietly progressing in the background is ISA/IEC 62443-2-1 (the security program requirements for asset owners), which is now aligned much more closely with the risk-based structure of the rest of the family. If your organization is still using the 2010 edition as its reference, it is time to migrate — the newer edition maps cleanly to CSF 2.0 and makes joint IT/OT governance conversations considerably easier.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm166997',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-4-2, which specifies technical security requirements for IEC components (embedded devices, network devices, host devices, software applications), continues to be the standard OEMs are racing to certify against. Recent months have seen a noticeable uptick in Siemens, Schneider, and Rockwell product families achieving 4-2 SL2 certifications, and asset owners increasingly cite the standard in tender documents. <span id="rm489409" style="display:none">If you&#x27;re specifying a new PLC or RTU this quarter, ask the vendor for the certification report — not just the marketing claim — and check which security level the component achieves and under what configuration. On the process side, ISA/IEC 62443-3-2 (security risk assessment for system design) is where most site engineering teams still struggle. The standard requires zone and conduit definition based on tolerable risk, but many organisations conflate this with network segmentation exercises. The distinction matters: a zone is a grouping of assets with a common security requirement, not merely a VLAN. Recent ISA training materials have leaned harder on this point. NIST is progressing SP 800-82 Rev 3 uptake, which explicitly aligns with the NIST CSF 2.0 Govern function added in 2024. For US-regulated sectors and federal contractors, expect audit questions about how OT-specific risk feeds into enterprise governance — a gap that has historically been papered over. The CMMC Phase 2 pause announced this week doesn&#x27;t change the underlying DFARS 252.204-7012 obligation to protect CUI, so defence supply chain manufacturers should keep their OT enclave work moving.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm489409',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the ongoing Nichirei disruption. On 13 July the frozen food giant detected unauthorized activity on its systems and, following the now-standard containment playbook, disconnected large portions of its network — including systems supporting production scheduling, order management, and cold-storage logistics. <span id="rm480973" style="display:none">Five days later, restoration is still described as gradual, meaning the operational tail of the event will extend well beyond the initial IT compromise. While Nichirei has not publicly attributed the attack, the pattern — sudden disconnection, gradual recovery, multi-day operational impact on a food producer — is consistent with the ransomware activity that has plagued the sector over the past 24 months. The most likely initial vector, based on comparable incidents, is either a phishing-driven credential compromise or an exposed remote-access appliance; the sector has been repeatedly hit through both. Three lessons stand out for controls engineers. First, cold-chain and batch process environments need genuinely offline recovery capability — not just backups, but the ability to run production locally with cached recipes and local historians when corporate networks are dark. Second, understand which OT functions actually depend on IT: if your MES, LIMS, or shipping system is centralized, that dependency is your real recovery bottleneck. Third, rehearse the disconnect decision. The teams that recover fastest are those where the plant manager and IT security lead have pre-agreed criteria for cutting the uplink, and where the OT side has a documented &quot;island mode&quot; procedure ready to execute.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm480973',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the ongoing Nichirei cyberattack, disclosed 13 July 2026. Nichirei, one of Japan&#x27;s largest frozen food producers, disconnected corporate and manufacturing systems in response to what appears to be a ransomware event, halting production and order processing across multiple plants. <span id="rm763414" style="display:none">As of the weekend the company is &#x27;gradually restoring operations&#x27; — meaning at least six days of disruption in a cold-chain business where temperature-sensitive inventory has hard economic clocks. While Nichirei hasn&#x27;t disclosed the intrusion vector, the pattern matches recent food sector incidents (JBS 2021, Dole 2023, Americold&#x27;s affiliates): initial access through IT (phishing, VPN, or exposed remote access), lateral movement to shared authentication infrastructure, then blast radius extending into MES, warehouse management, and freezer telemetry historians. Even when PLCs and DCS remain untouched, loss of MES and shipping systems is enough to halt production because operators can&#x27;t confirm lot codes, allergens, or dispatch schedules. Three lessons for controls engineers. First, offline production capability matters: can your line run on local HMIs and paper batch records for 72 hours if the MES is gone? Test it. Second, cold-chain telemetry (freezer temps, ammonia refrigeration alarms) should have an independent monitoring path that survives an IT outage — a standalone SCADA with SMS alerting is not old-fashioned, it&#x27;s resilient. Third, restore priority ordering should be an engineering decision, not just an IT one; the historian and the recipe management server often need to come back before ERP.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm763414',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most operationally significant story this week is the cyberattack on Nichirei, one of Japan&#x27;s largest frozen food producers, which forced the company to disconnect systems on 13 July and is only now beginning gradual restoration. For controls engineers in food and beverage, this is another reminder that cold-chain and process-critical environments increasingly find themselves collateral in IT-first ransomware events, with recovery times measured in weeks. <span id="rm225954" style="display:none">The pattern of disconnecting to contain, then rebuilding trusted islands, continues to be the de facto playbook. Ransomware also struck TKMS, the German naval defense shipbuilder, underscoring that defense-industrial-base manufacturers remain high-value targets. Even where OT networks themselves are not directly encrypted, engineering document repositories, PLM systems, and CAD/CAM assets are enough of a prize to disrupt production for months. Combined with the Pentagon&#x27;s suspension of CMMC Phase 2 third-party audits, defense suppliers should note that the legal obligation to protect CUI has not gone away — only the enforcement mechanism has paused. July&#x27;s Microsoft Patch Tuesday was extraordinary, with 622 Microsoft vulnerabilities plus 427 in Chromium, 62 rated critical, and two already exploited in the wild. Engineering workstations, historians, and HMIs running Windows are directly in scope, and controls teams should coordinate with IT to schedule patching windows before the exploited flaws mature into commodity malware. Notable in the ICS-adjacent space is the exploitation of OpenClaw AI agents via WhatsApp — an early example of agentic AI being weaponized through consumer messaging, worth watching as similar agents creep into engineering support workflows. On the funding side, Risk Ledger raised $32M for supply-chain risk collaboration and Beacon Security raised $13M for a security data platform. Both reflect continued investor appetite for third-party and telemetry-driven risk tooling — areas where OT asset owners still lag their IT peers.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm225954',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The week&#x27;s most operationally significant story for plant floor engineers is the cyberattack on Japanese frozen food giant Nichirei, which forced the company to disconnect systems on 13 July and is only now gradually restoring operations. Food and beverage manufacturing continues to be a favoured ransomware target because perishable inventory and just-in-time logistics create enormous pressure to pay quickly. <span id="rm35511" style="display:none">Expect knock-on effects in cold chain visibility and possible order fulfilment delays for downstream customers over the coming weeks. In defence manufacturing, ransomware has hit German naval shipbuilder TKMS (ThyssenKrupp Marine Systems), a reminder that shipyard OT environments — welding automation, CNC, PLM systems like Windchill — remain soft targets despite classified-adjacent work. Separately, SecurityWeek reports Iran-linked activity tracking US military phones, which while primarily a mobility issue, has implications for engineers who carry work phones onto sensitive sites and use them for HMI photos, vendor calls, or Teams-based remote support. Microsoft&#x27;s July Patch Tuesday was extraordinary in scale — 622 Microsoft CVEs plus 427 in Chromium, 62 rated critical, with two already exploited in the wild. For OT sites this means engineering workstations, historian servers, and jump hosts running Windows Server will need staged patching over the next maintenance windows. Two of the exploited items relate to SharePoint (see KEV section), which is heavily used for engineering document control and MOC workflows in many process plants. On the tooling side, Beacon Security and Risk Ledger both closed significant funding rounds ($13M and $32M), reflecting continued investor appetite for asset visibility and supply chain risk platforms. Risk Ledger in particular is relevant to procurement and engineering leaders trying to get a handle on third-party integrator and OEM exposure — an area regulators are increasingly scrutinising under NIS2 and equivalent regimes.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm35511',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -448,7 +448,7 @@ The post Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei 
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most OT-relevant KEV addition this cycle is CVE-2023-4346, an overly-permissive account lockout weakness in the KNX Protocol Connection Authorization Option 1. An attacker can effectively brute force the BCU key, purge devices, and lock installations out of their own building automation systems. <span id="rm174365" style="display:none">Any facility running KNX for lighting, HVAC, or building services should verify that Option 2 (extended frame with data security) is enabled, that BCU keys have been changed from defaults, and that the KNX/IP interfaces are not directly reachable from corporate or guest networks. This is a rare KEV entry that speaks directly to plant and facility engineers. Also relevant is CVE-2026-12569 in PTC Windchill and FlexPLM — unauthenticated remote code execution against PLM systems that hold bills of material, engineering drawings, and change records for many manufacturers. While not a direct control system compromise, loss of PLM integrity has downstream consequences for MES and quality systems. Patch immediately and audit external exposure. The remainder of the list is dominated by IT stack issues that nevertheless matter for OT: SharePoint deserialization (three separate CVEs this month), Fortinet FortiSandbox command injection, SonicWall SMA1000 SSRF and code injection, Adobe ColdFusion path traversal, and SimpleHelp OIDC signature-bypass. SharePoint and SimpleHelp in particular often host engineering documentation and remote support tooling for OT vendors — treat them as Purdue Level 3.5 assets and prioritize accordingly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm174365',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The standout OT-relevant addition this week is CVE-2023-4346 in the KNX Protocol Connection Authorization Option 1, added to KEV on 15 July. KNX is widely deployed in building automation — HVAC, lighting, access control — and this flaw lets an attacker abuse an overly restrictive lockout mechanism to purge all devices and set the BCU key to a locked state, effectively bricking a KNX installation. <span id="rm943525" style="display:none">Facilities engineers should verify that KNX IP interfaces are not exposed to enterprise networks, enable KNX Secure where supported, and rotate BCU keys where feasible. This is a rare KEV entry that directly names an industrial protocol. On the IT side but highly relevant to OT boundary systems: three SharePoint CVEs (2026-58644, 2026-56164, 2026-45659) covering unauthenticated deserialization RCE and authentication bypass — patch engineering document repositories immediately. Two Fortinet FortiSandbox command injection flaws (CVE-2026-25089, 2026-39808) affect a product commonly deployed in front of DMZ email and file transfer paths into OT. SonicWall SMA1000 (CVE-2026-15409/15410) is frequently used as the remote access VPN for third-party integrators — verify appliance versions this week. Also noteworthy: PTC Windchill/FlexPLM (CVE-2026-12569) unauthenticated RCE hits directly at the engineering PLM layer used for CAD, BOM, and manufacturing execution integration. SimpleHelp (CVE-2026-48558) OIDC signature bypass affects a remote support tool many OEMs use to reach into customer sites — audit any inbound SimpleHelp deployments.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm943525',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -484,63 +484,69 @@ The post Cyberattack Disrupts Operations of Japanese Frozen Food Giant Nichirei 
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-18 08:49 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-07-19 09:06 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "BCU":"Battery Control Unit managing power distribution and charging functions.",
-  "CAD":"Computer-Aided Design software for creating technical drawings and models.",
-  "CAM":"Computer-Aided Manufacturing using digital files to control production equipment.",
+  "BCU":"Battery Control Unit; device managing battery charging, discharging, and protection functions.",
+  "BOM":"Bill of Materials; complete list of components and quantities needed to manufacture a product.",
+  "CAD":"Computer-Aided Design; software for creating digital designs and technical drawings.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CMMC":"Cybersecurity Maturity Model Certification for defense contractor security requirements.",
-  "CMMS":"Computerized Maintenance Management System tracking equipment maintenance activities.",
-  "CSF":"Critical Success Factor essential to achieving organizational objectives.",
-  "CUI":"Controlled Unclassified Information requiring protection under federal regulations.",
+  "CMMC":"Cybersecurity Maturity Model Certification; DoD framework assessing industrial cybersecurity practices.",
+  "CNC":"Computer Numerical Control; automated machine tool controlled by programmed instructions.",
+  "CSMA":"Carrier Sense Multiple Access; network protocol managing shared medium access.",
+  "CUI":"Controlled Unclassified Information; sensitive unclassified data requiring protection and handling controls.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
+  "DC":"Direct Current; electrical current flowing in one constant direction.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DFARS":"Defense Federal Acquisition Regulation Supplement governing defense contractor requirements.",
+  "DFARS":"Defense Federal Acquisition Regulation Supplement; federal rules protecting defense contractor data.",
+  "DMZ":"Demilitarized Zone; network segment isolating external systems from internal critical infrastructure.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HVAC":"Heating, Ventilation, and Air Conditioning system controlling environmental conditions.",
+  "HVAC":"Heating, Ventilation, and Air Conditioning; system controlling building temperature and air quality.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; organization developing electrical and computing standards.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "ISO":"International Organization for Standardization; body establishing international technical and quality standards.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "KNX":"Building automation protocol for controlling lighting, heating, and electrical devices.",
-  "LIMS":"Laboratory Information Management System tracking samples and test results.",
+  "KNX":"KNX protocol; open standard for building automation and control systems.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-Factor Authentication requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+  "MOC":"Management of Change; formal process controlling modifications to systems and procedures.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
+  "NIS2":"Network and Information Security Directive 2; EU cybersecurity regulation for critical infrastructure.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OIDC":"OpenID Connect protocol enabling secure user authentication and identity verification.",
+  "OEM":"Original Equipment Manufacturer; company producing equipment sold under another company's brand.",
+  "OIDC":"OpenID Connect; authentication protocol for verifying user identity.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PI":"Process Indicator or Proportional-Integral controller in process control systems.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
+  "PKI":"Public Key Infrastructure; system managing digital certificates and public/private key pairs.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PLM":"Product Lifecycle Management system managing product development and documentation.",
+  "PLM":"Product Lifecycle Management; system managing product data throughout its entire lifecycle.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote Code Execution vulnerability allowing unauthorized command execution on systems.",
+  "RCE":"Remote Code Execution; vulnerability allowing attacker to run arbitrary code remotely.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIL":"Safety Integrity Level rating system for functional safety system reliability.",
-  "SSRF":"Server-Side Request Forgery attack exploiting server trust relationships.",
+  "SMS":"Safety Management System; framework ensuring industrial process safety and risk control.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
+  "VLAN":"Virtual Local Area Network; logical network segment isolating traffic on shared infrastructure.",
+  "VPN":"Virtual Private Network; encrypted connection securing data transmission over public networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
