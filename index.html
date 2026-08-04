@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-03 10:43 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-04 09:39 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -283,9 +283,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 </head>
 <body>
 
-<div class="heat-strip red">
-  <span class="heat-label">&#9888; RED</span>
-  <span>Iran-linked actors expand water utility intrusions to 7+ US states; SonicWall SMA1000 flaws now weaponized by INC ransomware.</span>
+<div class="heat-strip amber">
+  <span class="heat-label">&#9888; AMBER</span>
+  <span>Water sector funding surge amid ongoing multistate campaign; KNX and multiple enterprise KEVs demand attention.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-03 10:43 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-04 09:39 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">25</div>
+      <div class="stat-val amber">26</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -318,7 +318,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128308;</span>
     <div>
-      <div class="stat-val red">0</div>
+      <div class="stat-val red">2</div>
       <div class="stat-lbl">Critical (ransomware)</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-03 10:43 UTC</span>
+      <span class="briefing-date">2026-08-04 09:39 UTC</span>
     </div>
-    <div class="briefing-body"><p>Iran-linked actors have now hit water systems in at least seven US states, and the entry vector remains internet-exposed small PLCs with default credentials — spend an hour today running Shodan and Censys searches against your own external IP ranges. Simultaneously, INC ransomware is actively exploiting SonicWall SMA1000 appliances (CVE-2026-15409/15410), which many OEMs use for remote support tunnels into your DCS, so verify with your integrators whether that path exists and demand patching evidence. If you operate any KNX building automation, treat CVE-2023-4346 as urgent and block UDP 3671 at your facility boundary today. The common thread this week is that adversaries are winning through exposed remote access, not zero-days — audit your perimeter before someone else does.</p></div>
+    <div class="briefing-body"><p>Prioritize patching your enterprise edge today: fresh KEV entries on Fortinet FortiOS, Cisco FMC (hard-coded password), Check Point SmartConsole, and N-able N-central all sit directly on the path adversaries use to reach engineering workstations and jump hosts. If you run KNX building automation, verify BCU keys are backed up and KNXnet/IP is not reachable from user VLANs — CVE-2023-4346 enables a lock-out DoS with a nasty recovery. With New York publicly funding 153 water systems in response to a multistate targeting campaign, expect increased regulator and insurer scrutiny of your remote-access architecture this quarter.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The KNX protocol, now in CISA&#x27;s KEV list, was originally standardized in 1990 as EIB (European Installation Bus) and predates most modern IT security thinking by a decade. Its authentication model was designed around the assumption that the twisted-pair bus was physically inaccessible — an assumption that quietly collapsed the moment KNXnet/IP routers started bridging building networks to Ethernet in the 2000s. Many buildings commissioned before 2018 still run with the factory-default BCU key of all zeros.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>KNX, the dominant European building-automation protocol, still ships by default with a well-known factory installation key (FFFFFFFFFFFF) that many integrators never change. Combined with KNXnet/IP tunneling exposed on corporate LANs, this means a single misrouted VLAN can hand an attacker full control over lighting, HVAC, and door systems without needing any exploit at all — just documentation.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalized not by a mathematician but by Nicolas Minorsky in 1922, while he was trying to figure out how to automatically steer the USS New Mexico. He derived the three-term control law by watching how experienced helmsmen anticipated the ship&#x27;s motion — proportional to error, integral to correct drift, derivative to counter momentum. Nearly every temperature loop, flow controller, and motion drive you commissioned this year traces its lineage directly to a naval officer studying human intuition on a battleship&#x27;s bridge.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electricity in the plant. Elmer Sperry&#x27;s gyroscopic ship autopilot, patented in 1911 and deployed on the USS New Mexico, used purely mechanical proportional, integral, and derivative action decades before Nicolas Minorsky formalized the mathematics in 1922 by watching helmsmen steer. Minorsky&#x27;s insight was that a good helmsman does not just react to heading error — he anticipates its rate of change and remembers its history, which is exactly the derivative and integral terms. Every loop you tune today descends from someone watching a sailor turn a wheel.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow but real march from marketing slides to real deployments, and 2026 has been the year it finally showed up in mainstream PLC firmware from Siemens, B&amp;R, and Rockwell. The premise is simple: combine the semantic richness of OPC UA (typed information models, PubSub, security) with deterministic Ethernet timing at the switch level, so you can run motion control, safety, and enterprise telemetry across the same physical network without a proprietary fieldbus. <span id="rm201019" style="display:none">Practically, what this means for a controls engineer today is that you can begin specifying a single Ethernet backbone from the sensor up to the MES, but only if your switches support IEEE 802.1Qbv (scheduled traffic) and your endpoints support the OPC UA FLC (Field Level Communications) profile. The catch is configuration complexity — TSN scheduling requires a centralized network configurator (CNC) that most sites don&#x27;t yet have skills to operate, and interoperability testing between vendors is still uneven. Expect to run TSN in a single-vendor island for at least another two years before true multi-vendor integration is production-ready. The bigger implication is architectural: if OPC UA/TSN delivers on its promise, the classical Purdue model flattens considerably, and your segmentation strategy has to shift from layer boundaries to zone-and-conduit models per IEC 62443. Start planning that transition now, even if you&#x27;re not deploying TSN yet.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm201019',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Ethernet-APL (Advanced Physical Layer) is quietly reshaping process instrumentation. It brings switched, 10 Mbit/s Ethernet down the same two-wire cable that has carried 4-20 mA and HART signals for decades, with intrinsic safety options suitable for Zone 0/1 hazardous areas and cable runs up to 1,000 meters. <span id="rm943309" style="display:none">For the first time, a pressure transmitter in a Class I Div 1 area can speak PROFINET or EtherNet/IP natively without a fieldbus gateway, while still being loop-powered. The practical implication is that the historical trade-off between rich diagnostics (HART, FF, Profibus PA) and simple wiring is disappearing. Engineers get high-bandwidth access to secondary variables, device health, and OPC UA information models directly from the field device — enabling condition-based maintenance and closed-loop asset management that the 4-20 mA world could only approximate. It also means the attack surface, previously confined to the control network, now extends physically into the field. Adoption challenges are real: switch and power-supply ecosystems are still maturing, DCS vendors are integrating APL at different paces, and brownfield migration requires careful segmentation planning. Most deployments today are greenfield chemical and pharma projects. Controls engineers should start familiarizing themselves with APL trunk-and-spur topology and the 2-WISE intrinsic-safety concept now, because within five years it will be the default question on every new instrumentation spec.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm943309',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) is seeing renewed attention as insurers begin explicitly requiring documented zone-and-conduit diagrams and target security levels (SL-T) as a condition for cyber coverage on industrial policies. Several major carriers updated their OT questionnaires in Q2 2026 to ask for SL-T assignments per zone, which is a significant shift from the previous checkbox-style questions about firewalls and antivirus. <span id="rm38547" style="display:none">If you haven&#x27;t formalized your zone and conduit model, this is now a business risk, not just a compliance exercise. On the NIST side, the CSF 2.0 OT Community Profile continues to mature, with new mappings published between CSF 2.0 subcategories and IEC 62443-2-1 requirements. This is useful because it lets a plant that already reports to corporate under NIST CSF avoid duplicative work when preparing for a 62443 audit — the crosswalk is now official rather than tribal knowledge. Worth watching: ISA/IEC 62443-4-2 edition 2 draft has entered committee review with proposed changes to component requirements around secure boot, cryptographic key storage, and software bill of materials (SBOM) delivery. If you specify PLCs, RTUs, or IEDs, the edition 2 requirements will materially raise the bar on what vendors must ship — start referencing the draft in new procurement specs now to avoid buying end-of-life-adjacent hardware.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm38547',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443 remains the anchor for OT cybersecurity, and the recently maturing 62443-3-2 (security risk assessment for system design) and 62443-2-1 (security program requirements for asset owners, revised in 2024) are increasingly showing up as explicit requirements in EPC contracts and insurance questionnaires. If you are scoping a new project this quarter, expect the owner to ask for documented zone-and-conduit diagrams and target Security Levels per zone — no longer just an aspirational reference. <span id="rm753706" style="display:none">On the U.S. side, NIST SP 800-82 Rev. 3 continues to be the practical companion document for mapping the Cybersecurity Framework 2.0 (released 2024) onto ICS environments. The CSF 2.0&#x27;s added &#x27;Govern&#x27; function is particularly relevant because it forces asset owners to name accountable roles for OT risk — something that has historically been the gray zone between plant engineering, corporate IT, and EHS. Worth watching: ISA/IEC is progressing work on 62443-4-2 profile refinements for embedded components, and there is active discussion around aligning IEC 62443 SL-Ts with the EU Cyber Resilience Act&#x27;s essential requirements. If you procure PLCs, RTUs, or gateways sold into the EU after December 2027, expect vendor documentation packages to look very different from today&#x27;s.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm753706',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">The unfolding Iran-linked water utility campaign is this week&#x27;s obvious focus. Based on public reporting and CISA advisories, the intrusion pattern is depressingly familiar: internet-exposed Unitronics Vision-series PLCs and similar small controllers with default passwords (often 1111) and factory Modbus/TCP or PCOM ports open to the world. <span id="rm275285" style="display:none">Attackers logged in, changed HMI splash screens to political messages, and in at least one case manipulated setpoints on chemical dosing before operators noticed. No confirmed public health impact so far, but the potential was real. What makes this significant is scale — seven states now, with the actors clearly running Shodan-style sweeps rather than targeting specific utilities. The compromises succeeded not because of sophisticated tradecraft but because small municipal utilities lack dedicated OT staff and often accept whatever configuration the integrator left behind. Three lessons for controls engineers: first, Shodan-check your own external IP ranges monthly — if you don&#x27;t, an adversary will. Second, any small PLC with a web server or remote programming port must sit behind a firewall with explicit allow-list rules, never a NAT hole punched by an integrator for convenience. Third, change every default credential at commissioning and document it in your CMMS; the 1111 password on Unitronics has now caused incidents on three continents and remains the single most exploited OT credential in the field.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm275285',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit given this week&#x27;s water-sector funding news is the January 2024 incident at the Muleshoe, Texas water utility, part of a broader campaign attributed to CyberAv3ngers (an IRGC-linked group). Attackers reached an internet-exposed HMI with default or weak credentials and manipulated a tank-level setpoint, causing a tank to overflow for roughly 30 to 45 minutes before an operator noticed. <span id="rm275213" style="display:none">Neighboring towns (Abernathy, Hale Center) saw similar probing. The root cause was not a sophisticated exploit — it was a VNC-style remote HMI directly reachable from the public internet, protected only by a password, on a Unitronics Vision-series PLC. The same threat actor group had earlier compromised a Pennsylvania water authority using the same technique. In both cases, safety-instrumented overflow protections and physical redundancy prevented actual harm, but the intrusion was trivially preventable. Lessons for controls engineers: first, never expose HMI or PLC management interfaces directly to the internet — a properly configured VPN or ZTNA broker is not optional. Second, change default credentials as a commissioning gate, not a follow-up task; audit vendor default accounts specifically. Third, alarm on setpoint changes and out-of-band writes, not just process variables — the anomaly here was visible in engineering activity long before it became visible in tank level.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm275213',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most consequential story for plant floor engineers today is the widening Iran-linked campaign against US municipal water systems. What began as a Minnesota-focused incident has now confirmed victims in at least Michigan, South Dakota, and Georgia, with three additional states reportedly targeted. <span id="rm311507" style="display:none">Early indicators point to internet-exposed HMIs, weak or default credentials on remote access portals, and unpatched VPN concentrators as the primary entry vectors. Controls engineers at any water, wastewater, or adjacent utility should assume they are in scope and begin hunting today. SonicWall SMA1000 appliances are being actively exploited by the INC ransomware crew, chaining SSRF (CVE-2026-15409) with authenticated code injection (CVE-2026-15410) to achieve root and pivot into flat OT/IT networks. Many industrial sites still use SMA appliances for vendor remote support tunnels, making this a direct OT concern rather than a pure IT issue. If your integrator or OEM reaches your DCS through an SMA1000, that path is now a documented ransomware highway. Secondary but relevant: Midnight Blizzard (Russian SVR) is compromising hospitality Wi-Fi gateways to harvest Microsoft credentials — a reminder that engineers traveling to site commissioning or trade shows should treat any hotel or convention Wi-Fi as hostile and rely on cellular tethering or vetted VPNs. Separately, a critical Ruby on Rails file-read/RCE flaw affects a surprising number of vendor asset-management and CMMS web frontends; check your maintenance portals. On the KEV side, an unusual entry stands out: CVE-2023-4346 covering KNX protocol connection authorization was added, which is directly relevant to building automation, HVAC integration, and any facility using KNX for lighting or environmental control. This is one of the rare pure-OT protocol vulnerabilities to reach the KEV list.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm311507',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The most directly relevant story for controls engineers this week is New York&#x27;s award of $9 million to 153 local water systems to bolster cyber defenses. The grants are explicitly framed as a response to an ongoing multistate campaign targeting water and wastewater infrastructure — a reminder that small utilities running unattended SCADA and telemetry over public networks remain a priority target. <span id="rm115365" style="display:none">Engineers supporting municipal water clients should expect audit and assessment activity to accelerate, and should have documented asset inventories, remote-access architectures, and PLC firmware baselines ready. Black Hat USA 2026 is generating the usual flood of vendor announcements. While most are IT-focused, watch for OT-specific tooling around passive asset discovery, protocol-aware anomaly detection, and secure remote access — categories that continue to mature as Purdue-model boundaries get thinner. Microsoft also disclosed it paid out $20 million across 500 researchers in the last bounty year, which indirectly benefits OT operators who rely heavily on Windows-based HMIs, engineering workstations, and historian servers. On the incident side, Madera Community Hospital reported a 150,000-record breach and Liechtenstein&#x27;s beneficial-ownership register was hit by a cyberattack. Neither is OT per se, but healthcare breaches continue to expose the fragile boundary between clinical IT and biomedical/BMS systems on shared networks. The SANS ISC diary also flagged phishing campaigns impersonating AI service providers — a novel lure that will inevitably reach engineering staff experimenting with copilots for code and configuration work. Nothing today points to a new zero-day in a mainstream PLC or DCS platform, but the KEV additions (see below) include a KNX building-automation issue that deserves attention from anyone with facilities or campus BMS scope.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm115365',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 03 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/recent-sonicwall-vulnerabilities-exploited-in-ransomware-attacks/" target="_blank" rel="noopener">Recent SonicWall Vulnerabilities Exploited in Ransomware Attacks</a></span></div></summary><div class="detail-body"><p>The INC Ransomware gang has been targeting vulnerable SMA1000 appliances for root access and lateral movement.
-The post Recent SonicWall Vulnerabilities Exploited in Ransomware Attacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/recent-sonicwall-vulnerabilities-exploited-in-ransomware-attacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 03 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/" target="_blank" rel="noopener">Russian State APT Linked to Recent Public Wi-Fi Gateway Hacking</a></span></div></summary><div class="detail-body"><p>Midnight Blizzard has been stealing Microsoft account credentials via compromised Wi-Fi networks at hospitality organizations.
-The post Russian State APT Linked to Recent Public Wi-Fi Gateway Hacking appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 03 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/us-water-cyberattacks-extend-beyond-minnesota-to-at-least-6-other-states/" target="_blank" rel="noopener">US Water Cyberattacks Extend Beyond Minnesota to at Least 6 Other States</a></span></div></summary><div class="detail-body"><p>Michigan, South Dakota, and Georgia are reportedly on the list of states whose water systems have been targeted by Iran-linked hackers.
-The post US Water Cyberattacks Extend Beyond Minnesota to at Least 6 Other States appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/us-water-cyberattacks-extend-beyond-minnesota-to-at-least-6-other-states/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Sat, 01 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/balance-theory-raises-19-million-to-help-enterprises-manage-cybersecurity-investments/" target="_blank" rel="noopener">Balance Theory Raises $19 Million to Help Enterprises Manage Cybersecurity Investments</a></span></div></summary><div class="detail-body"><p>The funding round was led by SYN Ventures, with participation from existing investors DataTribe and TEDCO. 
-The post Balance Theory Raises $19 Million to Help Enterprises Manage Cybersecurity Investments appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/balance-theory-raises-19-million-to-help-enterprises-manage-cybersecurity-investments/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Sat, 01 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/" target="_blank" rel="noopener">Ruby on Rails Patches Critical Vulnerability</a></span></div></summary><div class="detail-body"><p>The flaw can be exploited by unauthenticated attackers to read arbitrary files and potentially achieve remote code execution (RCE).
-The post Ruby on Rails Patches Critical Vulnerability appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 04 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/150000-impacted-by-madera-community-hospital-data-breach/" target="_blank" rel="noopener">150,000 Impacted by Madera Community Hospital Data Breach</a></span></div></summary><div class="detail-body"><p>An extortion group stole personal, financial, and medical information from the hospital’s network.
+The post 150,000 Impacted by Madera Community Hospital Data Breach appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/150000-impacted-by-madera-community-hospital-data-breach/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 04 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/microsoft-bug-bounty-program-20-million-paid-to-500-researchers/" target="_blank" rel="noopener">Microsoft Bug Bounty Program: $20 Million Paid to 500 Researchers</a></span></div></summary><div class="detail-body"><p>The biggest single reward paid out by Microsoft between July 1, 2025, and June 30, 2026, was $200,000.
+The post Microsoft Bug Bounty Program: $20 Million Paid to 500 Researchers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/microsoft-bug-bounty-program-20-million-paid-to-500-researchers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 04 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/new-york-awards-9-million-to-strengthen-cybersecurity-at-153-water-systems/" target="_blank" rel="noopener">New York Awards $9 Million to Strengthen Cybersecurity at 153 Water Systems</a></span></div></summary><div class="detail-body"><p>The grants will help local governments assess and improve cyber defenses amid a multistate campaign targeting water and wastewater infrastructure.
+The post New York Awards $9 Million to Strengthen Cybersecurity at 153 Water Systems appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/new-york-awards-9-million-to-strengthen-cybersecurity-at-153-water-systems/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 03 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/" target="_blank" rel="noopener">Black Hat USA 2026 – Summary of Vendor Announcements (Part 1)</a></span></div></summary><div class="detail-body"><p>Many companies are showcasing their products and services this week at the 2026 edition of the Black Hat conference in Las Vegas.
+The post Black Hat USA 2026 – Summary of Vendor Announcements (Part 1) appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 03 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/visa-to-acquire-fraud-intelligence-firm-biocatch-for-2-4-billion/" target="_blank" rel="noopener">Visa to Acquire Fraud Intelligence Firm BioCatch for $2.4 Billion</a></span></div></summary><div class="detail-body"><p>The payments giant says BioCatch’s behavioral and device intelligence will help financial institutions combat account takeovers, scams and other forms of digital fraud.
+The post Visa to Acquire Fraud Intelligence Firm BioCatch for $2.4 Billion appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/visa-to-acquire-fraud-intelligence-firm-biocatch-for-2-4-billion/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Ruby on Rails Patches Critical Vulnerability appeared first on Security
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s recent KEV additions lean heavily toward perimeter and identity infrastructure that OT networks routinely depend on. The Cisco Secure FMC hard-coded password (CVE-2026-20316), Fortinet FortiOS symlink-persistence bypass (CVE-2025-68686), Arista VeloCloud Orchestrator command injection (CVE-2026-16812), and Check Point SmartConsole auth bypass (CVE-2026-16232) collectively cover most of the firewall management planes used to segment Purdue Level 3 from Level 3.5/DMZ. <span id="rm306334" style="display:none">If your OT firewall management console is exposed to the IT network — or worse, reachable from the internet for MSSP access — patch these this week and audit admin sessions. The KNX Association entry (CVE-2023-4346) is the standout for facilities and building-controls engineers. The flaw lets an attacker purge devices and set a persistent BCU key lockout, effectively bricking a KNX installation until factory recovery. Mitigation is IP-level: block KNXnet/IP (UDP 3671) at the boundary, enable KNX Secure where hardware supports it, and inventory any KNX IP routers or interfaces that may have been installed by an MEP contractor without your knowledge. The SharePoint deserialization pair (CVE-2026-50522, CVE-2026-58644) and SonicWall SMA1000 chain are the most likely to appear in an OT-adjacent breach path this month, since both platforms commonly host engineering document libraries, P&amp;IDs, and vendor remote-access sessions. Prioritize accordingly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm306334',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions over the past three weeks lean heavily on perimeter and identity infrastructure that sits directly upstream of OT networks: Fortinet FortiOS and FortiSandbox (CVE-2025-68686, CVE-2026-25089, CVE-2026-39808), Cisco Secure FMC with a hard-coded password (CVE-2026-20316), Check Point SmartConsole authentication bypass (CVE-2026-16232), Arista VeloCloud Orchestrator command injection (CVE-2026-16812), SonicWall SMA1000 (confirmed ransomware use), and N-able N-central authentication bypass (CVE-2026-18577) — the latter a broken patch that RMM-dependent integrators need to reverify immediately. Two SharePoint deserialization bugs (CVE-2026-50522, CVE-2026-58644) and an ADFS privilege escalation round out the identity/collaboration exposure typically bridging IT and OT. <span id="rm600739" style="display:none">The standout OT-specific entry is CVE-2023-4346 in the KNX Protocol Connection Authorization Option 1. The overly restrictive lockout mechanism lets an attacker purge devices and set a BCU key to lock legitimate operators out — effectively a denial-of-service against building automation with a painful recovery path. If you operate KNX in HVAC, lighting, or access-control roles, verify that additional security options are enabled, that BCU keys are backed up, and that the KNXnet/IP router is not reachable from untrusted segments. Practical priority order for plant teams this week: patch or isolate exposed Fortinet, Cisco FMC, Check Point, SonicWall, and N-able instances; audit SharePoint servers acting as document repositories for engineering drawings and SOPs; and confirm KNX BMS configurations. Most listed CVEs affect the DMZ and enterprise edge — the exact path adversaries use to reach jump hosts and engineering workstations.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm600739',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Ruby on Rails Patches Critical Vulnerability appeared first on Security
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 25 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 26 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Ruby on Rails Patches Critical Vulnerability appeared first on Security
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20316</span></td><td>2026-07-29</td><td>Cisco</td><td>Secure Firewall Management Center (FMC)</td><td>Cisco Secure Firewall Management Center Use of Hard-coded Password Vul</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-68686</span></td><td>2026-07-27</td><td>Fortinet</td><td>FortiOS</td><td>Fortinet FortiOS Exposure of Sensitive Information to an Unauthorized </td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-16812</span></td><td>2026-07-27</td><td>Arista</td><td>VeloCloud Orchestrator</td><td>Arista VeloCloud Orchestrator On-Prem OS Command Injection Vulnerabili</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-18577</span></td><td>2026-08-03</td><td>N-able</td><td>N-central</td><td>N-able N-central Authentication Bypass Using an Alternate Path or Chan</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-20316</span></td><td>2026-07-29</td><td>Cisco</td><td>Secure Firewall Management Center (FMC)</td><td>Cisco Secure Firewall Management Center Use of Hard-coded Password Vul</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-68686</span></td><td>2026-07-27</td><td>Fortinet</td><td>FortiOS</td><td>Fortinet FortiOS Exposure of Sensitive Information to an Unauthorized </td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,68 +484,65 @@ The post Ruby on Rails Patches Critical Vulnerability appeared first on Security
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-03 10:43 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-04 09:39 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "ADFS":"Active Directory Federation Services; identity and access management system",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "BCU":"Battery Control Unit managing power distribution and battery charging in systems.",
+  "BCU":"Battery Control Unit; device managing battery charging and discharging",
+  "BMS":"Building Management System; centralized control of building mechanical systems",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CMMS":"Computerized Maintenance Management System for scheduling and tracking equipment maintenance.",
-  "CNC":"Computer Numerical Control machine tool operating under programmed commands.",
-  "CSF":"Critical Success Factor defining essential conditions for achieving objectives.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized Zone network segment isolated between internal and external networks.",
-  "EIB":"European Installation Bus protocol for building automation and control systems.",
+  "DMZ":"Demilitarized Zone; network segment isolating internal systems from external access",
+  "EHS":"Environmental Health and Safety; workplace safety and environmental compliance program",
+  "EPC":"Electronic Product Code; identifier for tracking products in supply chains",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FLC":"Fuzzy Logic Controller using fuzzy logic for process control decisions.",
-  "FMC":"Flexible Manufacturing Cell adaptable production system for varied manufacturing tasks.",
+  "FF":"Foundation Fieldbus; industrial protocol for device communication and control",
+  "FMC":"Flexible Manufacturing Cell; programmable production system with multiple capabilities",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HVAC":"Heating, Ventilation, Air Conditioning system controlling building climate conditions.",
+  "HVAC":"Heating Ventilation Air Conditioning; system controlling building climate and air quality",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers standards and professional organization.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "KNX":"Open standard protocol for building automation and home control systems.",
-  "MEP":"Mechanical, Electrical, Plumbing systems integrated in building design and construction.",
+  "KNX":"KNX Protocol; open standard for home and building automation communication",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MSSP":"Managed Security Service Provider offering outsourced cybersecurity monitoring and protection.",
-  "NAT":"Network Address Translation converting private IP addresses to public addresses.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer producing components or systems for resale.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PA":"Process Automation; systems automating industrial manufacturing and process control",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote Code Execution security vulnerability allowing unauthorized command execution.",
+  "RMM":"Remote Monitoring and Management; software for managing distributed systems remotely",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SBOM":"Software Bill of Materials listing all components and dependencies in software.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SMA":"Smart Metering Architecture system for advanced energy consumption monitoring.",
-  "SSRF":"Server-Side Request Forgery attack exploiting server to make unauthorized requests.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UA":"Unified Architecture standardized framework for industrial automation and integration.",
-  "USS":"Unidrive Serial Standard protocol for communication with Unidrive motor drives.",
-  "VPN":"Virtual Private Network encrypting communications through a secure tunnel connection.",
-  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
+  "UA":"User Account; individual identity for system access and authentication",
+  "USS":"Unified Safety System; integrated platform managing industrial safety functions",
+  "VLAN":"Virtual Local Area Network; logically isolated network segment on shared infrastructure",
+  "VNC":"Virtual Network Computing; remote desktop protocol for system access and control",
+  "VPN":"Virtual Private Network; encrypted connection securing data over untrusted networks",
+  "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments.",
+  "WISE":"Wide Industrial Safety Extension; safety communication protocol for distributed systems",
+  "ZTNA":"Zero Trust Network Access; security model requiring verification for all access requests"
 };
 (function(){
   var html=document.documentElement,btn=document.getElementById('themeBtn');
