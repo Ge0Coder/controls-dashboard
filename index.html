@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-12 08:18 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-13 08:22 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>ICS Patch Tuesday from Siemens, Schneider, Phoenix Contact coincides with actively exploited Cisco ASA/FTD zero-day and massive Microsoft patch load.</span>
+  <span>Active SharePoint exploitation, Cisco ASA/FMC KEV additions, and a logistics-sector cyberattack keep OT perimeter risk elevated.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-12 08:18 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-13 08:22 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">27</div>
+      <div class="stat-val amber">23</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -318,7 +318,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128308;</span>
     <div>
-      <div class="stat-val red">2</div>
+      <div class="stat-val red">0</div>
       <div class="stat-lbl">Critical (ransomware)</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-12 08:18 UTC</span>
+      <span class="briefing-date">2026-08-13 08:22 UTC</span>
     </div>
-    <div class="briefing-body"><p>Today is a heavy patch day: Siemens, Schneider Electric, and Phoenix Contact all issued August advisories alongside CISA&#x27;s ICS bulletins, so pull the lists and map them to your installed base before this week&#x27;s maintenance window closes. The most urgent item outside your PLC fleet is Cisco&#x27;s actively exploited ASA/FTD DoS zero-day (CVE-2026-20349) — if these appliances sit on your IT/OT boundary, unplanned reloads will drop control-room connectivity, so prioritize patching or interim ACL mitigations. Windows-based engineering workstations and historians also need attention thanks to an exploited afd.sys privilege escalation in Microsoft&#x27;s 421-CVE release. Assume perimeter and management-plane products are the attacker&#x27;s current focus, and plan your changes accordingly.</p></div>
+    <div class="briefing-body"><p>Patch SharePoint today if you haven&#x27;t — CVE-2026-50522 is being exploited in the wild and it&#x27;s a common bridge system between corporate and OT document stores. Also queue up the Cisco ASA/FTD fix for CVE-2026-20349, which can cause unauthenticated remote reloads of your perimeter firewall — a bad day if it happens mid-batch. Broader context: August Patch Tuesday was heavy (418 CVEs) and identity/edge-device exploitation continues to dominate the KEV list, so prioritise anything that fronts your OT DMZ.</p></div>
   </div>
 </div>
 
@@ -356,9 +356,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
-      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">1 mention</div></div>
+      <div class="vendor-grid"><div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
-<div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">1 mention</div></div>
+<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Honeywell</div><div class="vendor-count">No mentions</div></div></div>
     </section>
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still ubiquitous on plant floors, was designed in 1979 for Modicon PLCs to communicate at 9600 baud over RS-232 — and its original specification is only about 60 pages long. That simplicity is precisely why it survived: nearly every PLC, VFD, and power meter vendor implements it, but it also means Modbus TCP inherited zero authentication or encryption when it was ported to Ethernet in 1999.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still ubiquitous 45 years after Modicon released it in 1979, has no concept of time. Every read and write is stateless and unordered, which is why controls engineers historically enforced sequencing through PLC logic rather than the wire. This same statelessness is why Modbus/TCP is so trivially spoofable — the protocol was designed for a serial world where physical access implied authorisation.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — Elmer Sperry&#x27;s gyroscopic ship autopilot in 1911 and Nicolas Minorsky&#x27;s 1922 mathematical analysis of steering the USS New Mexico gave us the three-term controller decades before op-amps existed. Minorsky derived the derivative term by watching how experienced helmsmen actually steered — they didn&#x27;t just react to the current heading error, they anticipated based on how fast the ship was swinging. Almost every tuning heuristic you use today, including Ziegler-Nichols from 1942, still rests on that observation of human intuition rendered as mathematics.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronic computing by decades — Elmer Sperry&#x27;s ship autopilots in 1911 already used all three terms, and Nicolas Minorsky formalised the mathematics in 1922 by watching helmsmen steer the USS New Mexico. What Minorsky noticed was that good helmsmen didn&#x27;t just correct for current heading error (proportional), they anticipated the ship&#x27;s swing (derivative) and remembered persistent offsets like wind (integral). Every loop you tune today is essentially a mathematical description of an experienced sailor&#x27;s intuition.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to inch toward real production deployments, and 2026 is shaping up as the year it moves from pilot to greenfield reality. The idea is elegant: combine OPC UA&#x27;s rich, secure, semantic information model with IEEE 802.1 TSN&#x27;s deterministic Ethernet scheduling, so the same wire that carries HMI browsing and historian data can also carry hard-real-time motion control down to sub-millisecond cycle times. <span id="rm845236" style="display:none">In theory, this collapses the traditional split between fieldbus (Profinet IRT, EtherCAT, Sercos) and supervisory Ethernet into a single converged network. For controls engineers, the practical implications are significant but not yet turnkey. TSN requires switches that support the relevant IEEE standards (802.1AS for time sync, 802.1Qbv for scheduled traffic, 802.1CB for redundancy), and stream configuration is still fiddly — most vendors ship proprietary engineering tools rather than the fully centralized CNC model the standard envisions. Interoperability across brands has improved at trade shows but remains uneven in the field. Expect early deployments in packaging, semiconductor, and automotive where cycle-time determinism justifies the added complexity; brownfield process plants have little near-term reason to move off proven Profinet or EtherNet/IP.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm845236',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Advanced Physical Layer (APL) Ethernet is quietly transitioning from pilot to production in process plants. APL delivers 10 Mbit/s Ethernet over a single twisted pair up to 1,000 metres, with intrinsic-safety options for Zone 0/Division 1 areas — meaning you can finally run true Ethernet down to a transmitter in a hazardous location without gateways, without HART bridging, and without segment length gymnastics. <span id="rm408268" style="display:none">It rides on IEEE 802.3cg (10BASE-T1L) with a purpose-built process-industry profile developed jointly by FieldComm, ODVA, OPC Foundation, and PI. The practical payoff is enormous: PROFINET, EtherNet/IP, or OPC UA all the way to the sensor, richer diagnostics, faster commissioning, and no more analog/HART conversion losses. Vendors including Endress+Hauser, Pepperl+Fuchs, Emerson, and Phoenix Contact now ship APL field switches and instruments at reasonable price parity with 4-20 mA loops when you factor in cabinet real estate savings. Adoption challenges remain real, though. Existing brownfield sites have decades of home-run cabling that isn&#x27;t easily reused; power budgeting on APL trunks requires new engineering discipline; and cybersecurity models must extend authentication down to instruments that historically had none. Expect APL to dominate greenfield process projects by 2028 while brownfield conversions lag another decade.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm408268',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to be the reference framework driving procurement language and audit expectations. Part 4-2, which defines component-level security requirements for embedded devices, host devices, network devices, and software applications, is increasingly showing up as a hard requirement in RFQs for new PLCs and RTUs — vendors like Siemens, Schneider, and Phoenix Contact all now market certified product lines against specific Security Levels (typically SL-2). <span id="rm658712" style="display:none">If you&#x27;re specifying equipment for a new project, asking for the certification report and the accompanying security guidelines is a straightforward way to raise your baseline without writing bespoke requirements. On the US side, NIST SP 800-82 Rev. 3 remains the go-to guide for OT security program design, and its mapping to the CSF 2.0 Govern function is helping bridge conversations between plant engineering and enterprise security teams. For sites subject to NERC CIP, the ongoing CIP-015 Internal Network Security Monitoring standard is worth watching — the compliance deadlines are approaching and require passive monitoring capabilities inside the electronic security perimeter, which for many utilities means deploying a dedicated OT-aware IDS at bulk electric system sites for the first time.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm658712',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">ISA/IEC 62443-3-2 (security risk assessment and system design) continues to be the most commonly cited section in RFPs this year, and the ISA99 committee&#x27;s ongoing work on Part 2-2 (security program ratings) is producing the first real, auditable maturity model for IACS operators. Where 62443-2-1 tells you what to have in your CSMS, 2-2 aims to give assessors a repeatable way to score it — think of it as the OT equivalent of CMMI. <span id="rm1259" style="display:none">Early adopters in oil and gas are already using draft 2-2 language in vendor contracts. NIST SP 800-82 Revision 3, published in 2023, remains the reference most US operators map against, particularly for its expanded coverage of cloud-hosted historians and remote engineering access. If you haven&#x27;t revisited your zone and conduit model against Rev 3&#x27;s updated overlays, it&#x27;s worth an afternoon — several new recommendations around identity federation between IT and OT directories are directly relevant given the surge in identity-based attacks on Active Directory. On the horizon, IEC 62443-4-2 certification is increasingly a gating requirement for PLC and RTU procurement in European utility tenders, and the EU Cyber Resilience Act enforcement dates in late 2027 will effectively make it mandatory for anything sold with a digital element into EU markets. Start asking your PLC vendors now for their 4-2 certification roadmap — several tier-one suppliers are still catching up.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm1259',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2022 attack on a Ukrainian energy provider using the Industroyer2 malware, which was disclosed by CERT-UA and ESET. The attackers, attributed to Sandworm, tried to open circuit breakers at a high-voltage electrical substation by speaking IEC-104 directly to protection relays, following an initial compromise of the IT network that pivoted through poorly segmented interconnections into the OT environment. <span id="rm825608" style="display:none">Coordinated wiper deployment on Windows and Linux systems was intended to destroy evidence and delay recovery. The attack was blocked before load was actually shed, largely due to defender action and — importantly — because response teams had rehearsed the scenario after the 2015 and 2016 Ukrainian grid incidents. Three lessons remain directly applicable to any controls engineer: first, IEC-104 (like Modbus and DNP3) has no meaningful authentication on its own — segmentation and application-layer allowlisting on gateways are your only real defense. Second, engineering workstations that can reach protection relays should be treated as crown-jewel assets with strict application allowlisting and no general internet or email access. Third, tabletop exercises matter more than any tool purchase — the defenders won because they knew what a legitimate substation command sequence looked like and could spot the anomaly quickly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm825608',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Revisiting the 2024 Frontier Software / Australian Government payroll incident offers useful lessons even though it wasn&#x27;t strictly plant-floor. A ransomware compromise of a shared services provider cascaded into operational disruptions at multiple downstream state agencies, including some responsible for water and transport infrastructure oversight. <span id="rm871701" style="display:none">The initial vector was an internet-exposed management interface protected by MFA that was bypassed via a session-token replay flaw — a scenario increasingly common as vendors move OT management planes to SaaS. The operational lesson for controls engineers is that your &#x27;supply chain&#x27; now includes SaaS platforms your IT team may have signed for without OT consultation — CMMS, historian analytics, remote support, even PLC programming tools with cloud licence servers. When any of these is disrupted, engineering productivity halts even if the process is running fine. Three takeaways: first, inventory every cloud dependency your engineering team relies on and document the manual fallback for each. Second, insist that any remote engineering access solution supports phishing-resistant MFA (FIDO2/WebAuthn) rather than TOTP or push. Third, tabletop the scenario where your engineering laptops can access the PLC but cannot reach any vendor cloud service for a week — most sites discover surprising dependencies.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm871701',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">It&#x27;s a heavy patch day for anyone managing OT infrastructure. Siemens, Schneider Electric, and Phoenix Contact have all released their August Patch Tuesday advisories, with CISA publishing accompanying ICS advisories. <span id="rm540426" style="display:none">Controls engineers should pull the vendor bulletins and cross-reference against installed firmware on PLCs, HMIs, engineering workstations, and network gear before the end of the maintenance window. Historically these coordinated releases include a mix of authentication bypasses, denial-of-service issues in protocol stacks, and web UI flaws on engineering tools — all of which matter more in flat plant networks than the CVSS scores suggest. The most operationally urgent item is Cisco&#x27;s fix for CVE-2026-20349, a heap inspection flaw in Secure Firewall ASA and FTD that is being actively exploited to reload devices — a denial-of-service condition against the very appliances often used to segment IT from OT. If your Purdue Level 3.5 DMZ or remote-access concentrators run ASA/FTD, unplanned reloads will drop control-room-to-plant sessions and could take historians and thin clients offline. Patching is straightforward but requires a change window; consider ACL-level mitigations in the interim. Microsoft&#x27;s August release is enormous — 421 CVEs, with an actively exploited use-after-free in afd.sys (WinSock) giving SYSTEM privileges, plus critical RCEs in QUIC and DNS Server. Engineering workstations, historians, and OPC servers running on Windows are directly in scope. Adobe ColdFusion also has a critical RCE — relevant to legacy MES and reporting portals — and SonicWall pushed critical fixes for the discontinued GMS platform, which unfortunately still lingers in industrial networks. Rounding out the picture, Ivanti EPM patched remotely exploitable flaws that could leak SQL credentials, and CISA continues to add authentication-bypass vulnerabilities in remote monitoring tools like N-able N-central to the KEV catalog. The theme this week is unambiguous: the perimeter and management-plane products that surround your control system are the ones under active attack.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm540426',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The headline item for controls engineers is the confirmed in-the-wild exploitation of a Microsoft SharePoint deserialization flaw (CVE-2026-50522) shortly after PoC release. SharePoint frequently underpins plant document repositories, MOC workflows, and P&amp;ID libraries in the DMZ or corporate zone, so any bridge server touching Level 3.5 needs urgent patching and log review. <span id="rm879181" style="display:none">Combined with two additional SharePoint CVEs on the KEV list within the last month, this is now a sustained campaign against a very common OT-adjacent platform. Ceva Logistics disclosed a cyberattack disrupting European contract-logistics operations across eight warehouses, causing shipment delays for multiple customers. While not a plant-floor incident, controls engineers should note the downstream impact: if your just-in-time raw-material feed or finished-goods dispatch relies on a third-party logistics provider, expect scheduling turbulence over the next fortnight, and confirm your MES/ERP interfaces can gracefully handle late or missing ASN data without triggering line stoppages. Microsoft&#x27;s August Patch Tuesday delivered fixes for 418 vulnerabilities, including one exploited zero-day and critical remote code execution bugs in QUIC and the DNS server role. Intel and AMD collectively patched over 80 issues, several allowing privilege escalation on engineering workstations. Chipmaker firmware updates rarely make it into OT patch cycles quickly, but any engineering laptop that dual-purposes for internet browsing should be prioritised. On the emerging-threat side, a stealthy &#x27;City-Forum&#x27; campaign is quietly exfiltrating data from Salesforce and ServiceNow via unauthenticated guest access. Many utilities and manufacturers now run ServiceNow for CMMS, change management, and asset records — a treasure trove for adversaries mapping your OT estate. Review guest access settings and any custom portals exposing device inventories.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm879181',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ivanti-epm-update-patches-remotely-exploitable-flaws/" target="_blank" rel="noopener">Ivanti EPM Update Patches Remotely Exploitable Flaws</a></span></div></summary><div class="detail-body"><p>The vulnerabilities could be exploited to leak credentials for external SQL connections or crash an agent service.
-The post Ivanti EPM Update Patches Remotely Exploitable Flaws appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ivanti-epm-update-patches-remotely-exploitable-flaws/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" target="_blank" rel="noopener">ICS Patch Tuesday: Vulnerabilities Fixed by Siemens, Schneider, Phoenix Contact</a></span></div></summary><div class="detail-body"><p>CISA has also published several advisories describing vulnerabilities in ICS and other OT products.
-The post ICS Patch Tuesday: Vulnerabilities Fixed by Siemens, Schneider, Phoenix Contact appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-phoenix-contact-2/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/sonicwall-patches-critical-vulnerabilities-in-discontinued-gms-platform/" target="_blank" rel="noopener">SonicWall Patches Critical Vulnerabilities in Discontinued GMS Platform</a></span></div></summary><div class="detail-body"><p>The security defects could allow unauthenticated attackers to execute arbitrary code remotely and read sensitive data.
-The post SonicWall Patches Critical Vulnerabilities in Discontinued GMS Platform appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/sonicwall-patches-critical-vulnerabilities-in-discontinued-gms-platform/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cisco-patches-firewall-zero-day-exploited-for-dos-attacks/" target="_blank" rel="noopener">Cisco Patches Firewall Zero-Day Exploited for DoS Attacks</a></span></div></summary><div class="detail-body"><p>CVE-2026-20349 can be exploited remotely without authentication against Secure Firewall ASA and FTD devices.
-The post Cisco Patches Firewall Zero-Day Exploited for DoS Attacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cisco-patches-firewall-zero-day-exploited-for-dos-attacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 11 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" target="_blank" rel="noopener">August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day</a></span></div></summary><div class="detail-body"><p>A use-after-free in the afd.sys Windows kernel-mode driver has been exploited to gain SYSTEM privileges.
-The post August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/sharepoint-vulnerability-exploited-shortly-after-poc-release/" target="_blank" rel="noopener">SharePoint Vulnerability Exploited Shortly After PoC Release</a></span></div></summary><div class="detail-body"><p>The vulnerability was patched by Microsoft in July and CISA warned that it could end up being exploited in the wild.
+The post SharePoint Vulnerability Exploited Shortly After PoC Release appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/sharepoint-vulnerability-exploited-shortly-after-poc-release/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/mindgard-raises-30-million-to-protect-ai-systems/" target="_blank" rel="noopener">Mindgard Raises $30 Million to Protect AI Systems</a></span></div></summary><div class="detail-body"><p>The cybersecurity startup will use the fresh investment to scale its product, engineering, sales, and marketing teams.
+The post Mindgard Raises $30 Million to Protect AI Systems appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/mindgard-raises-30-million-to-protect-ai-systems/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/whatsapp-unveils-new-scam-alert-feature/" target="_blank" rel="noopener">WhatsApp Unveils New Scam Alert Feature</a></span></div></summary><div class="detail-body"><p>Signal has also made a security announcement: an automatic key verification feature to complement its safety number system.
+The post WhatsApp Unveils New Scam Alert Feature appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/whatsapp-unveils-new-scam-alert-feature/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/stealthy-city-forum-attacks-target-salesforce-and-servicenow-with-custom-toolset/" target="_blank" rel="noopener">Stealthy ‘City-Forum’ Attacks Target Salesforce and ServiceNow With Custom Toolset</a></span></div></summary><div class="detail-body"><p>Researchers observed the novel campaign exploiting unauthenticated guest access to quietly enumerate and exfiltrate exposed data from both platforms.
+The post Stealthy ‘City-Forum’ Attacks Target Salesforce and ServiceNow With Custom Toolset appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/stealthy-city-forum-attacks-target-salesforce-and-servicenow-with-custom-toolset/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 12 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ceva-logistics-operations-disrupted-by-cyberattack/" target="_blank" rel="noopener">Ceva Logistics Operations Disrupted by Cyberattack</a></span></div></summary><div class="detail-body"><p>Affecting European contract logistics operations at eight Ceva warehouses, the incident caused shipment delays for multiple customers.
+The post Ceva Logistics Operations Disrupted by Cyberattack appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ceva-logistics-operations-disrupted-by-cyberattack/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added several entries to the KEV catalog this week that matter to OT environments. The Cisco ASA/FTD DoS flaw (CVE-2026-20349) and an earlier hard-coded password issue in Cisco FMC (CVE-2026-20316) both threaten the network devices that most sites rely on to enforce IT/OT segmentation — patch these on your industrial DMZ appliances first. <span id="rm202966" style="display:none">Microsoft&#x27;s WinSock use-after-free (CVE-2026-68820) is now confirmed exploited for local privilege escalation, which is the classic pivot step after an operator clicks a phishing link on an engineering workstation. For sites using remote monitoring or orchestration tools, the two N-able N-central authentication bypasses (CVE-2026-18556 and CVE-2026-18577, the latter an incomplete-patch bypass of the former) are particularly ugly because these platforms typically have deep access into managed endpoints. Arista VeloCloud Orchestrator (CVE-2026-16812) and Progress LoadMaster (CVE-2026-8037) round out a set of edge-network products with unauthenticated command injection — anything internet-exposed should be patched or isolated immediately. Fortinet FortiOS and FortiSandbox entries reinforce that firewall and sandbox appliances continue to be primary attacker targets.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm202966',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added several high-impact entries this cycle. Most relevant to OT perimeter operators is CVE-2026-20349 in Cisco Secure Firewall ASA/FTD, an unauthenticated remote DoS via heap inspection. <span id="rm992594" style="display:none">Any ICS site running ASA/FTD as its IT/OT boundary firewall should schedule an urgent patch window; an unexpected reload during a batch or a turnaround could cascade badly. Pair this with the recently added CVE-2026-20316 hard-coded password flaw in Cisco Firewall Management Center — check for lingering default credentials on management appliances. SharePoint deserialization bugs (CVE-2026-50522 and CVE-2026-58644) are now confirmed exploited. If your site uses SharePoint for as-built drawings, procedure repositories, or PI Vision integration, treat these as priority-one. Progress LoadMaster (CVE-2026-8037) and Arista VeloCloud Orchestrator (CVE-2026-16812) command-injection flaws are also worth flagging — both appear in SD-WAN deployments increasingly used to link remote sites and skids back to central historians. On the endpoint side, the Windows AFD.sys use-after-free (CVE-2026-68820) is a local privilege escalation that adversaries will chain after any initial foothold. Engineering workstations and HMIs running standard Windows builds should be included in the next patch window rather than deferred to the annual outage.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm992594',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 27 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 23 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -484,72 +484,67 @@ The post August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-12 08:18 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-13 08:22 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ACL":"Access control list defining permissions for network resources and users.",
+  "AFD":"Adjustable Frequency Drive; variable speed motor control device",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ASA":"Adaptive Security Appliance, Cisco's firewall and network security device.",
-  "CERT":"Computer Emergency Response Team providing cybersecurity incident coordination.",
-  "CIP":"NERC Critical Infrastructure Protection standards for power system security.",
+  "APL":"Automation Programming Language; IEC 61131-3 structured text variant",
+  "ASA":"American Standards Association; predecessor to ANSI",
+  "ASN":"Autonomous System Number; unique identifier for routing networks",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CNC":"Computer Numerical Control machine automating manufacturing processes.",
-  "CSF":"Cybersecurity Framework providing standards for industrial security practices.",
+  "CMMI":"Capability Maturity Model Integration; process improvement framework",
+  "CMMS":"Computerized Maintenance Management System; maintenance scheduling software",
+  "CSMS":"Cybersecurity Management System; security governance framework",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized zone, network segment isolating critical systems from internet.",
-  "DNP3":"Distributed Network Protocol for SCADA and utility communications.",
-  "EPM":"Enterprise Performance Management system for operational data analysis.",
+  "DMZ":"Demilitarized Zone; network segment between internal and external systems",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
-  "ESET":"Cybersecurity software company providing antivirus and threat protection.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FMC":"Firewall Management Center for centralized security policy administration.",
-  "FTD":"Firepower Threat Defense, next-generation firewall security platform.",
-  "GMS":"Gateway Management System controlling industrial network access points.",
+  "FIDO2":"Fast Identity Online 2; passwordless authentication standard",
+  "FMC":"Flexible Manufacturing Cell; automated multi-function production system",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
+  "IACS":"Industrial Automation and Control Systems; interconnected control equipment",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
-  "IDS":"Intrusion Detection System monitoring networks for security threats.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers standards organization.",
-  "IRT":"Intrinsically Safe Real-Time communication for hazardous environments.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "ISA99":"Industrial Cybersecurity standards; now IEC 62443 series",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+  "MOC":"Management of Change; formal process for system modifications",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NERC":"North American Electric Reliability Corporation setting power grid standards.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
+  "ODVA":"Open DeviceNet Vendors Association; EtherNet/IP standards body",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PI":"PROFIBUS International; industrial networking standards organization",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "QUIC":"Quick UDP Internet Connections protocol for faster network communication.",
-  "RCE":"Remote Code Execution vulnerability allowing unauthorized system control.",
-  "RS":"Recommended Standard, typically serial communication protocol designation.",
+  "QUIC":"Quick UDP Internet Connections; fast transport protocol",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SL":"Safety Level defining protection requirements in safety systems.",
-  "SP":"Special Publication, typically NIST standards documentation series.",
-  "SQL":"Structured Query Language for database querying and management.",
+  "TOTP":"Time-based One-Time Password; time-synchronized authentication code",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UA":"User Authentication verifying identity before system access.",
-  "UI":"User Interface displaying system information and control options.",
-  "USS":"Unified Stealth Security providing covert network threat detection.",
-  "VFD":"Variable Frequency Drive controlling motor speed and power consumption.",
+  "UA":"Unified Architecture; OPC UA industrial communication standard",
+  "USS":"Universal Serial Interface; Siemens serial communication protocol",
+  "WAN":"Wide Area Network; geographically dispersed interconnected networks",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
