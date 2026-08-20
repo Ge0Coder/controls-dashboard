@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-19 07:39 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-20 07:41 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -283,9 +283,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 </head>
 <body>
 
-<div class="heat-strip amber">
-  <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy KEV activity across perimeter and virtualization stacks (Cisco ASA, VMware vCenter, Fortinet, SharePoint) elevates OT exposure risk.</span>
+<div class="heat-strip red">
+  <span class="heat-label">&#9888; RED</span>
+  <span>Joint NSA/CISA advisory warns of AI-assisted attacks directly targeting Siemens PLCs in US critical infrastructure sectors.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-19 07:39 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-20 07:41 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">23</div>
+      <div class="stat-val amber">20</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-19 07:39 UTC</span>
+      <span class="briefing-date">2026-08-20 07:41 UTC</span>
     </div>
-    <div class="briefing-body"><p>CISA&#x27;s KEV additions this week put your virtualization and perimeter stack squarely in the crosshairs — VMware vCenter path traversal, Cisco ASA/FTD, Cisco FMC hard-coded password, and Windows IKE double-free are all under active exploitation and all commonly sit at or adjacent to the OT DMZ. If your SCADA, historian, or engineering workstations run on vSphere, or your plant firewall is a Cisco ASA, treat this as a patch-or-compensate week rather than routine maintenance. Verify management interfaces are reachable only from hardened jump hosts, and document any risk acceptance you take until the next outage window. In parallel, push the Apple iOS/macOS updates to any device used for remote engineering access — the screen-sharing auth bypass is confirmed exploited.</p></div>
+    <div class="briefing-body"><p>NSA and CISA have issued a joint advisory that adversaries are using AI to accelerate attacks against Siemens PLCs in US critical infrastructure — treat this as a red-level day. Get a fresh inventory of any Siemens S7-1200/1500 or TIA Portal engineering workstations reachable from the enterprise network, verify that PLC access protection is set above level 1 with a strong password, and confirm firmware is current. Concurrently, patch VMware vCenter for CVE-2026-59310 today if your virtualised OT stack sits on it. If you use PTC Windchill, assume compromise until you have verified patch status against the Cl0p campaign IOCs.</p></div>
   </div>
 </div>
 
@@ -356,7 +356,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
-      <div class="vendor-grid"><div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">No mentions</div></div>
+      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">1 mention</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The VNC protocol Apple built Screen Sharing on top of dates to 1998 and was developed at Olivetti Research Lab in Cambridge — the same lab that produced the first webcam (pointed at a coffee pot). VNC was originally designed so researchers could access their thin-client desktops from anywhere on the LAN, with security as an afterthought. Nearly three decades later, that same unencrypted TCP/5900 design DNA is still causing CVEs, a useful reminder that protocol choices outlive their designers&#x27; assumptions.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Siemens S7 protocol still in wide use today derives from a design lineage that predates modern authentication concepts — the original S7comm has no cryptographic protection, which is why S7CommPlus was introduced. Yet even S7CommPlus&#x27;s anti-replay integrity check was reverse-engineered from PCAPs within a few years of release. This is a large part of why AI-assisted attackers can now generate valid PLC payloads so quickly: the protocol semantics are well-documented in the public research literature.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by decades — Elmer Sperry&#x27;s ship-steering gyrocompass autopilot from 1911 already implemented proportional-plus-derivative action mechanically, and Nicolas Minorsky&#x27;s 1922 paper analysing the USS New Mexico&#x27;s steering formalised the three-term controller mathematically. Even more striking, James Clerk Maxwell&#x27;s 1868 paper &quot;On Governors&quot; — written to explain the hunting behaviour of Watt&#x27;s steam-engine flyball governor — is arguably the founding document of control theory, predating the electric motor&#x27;s practical use. Every time you tune a loop, you&#x27;re using math worked out to keep 19th-century steam engines from tearing themselves apart.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalised not in a research lab but on a US Navy destroyer. Nicholas Minorsky derived the three-term control law in 1922 by watching helmsmen steer the USS New Mexico and noting that good ones didn&#x27;t just respond to heading error — they anticipated based on how fast the error was changing and integrated out persistent drift. Nearly every temperature loop, flow loop, and motion axis you tune today is a direct descendant of a mathematical description of human steering behaviour, which is why PID feels intuitive to us: it was reverse-engineered from us.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow march from standard to shipping product. The promise is compelling for controls engineers: a single deterministic Ethernet fabric carrying everything from motion-control cyclic data at sub-millisecond intervals up to enterprise MES traffic, all using one information model. <span id="rm924050" style="display:none">In principle, this collapses the historical layering of Profinet IRT, EtherCAT, and standard Ethernet into one converged network with guaranteed latency bounds. In practice, adoption remains gated by ecosystem maturity. TSN requires end-to-end support — switches, NICs, PLCs, drives, and configuration tooling all need to speak the same subset of IEEE 802.1 standards (Qbv scheduling, Qbu preemption, ASrp reservation). Vendors like Siemens, B&amp;R, Beckhoff, and Rockwell have shipping products, but interoperability across brands is still patchy, and few brownfield sites can justify a rip-and-replace. The realistic near-term deployment pattern is greenfield packaging lines and semiconductor fabs where determinism directly drives throughput. For the plant engineer, the practical implication today is to specify TSN-capable switching in any new backbone refresh even if you&#x27;re not using TSN features yet — the price delta is shrinking and it preserves optionality. Also watch the OPC Foundation&#x27;s FLC (Field Level Communications) initiative, which is defining the profiles that will make cross-vendor TSN actually work.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm924050',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) is finally moving from vendor demos into pilot deployments, and it is worth understanding even if you are not deploying it this year. The idea is simple in concept: combine OPC UA&#x27;s rich, secure, model-based data exchange with deterministic Ethernet timing, so that the same wire can carry high-priority motion-control traffic and non-critical MES data without the former ever being late. <span id="rm909832" style="display:none">Achieving this requires TSN-capable switches (IEEE 802.1Qbv scheduled traffic, 802.1AS time sync) end-to-end, and OPC UA PubSub rather than the traditional client/server model. For controls engineers, the practical implication is a potential collapse of the traditional fieldbus/Ethernet split: instead of Profinet IRT here, EtherCAT there, and a separate MES Ethernet on top, you get a single converged network. That simplifies cabling and cabinet design but shifts complexity into network engineering and time-synchronisation domains that most controls teams are not yet staffed for. Current adoption challenges include immature multi-vendor interoperability (TSN profile fragmentation is real), sparse tooling for diagnostics when a scheduled window is missed, and the fact that most installed I/O still doesn&#x27;t speak PubSub. Expect it in new greenfield semiconductor and automotive lines first, and prepare by getting your network team certified in TSN fundamentals before your first project lands on their desk.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm909832',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 remains the reference framework everyone is aligning to, and the 62443-3-2 (security risk assessment for system design) and 62443-4-2 (technical security requirements for components) parts are seeing the most vendor uptake right now. If you are specifying new PLCs or RTUs, ask vendors explicitly for their 62443-4-2 Security Level certification and the associated security capability documentation — not just a marketing claim of compliance. <span id="rm262559" style="display:none">The gap between &quot;designed to&quot; and &quot;certified against&quot; is where most procurement pain hides. NIST CSF 2.0&#x27;s Govern function continues to reshape how utilities and manufacturers structure OT security programs, particularly the requirement to define cybersecurity roles, responsibilities, and authorities distinctly from IT. For controls engineers this is quietly good news: it formalises the argument that OT needs its own risk register, its own change-control cadence, and its own incident response playbook rather than being absorbed into corporate IT processes. Watch also for continued alignment work between IEC 62443 and the EU&#x27;s NIS2 and Cyber Resilience Act (CRA). CRA in particular will drive component vendors to bake security-by-design into every product with digital elements sold into the EU from late 2027 — meaning the PLC firmware update process, SBOMs, and vulnerability disclosure practices you interact with are all about to become contractually enforceable rather than best-effort.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm262559',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to be the reference point for anyone responding to advisories like today&#x27;s Siemens PLC alert. Part 4-2 (component-level security requirements) is what a customer should be pointing to when asking a PLC vendor about authenticated firmware, secure boot, and role-based access — and part 3-3 (system security requirements) is where the SL-T (target security level) discussion for a given zone lives. <span id="rm46390" style="display:none">If your risk assessment for a Siemens-heavy zone still shows SL-T 1, the AI-assisted threat landscape is a strong argument for revisiting that number. NIST SP 800-82 Rev. 3 remains the pragmatic companion for US operators, particularly its guidance on network segmentation and remote access — both directly relevant to reducing exposure to the current wave of vCenter and VPN-adjacent CVEs. It&#x27;s also worth watching ISA&#x27;s work on the ISA/IEC 62443-2-1 revision, which is sharpening the OT security program management requirements in ways that will affect how audits treat your patch management, MOC, and incident response processes. If you haven&#x27;t mapped your existing plant security procedures against a 62443-2-1 gap analysis in the last 18 months, that&#x27;s a worthwhile Q4 exercise.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm46390',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa water authority incident in Pennsylvania, where attackers affiliated with the CyberAv3ngers group compromised a Unitronics Vision-series PLC controlling a booster pump station. The intrusion was trivial: the PLC was internet-exposed on TCP/20256 with the factory-default password (1111) still in place. <span id="rm146040" style="display:none">The attackers defaced the HMI with a political message but did not manipulate the process — a near-miss rather than a physical incident. What made it consequential was the pattern. CISA and the FBI subsequently identified dozens of similarly exposed Unitronics devices across US water utilities, plus food and beverage plants. The root causes were the same everywhere: direct internet exposure to enable vendor remote support, default credentials never changed at commissioning, and no network monitoring to detect the intrusion — the utility only noticed because the HMI screen changed. The lessons for controls engineers are unglamorous but enduring. First, no PLC should be directly reachable from the internet, full stop — vendor remote access belongs behind a jump host with MFA. Second, commissioning checklists must include a mandatory credential change and a documented handover of the new credentials to the asset owner. Third, if you cannot see your Level 1 devices on the network, you cannot defend them; even passive monitoring at the OT/IT boundary would have caught the initial connection attempts.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm146040',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is the unfolding Cl0p / PTC Windchill campaign, in which the ransomware group has now publicly named over 40 victims, including several with heavy industrial footprints. The initial intrusion vector, based on public reporting, was a Windchill vulnerability exploited before broad patch adoption; from there, attackers exfiltrated PLM data — CAD models, BOMs, engineering change orders, and in some cases process documentation linked to shop-floor systems. <span id="rm377900" style="display:none">What makes this incident notable is not the ransomware payload but the target: Windchill sits at the exact seam between engineering IT and OT, and its contents are often the crown jewels of a manufacturer&#x27;s process knowledge. Even without any encryption event on plant-floor systems, the disclosure of proprietary control narratives, custom function blocks, or safety calculations can be operationally damaging for years. Three lessons for controls engineers. First, PLM and engineering document stores need to be treated as OT-adjacent assets in your risk register, not as generic IT. Second, ensure that anything Windchill exports to plant systems (recipes, part programs, tool data) is validated on the receiving side — a compromised PLM is a plausible supply-chain path into the DCS. Third, review who at your site has Windchill admin rights and whether those accounts have MFA and privileged access monitoring; historically, PLM admin accounts have been under-scrutinised compared to AD domain admins.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm377900',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Today&#x27;s headlines are dominated by IT-side events with meaningful downstream implications for OT. Rapid7&#x27;s analysis of the AI-driven vulnerability disclosure surge argues that traditional patch cycles have collapsed under the volume — a warning that lands hard for plant-floor teams who already struggle with quarterly outage windows. <span id="rm475946" style="display:none">Expect exposure-based prioritisation (reachability, blast radius, compensating controls) to become the dominant defensive model, and plan your OT patching governance around that rather than raw CVSS. Apple pushed a large 108-CVE update across iOS 26/18 and macOS 26, following a smaller emergency screen-sharing fix. Controls engineers using iPads for HMI mirroring, mobile operator rounds, or vendor-support screen sharing should push these to managed devices promptly — the screen-sharing authentication bypass (now in KEV as CVE-2026-65400) directly threatens any Mac used for remote engineering access. Wireshark 4.6.8 also shipped, patching 28 vulnerabilities; update your engineering workstations that carry it. On the market side, Fortinet&#x27;s acquisition of Virtue AI and Xpander&#x27;s funding round signal continued consolidation around agentic-AI security tooling. For OT, watch how vendors integrate these models into perimeter appliances you already run — the same FortiOS boxes now on the KEV list. The CareCloud breach ballooning from 350k to 3.7M records is a reminder that initial breach scoping is almost always optimistic; treat any incident advisory you receive with that same scepticism. Nothing today from Dragos, Claroty, or vendor PSIRTs on new ICS-specific CVEs, but the pattern of the week is clear: attackers are chaining IT edge devices and virtualization to reach segmented environments. If your Purdue Level 3.5 DMZ relies on a Cisco ASA, FortiGate, or vCenter, you are effectively in scope for this week&#x27;s active exploitation.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm475946',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The top story for controls engineers today is a joint NSA/CISA advisory revealing that threat actors are using AI tooling to accelerate reconnaissance, payload crafting, and exploitation against Siemens PLCs deployed in US critical infrastructure. Reports indicate attackers are using LLMs to parse S7 protocol traffic, generate valid STEP 7/TIA Portal artifacts, and produce ladder-logic modifications that survive cursory operator review. <span id="rm107701" style="display:none">The advisory carries technical detail and mitigations, and it should be treated as a call to immediately audit exposed Siemens assets, review firmware baselines, and verify that engineering workstation access is tightly controlled. In parallel, the Cl0p ransomware group has publicly named more than 40 victims of its PTC Windchill campaign, including Shell, Philips, Fiserv, Zebra, and Mindray. Windchill sits squarely in the engineering IT/OT boundary: it holds PLM data, CAD, BOMs, and often integrates with MES and shop-floor systems. Compromise there means potential exposure of proprietary process designs, control narratives, and supplier data — a nightmare for any manufacturer relying on Windchill as the system of record. CISA also issued an urgent push on newly exploited Microsoft, VMware, and Apple flaws, several of which landed on the KEV list this week. For OT sites, the VMware vCenter path traversal (CVE-2026-59310) is particularly concerning because vCenter almost universally underpins virtualised historians, HMIs, and jump servers in modern plant DMZs. The Microsoft IKE double-free (CVE-2026-33824) is likewise relevant anywhere site-to-site VPNs terminate on Windows. On the geopolitical front, the US indicted 17 Iranian nationals tied to the Mabna Institute, with $10M rewards on five of them — a reminder that state-linked actors continue to invest heavily in long-term access campaigns against Western targets, including those with industrial footprints.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm107701',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 19 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/carecloud-data-breach-impact-grows-to-3-7-million-individuals/" target="_blank" rel="noopener">CareCloud Data Breach Impact Grows to 3.7 Million Individuals</a></span></div></summary><div class="detail-body"><p>The data breach was initially believed to affect roughly 350,000 people, but the HHS breach tracker shows a far bigger impact.
-The post CareCloud Data Breach Impact Grows to 3.7 Million Individuals appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/carecloud-data-breach-impact-grows-to-3-7-million-individuals/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 18 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/webinar-today-rethinking-cyber-defense-for-ai-speed-attacks/" target="_blank" rel="noopener">Webinar Today: Rethinking Cyber Defense for AI-Speed Attacks</a></span></div></summary><div class="detail-body"><p>Join the live webinar as we explore if detection-first security operations can keep pace with AI, or if it’s time to rethink prevention as the strongest default.
-The post Webinar Today: Rethinking Cyber Defense for AI-Speed Attacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/webinar-today-rethinking-cyber-defense-for-ai-speed-attacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 18 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ciso-conversations-nico-waisman-from-self-taught-hacker-to-ai-driven-offensive-security-at-xbow/" target="_blank" rel="noopener">CISO Conversations: Nico Waisman – From Self-Taught Hacker to AI-Driven Offensive Security at XBOW</a></span></div></summary><div class="detail-body"><p>With no formal training and no career plan, Waisman built a path from Argentina&#x27;s early hacking scene to leading security at an AI-powered offensive security firm.
-The post CISO Conversations: Nico Waisman – From Self-Taught Hacker to AI-Driven Offensive Security at XBOW appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ciso-conversations-nico-waisman-from-self-taught-hacker-to-ai-driven-offensive-security-at-xbow/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 18 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ai-driven-vulnerability-surge-breaks-the-traditional-patching-model/" target="_blank" rel="noopener">AI-Driven Vulnerability Surge Breaks the Traditional Patching Model</a></span></div></summary><div class="detail-body"><p>Rapid7 warns that traditional patch cycles cannot keep pace with soaring vulnerability disclosures and faster exploitation, forcing defenders to prioritize exposure over severity scores.
-The post AI-Driven Vulnerability Surge Breaks the Traditional Patching Model appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ai-driven-vulnerability-surge-breaks-the-traditional-patching-model/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 18 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/xpander-raises-7-5-million-for-ai-management-and-governance/" target="_blank" rel="noopener">Xpander Raises $7.5 Million for AI Management and Governance</a></span></div></summary><div class="detail-body"><p>Xpander’s platform uses a universal agent harness that executes AI agents as portable workloads and securely renders interfaces on demand.
-The post Xpander Raises $7.5 Million for AI Management and Governance appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/xpander-raises-7-5-million-for-ai-management-and-governance/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 20 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/hackers-using-ai-to-target-siemens-plcs-in-critical-us-sectors/" target="_blank" rel="noopener">Hackers Using AI to Target Siemens PLCs in Critical US Sectors</a></span></div></summary><div class="detail-body"><p>A cybersecurity advisory with technical details and recommendations has been written by the NSA, CISA and other agencies.
+The post Hackers Using AI to Target Siemens PLCs in Critical US Sectors appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/hackers-using-ai-to-target-siemens-plcs-in-critical-us-sectors/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 19 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/virtual-event-today-codeseccon-secure-your-code-and-applications/" target="_blank" rel="noopener">Virtual Event Today: CodeSecCon – Secure Your Code and Applications</a></span></div></summary><div class="detail-body"><p>CodeSecCon is the premier virtual event bringing together developers and cybersecurity professionals to revolutionize the way applications are built, secured, and maintained.
+The post Virtual Event Today: CodeSecCon &amp;#8211; Secure Your Code and Applications appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/virtual-event-today-codeseccon-secure-your-code-and-applications/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 19 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/prevalent-ai-raises-22-million-to-expand-data-fabric-platform/" target="_blank" rel="noopener">Prevalent AI Raises $22 Million to Expand Data Fabric Platform</a></span></div></summary><div class="detail-body"><p>The previously bootstrapped company helps organizations securely and reliably operate AI agents at scale.
+The post Prevalent AI Raises $22 Million to Expand Data Fabric Platform appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/prevalent-ai-raises-22-million-to-expand-data-fabric-platform/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 19 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/us-charges-17-iranian-hackers-offers-10-million-rewards-for-5-of-them/" target="_blank" rel="noopener">US Charges 17 Iranian Hackers, Offers $10 Million Rewards for 5 of Them</a></span></div></summary><div class="detail-body"><p>The 17 members of the Mabna Institute targeted hundreds of universities and organizations in the US and abroad.
+The post US Charges 17 Iranian Hackers, Offers $10 Million Rewards for 5 of Them appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/us-charges-17-iranian-hackers-offers-10-million-rewards-for-5-of-them/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 19 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cl0p-ransomware-group-names-over-40-victims-of-ptc-windchill-campaign/" target="_blank" rel="noopener">Cl0p Ransomware Group Names Over 40 Victims of PTC Windchill Campaign</a></span></div></summary><div class="detail-body"><p>The cybercrime gang has listed major companies such as Shell, Philips, Fiserv, Zebra, Mindray, and Largan Precision.
+The post Cl0p Ransomware Group Names Over 40 Victims of PTC Windchill Campaign appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cl0p-ransomware-group-names-over-40-victims-of-ptc-windchill-campaign/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Xpander Raises $7.5 Million for AI Management and Governance appeared f
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added a large batch to the KEV catalog with direct OT relevance. The Broadcom VMware vCenter path traversal (CVE-2026-59310) is the standout — many OT environments run virtualized historians, engineering workstations, and SCADA servers on vSphere, and vCenter compromise typically means full hypervisor-tier control. <span id="rm528763" style="display:none">Pair that with the Cisco ASA/FTD heap inspection flaw (CVE-2026-20349) causing unauthenticated reloads and the Cisco FMC hard-coded password (CVE-2026-20316), and any OT DMZ built on Cisco firewalls needs urgent review of exposure and management-plane segmentation. Microsoft&#x27;s IKE Service Extensions double-free (CVE-2026-33824) enables remote code execution against Windows IPsec endpoints — relevant for any site-to-site VPN terminating on Windows servers between corporate and plant networks. SharePoint sees two entries (weak-auth bypass CVE-2026-55040 and deserialization CVE-2026-50522); SharePoint frequently hosts operating procedures, P&amp;IDs, and shift logs, so treat it as sensitive OT-adjacent infrastructure. Progress LoadMaster (CVE-2026-8037) and Fortinet FortiOS (CVE-2025-68686) round out the perimeter picture. Practical priorities: patch or isolate vCenter and Cisco ASA/FMC first, verify no management interfaces are exposed beyond jump hosts, confirm your Windows IPsec tunnels are patched or replaced with appliance-based VPN, and audit any Mac used for engineering screen-sharing. Where patching in an OT window is impossible before the next outage, document the compensating controls — ACL restrictions, disabled services, and monitoring — as an interim risk acceptance.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm528763',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">This week&#x27;s KEV additions include several items with direct OT relevance. CVE-2026-59310 (VMware vCenter path traversal to RCE) is the standout — vCenter is the invisible backbone under most virtualised OT stacks, and an attacker with vCenter access can silently clone, snapshot, or modify HMI, historian, and engineering VMs. <span id="rm264404" style="display:none">Patch immediately; if you cannot, restrict vCenter management interfaces to a hardened jump host and enforce MFA. CVE-2026-33824 (Windows IKE double-free) matters wherever your remote-access or site-to-site VPN terminates on Windows Server. Also worth flagging: CVE-2026-65400 (macOS Screen Sharing auth bypass) — some OEMs and integrators use Mac workstations for HMI development and remote support; the older VNC-derived screen sharing is unauthenticated in the exploit path. CVE-2026-55040 (SharePoint auth bypass) and the earlier CVE-2026-50522 (SharePoint deserialization RCE) are relevant because plant SharePoints frequently hold P&amp;IDs, control narratives, and MOC documents. Finally, the Cisco ASA/FTD DoS (CVE-2026-20349) and Cisco FMC hard-coded password (CVE-2026-20316) should be prioritised in any site where these devices sit at the IT/OT boundary — a firewall reload during a production run is not a small event.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm264404',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Xpander Raises $7.5 Million for AI Management and Governance appeared f
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 23 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 20 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Xpander Raises $7.5 Million for AI Management and Governance appeared f
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33824</span></td><td>2026-08-18</td><td>Microsoft</td><td>Internet Key Exchange (IKE) Service Extensions</td><td>Microsoft Internet Key Exchange (IKE) Service Extensions Double Free V</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-59310</span></td><td>2026-08-18</td><td>Broadcom</td><td>VMware vCenter</td><td>Broadcom VMware vCenter Path Traversal Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-55040</span></td><td>2026-08-18</td><td>Microsoft</td><td>SharePoint</td><td>Microsoft SharePoint Weak Authentication Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-64849</span></td><td>2026-08-19</td><td>MLflow</td><td>MLflow</td><td>MLflow Server-Side Request Forgery Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-33824</span></td><td>2026-08-18</td><td>Microsoft</td><td>Internet Key Exchange (IKE) Service Extensions</td><td>Microsoft Internet Key Exchange (IKE) Service Extensions Double Free V</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-59310</span></td><td>2026-08-18</td><td>Broadcom</td><td>VMware vCenter</td><td>Broadcom VMware vCenter Path Traversal Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,25 +484,23 @@ The post Xpander Raises $7.5 Million for AI Management and Governance appeared f
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-19 07:39 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-20 07:41 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ACL":"List of permissions defining which users can access network resources.",
+  "AD":"Active Directory; Microsoft's centralized network authentication and identity management system.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ASA":"Cisco firewall appliance providing network security and access control.",
+  "ASA":"Adaptive Security Appliance; Cisco's integrated firewall and VPN security device.",
+  "CAD":"Computer-Aided Design; software for creating digital technical drawings and models.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CSF":"NIST framework for managing cybersecurity risks and controls.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Network zone between internal network and untrusted external networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FMC":"Cisco centralized management platform for firewalls and security policies.",
-  "FTD":"Cisco next-generation firewall with threat defense capabilities.",
+  "FTD":"Firepower Threat Defense; Cisco's next-generation firewall platform with advanced threat protection.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
@@ -510,32 +508,42 @@ The post Xpander Raises $7.5 Million for AI Management and Governance appeared f
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"International standards organization for electrical and computing technologies.",
-  "IKE":"Protocol for establishing secure VPN connections and encryption keys.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization for technical fields.",
+  "IKE":"Internet Key Exchange; cryptographic protocol for establishing secure VPN connections.",
+  "IRT":"Isochronous Real-Time; real-time communication protocol for industrial automation networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "LAN":"Network connecting computers within a localized physical area.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Security requiring multiple authentication methods to verify user identity.",
+  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for user access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+  "MOC":"Management of Change; formal process for controlling modifications to systems and processes.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NIS2":"European directive on network security and information systems.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
+  "PLM":"Product Lifecycle Management; software for managing product development from conception to retirement.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
+  "PTC":"Programmable Temperature Controller; industrial device for precise temperature regulation and control.",
+  "RCE":"Remote Code Execution; vulnerability allowing attackers to run arbitrary code on a system.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "S7":"SIMATIC S7; Siemens programmable logic controller product line for industrial automation.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "SL":"Safety Integrity Level; classification for safety-critical system reliability and performance.",
+  "SP":"Service Pack; software update bundle containing bug fixes and minor improvements.",
+  "STEP":"Standard for Exchange of Product Data; neutral file format for CAD model exchange.",
+  "TIA":"Totally Integrated Automation; Siemens' comprehensive industrial automation engineering platform.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VNC":"Remote desktop protocol for viewing and controlling computers remotely.",
-  "VPN":"Encrypted network connection providing secure communication over public networks.",
+  "UA":"OPC Unified Architecture; standardized protocol for industrial data exchange and communication.",
+  "USS":"Universal Serial Server; communication protocol for USS devices on industrial networks.",
+  "VNC":"Virtual Network Computing; remote desktop protocol for accessing systems over networks.",
+  "VPN":"Virtual Private Network; encrypted connection enabling secure remote access over public networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
