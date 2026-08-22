@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-21 07:43 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-22 07:32 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Active exploitation of TrueConf, Zimbra, and MLflow bugs, plus a mass IP-camera hijack — IT-adjacent risks bleed into OT.</span>
+  <span>IT-adjacent KEV additions (Cisco ASA/FMC, VMware vCenter, Fortinet) directly threaten OT perimeters; no ICS-specific vendor advisories today.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-21 07:43 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-22 07:32 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">20</div>
+      <div class="stat-val amber">21</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-21 07:43 UTC</span>
+      <span class="briefing-date">2026-08-22 07:32 UTC</span>
     </div>
-    <div class="briefing-body"><p>CISA is pushing emergency patching of two TrueConf Server bugs (CVE-2026-72529 and -72530) that Head Mare is actively exploiting to drop PhantomCore malware — if TrueConf is anywhere on your OT-adjacent network, block TCP/4307 at the firewall today and check for compromise before patching. Second priority: vCenter (CVE-2026-59310) and Cisco ASA/FTD (CVE-2026-20349) entries added to KEV both affect infrastructure sitting directly between your enterprise and process networks. And if your predictive-maintenance stack runs MLflow, the SSRF flaw being exploited for cloud credential theft (CVE-2026-64849) means any attached IAM role should be considered at risk until you&#x27;re patched.</p></div>
+    <div class="briefing-body"><p>The most important item today isn&#x27;t an ICS advisory — it&#x27;s the cluster of IT-perimeter KEV additions (Cisco ASA/FTD, Cisco FMC with hard-coded credentials, VMware vCenter path traversal, and two N-able N-central auth bypasses) that collectively describe the exact path an attacker takes from internet to engineering workstation. If your integrator uses N-central or your IT/OT boundary runs on Cisco ASA managed by FMC, verify patch status this week and don&#x27;t accept &#x27;we applied the first fix&#x27; for the N-central CVEs — the initial patch was incomplete. Weekend is a good time to audit which of those management planes are reachable from your OT DMZ.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still running on millions of devices today, was published by Modicon in 1979 — the same year the first Sony Walkman shipped. It was designed for RS-232/RS-485 serial links with no authentication because the physical wire *was* the security boundary. Every Modbus/TCP deployment since 1999 has effectively taken a protocol built on the assumption of a trusted copper pair and stretched it across routable IP networks, which is why segmentation, not patching, remains the primary control.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The original PID controller predates electronics: Elmer Sperry&#x27;s 1911 gyrocompass autopilot for the US Navy used mechanical linkages to implement proportional, integral, and derivative action on ship steering long before Ziegler and Nichols formalised tuning in 1942. The &#x27;three-term controller&#x27; name comes from those three brass mechanical stages, not from any equation. Every time you tune a loop today, you&#x27;re using math that was originally cut from gears.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronic computing by nearly a century. Elmer Sperry&#x27;s gyroscopic ship autopilot, patented in 1911, implemented proportional, integral, and derivative action using purely mechanical linkages and dashpots — the integral term came from a viscous damper, the derivative from a rate gyroscope. Nicholas Minorsky formalised the mathematics in 1922 while watching helmsmen steer the USS New Mexico, essentially reverse-engineering how experienced sailors intuitively used their memory of past error (integral) and anticipation of future error (derivative). Every PID block you tune today is a direct descendant of a WWI-era helmsman&#x27;s instinct, expressed in oil and brass.</p></div>
+        <div class="curiosity-body ai-text"><p>The Nyquist stability criterion, which every controls engineer learns as a frequency-domain tool for feedback systems, was developed by Harry Nyquist in 1932 not for control loops but to explain why long-distance telephone amplifiers oscillated. Bell Labs had a business problem — cross-country calls needed dozens of vacuum-tube repeaters in series, and they kept howling — and Nyquist&#x27;s contour analysis was the fix. The entire discipline of classical control theory essentially fell out of a telephone company trying to keep New York-to-San Francisco calls intelligible.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on OPC UA FX (Field eXchange), the extension of OPC UA down to the field/device layer that has been quietly maturing over the past two years. Traditional OPC UA excelled from the controller upward — HMIs, MES, historians — but field-level communication was still dominated by PROFINET, EtherNet/IP, and EtherCAT. <span id="rm542149" style="display:none">OPC UA FX, layered on TSN (Time-Sensitive Networking), aims to unify controller-to-controller and controller-to-device traffic in a single, deterministic, vendor-neutral stack with strong security built in from OSI layer 2 upward. For a controls engineer, the practical promise is significant: one cable, one protocol, one certificate infrastructure from the sensor to the cloud, with deterministic timing guarantees measured in microseconds. The security angle is particularly compelling — instead of layering IPsec or MACsec on top of insecure fieldbuses, authentication and encryption are native to the protocol, per session. Adoption remains slow, however. TSN-capable switches are still a premium, drives and I/O supporting OPC UA FX are only trickling out from Beckhoff, Siemens, and B&amp;R, and most brownfield sites cannot justify the rip-and-replace. Expect the technology to appear first in greenfield automotive and semiconductor lines through 2027 before it reaches process industries in any real volume.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm542149',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Time-Sensitive Networking (TSN) over standard Ethernet is quietly reaching the point where it&#x27;s showing up in real projects, not just vendor demos. TSN is a set of IEEE 802.1 standards (notably 802.1AS for time sync, 802.1Qbv for scheduled traffic, and 802.1CB for frame replication) that let deterministic control traffic share the same wire as best-effort IT traffic without jitter. <span id="rm829597" style="display:none">In practice, this means a motion-control update, a video stream from a vision system, and a historian query can all traverse the same switch, with the motion frames guaranteed a slot every cycle. The practical implication for controls engineers is convergence: instead of parallel PROFINET, EtherCAT, and Ethernet/IP networks with separate switches and cabling, you can specify one converged fabric. Siemens, Rockwell, B&amp;R, and CC-Link have all released TSN-capable products, and OPC UA over TSN is the shared aspiration for a vendor-neutral field layer. Adoption challenges remain real though — TSN configuration is genuinely complex, engineering tools for schedule computation are immature, and mixed-vendor interoperability is still hit-or-miss. Most greenfield projects that specify TSN today are doing so for future-proofing rather than exploiting its full determinism, but the tooling gap is closing quickly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm829597',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to gain traction as procurement teams increasingly require documented zone-and-conduit models before signing off on new automation projects. If you haven&#x27;t formally applied it, the core discipline is straightforward: identify the System Under Consideration, partition it into zones by function and security requirement, define the conduits between them, and assign a target Security Level (SL-T) to each zone based on the consequence of compromise. <span id="rm860836" style="display:none">What was once a niche exercise for critical infrastructure is now routine for pharma and food-and-beverage builds too. On the standards horizon, ISA is finalising updates to the 62443-4-2 component requirements to better reflect containerised and virtualised controls — a gap in the original standard, which assumed physical controllers. Expect clearer requirements around software bill of materials (SBOM) delivery and vulnerability disclosure timelines from vendors; if you&#x27;re writing specs today, calling out SBOM in CycloneDX or SPDX format is no longer aspirational — several major DCS vendors will now provide it on request. NIST SP 800-82 Rev. 3 remains the most practical companion document for engineers in regulated US environments, and its guidance on remote access and monitoring for OT continues to align well with the current KEV trends around VPN, firewall, and management-plane exploitation.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm860836',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most often cited in OT procurement specifications this year, and it&#x27;s worth revisiting if you&#x27;re scoping a project. The standard formalises the concept of zones and conduits, then walks you through assigning a target security level (SL-T) to each based on threat and consequence. <span id="rm215918" style="display:none">In practice, most sites still default every zone to SL 2, which is a missed opportunity — a safety-instrumented system zone probably warrants SL 3 or 4, while a standalone offline test cell might genuinely be SL 1. On the NIST side, the Cybersecurity Framework 2.0 &#x27;Govern&#x27; function has now filtered into most utility and pipeline regulator expectations, meaning boards are being asked about OT cyber risk in ways they weren&#x27;t two years ago. If you haven&#x27;t already, mapping your existing IEC 62443 controls to NIST CSF 2.0 categories is an afternoon&#x27;s work that pays off the next time an auditor or executive asks how your OT program &#x27;aligns.&#x27; ISA is also making steady progress on ISA/IEC 62443-2-2 (security program ratings), which will give operators a quantitative way to score their program maturity rather than the more subjective assessments used today.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm215918',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s retrospective is the 2024 attack on a US water utility (Aliquippa, Pennsylvania) by the CyberAv3ngers group, which remains one of the most instructive incidents for small-utility engineers. The attackers compromised a Unitronics Vision-series PLC exposed to the internet with the default password 1111, took the HMI screen hostage with a political message, and forced the operators to switch to manual control of a booster station. <span id="rm59434" style="display:none">What made it notable was not sophistication — there was none — but that a single exposed PLC in a rural water system triggered a national CISA advisory and Congressional hearings. The attackers were opportunistic: they scanned for Unitronics devices on TCP/20256, tried default credentials, and succeeded on thousands of devices worldwide. The Aliquippa incident happened to be one that made the news. Three lessons endure. First, never trust that a PLC is &#x27;too small to be a target&#x27; — internet-facing scan traffic is entirely indiscriminate. Second, default credentials on field devices are the industry&#x27;s single largest self-inflicted wound; a scheduled campaign to rotate them across the fleet costs almost nothing. Third, having a documented, tested manual-operation procedure saved the utility from a service outage — your ability to run the process without the automation is still your most reliable last line of defence.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm59434',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where the Cyber Av3ngers group (an IRGC-linked persona) compromised a Unitronics Vision PLC controlling a booster station. The attackers didn&#x27;t exploit any zero-day — the PLC was internet-exposed on TCP/20256 with the factory-default password &#x27;1111&#x27;, and they simply logged in, defaced the HMI screen with an anti-Israel message, and stopped the pump. <span id="rm886652" style="display:none">Operators fell back to manual control and no customers lost water, but the incident triggered a joint CISA/FBI/NSA/EPA advisory and became the template case for the 2024 congressional water sector hearings. What made it instructive isn&#x27;t the sophistication — it&#x27;s the ordinariness. Unitronics ships PLCs with a well-known default credential, and Shodan showed hundreds of similar units exposed across US water utilities. The threat actor was opportunistic, scanning by vendor banner rather than targeting Aliquippa specifically. Three lessons stand for controls engineers: never expose a PLC directly to the internet, no matter how small the site or how convenient the vendor&#x27;s remote-access story; change default credentials as part of factory acceptance testing, not commissioning (because commissioning always slips); and know your fallback to manual — Aliquippa&#x27;s saving grace was that operators had practiced running the station without the PLC and could do so immediately.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm886652',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The dominant story today is CISA&#x27;s emergency call to patch two TrueConf Server vulnerabilities (CVE-2026-72529 and CVE-2026-72530) being actively exploited by the Head Mare hacktivist group to deploy PhantomCore malware. While TrueConf is a video-conferencing platform, many industrial sites use it — particularly in Eastern European and Russian operations — for remote engineering support and vendor meetings, and it often sits on flat networks with access to engineering VLANs. <span id="rm745551" style="display:none">Both flaws are reachable via TCP/4307 without authentication, so any perimeter or DMZ instance is a soft target. Operation CameraSwarm is the second story worth flagging: a threat actor compromised roughly 14,000 Dahua IP cameras across Ukraine, Russia, and CIS telecom netblocks. Dahua and rebadged OEM cameras are ubiquitous in perimeter security, substation monitoring, and process video at industrial sites. If your site relies on these cameras for safety or physical-security monitoring, assume the firmware is targetable and the RTSP/HTTP ports should never touch the internet. A critical MLflow SSRF flaw (CVE-2026-64849) is being exploited to steal cloud credentials by reaching internal metadata services. This matters for the growing crop of predictive-maintenance and analytics stacks bolted onto plant historians — many run MLflow in a cloud-hosted or hybrid model with IAM roles attached. Meanwhile, Atlassian and Splunk shipped large patch bundles; Splunk in particular is common in SOC and OT-monitoring deployments, so review your Enterprise and Universal Forwarder versions. Zimbra (CVE-2026-73570) is under active exploitation per CERT Polska. Not directly OT, but plant email servers running Zimbra have historically been beachheads into industrial networks — Sandworm has used exactly this pattern before.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm745551',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The security news cycle this week is dominated by IT and cloud-focused items, but several have direct implications for OT teams. Researchers disclosed a &#x27;Cryptographic Context Injection&#x27; technique that hides malicious prompts from Grok and Gemini safety guardrails until they&#x27;re decrypted inside a trusted execution environment. <span id="rm152915" style="display:none">As controls engineers begin experimenting with LLMs for code review, alarm rationalisation, and P&amp;ID analysis, this is a reminder that AI safety controls are still immature and any AI touching engineering documents should be treated as an untrusted intermediary. A new phishing toolkit, iAuthFlow V2, can register an attacker-controlled passkey during a phishing session, giving persistent access even after passwords are reset and sessions revoked. For OT organisations rolling out passkeys and FIDO2 to replace passwords on remote-access jumphosts and engineering portals, response playbooks now need to include an audit of registered authenticators — not just credential rotation — following any suspected compromise. On the supply chain front, North Korean actors were linked to a poisoned version of the Rust &#x27;arrayref&#x27; crate that pulled a malicious payload from a remote server. This continues the steady drumbeat of language-ecosystem attacks (npm, PyPI, Rust) that increasingly affect OT-adjacent tools: HMI build pipelines, historian connectors, and Python-based data science stacks pulling from public registries. Pin versions, mirror internally, and treat crate/package updates with the same change-control rigour as PLC firmware. SANS ISC ran a useful week-long series on using Microsoft Graph and PowerShell to hunt for stale accounts, unlicensed users missed in MFA rollouts, and risky sign-ins. For controls engineers, the takeaway is that identity is now a plant-floor problem: many OT vendor cloud portals (AVEVA Connect, Rockwell FactoryTalk Hub, Siemens Xcelerator) federate to your corporate Entra tenant, so a missed MFA enrolment on a contractor account is a path to your engineering data.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm152915',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-trueconf-vulnerabilities/" target="_blank" rel="noopener">CISA Urges Immediate Patching of Exploited TrueConf Vulnerabilities</a></span></div></summary><div class="detail-body"><p>The Head Mare hacktivist group has been exploiting the bugs to deploy the PhantomCore malware.
-The post CISA Urges Immediate Patching of Exploited TrueConf Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-trueconf-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 20 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/hackers-target-zimbra-servers-in-active-exploitation-campaign/" target="_blank" rel="noopener">Hackers Target Zimbra Servers in Active Exploitation Campaign</a></span></div></summary><div class="detail-body"><p>Exploitation of the Zimbra Collaboration vulnerability CVE-2026-73570 has been observed by Poland’s CERT Polska.
-The post Hackers Target Zimbra Servers in Active Exploitation Campaign appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/hackers-target-zimbra-servers-in-active-exploitation-campaign/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 20 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/surveillance-everything-you-wanted-to-know-but-were-afraid-to-ask/" target="_blank" rel="noopener">Surveillance – Everything You Wanted to Know, But Were Afraid to Ask</a></span></div></summary><div class="detail-body"><p>We all know they’re watching us. But we don’t know who they are, nor why nor how they are doing it.
-The post Surveillance – Everything You Wanted to Know, But Were Afraid to Ask appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/surveillance-everything-you-wanted-to-know-but-were-afraid-to-ask/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 20 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/threat-actor-hacks-14000-ip-cameras-in-ukraine-and-russia/" target="_blank" rel="noopener">Threat Actor Hacks 14,000 IP Cameras in Ukraine and Russia</a></span></div></summary><div class="detail-body"><p>Operation CameraSwarm targeted Dahua cameras across multiple countries, focusing on Russian and CIS telecom netblocks.
-The post Threat Actor Hacks 14,000 IP Cameras in Ukraine and Russia appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/threat-actor-hacks-14000-ip-cameras-in-ukraine-and-russia/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 20 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/atlassian-splunk-patch-dozens-of-critical-high-severity-vulnerabilities/" target="_blank" rel="noopener">Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabilities</a></span></div></summary><div class="detail-body"><p>The flaws could be exploited to execute arbitrary code, access sensitive information, and elevate privileges.
-The post Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/atlassian-splunk-patch-dozens-of-critical-high-severity-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/former-nsa-director-paul-nakasone-launches-national-security-advisory-firm/" target="_blank" rel="noopener">Former NSA Director Paul Nakasone Launches National Security Advisory Firm</a></span></div></summary><div class="detail-body"><p>The newly-formed Nakasone Group will counsel government leaders, corporations, prominent families, and other private clients confronting cybersecurity, geopolitical, and personal security risks.
+The post Former NSA Director Paul Nakasone Launches National Security Advisory Firm appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/former-nsa-director-paul-nakasone-launches-national-security-advisory-firm/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" target="_blank" rel="noopener">In Other News: Zombie Card Attack, T-Mobile Cut Cable to Stop Hackers, GitHub Denies AI Caused Bug</a></span></div></summary><div class="detail-body"><p>Other noteworthy stories that might have slipped under the radar: Threema DDoS attack, Evooo1Bot Linux botnet, Crypto4A secures top-tier NIST certification.
+The post In Other News: Zombie Card Attack, T-Mobile Cut Cable to Stop Hackers, GitHub Denies AI Caused Bug appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/encrypted-prompts-bypass-ai-safety-guardrails-in-grok-and-gemini/" target="_blank" rel="noopener">Encrypted Prompts Bypass AI Safety Guardrails in Grok and Gemini</a></span></div></summary><div class="detail-body"><p>Researchers say the new ‘Cryptographic Context Injection’ technique conceals malicious instructions until they are decrypted inside a trusted execution environment.
+The post Encrypted Prompts Bypass AI Safety Guardrails in Grok and Gemini appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/encrypted-prompts-bypass-ai-safety-guardrails-in-grok-and-gemini/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/new-phishing-toolkit-uses-passkeys-to-maintain-access-after-password-resets/" target="_blank" rel="noopener">New Phishing Toolkit Uses Passkeys to Maintain Access After Password Resets</a></span></div></summary><div class="detail-body"><p>Researchers say iAuthFlow V2 can register an attacker-controlled passkey, enabling persistent access even after passwords are changed and active sessions revoked.
+The post New Phishing Toolkit Uses Passkeys to Maintain Access After Password Resets appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/new-phishing-toolkit-uses-passkeys-to-maintain-access-after-password-resets/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 21 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/critical-isolated-vm-vulnerability-leads-to-rce-on-host/" target="_blank" rel="noopener">Critical Isolated-vm Vulnerability Leads to RCE on Host</a></span></div></summary><div class="detail-body"><p>The type confusion bug can lead to V8 sandbox escape and control-flow hijacking of the host process.
+The post Critical Isolated-vm Vulnerability Leads to RCE on Host appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/critical-isolated-vm-vulnerability-leads-to-rce-on-host/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabiliti
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The KEV additions this week lean heavily IT/enterprise but carry real OT implications. The two TrueConf entries (CVE-2026-72529 missing authentication, CVE-2026-72530 sandbox escape/code injection) are the highest priority — both are network-reachable, unauthenticated, and being exploited now. <span id="rm141102" style="display:none">If TrueConf Server exists anywhere in your environment, block TCP/4307 at the firewall today and patch on the vendor&#x27;s schedule; treat any exposed instance as potentially compromised. Several other entries deserve attention from OT teams: the Broadcom VMware vCenter path traversal (CVE-2026-59310) affects the hypervisors many of us use for virtualised HMIs, historians, and jump hosts; the Cisco ASA/FTD heap inspection DoS (CVE-2026-20349) can knock over the firewalls segmenting your Purdue levels; and the second N-able N-central auth bypass (CVE-2026-18577) — an incomplete patch of the prior one — is a reminder to verify remediation actually worked. The MLflow SSRF and Ray code-injection entries reflect the growing attack surface of ML tooling now embedded in industrial analytics platforms. Practically, prioritise vCenter, ASA/FTD, and any remote-management tooling (N-central, TrueConf) first, since these sit at the boundary between IT and OT and offer lateral-movement value far beyond their CVSS scores.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm141102',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added a heavy batch of KEV entries in the past two weeks, and while none are ICS-branded, several sit squarely in the OT attack path. Cisco Secure Firewall ASA/FTD (CVE-2026-20349, DoS via heap inspection) and Cisco Secure FMC (CVE-2026-20316, hard-coded credentials) are widely used as the IT/OT boundary firewall and its management plane; a hard-coded credential bug on the management console is exactly the sort of finding that lets an intruder rewrite ACLs between Purdue levels. <span id="rm207148" style="display:none">Broadcom VMware vCenter path traversal (CVE-2026-59310) is likewise critical for anyone running virtualised historians, MES, or engineering workstations on VMware, and Fortinet FortiOS (CVE-2025-68686) continues the year&#x27;s theme of Fortinet appliances being exploited at the perimeter. Also notable are the two N-able N-central authentication bypasses (CVE-2026-18556 and the incomplete-patch follow-up CVE-2026-18577). N-central is a common RMM tool used by OT integrators and MSPs managing plant IT assets — a bypass here can hand an attacker administrative reach into every managed endpoint, including engineering laptops. Prioritise verifying that any integrator remote-monitoring tooling touching your environment is patched to the latest build, not just the first fix. The Microsoft IKE double-free (CVE-2026-33824) is also worth attention on any Windows-based IPsec VPN termination used for site-to-site OT tunnels.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm207148',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabiliti
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 20 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 21 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabiliti
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-72530</span></td><td>2026-08-20</td><td>TrueConf</td><td>Server</td><td>TrueConf Server Code Injection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-72529</span></td><td>2026-08-20</td><td>TrueConf</td><td>Server</td><td>TrueConf Server Missing Authentication for Critical Function Vulnerabi</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-64849</span></td><td>2026-08-19</td><td>MLflow</td><td>MLflow</td><td>MLflow Server-Side Request Forgery Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-73570</span></td><td>2026-08-21</td><td>Synacor</td><td>Zimbra Collaboration Suite (ZCS)</td><td>Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-72530</span></td><td>2026-08-20</td><td>TrueConf</td><td>Server</td><td>TrueConf Server Code Injection Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-72529</span></td><td>2026-08-20</td><td>TrueConf</td><td>Server</td><td>TrueConf Server Missing Authentication for Critical Function Vulnerabi</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,59 +484,57 @@ The post Atlassian, Splunk Patch Dozens of Critical, High-Severity Vulnerabiliti
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-21 07:43 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-22 07:32 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ASA":"Cisco firewall and security appliance for network protection and threat defense.",
-  "CERT":"Team that coordinates incident response and cybersecurity vulnerability management.",
-  "CIS":"Organization providing cybersecurity best practices and standards for control systems.",
+  "ASA":"Adaptive Security Appliance; Cisco firewall device for network protection and access control.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CSF":"Cybersecurity Framework; NIST guidelines for managing cybersecurity risk.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Network zone between internal systems and untrusted external networks for security.",
+  "DMZ":"Demilitarized Zone; network segment separating internal systems from untrusted external networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FTD":"Firepower Threat Defense; Cisco next-generation firewall with advanced security features.",
+  "FIDO2":"Fast Identity Online 2; passwordless authentication standard using cryptographic keys.",
+  "FMC":"Firewall Management Center; Cisco platform for centralized firewall administration.",
+  "FTD":"Firepower Threat Defense; Cisco next-generation firewall with advanced threat protection.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "IAM":"Identity and Access Management; system controlling user authentication and authorization.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization for industrial networks.",
+  "IKE":"Internet Key Exchange; protocol for establishing secure VPN connections.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer; company that designs and produces industrial equipment.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OSI":"Open Systems Interconnection; seven-layer model for network communication protocols.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RTSP":"Real Time Streaming Protocol; protocol for controlling multimedia stream delivery.",
+  "RMM":"Remote Monitoring and Management; software for centralized system monitoring and maintenance.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SBOM":"Software Bill of Materials; documented inventory of software components and dependencies.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SOC":"Security Operations Center; facility monitoring and responding to security incidents.",
-  "SPDX":"Software Package Data Exchange; standardized format for software component documentation.",
-  "SSRF":"Server-Side Request Forgery; attack making server request malicious internal resources.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VPN":"Virtual Private Network; encrypted connection securing data over untrusted networks.",
+  "VPN":"Virtual Private Network; encrypted tunnel for secure remote network communication.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
