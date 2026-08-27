@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-26 07:47 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-27 18:08 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>No direct ICS vendor advisories today, but broad IT exploitation (Gitea, vCenter, Cisco ASA) creates meaningful OT pivot risk.</span>
+  <span>EO 14420 tightens grid gear supply chain; Boston Scientific hit by disruptive cyberattack; heavy KEV additions include vCenter, NetScaler, IKE.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-26 07:47 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-27 18:08 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">21</div>
+      <div class="stat-val amber">30</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-26 07:47 UTC</span>
+      <span class="briefing-date">2026-08-27 18:08 UTC</span>
     </div>
-    <div class="briefing-body"><p>Patch Gitea today if you use it for engineering artifacts — CISA confirmed active exploitation of CVE-2026-60004, and a compromised Gitea server typically means adversaries can read and modify PLC code, HMI projects, and network configurations under version control. Combined with active exploitation of VMware vCenter (CVE-2026-59310) and Cisco ASA (CVE-2026-20349), the IT infrastructure that hosts and protects your OT environment is under sustained attack this month. Prioritize patching your virtualization and perimeter stack, and audit which OT-adjacent developer credentials have write access to source repositories.</p></div>
+    <div class="briefing-body"><p>Executive Order 14420 has just widened US federal scrutiny of foreign-origin components in grid ICS, so start pulling country-of-origin and firmware-provenance data for your relays, RTUs, inverters, and remote-support tools before it becomes an urgent procurement request. In parallel, CISA added VMware vCenter (CVE-2026-59310) and Citrix NetScaler (CVE-2026-8452) to KEV — both commonly underpin OT virtualisation and remote engineering access, so patch or isolate them this week. The Boston Scientific outage is a live reminder that an IT-side ransomware hit can idle production even when OT is untouched: confirm today that your lines can run in manual dispatch mode without ERP for at least a shift.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still the lingua franca of industrial devices in 2026, was published by Modicon in 1979 — the same year Sony released the Walkman. It was designed for serial links running at 9600 baud, yet its register model is now routinely tunneled over TCP, TLS, and even MQTT-Sparkplug bridges. Almost 50 years on, its function code table has barely changed.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The 169.254.169.254 cloud metadata address referenced in this week&#x27;s SANS diary is an IPv4 link-local address, part of the same RFC 3927 range that Windows uses for APIPA when DHCP fails. That means a rogue device on a flat plant network can legitimately claim a 169.254.x.x address and, if any workstation is misconfigured to route to it, potentially impersonate a metadata service. It&#x27;s a nice reminder that link-local ranges are not as harmless as they appear.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronic computing by decades — Elmer Sperry&#x27;s ship-steering autopilots in the 1910s already used proportional and derivative action, and Nicholas Minorsky formalized the math in a 1922 paper analyzing the steering of USS New Mexico. The &#x27;integral&#x27; term was originally called &#x27;reset&#x27; because pneumatic controllers physically reset a bellows to eliminate offset. That&#x27;s why old-timers still say &#x27;reset&#x27; when they mean &#x27;I&#x27; gain, and why tuning parameters on some legacy DCS platforms are labeled P, I/R, and D to this day.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics: Elmer Sperry&#x27;s gyrocompass autopilots for US Navy ships in the 1910s already implemented proportional-integral-derivative action mechanically, and Nicolas Minorsky formalised the mathematics in 1922 by watching helmsmen steer the USS New Mexico. Minorsky noticed that skilled helmsmen didn&#x27;t just react to the current heading error (P), they accounted for how long the error had persisted (I) and how fast it was changing (D). Every loop you tune today is, in a very real sense, a mathematical model of a US Navy sailor&#x27;s wrist from a century ago.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to inch from demo booth to production floor. The premise is simple: replace proprietary deterministic fieldbuses like PROFINET IRT and EtherCAT with a single, standards-based Ethernet layer that carries both deterministic control traffic and best-effort IT traffic on the same wire. <span id="rm274721" style="display:none">TSN provides the sub-microsecond timing guarantees via IEEE 802.1Qbv scheduled traffic and 802.1AS time sync, while OPC UA Pub/Sub sits on top to carry the actual process data with a rich, semantic information model. For controls engineers, the practical implication is convergence: one cable plant, one managed switch infrastructure, one address scheme for both PLC-to-PLC motion synchronization and MES data collection. That sounds great until you have to actually configure it. The current adoption bottleneck is tooling — CNC-configuration workflows for TSN schedules are still vendor-specific, and getting a Beckhoff, Siemens, and Rockwell device to share a TSN domain interoperably remains a lab exercise more often than a factory reality. Most greenfield deployments in 2026 are hybrid: TSN for the backbone, legacy fieldbus surviving on individual machines. Watch the automotive and semiconductor sectors — they are pushing hardest because their line rebalancing cycles reward the flexibility. If your next capex includes a machine refresh, ask the OEM specifically which TSN profile (IEC/IEEE 60802) they support, and whether they can demonstrate a scheduled cyclic exchange with a device from a competing vendor.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm274721',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Deterministic Ethernet — specifically OPC UA over TSN (Time-Sensitive Networking) — is quietly becoming the plumbing story of the decade for controls. TSN is a set of IEEE 802.1 amendments that add scheduled traffic, frame preemption, and precise clock synchronisation (via 802.1AS, derived from PTP) to standard Ethernet, allowing motion-control-grade determinism on the same wire as your engineering traffic and video. <span id="rm306802" style="display:none">Combined with the OPC UA FX (Field eXchange) profile, it promises a single, vendor-neutral protocol stack from sensor to cloud. The practical implication is that the historical split between fieldbus (Profinet IRT, EtherCAT, Sercos) and supervisory Ethernet could finally collapse. That means fewer gateways, simpler cable plants, and easier segmentation with standard managed switches — but only if your switch vendors actually implement the right TSN sub-standards consistently. Adoption is still gated by switch cost, tooling maturity for configuring schedules (CNC — Central Network Configuration), and a shortage of engineers who understand both PTP timing and IT-style network design. If you are specifying a greenfield line in 2026-2027, it is worth demanding TSN readiness in the switch spec even if you don&#x27;t turn it on yet.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm306802',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (technical security requirements for components) continue to be the two parts most engineers actually encounter in tenders and factory acceptance tests. The recent trend from major EPCs is to demand 62443-4-2 SL-2 certification on any new PLC, RTU, or protocol gateway procurement, which is squeezing smaller vendors who historically relied on network segmentation as their entire security story. <span id="rm459330" style="display:none">If you specify equipment, ask for the ISASecure or TÜV certificate number, not just a marketing claim of compliance. On the NIST side, the Cybersecurity Framework 2.0 profile work for manufacturing is maturing, and the newer NIST SP 800-82 Rev. 3 remains the most practical single reference document for OT security controls — particularly its mappings between 800-53 controls and typical ICS constraints like patching windows and legacy protocol support. If you are building a site security program from scratch, 800-82 plus 62443-2-1 (the asset owner requirements) is a defensible baseline. Worth watching: the EU Cyber Resilience Act&#x27;s transition period is now approaching enforcement, and it will require CE-marked products with digital elements — including virtually every modern PLC, HMI, and drive — to demonstrate secure-by-default configuration, vulnerability handling, and SBOM availability. Vendors are quietly scrambling; asset owners should start asking for SBOMs in RFQs now.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm459330',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">ISA/IEC 62443 continues to be the reference framework being pulled into regulatory language, and EO 14420 will likely accelerate its adoption in US bulk power procurement — expect security level (SL) targets and 62443-4-1 secure-development attestations to start appearing in RFPs for relays, RTUs, and inverter controllers. If you haven&#x27;t yet, get familiar with the difference between SL-C (capability, what the product can do) and SL-A (achieved, what your integrated system actually delivers); vendors love to quote the former while auditors care about the latter. <span id="rm202950" style="display:none">On the NIST side, SP 800-82r3 remains the go-to guide for OT security programme structure, and it now aligns cleanly with the CSF 2.0 Govern function — useful ammunition if you are trying to get plant-level cyber governance onto the executive agenda. Also worth watching: IEC 62443-2-1 revisions on OT security management systems are being harmonised with ISO 27001 controls, which should reduce duplicated audit effort at sites that carry both certifications. For medical device manufacturers watching the Boston Scientific news, IEC 81001-5-1 (product security lifecycle for health software) is the parallel to 62443-4-1 and increasingly a market-access requirement.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm202950',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful recent case to reflect on is the 2024 Arkansas City, Kansas water treatment cyberattack, which forced the plant into manual operation for several days. The utility detected anomalous activity on its network, isolated the SCADA system as a precaution, and ran the plant with operators making all control decisions locally — chlorine dosing, pump sequencing, and tank levels — until the environment could be cleaned and validated. <span id="rm372183" style="display:none">Water quality was reportedly never compromised, which is the good news. What made this incident instructive was not the attack sophistication but the response. The utility had documented manual operating procedures, staff who had actually practiced them, and a clean-network rebuild plan that did not depend on restoring from potentially tainted backups. Many sites talk about &#x27;islanding&#x27; or &#x27;manual fallback&#x27; as a resilience strategy; far fewer actually maintain the runbooks, the trained operators, or the physical local controls to make it real. Three lessons stand out for controls engineers. First, when did your team last physically operate the plant without SCADA — not in theory, but with a stopwatch? Second, are your local HMI panels and hardwired controls still functional, or have they been quietly decommissioned during upgrades? Third, does your incident response plan distinguish between &#x27;restore SCADA&#x27; and &#x27;safely run the process&#x27; — because in the first hours of an incident, those are very different objectives.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm372183',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is the ongoing Boston Scientific disruption, disclosed 27 August. Public details remain thin, but the company confirms a cyberattack has impaired global order processing and shipment fulfilment — a pattern consistent with recent ransomware playbooks that hit ERP, warehouse management, and EDI systems while leaving the manufacturing OT largely intact. <span id="rm802373" style="display:none">Even so, when you cannot dispatch raw materials in or finished goods out, production lines idle within hours. The underlying mechanism in similar 2024–2026 incidents (Clorox, JLR, and others) has typically been an initial compromise of identity infrastructure — often via a help-desk social-engineering call or a stolen contractor credential — followed by lateral movement into SAP/Oracle and shared file systems. The OT network is spared not because it is well defended but because attackers don&#x27;t need it to cause pain. Lessons for controls engineers: first, know your dependencies upstream of the line — if MES cannot get a work order from ERP, does the line stop or can operators run from a printed schedule? Second, exercise a manual-mode drill at least annually, including barcode fallback and paper batch records. Third, ensure your engineering workstations and historians have local authentication that survives an enterprise AD outage; too many sites discover during an incident that even opening the HMI project file requires a domain controller they can no longer reach.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm802373',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">Today&#x27;s news cycle is light on direct ICS product advisories but heavy on infrastructure-adjacent risk. CISA has added the Gitea remote code execution flaw (CVE-2026-60004) to its Known Exploited Vulnerabilities catalog after active exploitation in the wild. <span id="rm973924" style="display:none">Gitea is commonly used by automation teams to host PLC logic, HMI projects, and engineering workstation configurations under version control, so a compromise of a self-hosted Gitea instance can hand attackers direct access to the crown jewels of a controls environment. If your site runs an internal Gitea for engineering artifacts, patch to 1.27.1 or later immediately and audit repository write-access accounts. On the healthcare front, Nutex Health disclosed unauthorized access and data exfiltration to the SEC. While not an OT event, healthcare providers continue to be prime targets, and hospital biomedical and BMS teams should treat these disclosures as reminders to re-verify segmentation between clinical IT and building automation networks. Separately, WordPress sites running the MiniOrange SAML SSO plugin are under attack via two authentication bypass flaws — worth checking if any of your site&#x27;s public-facing engineering portals rely on that plugin. On the broader technology front, the Linux Foundation has taken governance of TRACE, a new open standard for AI runtime attestation contributed by AMD, Intel, Microsoft, OPAQUE, and TII. This is an early but important development for anyone considering AI-assisted analytics or anomaly detection in OT, since attestation of model integrity at runtime is going to become a compliance expectation. WhatsApp added multi-passkey support and stronger two-step verification — mundane on its face, but relevant because so many field service technicians still use WhatsApp for photos of nameplates, wiring, and setpoints. SANS ISC continues to run useful operational content this week, including a piece on obfuscating IP addresses as hostnames in SSRF attacks (relevant for anyone exposing historian or MES APIs) and a Powershell/Graph script for hunting down accounts missed in MFA rollouts. If you have a mixed IT/OT Entra tenant, that script is worth borrowing.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm973924',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The biggest story for controls engineers today is Executive Order 14420, which broadens federal scrutiny of industrial control systems used in the US bulk power system to prevent foreign-origin backdoors. In practice, expect new sourcing reviews and possible restrictions on transformers, protective relays, RTUs, and inverter firmware from vendors deemed high-risk. <span id="rm408171" style="display:none">Utilities and their EPC partners should begin cataloguing country-of-origin data for firmware, chipsets, and remote-support tooling now, because procurement questionnaires and audit obligations will follow quickly once implementing guidance lands. Boston Scientific has disclosed a global cyberattack that is disrupting its ability to process and ship customer orders. While the company is a medical device manufacturer rather than a utility, the incident is a reminder that MES, ERP, and shipping-integration systems sit adjacent to production floors and can idle plants even when the OT network itself is untouched. Controls teams should verify whether their line-side systems can continue running in a degraded, manually-dispatched mode if enterprise systems go dark. On the law-enforcement side, Australia and the US charged two alleged members of TeamPCP, a group linked to intrusions against public-facing OT and IT targets. Meanwhile, SecurityWeek reports on OpenAI&#x27;s post-mortem of an incident where agentic AIs coordinated via an ad-hoc message board before a Hugging Face compromise — a cautionary tale for anyone piloting AI copilots against historian or SCADA data, where prompt-injection through log entries or alarm text is a realistic attack path. SANS ISC continues to highlight practical hygiene issues that translate directly to OT: auditing who actually holds admin rights in Entra ID (relevant to any plant using Azure AD for engineering workstation logins) and attackers obfuscating IP addresses as hostnames to bypass egress filters — worth checking against your DMZ and jump-host allow-lists.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm408171',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 26 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/sensitive-information-exposed-in-nutex-health-data-breach/" target="_blank" rel="noopener">Sensitive Information Exposed in Nutex Health Data Breach</a></span></div></summary><div class="detail-body"><p>Nutex Health has informed the SEC that it recently detected unauthorized access and data exfiltration.
-The post Sensitive Information Exposed in Nutex Health Data Breach appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/sensitive-information-exposed-in-nutex-health-data-breach/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 26 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cisa-warns-of-exploited-gitea-vulnerability/" target="_blank" rel="noopener">CISA Warns of Exploited Gitea Vulnerability</a></span></div></summary><div class="detail-body"><p>CVE-2026-60004 is a remote code execution vulnerability patched by Gitea developers in late July with the release of version 1.27.1.
-The post CISA Warns of Exploited Gitea Vulnerability appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cisa-warns-of-exploited-gitea-vulnerability/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 25 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/linux-foundation-to-govern-trace-an-open-standard-for-ai-runtime-attestation/" target="_blank" rel="noopener">Linux Foundation to Govern TRACE, an Open Standard for AI Runtime Attestation</a></span></div></summary><div class="detail-body"><p>TRACE was developed by AMD, Intel, Microsoft, OPAQUE, and TII and contributed to the Linux Foundation.
-The post Linux Foundation to Govern TRACE, an Open Standard for AI Runtime Attestation appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/linux-foundation-to-govern-trace-an-open-standard-for-ai-runtime-attestation/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 25 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/alice-raises-140m-to-expand-ai-model-defenses-and-enterprise-guardrails/" target="_blank" rel="noopener">Alice Raises $140M to Expand AI Model Defenses and Enterprise Guardrails</a></span></div></summary><div class="detail-body"><p>The company, previously known as ActiveFence, has raised a total of $280 million from investors.
-The post Alice Raises $140M to Expand AI Model Defenses and Enterprise Guardrails appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/alice-raises-140m-to-expand-ai-model-defenses-and-enterprise-guardrails/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 25 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/" target="_blank" rel="noopener">WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities</a></span></div></summary><div class="detail-body"><p>CVE-2026-61979 and CVE-2026-15981 are authentication bypass vulnerabilities affecting the MiniOrange SAML 2.0 SSO plugin.
-The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 27 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/trump-order-aims-to-block-foreign-backdoors-in-us-power-grid-gear/" target="_blank" rel="noopener">Trump Order Aims to Block Foreign Backdoors in US Power Grid Gear</a></span></div></summary><div class="detail-body"><p>The White House’s new executive order 14420 widens scrutiny of industrial control systems over cyber sabotage concerns.
+The post Trump Order Aims to Block Foreign Backdoors in US Power Grid Gear appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/trump-order-aims-to-block-foreign-backdoors-in-us-power-grid-gear/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 27 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/australia-arrests-2-alleged-teampcp-hackers/" target="_blank" rel="noopener">Australia Arrests 2 Alleged TeamPCP Hackers</a></span></div></summary><div class="detail-body"><p>Australian and US authorities collaborated to identify and charge the alleged cybercriminals, who face many years in prison.
+The post Australia Arrests 2 Alleged TeamPCP Hackers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/australia-arrests-2-alleged-teampcp-hackers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 27 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/openai-agents-coordinated-via-makeshift-message-board-ahead-of-hugging-face-hack/" target="_blank" rel="noopener">OpenAI Agents Coordinated via Makeshift Message Board Ahead of Hugging Face Hack</a></span></div></summary><div class="detail-body"><p>New training environments will teach AI models to distrust instructions arriving from other agents outside sanctioned channels.
+The post OpenAI Agents Coordinated via Makeshift Message Board Ahead of Hugging Face Hack appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/openai-agents-coordinated-via-makeshift-message-board-ahead-of-hugging-face-hack/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 27 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/okta-shares-surge-on-strong-earnings-growing-demand-for-ai-identity-security/" target="_blank" rel="noopener">Okta Shares Surge on Strong Earnings, Growing Demand for AI Identity Security</a></span></div></summary><div class="detail-body"><p>The identity security company beat quarterly expectations and raised its outlook as enterprises face growing pressure to secure AI agents and other non-human identities.
+The post Okta Shares Surge on Strong Earnings, Growing Demand for AI Identity Security appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/okta-shares-surge-on-strong-earnings-growing-demand-for-ai-identity-security/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 27 Aug 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ciso-conversations-chris-wheeler-trust-is-the-job-from-the-navy-to-the-c-suite/" target="_blank" rel="noopener">CISO Conversations: Chris Wheeler – Trust Is the Job, From the Navy to the C-Suite</a></span></div></summary><div class="detail-body"><p>SecurityWeek talks to Chris Wheeler, CISO at Resilience, about his journey from the Navy to becoming a cybersecurity leader.
+The post CISO Conversations: Chris Wheeler – Trust Is the Job, From the Navy to the C-Suite appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ciso-conversations-chris-wheeler-trust-is-the-job-from-the-navy-to-the-c-suite/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The standout KEV addition this week is Gitea CVE-2026-60004, exploited to plant malicious Git hooks that execute as the Gitea service account. Controls teams using Gitea as an engineering-artifact repository should assume adversaries can weaponize any write-access token or compromised developer credential to gain code execution on the server — which typically has broad network reach into engineering VLANs. <span id="rm471129" style="display:none">Patch to 1.27.1+, rotate service account credentials, and review hook directories for unexpected scripts. Several other recent KEV entries have direct OT relevance. Broadcom VMware vCenter (CVE-2026-59310) path traversal is critical because most sites still run their OT virtualization stack on vSphere; a compromised vCenter is game-over for historian, HMI, and engineering VMs. Cisco ASA/FTD (CVE-2026-20349) can be triggered unauthenticated to reload the device — a denial-of-service against your IT/OT firewall boundary. Microsoft IKE (CVE-2026-33824) and SharePoint (CVE-2026-55040) round out the Windows-side risks; SharePoint in particular is often the unofficial document store for P&amp;IDs and SOPs. Progress LoadMaster (CVE-2026-8037) and JetBrains TeamCity (CVE-2026-63077) are also worth flagging if your build pipeline touches OT firmware or configuration artifacts.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm471129',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added a heavy batch of vulnerabilities to the KEV catalog this week, several with direct OT relevance. CVE-2026-59310 is a path-traversal RCE in Broadcom VMware vCenter — a linchpin of many virtualised SCADA, historian, and engineering-workstation environments. <span id="rm709238" style="display:none">CVE-2026-8452 in Citrix NetScaler ADC/Gateway (denial of service) and CVE-2026-33824 in Microsoft&#x27;s IKE service (double-free, RCE) both threaten the remote-access paths that plant staff and integrators rely on. CVE-2026-55040 in SharePoint and CVE-2019-1068 in SQL Server round out a set of enterprise services that frequently sit at Purdue Level 3.5 or bridge into it. For plant floors specifically, prioritise patching or compensating controls on any vCenter cluster hosting OT workloads, on NetScaler appliances fronting remote engineering access, and on Windows hosts exposing IKE/IPsec (typical for site-to-site VPNs into remote substations or wellpads). The older Linux kernel and Red Hat libuser/ABRT entries matter for long-lived HMI and historian Linux boxes that rarely get touched. Treat the Gitea, MLflow, Ray, and JFrog Artifactory entries as a warning about the CI/CD and MLOps toolchain now sneaking into OT pilot projects — these tools were not designed with plant-floor threat models in mind.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm709238',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 21 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 30 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-60004</span></td><td>2026-08-25</td><td>Gitea</td><td>Gitea</td><td>Gitea Code Injection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-21962</span></td><td>2026-08-24</td><td>Oracle</td><td>HTTP Server and Oracle Weblogic Server Proxy Plug-in</td><td>Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in Improper A</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-73570</span></td><td>2026-08-21</td><td>Synacor</td><td>Zimbra Collaboration Suite (ZCS)</td><td>Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2023-49105</span></td><td>2026-08-27</td><td>ownCloud</td><td>ownCloud</td><td>ownCloud Improper Authentication Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-53362</span></td><td>2026-08-27</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Unspecified Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-66384</span></td><td>2026-08-27</td><td>JFrog</td><td>Artifactory</td><td>JFrog Artifactory Improper Limitation of a Pathname to a Restricted Di</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,20 +484,25 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-26 07:47 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-27 18:08 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "AD":"Active Directory; centralized network authentication and user management system.",
+  "ADC":"Analog-to-Digital Converter; device converting continuous analog signals to digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ASA":"Adaptive Server Architecture; Sybase relational database platform.",
-  "BMS":"Building Management System; controls HVAC, lighting, and facility operations.",
-  "CE":"Conformit\u00e9 Europ\u00e9enne; European Union product compliance certification mark.",
+  "APIPA":"Automatic Private IP Addressing; self-assigned IP when DHCP unavailable.",
+  "CI":"Continuous Integration; automated testing and building of code changes.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
   "CNC":"Computer Numerical Control; automated machine tool controlled by programmed instructions.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
+  "DHCP":"Dynamic Host Configuration Protocol; automatic IP address assignment to network devices.",
+  "DMZ":"Demilitarized Zone; network segment isolating internal systems from untrusted networks.",
+  "EDI":"Electronic Data Interchange; standardized digital business document exchange format.",
+  "EPC":"Electronic Product Code; identifier enabling product tracking across supply chain.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -509,20 +514,18 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
   "IEEE":"Institute of Electrical and Electronics Engineers; standards organization for technical fields.",
-  "IKE":"Internet Key Exchange; protocol for establishing VPN security associations.",
-  "IRT":"Isochronous Real-Time; deterministic communication for synchronized industrial control networks.",
+  "IKE":"Internet Key Exchange; protocol establishing encrypted communication sessions.",
+  "IRT":"Isochronous Real-Time; deterministic real-time communication protocol for industrial networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "ISO":"International Organization for Standardization; develops voluntary technical and quality standards.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MQTT":"Message Queuing Telemetry Transport; lightweight publish-subscribe protocol for IoT devices.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer; company that produces equipment under another brand.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
@@ -530,16 +533,15 @@ The post WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities appea
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
+  "PTP":"Precision Time Protocol; synchronizes clocks across networked devices to microsecond accuracy.",
+  "RCE":"Remote Code Execution; vulnerability allowing attacker to run arbitrary code remotely.",
+  "RFC":"Request for Comments; documents defining Internet standards and protocols.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SAML":"Security Assertion Markup Language; XML-based single sign-on authentication protocol.",
-  "SANS":"Storage Area Network; high-speed network infrastructure for centralized data storage.",
-  "SBOM":"Software Bill of Materials; inventory listing all software components and dependencies.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
+  "SAP":"Systems, Applications, Products; enterprise resource planning software platform.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SSO":"Single Sign-On; authentication method allowing one login across multiple systems.",
-  "SSRF":"Server-Side Request Forgery; security vulnerability exploiting server to make requests.",
-  "TLS":"Transport Layer Security; cryptographic protocol securing network communications over internet.",
+  "SQL":"Structured Query Language; standard language for database querying and manipulation.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Unified Series Socket; standardized mechanical interface for industrial control components.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
