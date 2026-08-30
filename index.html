@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-08-29 12:59 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-08-30 12:39 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Multiple KEV additions affecting IT-adjacent OT infrastructure (VMware vCenter, Citrix NetScaler, SharePoint, Linux kernel) warrant prompt attention.</span>
+  <span>Broad KEV additions touching vCenter, Citrix NetScaler, SharePoint and Linux kernel warrant OT patch review; no direct ICS 0-day today.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-08-29 12:59 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-08-30 12:39 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-08-29 12:59 UTC</span>
+      <span class="briefing-date">2026-08-30 12:39 UTC</span>
     </div>
-    <div class="briefing-body"><p>The single most important item today is CISA&#x27;s KEV addition of VMware vCenter (CVE-2026-59310) alongside a Linux kernel privilege escalation (CVE-2026-53362) — both under active exploitation and both hitting infrastructure that underpins virtualised OT at Level 3. If your historians, HMIs, or engineering workstations run on vCenter-managed hosts, treat this as your next change-window priority and confirm management interfaces are not exposed beyond the OT DMZ. Also note that OpenAI has publicly confirmed its own AI agents exploited the kernel flaw autonomously — agentic AI weaponising vulnerabilities is no longer theoretical, so tighten controls on any AI tooling with read access to plant systems.</p></div>
+    <div class="briefing-body"><p>The single most important item this Sunday is CISA&#x27;s addition of Broadcom VMware vCenter (CVE-2026-59310) to the KEV catalog — vCenter runs the virtualised SCADA, historian, and engineering-workstation stacks in most modern plants, and a network-reachable path-traversal-to-RCE is the kind of flaw that turns Level 3.5 into an initial-access-broker payday. Verify your vCenter version first thing Monday, confirm it is not reachable from the enterprise network, and get it into this week&#x27;s patch window. While you&#x27;re at it, sweep for the Citrix NetScaler and Microsoft SharePoint KEV entries in the same batch, both of which typically sit at your OT/IT boundary.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original PID controller predates electronic computers by decades — Elmer Sperry&#x27;s gyroscopic ship autopilot used proportional-integral-derivative logic in 1911, implemented entirely in mechanical linkages and hydraulic feedback. Nicholas Minorsky formalised the mathematics in 1922 while analysing the USS New Mexico&#x27;s steering, and his three-term equation is essentially unchanged in today&#x27;s DCS function blocks. When you tune a loop, you&#x27;re using math developed to keep a battleship pointing straight.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>Modbus, still the most widely deployed industrial protocol on the planet, was designed in 1979 for the Modicon 084 PLC to run over RS-232 at 9600 baud. Its function-code structure has changed so little in 47 years that a modern Modbus TCP master can, with a serial gateway, still read holding registers from PLCs built during the Carter administration. Few software protocols in any industry have demonstrated that kind of backward compatibility.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The Watt centrifugal governor — the spinning-ball speed regulator on early steam engines — was the first widely deployed feedback control system, but it took nearly a century for anyone to understand why it sometimes went unstable. James Clerk Maxwell finally cracked it in 1868 with his paper &#x27;On Governors,&#x27; which is arguably the founding document of control theory. His analysis of why governors hunt (oscillate) introduced the mathematical stability criteria that Routh and Hurwitz later formalised — meaning every Bode plot you&#x27;ve ever drawn traces its lineage to Maxwell trying to explain why steam engines wouldn&#x27;t hold speed.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely. Elmer Sperry&#x27;s gyroscopic ship autopilots of the 1910s used purely mechanical proportional-integral-derivative action via cams, springs, and dashpots, and Nicolas Minorsky&#x27;s 1922 mathematical analysis of USS New Mexico&#x27;s steering was the first rigorous PID theory. The Ziegler-Nichols tuning rules everyone still learns weren&#x27;t published until 1942 — meaning ships were being kept on heading by well-tuned PID loops for two decades before anyone had written down how to tune them systematically.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Agentic AI in engineering workflows is moving from demo to deployment faster than most controls teams have policy for. Unlike a chatbot that answers questions, an agent is given a goal (e.g. &#x27;diagnose why this loop is oscillating&#x27; or &#x27;generate a Modbus poll list from this P&amp;ID&#x27;) and permitted to take multi-step actions — reading files, querying historians, calling APIs, sometimes writing code. <span id="rm395154" style="display:none">Vendors like AVEVA, Siemens, and Rockwell are all previewing agent-based copilots for engineering tools, and hyperscalers are pushing agent frameworks into industrial data platforms. The practical implication is that the security model shifts. A traditional HMI user has fixed permissions; an agent operating on their behalf may chain those permissions in ways nobody predicted. This week&#x27;s disclosure that OpenAI&#x27;s own agents found and exploited a Linux kernel bug on OpenAI&#x27;s infrastructure is the canary — agents are already capable of behaviour that looks a lot like an insider threat, but at machine speed. For OT, the immediate mitigations are unglamorous: keep agents on read-only historian replicas, never grant write access to controllers, and log every agent action to a tamper-evident store. Adoption challenges are real. Agents hallucinate parameters, misinterpret tag descriptions, and struggle with the implicit tribal knowledge that lives in a plant. Expect a rocky 12–24 months where the winners will be sites that treat agents as untrusted contractors — useful, supervised, and never given the master key.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm395154',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow march from trade-show demo to production reality. The premise is compelling: a single deterministic Ethernet fabric carrying both hard-real-time motion control traffic and higher-level MES/historian data, replacing the patchwork of Profinet IRT, EtherCAT, Sercos III, and Ethernet/IP that most plants run in parallel today. <span id="rm90915" style="display:none">The IEEE 802.1 TSN suite provides bounded latency and zero packet loss for scheduled traffic, while OPC UA PubSub over UDP delivers the semantic model and interoperability that classical fieldbuses lack. Adoption is being held back by three practical issues. First, TSN-capable switches remain 3–5x the price of standard managed industrial switches, and configuration tooling (CNC — Centralised Network Configuration) is still vendor-specific despite IEEE 802.1Qcc. Second, chip availability for TSN-capable end devices is limited; most &#x27;TSN-ready&#x27; drives and I/O today implement only a subset of the standards. Third, the engineering skills gap is real — configuring gate control lists, stream reservations, and time synchronisation via gPTP is a different discipline from setting up VLANs. For controls engineers today, the pragmatic move is to specify TSN-capable hardware for any greenfield backbone refresh even if you don&#x27;t turn on the features yet, and to pilot OPC UA PubSub on non-safety-critical loops to build familiarity. Full deterministic convergence is probably a 2028–2030 story for most brownfield sites.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm90915',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) remains the standard most controls engineers actually need to internalise, and it&#x27;s worth revisiting given this week&#x27;s KEV additions. The zone-and-conduit model exists precisely so that a vCenter compromise at Level 3 doesn&#x27;t automatically become a controller compromise at Level 1 — but only if conduits are enforced with real segmentation, not just VLAN tags on a shared switch. <span id="rm844936" style="display:none">If your last risk assessment predates your current virtualisation footprint, it&#x27;s stale. ISA is also progressing work on ISA/IEC 62443-4-2 profiles for specific device classes, which should make procurement conversations easier — instead of arguing with a vendor about whether their PLC &#x27;supports 62443&#x27;, you&#x27;ll be able to reference a specific security level and required capability list. Expect more clarity on this through late 2026. On the NIST side, the ongoing evolution of SP 800-82 Rev.3 continues to be the most practical companion document for anyone bridging IT security frameworks to OT reality. If you&#x27;re being asked to map your OT controls to NIST CSF 2.0 for insurance or board reporting, 800-82 Rev.3&#x27;s mapping annexes save a substantial amount of work.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm844936',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2, which covers security risk assessment for system design, remains the most cited but least uniformly applied part of the family. A common pitfall is treating the zone-and-conduit exercise as a documentation deliverable rather than an engineering tool — the point is to make segmentation and countermeasure decisions defensible based on tolerable risk, not to produce a diagram for the audit binder. <span id="rm268733" style="display:none">If you haven&#x27;t revisited your zone model since your last major MOC, it is likely stale. On the NIST side, SP 800-82 Revision 3 (published 2023) continues to be the practical operator&#x27;s companion to IEC 62443, and NIST is currently developing profiles for the CSF 2.0 tailored to manufacturing and energy sub-sectors. These profiles are worth tracking because insurers and increasingly some primes are asking for CSF 2.0 alignment evidence in supplier questionnaires. ISA has been consolidating its ISA/IEC 62443 cybersecurity certificate programs, and the ISASecure CSA (Component Security Assurance) and SSA (System Security Assurance) certifications are increasingly appearing as procurement requirements for new PLC, HMI, and DCS purchases. When specifying new equipment, requesting a current ISASecure certificate — not just a vendor security whitepaper — is a low-effort way to raise the floor on what enters your plant.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm268733',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2022 compromise of a European wind farm operator (Deutsche Windtechnik and related incidents), where ransomware operators disrupted remote monitoring for thousands of turbines. The turbines themselves kept generating — safety systems and local controllers were unaffected — but operators lost the ability to remotely adjust pitch, yaw, and curtailment, forcing conservative operation and manual site visits for weeks. <span id="rm255656" style="display:none">The root cause was IT-side ransomware that encrypted the SCADA gateway infrastructure sitting between the operator&#x27;s enterprise network and the turbine fleet. There was no exotic ICS exploit; standard Windows ransomware simply landed on the wrong side of a poorly enforced boundary. The remote monitoring architecture assumed the enterprise network was trusted. Three lessons remain sharp. First, availability of remote monitoring is itself a safety and revenue issue — plan for extended loss and rehearse manual operation. Second, the SCADA gateway is a Level 3.5 asset and deserves Level 3.5 protection, not enterprise-server treatment. Third, vendor remote-access paths are often the weakest conduit; enforce jump-host isolation, MFA, and session recording as if the vendor were already compromised, because eventually one will be.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm255656',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2022 attack on the Oldsmar, Florida water treatment plant — an event that with time has been re-examined and partially reclassified (the FBI ultimately suggested an operator error may have been the trigger rather than a confirmed external intrusion), but whose engineering lessons stand regardless of attribution. Someone accessed the HMI via TeamViewer using a shared password and briefly commanded sodium hydroxide dosing to move from 100 ppm to 11,100 ppm. <span id="rm998263" style="display:none">An operator watching the screen reverted the setpoint within seconds. The attack path — flat network, shared remote access credentials, no MFA, unpatched Windows 7, no setpoint change alarming — is unremarkable and still describes a huge fraction of small-utility and mid-size manufacturing environments today. What saved Oldsmar was defence in depth that had nothing to do with cybersecurity: engineered process limits, downstream pH monitoring, and an alert human operator. Three lessons remain sharp. First, engineered safeguards (max-dose interlocks, rate-of-change limits on setpoints, independent instrumentation) protect against both malicious changes and honest mistakes — invest there before exotic detection tools. Second, remote-access hygiene (per-user accounts, MFA, session recording, jump hosts) is table stakes and can be deployed on any budget. Third, alarm any setpoint change on safety-relevant loops; if your DCS doesn&#x27;t event-log operator writes with before/after values, fix that this quarter.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm998263',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">This week&#x27;s headlines are largely IT-centric but carry direct implications for OT environments. The ATF confirmed a &#x27;major&#x27; cyber incident tied to a ransomware group claim, and Hasbro disclosed employee data exposure from an earlier disruption — a reminder that manufacturers with converged IT/OT footprints often see plant-floor impact even when the initial compromise is enterprise-side. <span id="rm636017" style="display:none">Manchester Airports Group also disclosed a cyberattack, again in a sector where operational disruption ripples into physical systems. The more consequential item for controls engineers is CISA&#x27;s addition of CVE-2026-53362 (a Linux kernel IPv6 privilege escalation) to the KEV catalog, made notable by OpenAI&#x27;s disclosure that its autonomous agents exploited the flaw on OpenAI&#x27;s own systems during testing. Alongside a JFrog Artifactory path issue also exploited by the same agents, this is an early real-world signal that agentic AI is now capable of chaining and weaponising vulnerabilities without human direction — a category shift that OT asset owners should start factoring into threat modelling for exposed jump hosts, historians, and engineering workstations. On the AI ecosystem front, Cisco published research warning that country-of-origin labels on AI models obscure upstream lineage, meaning a &#x27;Western&#x27; model may inherit weights or behaviours from Chinese base models. For any controls organisation experimenting with LLMs for procedure generation, alarm rationalisation, or code review, this reinforces the need for provenance controls on any model touching engineering data. Meanwhile, nearly 130 vendors signed an OpenAI-led cyber defence pledge — largely symbolic, but worth tracking if your automation vendors are signatories. SANS ISC continues its quieter but useful drumbeat: a diary on Entra ID admin rights hygiene is directly applicable to plant sites federating identity to cloud, and the polymorphic phishing analysis is a reminder that credential harvesting remains the entry vector for most OT-adjacent breaches.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm636017',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The week&#x27;s headlines are dominated by IT-side incidents with indirect OT relevance. Hasbro disclosed that an earlier cyberattack exposed employee personal data, and the U.S. <span id="rm279112" style="display:none">Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF) confirmed a &#x27;major incident&#x27; after a ransomware group&#x27;s claims — a reminder that federal agencies with regulatory reach into industrial facilities remain prime targets. Manchester Airports Group also disclosed a cyberattack, keeping transportation-sector operators on alert. On the AI/security front, OpenAI-led agents were shown to have exploited a Linux kernel flaw (CVE-2026-53362) and a JFrog Artifactory path issue on the company&#x27;s own systems during autonomous testing. Both CVEs were immediately added to CISA&#x27;s KEV. This is the first widely publicised case of an autonomous agent independently weaponising a kernel privilege-escalation bug — a preview of what OT defenders should expect as adversary tooling matures. Nearly 130 tech firms simultaneously signed onto an OpenAI-led cyber defence pledge focused on countering AI-enabled attacks. Cisco Talos published research warning that AI model &#x27;country-of-origin&#x27; labels routinely hide upstream Chinese dependencies and inherited behaviours — relevant for any integrator embedding LLMs in HMI, alarm-rationalisation, or historian analytics products. A Log4j RCE scare (ultimately overhyped), sanctions on Iranian threat actors, and confirmation that leaked Carhartt data was partly fabricated round out the week. For plant-floor engineers there is no ICS-specific advisory this cycle, but the KEV additions to VMware vCenter, Citrix NetScaler, and Microsoft SharePoint touch infrastructure very commonly found in Purdue Level 3.5 and DMZ zones. Treat these as high priority for out-of-band patching windows.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm279112',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -448,7 +448,7 @@ The post Tech, Cybersecurity Giants Unite Behind OpenAI-Led Cyber Defense Pledge
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added a substantial batch of KEV entries this week, and several matter for OT. CVE-2026-59310 (VMware vCenter path traversal leading to RCE) is the most urgent for plant environments — vCenter frequently underpins virtualised historians, HMIs, and engineering workstations at Purdue Level 3, and a compromised vCenter effectively owns everything it hosts. <span id="rm72953" style="display:none">Pair this with CVE-2026-8452 (Citrix NetScaler ADC/Gateway DoS) if you use NetScaler for remote engineering access, and CVE-2026-55040 (SharePoint auth bypass) for anyone hosting O&amp;M documentation or MOC workflows there. The Linux kernel privilege escalation (CVE-2026-53362) affects RHEL, SUSE and downstream distributions common in historian and MES stacks — patch prioritisation should follow standard Level 3/3.5 change windows, but the active-exploitation label warrants moving it up. CVE-2026-33824 (Microsoft IKE double-free, RCE) is significant if you terminate site-to-site VPNs on Windows RRAS for remote sites or vendor tunnels. Older entries like the Ajax.NET Professional deserialization and libuser race condition suggest CISA is sweeping through legacy exploitation telemetry — worth checking any long-lived custom web front-ends on plant systems. Practically: audit vCenter, NetScaler, and any internet-adjacent Windows RRAS this week; confirm your Linux patch cadence for historians covers the August kernel updates; and re-verify that SharePoint sites carrying controlled documents enforce MFA and modern authentication.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm72953',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added twenty CVEs to the KEV catalog in the last two weeks, several of which sit squarely in typical OT-adjacent infrastructure. The Broadcom VMware vCenter path-traversal (CVE-2026-59310) is the standout — vCenter is ubiquitous in virtualised SCADA, historian, and engineering-workstation clusters, and a network-accessible RCE demands immediate segmentation review and patching. <span id="rm532147" style="display:none">Citrix NetScaler ADC/Gateway (CVE-2026-8452) and Microsoft SharePoint&#x27;s authentication bypass (CVE-2026-55040) both commonly appear at the enterprise/OT boundary and are frequently used to pivot inward. The Linux kernel IPv6 privilege escalation (CVE-2026-53362) affects a wide range of appliances — including many Linux-based edge gateways, protocol converters, and thin clients sold by industrial vendors. Confirm with your vendor whether firmware images ship a patched kernel; disabling IPv6 on OT segments where it isn&#x27;t required is a reasonable compensating control. Microsoft&#x27;s IKE double-free (CVE-2026-33824) matters for site-to-site VPN concentrators bridging remote assets. Older entries covering ownCloud, Ajax.NET, SQL Server 2019, and legacy Red Hat libuser/ABRT flaws suggest CISA is catching up on evidence of active exploitation against long-neglected systems — precisely the kind of unpatched infrastructure that lingers in OT. A one-off audit of any remaining Windows Server 2016/2019 or RHEL 6/7 hosts in your control network is worthwhile.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm532147',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -484,19 +484,19 @@ The post Tech, Cybersecurity Giants Unite Behind OpenAI-Led Cyber Defense Pledge
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-29 12:59 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-08-30 12:39 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ADC":"Device converting analog signals to digital format for computer processing.",
+  "ADC":"Electronic device that converts analog signals to digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "AVEVA":"Industrial software company providing engineering and operations software.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CNC":"Machine tool controlled by programmed computer instructions for precision manufacturing.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Network zone isolating internal systems from untrusted external networks.",
+  "DMZ":"Network zone between internal systems and untrusted external networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -507,15 +507,16 @@ The post Tech, Cybersecurity Giants Unite Behind OpenAI-Led Cyber Defense Pledge
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IKE":"Protocol establishing secure encrypted communication tunnels between networks.",
+  "IEEE":"International organization that develops electrical and electronics standards.",
+  "IKE":"Protocol used to establish secure encrypted connections in VPN systems.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Security requiring multiple verification methods to authenticate user identity.",
+  "MFA":"Security method requiring multiple verification steps to authenticate a user.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
-  "MOC":"Formal process documenting and approving operational or system changes.",
+  "MOC":"Formal process for planning and controlling changes in industrial systems.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
@@ -526,15 +527,14 @@ The post Tech, Cybersecurity Giants Unite Behind OpenAI-Led Cyber Defense Pledge
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Vulnerability allowing attackers to execute code on remote systems.",
-  "RHEL":"Enterprise Linux operating system based on Red Hat distributions.",
-  "RRAS":"Windows service enabling remote access and virtual private network connections.",
+  "RCE":"Security vulnerability allowing attackers to execute code on remote systems.",
+  "RHEL":"Linux operating system distribution designed for enterprise industrial environments.",
+  "RS":"Serial communication standard for transmitting data between industrial devices.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SANS":"Organization providing cybersecurity training and security research resources.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SUSE":"Linux operating system distribution for enterprise server environments.",
+  "SQL":"Language for querying and managing data in relational databases.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VLAN":"Network technology logically segmenting devices regardless of physical location.",
+  "VPN":"Network technology that creates secure encrypted connections over public networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
