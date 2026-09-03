@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-09-02 12:00 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-09-03 11:59 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Actively exploited SonicWall SMA1000 zero-days and BGP-hijacked software updates raise perimeter and supply-chain risk for OT sites.</span>
+  <span>Rockwell patches a dozen+ product vulnerabilities; UK moves to block risky suppliers from CNI; SonicWall SMA1000 flaws added to KEV.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-09-02 12:00 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-09-03 11:59 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">30</div>
+      <div class="stat-val amber">34</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-09-02 12:00 UTC</span>
+      <span class="briefing-date">2026-09-03 11:59 UTC</span>
     </div>
-    <div class="briefing-body"><p>SonicWall SMA1000 has two zero-days under active exploitation that chain to unauthenticated RCE — if you use SMA1000 as your vendor remote-access gateway, patch or take it offline today. Pair that with the Virtualizor BGP-hijack update poisoning story as a reminder to verify package signatures on anything your HMIs or historians auto-update. Also check your exposure to this week&#x27;s KEV additions on vCenter, NetScaler, and PaperCut, all of which typically sit adjacent to OT. If you do one thing before lunch, confirm your remote-access appliance patch level and whether its management interface is exposed beyond your jump host.</p></div>
+    <div class="briefing-body"><p>Rockwell Automation has dropped patches for over a dozen vulnerabilities spanning RSLinx Classic, FactoryTalk, ControlFLASH and ArmorStart — assume every Rockwell-based engineering workstation and plant network in your estate is affected until proven otherwise. At the same time, CISA has added two SonicWall SMA1000 flaws to KEV, and these appliances often sit directly in OT remote-access paths. Prioritise inventorying SMA1000 deployments and reviewing the Rockwell advisories against your patch window this week. If you touch Cisco Nexus in your Level 3 aggregation, add that to the same review — critical RCE and auth-bypass fixes landed alongside.</p></div>
   </div>
 </div>
 
@@ -357,7 +357,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
       <div class="vendor-grid"><div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">No mentions</div></div>
-<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
+<div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">1 mention</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Honeywell</div><div class="vendor-count">No mentions</div></div></div>
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still ubiquitous in 2026, was published by Modicon in 1979 as a way for their new 084 PLC to talk to a serial terminal — meaning the protocol running your process today is older than TCP/IP&#x27;s public deployment. Its 16-bit register limit and lack of authentication weren&#x27;t design flaws at the time; they were reasonable choices for a point-to-point RS-232 world where the physical wire was the security boundary.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Modbus protocol, still ubiquitous on plant floors 47 years after Modicon introduced it in 1979, was originally designed for the Modicon 084 PLC to communicate over a proprietary serial bus at 19.2 kbit/s — and the protocol specification remained a de facto standard for over two decades before Schneider Electric transferred it to the independent Modbus Organization in 2004. Its longevity is largely because it does exactly one thing well: move register values with minimal overhead and no authentication, which is also why it remains a top ICS attack surface today.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics: Elmer Sperry&#x27;s ship autopilots in the 1910s and Nicolas Minorsky&#x27;s 1922 analysis of USS New Mexico&#x27;s steering used pneumatic and mechanical realizations of proportional, integral, and derivative action decades before op-amps existed. Minorsky derived the three-term control law by watching how helmsmen actually steered — anticipating (derivative), correcting steady offset (integral), and reacting to error (proportional). Every loop you tune today is, in a real sense, a mathematical formalization of what an experienced sailor did by feel a century ago.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely: Elmer Sperry&#x27;s gyroscopic ship autopilots in 1911 used mechanical proportional-integral-derivative action via a system of levers, springs and dashpots, and by 1922 Nicolas Minorsky had formally analysed the mathematics after watching helmsmen intuitively apply what we now call derivative action to anticipate ship yaw. The &#x27;three-term controller&#x27; therefore emerged from empirical observation of human operators, not from theory — meaning your DCS tuning today still encodes how a good helmsman steered a battleship a century ago. Even more curiously, Minorsky&#x27;s paper sat largely ignored for over a decade before pneumatic controllers made it practical in process industries in the 1930s.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow march from trade-show demo to production floor. The pitch is compelling: a single deterministic Ethernet fabric carrying both real-time motion control traffic and higher-level information model data, replacing the current mess of Profinet IRT, EtherCAT, Sercos, and separate OT LANs. <span id="rm629551" style="display:none">TSN provides bounded latency via time-aware scheduling (IEEE 802.1Qbv), while OPC UA PubSub over UDP carries the payloads with a rich, self-describing type system. Practically, adoption in 2026 is still gated by three things. First, switch and NIC support for the full TSN feature set is finally broad but interoperability between vendors&#x27; scheduling implementations remains fiddly — pilot deployments still tend to be single-vendor. Second, engineering tools for configuring streams, gate control lists, and PTP time domains lag the underlying silicon; you need someone comfortable with both networking and controls, which is a rare skillset. Third, retrofit economics are hard: replacing a working Profinet line to gain determinism you already have is a tough business case. The sweet spot right now is greenfield lines with mixed vendor motion and vision systems, or facilities standardizing on a converged network for future flexibility rather than immediate need.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm629551',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) is finally moving from trade-show demos to production pilots, and it&#x27;s worth understanding because it fundamentally changes how you think about deterministic control networks. Traditional industrial Ethernet variants — PROFINET IRT, EtherCAT, EtherNet/IP with CIP Sync — each solved determinism by defining their own layer-2 behaviour, forcing you to pick a vendor ecosystem. <span id="rm713870" style="display:none">TSN pushes determinism into standard IEEE 802.1 Ethernet using scheduled traffic (802.1Qbv), frame preemption (802.1Qbu) and precise time sync (802.1AS), meaning one converged network can carry deterministic control traffic alongside video, engineering and IT flows. OPC UA sits on top as the application-layer information model, with the OPC UA FX (Field eXchange) profile extending it down to controller-to-controller and eventually controller-to-device communication. The practical promise: vendor-neutral, semantically rich data exchange from sensor to cloud on one wire. The adoption challenges are real, though. TSN configuration is genuinely complex — you need a Central Network Configuration entity, careful schedule planning, and switches that actually implement the full stack correctly. Interoperability between vendor implementations is still maturing, and most brownfield sites can&#x27;t justify ripping out working PROFINET or EtherNet/IP. Expect to see TSN first in greenfield automotive, semiconductor and packaging lines where the deterministic-plus-converged story pays back quickly, with broader process-industry adoption several years out.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm713870',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to be the reference OT security standard, and the 62443-2-1 revision published earlier this cycle is now showing up as a contractual requirement in more RFPs — particularly for utilities and pharma. The revised part shifts the emphasis from a static IACS security program document to an ongoing security management system with defined maturity levels, mirroring how ISO 27001 evolved. <span id="rm616674" style="display:none">If you haven&#x27;t looked at it recently, the practical implication is that auditors will increasingly expect evidence of continuous activity (patch cadence, incident drills, access reviews) rather than a binder on a shelf. On the NIST side, the SP 800-82 Rev 3 guidance remains the pragmatic companion for engineers who need to map generic cybersecurity controls onto ICS realities like safety interlocks, deterministic timing, and legacy device constraints. It&#x27;s worth pairing with the NIST Cybersecurity Framework 2.0 profile work several ISACs have published for specific verticals. Worth watching: the ISA/IEC 62443-4-2 device certification ecosystem has broadened significantly, and more PLC and RTU vendors are shipping SL-2 or SL-3 certified firmware variants. When specifying new controllers, asking for the certification level and the associated security capabilities matrix is now a reasonable procurement question rather than an aspirational one.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm616674',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (Security Risk Assessment for System Design) continues to be the standard most controls engineers actually need to internalise, because it defines how you break a system into Zones and Conduits and assign a target Security Level (SL-T) to each. The recent trend in asset-owner RFQs is to require SL-T 2 as a baseline for control zones and SL-T 3 for safety-related or highly critical zones, which pushes real requirements onto integrators: role-based access, secure remote access, network segmentation with documented conduit controls, and event logging that survives a controller reboot. <span id="rm976100" style="display:none">On the certification side, IEC 62443-4-1 (secure product development lifecycle) and 62443-4-2 (technical security requirements for components) are increasingly showing up as procurement gates — several major end users now refuse to specify PLCs, drives or HMIs without at least a 4-2 SL 2 certification. If you&#x27;re evaluating vendors this quarter, ask specifically which product family and firmware version was certified, because certifications are often narrower than marketing suggests. Worth noting: NIST SP 800-82 Rev. 3, released in 2023, remains the best free English-language complement to 62443 and is being widely referenced in US federal CNI guidance. With the UK Cyber Security and Resilience Bill amendments this week echoing similar supply-chain themes, expect regulators on both sides of the Atlantic to lean harder on 62443-based conformance in the next 12 months.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm976100',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where attackers affiliated with the CyberAv3ngers group compromised a Unitronics Vision-series PLC controlling a booster station. The intrusion wasn&#x27;t sophisticated: the PLC was internet-exposed on its default TCP/20256 port with the factory-default password &#x27;1111&#x27;. <span id="rm427217" style="display:none">The attackers defaced the HMI with anti-Israel messaging and forced the station into manual operation, but they had the access to do far worse. What made this incident instructive is how ordinary it was. No zero-day, no supply-chain compromise, no custom malware — just a controller shipped with a weak default and connected directly to the internet by a small utility that didn&#x27;t have dedicated OT security staff. The vendor&#x27;s guidance to change defaults existed; nobody had read it. Three takeaways for controls engineers: first, inventory every PLC, RTU, and gateway with an IP address and confirm none are directly internet-reachable — Shodan and Censys make this a five-minute exercise. Second, treat default credentials as a commissioning defect, not a hardening task, and don&#x27;t sign off on a system until they&#x27;re changed and documented. Third, small sites without SOC coverage need simple, high-signal alerting — even a basic &#x27;PLC mode changed to program&#x27; notification would have caught this. The lowest-tech attacks continue to work because the lowest-tech defenses aren&#x27;t in place.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm427217',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week, given the SonicWall SMA1000 KEV additions, is the 2023 Aliquippa water authority incident in Pennsylvania, where attackers linked to the CyberAv3ngers group compromised a Unitronics Vision-series PLC controlling a booster station and defaced the HMI with an anti-Israel message. The intrusion did not disrupt water supply, but operators had to switch to manual control while the device was replaced. <span id="rm42607" style="display:none">What happened technically was almost embarrassingly simple: the Unitronics PLC was directly reachable from the internet on TCP/20256 with the factory-default password (1111). No zero-day, no sophisticated tradecraft — just an exposed controller with default credentials. The same campaign hit multiple water utilities across several US states within days. The lessons for controls engineers remain painfully relevant. First, no controller should ever be directly internet-reachable; if remote access is required, it belongs behind an authenticated, logged jump host or VPN concentrator — which is precisely why the SonicWall SMA1000 KEVs this week matter. Second, default credentials on field devices are not a paperwork issue but an active-exploitation issue, and commissioning checklists must enforce changes with evidence. Third, know what you have exposed: a Shodan or Censys sweep of your own public IP ranges takes an afternoon and routinely finds surprises.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm42607',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most operationally significant item today is SonicWall&#x27;s disclosure of two actively exploited zero-days in SMA1000 secure-access appliances (CVE-2026-83549 and CVE-2026-83548) that can be chained for unauthenticated remote code execution. Many manufacturing and utility sites use SMA appliances as the remote-vendor gateway into their DMZs, so a compromise here bypasses one of the primary controls separating IT from OT. <span id="rm815469" style="display:none">If your remote-support path terminates on an SMA1000, treat this as an immediate patch and hunt priority and consider disabling external access until the fix is applied. Equally alarming from a supply-chain perspective is the BGP hijack that pushed a malicious Virtualizor update using a technically valid TLS certificate for Softaculous domains. This is a textbook reminder that TLS alone does not validate a software update — network-path takeovers can defeat certificate trust when the attacker briefly owns the destination prefix. Controls engineers who rely on vendor auto-update channels for HMIs, historians, or virtualized SCADA hosts should verify that updates are signed at the package level, not merely delivered over HTTPS. On the AI side, OpenAI&#x27;s Astra reportedly crossed the threshold for autonomous discovery and exploitation of zero-days across defended systems, and Anthropic rolled out Enterprise Frontier Safeguards after handling recent misuse incidents. For OT this pushes the timeline forward on AI-assisted attackers finding logic bugs in exposed engineering interfaces. Finally, the 23-year-old Sality P2P botnet was disrupted — a modest housekeeping win, but a reminder that legacy Windows engineering workstations remain fertile ground for old malware families.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm815469',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The headline item for plant floor engineers today is Rockwell Automation&#x27;s release of advisories covering more than a dozen vulnerabilities across RSLinx Classic, ArmorStart, ControlFLASH, FactoryTalk and other products. Because RSLinx Classic and FactoryTalk sit at the heart of most Rockwell-based control networks — mediating between engineering workstations, historians, HMIs and the PLC layer — these patches need to be assessed against your MOC process this week. <span id="rm487433" style="display:none">Expect a mix of memory corruption, authentication weakness and denial-of-service issues; treat any engineering-workstation-resident software as high priority given its trust relationships with controllers. On the network infrastructure side, Cisco has patched critical vulnerabilities in IOS XR and Nexus switches enabling remote code execution and authentication bypass, and has warned of unpatched flaws in Secure Email that could expose S/MIME-encrypted content. Nexus switches are widely deployed in industrial data centres and Purdue Level 3/3.5 aggregation roles, so plan an out-of-cycle review of firmware versions on any Nexus gear bridging IT and OT. Geopolitically, the UK is moving late amendments through the Cyber Security and Resilience Bill that would give ministers powers to bar high-risk technology suppliers from critical national infrastructure. For asset owners this signals more supply-chain provenance obligations coming down the line — worth flagging to procurement now so vendor questionnaires and SBOM requirements are aligned. Meanwhile, the 153 million driver licence images offered on the dark web (allegedly from IDScan.net) is a reminder that identity-proofing vendors are increasingly attractive targets, with knock-on impacts for any OT site using government-ID-based visitor or contractor onboarding. Finally, on the emerging-tech front, OpenLeash launched a tool that intercepts risky AI agent actions and requests human approval — a pattern worth watching as agentic AI creeps into engineering workflows and copilots begin touching real configuration data.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm487433',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/anthropic-details-response-to-security-incidents-unveils-enterprise-safeguards/" target="_blank" rel="noopener">Anthropic Details Response to Security Incidents, Unveils Enterprise Safeguards</a></span></div></summary><div class="detail-body"><p>Anthropic introduced Enterprise Frontier Safeguards (EFS), a system that combines zero data retention with automated monitoring for misuse.
-The post Anthropic Details Response to Security Incidents, Unveils Enterprise Safeguards appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/anthropic-details-response-to-security-incidents-unveils-enterprise-safeguards/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/malicious-virtualizor-update-served-via-bgp-hijacking/" target="_blank" rel="noopener">Malicious Virtualizor Update Served via BGP Hijacking</a></span></div></summary><div class="detail-body"><p>Using a technically valid TLS certificate for Softaculous’ domains, a threat actor diverted traffic to fake software updates.
-The post Malicious Virtualizor Update Served via BGP Hijacking appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/malicious-virtualizor-update-served-via-bgp-hijacking/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/openais-astra-becomes-first-model-to-cross-critical-cybersecurity-threshold/" target="_blank" rel="noopener">OpenAI’s Astra Becomes First Model to Cross Critical Cybersecurity Threshold</a></span></div></summary><div class="detail-body"><p>The designation applies when a model can independently find and exploit zero-day vulnerabilities across many well-defended systems.
-The post OpenAI&amp;#8217;s Astra Becomes First Model to Cross Critical Cybersecurity Threshold appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/openais-astra-becomes-first-model-to-cross-critical-cybersecurity-threshold/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/chrome-and-firefox-updates-patch-dozens-of-vulnerabilities/" target="_blank" rel="noopener">Chrome and Firefox Updates Patch Dozens of Vulnerabilities</a></span></div></summary><div class="detail-body"><p>The browser refreshes fix multiple use-after-free, sandbox escape, and privilege escalation bugs.
-The post Chrome and Firefox Updates Patch Dozens of Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/chrome-and-firefox-updates-patch-dozens-of-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/23-year-old-sality-p2p-botnet-disrupted/" target="_blank" rel="noopener">23-Year-Old Sality P2P Botnet Disrupted</a></span></div></summary><div class="detail-body"><p>The shutdown operation involved peer list manipulation and Sality payload URL takedown.
-The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/23-year-old-sality-p2p-botnet-disrupted/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 03 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/153-million-driver-license-images-offered-on-dark-web/" target="_blank" rel="noopener">153 Million Driver License Images Offered on Dark Web</a></span></div></summary><div class="detail-body"><p>Cybercriminals are offering digital scans of US and Canadian driver’s licenses, likely stolen from IDScan.net.
+The post 153 Million Driver License Images Offered on Dark Web appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/153-million-driver-license-images-offered-on-dark-web/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 03 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/over-3-million-wordpress-sites-affected-by-migration-plugin-vulnerability/" target="_blank" rel="noopener">Over 3 Million WordPress Sites Affected by Migration Plugin Vulnerability</a></span></div></summary><div class="detail-body"><p>The high-severity SQL injection flaw (CVE-2026-19949) could allow unauthenticated attackers to achieve remote code execution.
+The post Over 3 Million WordPress Sites Affected by Migration Plugin Vulnerability appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/over-3-million-wordpress-sites-affected-by-migration-plugin-vulnerability/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 03 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cisco-warns-of-unpatched-secure-email-flaws-patches-critical-switch-vulnerabilities/" target="_blank" rel="noopener">Cisco Warns of Unpatched Secure Email Flaws, Patches Critical Switch Vulnerabilities</a></span></div></summary><div class="detail-body"><p>Publicly disclosed S/MIME flaws could expose encrypted email content, while critical IOS XR and Nexus bugs could enable remote code execution and authentication bypass.
+The post Cisco Warns of Unpatched Secure Email Flaws, Patches Critical Switch Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cisco-warns-of-unpatched-secure-email-flaws-patches-critical-switch-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/openleash-adds-a-human-check-to-risky-ai-agent-actions/" target="_blank" rel="noopener">OpenLeash Adds a Human Check to Risky AI Agent Actions</a></span></div></summary><div class="detail-body"><p>The security tool intercepts potentially dangerous agent actions, blocking clear threats and requesting human approval when intent is uncertain.
+The post OpenLeash Adds a Human Check to Risky AI Agent Actions appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/openleash-adds-a-human-check-to-risky-ai-agent-actions/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 02 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/uk-moves-to-block-high-risk-tech-suppliers-from-critical-infrastructure/" target="_blank" rel="noopener">UK Moves to Block High-Risk Tech Suppliers From Critical Infrastructure</a></span></div></summary><div class="detail-body"><p>Late amendments to the Cyber Security and Resilience Bill would give ministers new powers to restrict risky technology providers as supply chain attacks intensify.
+The post UK Moves to Block High-Risk Tech Suppliers From Critical Infrastructure appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/uk-moves-to-block-high-risk-tech-suppliers-from-critical-infrastructure/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions over the past two weeks lean heavily toward remote-access and collaboration infrastructure that commonly sits at the IT/OT boundary. The two PaperCut NG/MF flaws (CVE-2026-82078 and CVE-2026-81578) chain unauthenticated config modification with unsafe reflection for RCE — relevant because print servers are frequently domain-joined and reachable from plant networks. <span id="rm95751" style="display:none">The Citrix NetScaler ADC/Gateway issue (CVE-2026-8452), Oracle HTTP Server/WebLogic proxy plug-in flaw (CVE-2026-21962), and VMware vCenter path traversal (CVE-2026-59310) all directly threaten the virtualization and access layers that host SCADA, MES, and historian workloads. Several Linux kernel entries (CVE-2026-53362 IPv6 privilege escalation, plus older CVE-2022-0995) matter for the growing population of Linux-based edge gateways, IIoT brokers, and containerized control nodes. TrueConf Server&#x27;s two flaws on TCP/4307 (CVE-2026-72529/72530) allow unauthenticated RCE and are worth checking if your site uses it for operations-room collaboration. Practical remediation: prioritize the perimeter and hypervisor CVEs first, verify SMA/NetScaler/vCenter patch levels, and ensure any exposed management ports are firewalled to jump hosts only. Where patches are not yet deployable in production, compensating controls like ACLs on 4307/TCP, restricting PaperCut admin access to a management VLAN, and monitoring vCenter for anomalous file operations will meaningfully reduce exposure.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm95751',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added a substantial batch of KEV entries this week, but the most directly OT-relevant are the two SonicWall SMA1000 flaws (CVE-2026-83548 SSRF and CVE-2026-83549 authenticated OS command injection). SMA1000 appliances are commonly used to broker vendor and engineer remote access into OT environments, so any exploitation gives adversaries a foothold precisely where segmentation is weakest. <span id="rm213924" style="display:none">If you have SMA1000 in your remote-access path, patch immediately and audit admin accounts and session logs for the past 60 days. Also notable for industrial environments: JFrog Artifactory picked up two KEV entries (CVE-2026-82329 default-config auth bypass to admin, and CVE-2026-66384 path traversal), which matters if you use Artifactory to store firmware, container images or engineering artefacts. PaperCut NG/MF (CVE-2026-82078 and CVE-2026-81578, chainable to unauthenticated RCE) is worth checking on any shared print infrastructure straddling office and plant networks. The Linux kernel IPv6 privilege escalation (CVE-2026-53362) will hit a lot of embedded gateways and edge appliances — inventory your Linux-based OT devices and pressure vendors for patch timelines. Older KEV additions (Microsoft SQL Server 2019, Red Hat libuser, AjaxPro deserialization) suggest active exploitation of long-lived legacy systems, exactly the kind of stack still running historians and MES.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm213924',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 30 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 34 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-82078</span></td><td>2026-08-31</td><td>PaperCut</td><td>NG/MF</td><td>PaperCut NG/MF Unsafe Reflection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-81578</span></td><td>2026-08-31</td><td>PaperCut</td><td>NG/MF</td><td>PaperCut NG/MF Missing Authentication for Critical Function Vulnerabil</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2023-49105</span></td><td>2026-08-27</td><td>ownCloud</td><td>ownCloud</td><td>ownCloud Improper Authentication Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-59822</span></td><td>2026-09-02</td><td>BerriAI</td><td>LiteLLM</td><td>BerriAI LiteLLM Improper Authentication Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-48710</span></td><td>2026-09-02</td><td>Kludex</td><td>Starlette</td><td>Kludex Starlette HTTP Request/Response Smuggling Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-49869</span></td><td>2026-09-02</td><td>Kestra</td><td>Kestra OSS</td><td>Kestra OSS OS Command Injection Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,13 +484,13 @@ The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-02 12:00 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-03 11:59 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ADC":"Analog-to-digital converter; device converting continuous analog signals to discrete digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "CIP":"Common Industrial Protocol for real-time control and information exchange.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
@@ -501,42 +501,36 @@ The post 23-Year-Old Sality P2P Botnet Disrupted appeared first on SecurityWeek.
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "IACS":"Industrial automation and control systems; networked equipment managing manufacturing or process operations.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of electrical and electronics engineers; standards organization for technical fields.",
-  "IRT":"Isochronous real-time; deterministic communication protocol for synchronized industrial automation.",
+  "IEEE":"Institute of Electrical and Electronics Engineers standards organization.",
+  "IRT":"Isochronous Real-Time protocol for deterministic industrial communication.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
-  "ISO":"International organization for standardization; develops consensus technical and industrial standards.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
+  "MOC":"Management of Change process for controlling system modifications.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NIC":"Network interface card; hardware device enabling computer connection to network.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OS":"Operating System software managing hardware and application resources.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTP":"Precision time protocol; synchronizes clocks across networked devices to nanosecond accuracy.",
-  "RCE":"Remote code execution; vulnerability allowing attacker to run arbitrary code on target system.",
-  "RS":"Recommended standard; series of serial communication standards like RS-232, RS-485.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SBOM":"Software Bill of Materials documenting software components and dependencies.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SMA":"Shape memory alloy; material that returns to original shape when heated after deformation.",
-  "SOC":"System on chip; integrated circuit containing complete computer system on single chip.",
-  "TLS":"Transport layer security; cryptographic protocol securing data transmission over networks.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Universal serial synchronous protocol; serial communication standard for industrial device networking.",
-  "VLAN":"Virtual local area network; logically separated network segments on single physical infrastructure.",
+  "UA":"User Authentication mechanism verifying operator identity and access permissions.",
+  "VPN":"Virtual Private Network encrypting communications over untrusted networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
