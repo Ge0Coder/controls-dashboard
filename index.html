@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-09-08 12:01 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-09-09 12:11 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Actively exploited MikroTik auth-bypass threatens edge routers in OT networks; multiple KEV additions demand urgent triage.</span>
+  <span>ICS Patch Tuesday brings critical Siemens &amp; Schneider fixes; Microsoft ships record 974 patches with two exploited zero-days.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-09-08 12:01 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-09-09 12:11 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">33</div>
+      <div class="stat-val amber">37</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-09-08 12:01 UTC</span>
+      <span class="briefing-date">2026-09-09 12:11 UTC</span>
     </div>
-    <div class="briefing-body"><p>Patch MikroTik today — the SSH authentication bypass is being actively exploited and attackers are creating persistence accounts, so assume compromise on any unpatched device and audit user accounts even after patching. Then check with any integrator or vendor using N-able N-central for remote support into your plant; that critical zero-day may have given attackers a foothold in your support supply chain. Also queue up SonicWall SMA1000 and Citrix NetScaler patching if either sits in front of your OT remote access — both hit CISA&#x27;s KEV list this week. The common thread today is edge and remote-access infrastructure: the boring boxes on the boundary are where this week&#x27;s fires are starting.</p></div>
+    <div class="briefing-body"><p>Today&#x27;s priority is patch triage. ICS Patch Tuesday dropped critical fixes from Siemens, Schneider, AVEVA and Rockwell simultaneously with a record 974-CVE Microsoft release that includes two actively-exploited Windows privilege-escalation zero-days directly relevant to your engineering workstations and HMI servers. Start by inventorying which advisories apply to your installed base, prioritising anything internet-exposed or on Level 3/3.5, and schedule a maintenance window for the Windows LPEs before an IT-side compromise turns into an OT pivot. If you use MikroTik anywhere on site, assume compromise and check for unauthorised accounts before patching.</p></div>
   </div>
 </div>
 
@@ -356,9 +356,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
-      <div class="vendor-grid"><div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">No mentions</div></div>
-<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
-<div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
+      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">1 mention</div></div>
+<div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">1 mention</div></div>
+<div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">1 mention</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Honeywell</div><div class="vendor-count">No mentions</div></div></div>
     </section>
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, released by Modicon in 1979, was designed to run over RS-232 with an assumed maximum of 247 slave devices — a limit that came directly from the 8-bit address field minus reserved values. Nearly fifty years later, Modbus TCP still carries that same 247-device ceiling in its unit-identifier field, even though Ethernet has no such physical constraint. It&#x27;s a perfect example of how a hardware-era design decision can outlive its original justification by decades.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The IEC 61131-3 standard, which defines the five familiar PLC programming languages, actually started life in 1979 as a French national standard called Grafcet — what we now call Sequential Function Chart. It was the French railway and nuclear industries pushing for a formal state-machine notation that eventually gave the world SFC, decades before it became a global IEC standard in 1993.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by decades — the first mathematical formulation is generally credited to Nicolas Minorsky in 1922, who derived it while watching helmsmen steer the USS New Mexico. He noticed that experienced helmsmen didn&#x27;t just react to the current heading error, but also to how fast the error was changing and to the accumulated drift — proportional, derivative, and integral action, discovered empirically at the ship&#x27;s wheel. Every tuning session you do today is essentially reverse-engineering what a good sailor did instinctively a century ago.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — the first mathematical treatment was published by Nicolas Minorsky in 1922, based on his observations of how helmsmen steered US Navy ships. Minorsky noticed that experienced helmsmen didn&#x27;t just react to the current heading error (proportional); they also considered how long the ship had been off course (integral) and how fast it was swinging back (derivative). Every temperature loop tuned in a plant today is, in essence, a mathematical formalisation of what a good sailor was doing by feel a century ago.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on Ethernet-APL (Advanced Physical Layer), which is quietly reshaping process instrumentation. APL brings two-wire, power-and-data, intrinsically safe Ethernet to field devices in hazardous areas at 10 Mbit/s over up to 1,000 metres — replacing 4-20 mA and HART with native TCP/IP right down to the transmitter. <span id="rm631485" style="display:none">That means an OPC-UA or PROFINET session can terminate at the sensor itself, no gateway required. For controls engineers, the practical implication is significant: rich diagnostic data (multivariable readings, valve signatures, corrosion coupons) becomes accessible without protocol translation, and commissioning tools like FDI packages work end-to-end. It also collapses the traditional split between fieldbus specialists and network engineers — your instrument tech now needs to understand VLANs and PTP. Adoption challenges are real. APL switches remain expensive versus traditional I/O, the installed base of HART is enormous, and cybersecurity implications are non-trivial — every transmitter is now an IP endpoint with its own attack surface. Most greenfield projects in refining and pharma are piloting APL on non-critical loops first, and brownfield migration is likely to take a decade or more.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm631485',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to move from marketing slides toward real deployments, and 2026 is shaping up to be the year it stops being a curiosity. The premise is simple: combine OPC UA&#x27;s rich, semantic, secure data model with deterministic Ethernet timing defined by IEEE 802.1 TSN standards, so you can run motion control, safety, and MES traffic on one converged network instead of the current tangle of Profinet IRT, EtherCAT, Sercos, and a parallel IT LAN. <span id="rm908605" style="display:none">For controls engineers the practical implication is that the traditional fieldbus lock-in weakens. A drive, a PLC, and a vision system from three different vendors could — in theory — share the same wire with guaranteed sub-millisecond cycle times, using OPC UA FX (Field eXchange) profiles for the controller-to-controller and controller-to-device communication. Wireshark becomes a legitimate commissioning tool again because it is all just Ethernet. Adoption challenges are real, however. TSN requires switches that support the relevant 802.1 sub-standards (Qbv, Qbu, AS), and mixing TSN-aware and legacy gear in the same domain still causes headaches. Configuration tooling for CNC (Central Network Configuration) is immature and vendor-specific, and most engineers have not yet built the network-engineering muscle to plan a converged deterministic network. Expect the first mainstream wins in greenfield automotive and semiconductor lines, with brownfield process plants trailing by years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm908605',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to gain traction as the de-facto method regulators point to when asking &#x27;how did you decide your zones and conduits?&#x27; Increasingly, EPCs are being contractually required to deliver a 62443-3-2 risk assessment as part of FEED deliverables, not just as an operational activity post-handover. If you&#x27;re on a capital project, push to get the zone and conduit diagram baked into the P&amp;ID review cycle rather than tacked on afterwards — retrofitting network segmentation into a commissioned plant is painful and expensive. <span id="rm738722" style="display:none">Worth watching: ISA/IEC 62443-4-2 certification for components (PLCs, RTUs, gateways) is now being specified by name in several major operator standards, including recent updates from Shell and Aramco. Vendors like Siemens, Rockwell, and Schneider have been racing to get flagship product lines certified at Security Level 2. When evaluating new controllers, ask for the certificate and the Security Target document — the ST tells you which security functions were actually tested versus merely claimed. On the NIST side, the CSF 2.0 &#x27;Govern&#x27; function is starting to influence how OT security programs are structured, particularly around vendor risk management — very relevant given today&#x27;s news about N-able and integrator remote access.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm738722',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to be the centre of gravity for OT cybersecurity, and if you have not yet looked at IEC 62443-2-1:2024, it is worth some quiet reading time. The 2024 revision reshaped the asset-owner security programme requirements around a set of Security Program Elements (SPEs) that map much more cleanly onto how plants actually operate, and it aligns terminology with the -3-3 system requirements and -4-1/-4-2 product standards. <span id="rm783696" style="display:none">Auditors and insurers are increasingly citing it directly. On the US side, NIST SP 800-82 Rev 3 remains the practical reference for OT security guidance, and it now explicitly incorporates the CSF 2.0 Govern function — meaning boards and executives are formally on the hook for OT cyber risk decisions, not just IT. If your site&#x27;s cyber programme still lives entirely under the plant manager with no corporate governance link, that gap is now visible in any serious assessment. Worth watching: ISA is progressing work on IEC 62443-3-2 profiles for specific sectors (water, building automation) which should reduce the amount of interpretation currently required to conduct a zone-and-conduit risk assessment. If you have ever tried to apply generic 62443 guidance to a small water utility, you know why this is welcome.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm783696',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s case study is the 2023 Aliquippa, Pennsylvania water authority incident, where the Cyber Av3ngers group (linked to Iran&#x27;s IRGC) compromised a Unitronics Vision-series PLC controlling a booster station. The attackers exploited the fact that the PLC was directly reachable from the internet on TCP/20256 with the default password &#x27;1111&#x27;. <span id="rm544519" style="display:none">They defaced the HMI with an anti-Israel message and forced operators into manual control — no water quality impact, but a very public humiliation. How it happened: the integrator had exposed the PLC for remote programming convenience, the default password was never changed, and the utility had no asset inventory that flagged the exposure. CISA subsequently issued an advisory noting the same attackers had hit multiple water utilities using identical tradecraft. Lessons for controls engineers: first, Shodan and Censys will find your PLC before you do — do the search yourself, monthly. Second, default credentials on safety- or process-critical devices are not an IT failure, they&#x27;re an engineering failure, and they should fail your commissioning checklist. Third, &#x27;we&#x27;re too small to be a target&#x27; is not a threat model; ideologically motivated actors will hit any exposed device regardless of the operator&#x27;s size or strategic importance.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm544519',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2022 attack on a European wind-turbine operator (Deutsche Windtechnik and, separately, Nordex and Enercon in the same period), where ransomware and IT-side intrusions cut remote monitoring and control for thousands of turbines across Europe. The turbines themselves kept generating — safety systems and local control were untouched — but operators lost the ability to remotely adjust, curtail, or diagnose them, and had to dispatch technicians physically for days. <span id="rm586991" style="display:none">The intrusion path was mundane: corporate IT compromise via commodity malware, then lateral movement into the systems hosting the remote SCADA VPN concentrators. There was no clever ICS-specific exploit; the OT impact was collateral damage from IT-network dependencies that had grown up organically as remote monitoring expanded. Three lessons remain relevant. First, map your remote-access dependencies honestly — if corporate IT going down means you lose visibility of your assets, that is an operational risk, not just an IT one. Second, rehearse degraded-mode operations: can your team actually run the plant without the dashboards for 72 hours? Third, keep local HMI and local control fully functional and tested; the wind operators survived because the turbines themselves did not depend on the cloud link to keep spinning safely.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm586991',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The dominant story this morning is the MikroTik &#x27;MikroTrick&#x27; vulnerability chain. MikroTik has patched already-exploited flaws allowing SSH authentication bypass and configuration overwrite, and SANS ISC is telling defenders to assume compromise on any unpatched device — attackers have been observed creating new accounts to persist across patching. <span id="rm875558" style="display:none">MikroTik hardware is common at remote sites, telemetry backhauls, and cellular gateways in water, oil &amp; gas, and renewables, so this is squarely a controls-engineering concern rather than just an IT problem. N-able has patched a critical zero-day in N-central, the RMM platform frequently used by integrators and OEM support teams to reach plant assets. Administrators are told to hunt for unrecognised user accounts. If your automation vendor or integrator uses N-central for remote support into your DMZ or jump hosts, this warrants a direct conversation today about their patch status and account audit. On the espionage front, a new North Korean Linux toolkit embedding a backdoor inside HAProxy is targeting South Korean automotive and media firms for long-term surveillance. The tradecraft — living inside a load balancer that&#x27;s usually treated as trusted infrastructure — is a reminder that Linux appliances in the industrial DMZ (historians, MES front-ends, reverse proxies) deserve the same integrity monitoring as Windows servers. Rounding out the day: &#x27;Nightmare Eclipse&#x27; drops chained PoCs abusing CrowdStrike, Nvidia, and Avast drivers for SYSTEM-level privilege escalation — relevant if you run any of these on engineering workstations. OpenAI-driven agents made 15,000+ autonomous edits to a German wiki over three months, foreshadowing an era where agentic AI can be weaponised against any web-facing OT documentation portal or ticketing system.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm875558',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">This week&#x27;s ICS Patch Tuesday is a heavy one. Schneider Electric and Siemens have released fixes for critical vulnerabilities across their product lines, with AVEVA and Rockwell Automation also issuing advisories. <span id="rm763841" style="display:none">Controls engineers should prioritise reviewing the Siemens ProductCERT and Schneider SEVD bulletins for anything running in their environment, particularly HMI, engineering workstation, and gateway products which have historically been the most exposed attack surface. Given the breadth, treat this as a multi-week patch campaign rather than a single maintenance window. On the IT side, Microsoft&#x27;s September Patch Tuesday is the largest ever at 974 vulnerabilities, including two exploited privilege-escalation zero-days (CVE-2026-81963 in the Windows Update stack and CVE-2026-85880 in ALPC) and roughly 20 potentially wormable flaws. For OT environments this matters directly because engineering workstations, historians, and HMI servers overwhelmingly run Windows. If your Level 2/3 Windows hosts are behind on patching, the wormable subset is what should keep you up at night. MikroTik has patched an actively exploited SSH authentication bypass; SANS advises assuming compromise on any exposed device, as attackers are creating persistence accounts before patching lands. MikroTik hardware occasionally shows up in industrial sites as cheap edge routing, cellular backhaul, or contractor-installed remote access — worth an inventory check. Ivanti also patched six critical RCEs in Neurons for ITSM plus Sentry/EPMM auth bypasses, and Chrome shipped its seventh zero-day of the year in version 153. Finally, a new phishing technique is generating malicious pages entirely inside the victim&#x27;s browser using Microsoft blob URLs — no external site to block or take down. This is relevant for OT staff who use Microsoft 365 for corporate email and could see credential theft cascade into remote-access pathways for the plant.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm763841',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 08 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/mikrotik-patches-critical-flaws-chained-to-hack-routers/" target="_blank" rel="noopener">MikroTik Patches Critical Flaws Chained to Hack Routers</a></span></div></summary><div class="detail-body"><p>Dubbed MikroTrick, the bugs allow attackers to bypass authentication, overwrite configuration files, and take over devices.
-The post MikroTik Patches Critical Flaws Chained to Hack Routers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/mikrotik-patches-critical-flaws-chained-to-hack-routers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 08 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/mathspace-data-breach-exposes-over-1-million-people/" target="_blank" rel="noopener">Mathspace Data Breach Exposes Over 1 Million People</a></span></div></summary><div class="detail-body"><p>Hackers stole the information of students, teachers, staff, and parents/guardians from a self-hosted Metabase instance.
-The post Mathspace Data Breach Exposes Over 1 Million People appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/mathspace-data-breach-exposes-over-1-million-people/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 08 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/" target="_blank" rel="noopener">N-able Patches Critical Zero-Day in N-central</a></span></div></summary><div class="detail-body"><p>Administrators are advised to check their deployments for newly created user accounts they don’t recognize.
-The post N-able Patches Critical Zero-Day in N-central appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 07 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/" target="_blank" rel="noopener">Nightmare Eclipse Drops CrowdStrike, Nvidia, Avast Zero-Day Exploits</a></span></div></summary><div class="detail-body"><p>The proof-of-concept (PoC) exploits lead to privilege escalation, spawning a shell with System privileges.
-The post Nightmare Eclipse Drops CrowdStrike, Nvidia, Avast Zero-Day Exploits appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 07 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/north-korean-hackers-deploy-new-linux-espionage-toolkit/" target="_blank" rel="noopener">North Korean Hackers Deploy New Linux Espionage Toolkit</a></span></div></summary><div class="detail-body"><p>The stealthy toolkit embeds a backdoor in HAProxy and targets automotive and media organizations in South Korea for long-term surveillance.
-The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/north-korean-hackers-deploy-new-linux-espionage-toolkit/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 09 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" target="_blank" rel="noopener">ICS Patch Tuesday: Schneider Electric, Siemens Fix Critical Flaws</a></span></div></summary><div class="detail-body"><p>AVEVA and Rockwell Automation also released patches for vulnerabilities affecting industrial control system products.
+The post ICS Patch Tuesday: Schneider Electric, Siemens Fix Critical Flaws appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 09 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ivanti-patches-critical-flaws-across-enterprise-security-products/" target="_blank" rel="noopener">Ivanti Patches Critical Flaws Across Enterprise Security Products</a></span></div></summary><div class="detail-body"><p>Six critical vulnerabilities in Neurons for ITSM could enable remote code execution, while Sentry and EPMM received patches for authentication bypass flaws.
+The post Ivanti Patches Critical Flaws Across Enterprise Security Products appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ivanti-patches-critical-flaws-across-enterprise-security-products/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 09 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/this-key-will-self-destruct-an-open-standard-for-revocable-api-keys/" target="_blank" rel="noopener">This Key Will Self-Destruct: An Open Standard for Revocable API Keys</a></span></div></summary><div class="detail-body"><p>Every leaked credential should be dead, or dying, within sixty seconds of being found. Here&#x27;s a proposal to make that the default.
+The post This Key Will Self-Destruct: An Open Standard for Revocable API Keys appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/this-key-will-self-destruct-an-open-standard-for-revocable-api-keys/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 09 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/new-phishing-attack-creates-malicious-pages-inside-the-victims-browser/" target="_blank" rel="noopener">New Phishing Attack Creates Malicious Pages Inside the Victim’s Browser</a></span></div></summary><div class="detail-body"><p>Attackers are using trusted Microsoft services and blob URLs to generate stealthy phishing pages that leave defenders with no static website to detect or block.
+The post New Phishing Attack Creates Malicious Pages Inside the Victim’s Browser appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/new-phishing-attack-creates-malicious-pages-inside-the-victims-browser/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 09 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/chrome-153-patches-seventh-zero-day-of-2026/" target="_blank" rel="noopener">Chrome 153 Patches Seventh Zero-Day of 2026</a></span></div></summary><div class="detail-body"><p>The Chrome update includes 230 security fixes, and users are advised to update their browsers as soon as possible.
+The post Chrome 153 Patches Seventh Zero-Day of 2026 appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/chrome-153-patches-seventh-zero-day-of-2026/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added a substantial batch of KEVs over the past two weeks. Of most direct OT concern are the SonicWall SMA1000 flaws (CVE-2026-83548 SSRF and CVE-2026-83549 authenticated command injection) — SMA1000s are commonly deployed as secure remote access gateways into industrial networks, and chaining these gives an unauthenticated attacker a path to RCE. <span id="rm16357" style="display:none">Also notable is the Citrix NetScaler ADC/Gateway memory buffer flaw (CVE-2026-8452), affecting another remote-access chokepoint many enterprises use in front of OT jump servers. Two PaperCut NG/MF vulnerabilities (CVE-2026-81578 and CVE-2026-82078) are chainable to unauthenticated RCE — PaperCut sits on many corporate print servers that bridge into plant office networks. JFrog Artifactory has two entries (auth bypass CVE-2026-82329 and a path traversal CVE-2026-66384) that matter for anyone consuming container images or firmware artefacts through Artifactory in their build pipeline. Round it out with the Chromium V8 type confusion (CVE-2026-85046) — patch every browser on every engineering workstation and HMI that has one embedded. Practical action: prioritise external-facing remote access (SonicWall, Citrix), then RMM/support tooling (N-able, MikroTik edge), then internal supply-chain infrastructure (Artifactory, PaperCut). Federal deadlines apply to government users but the same urgency is warranted in critical infrastructure.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm16357',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added a dense batch of entries to KEV over the past two weeks. The most operationally relevant for OT are the two Microsoft Windows local privilege escalations added 8 September (CVE-2026-81963 in Windows Update and CVE-2026-85880 in ALPC), both actively exploited — these directly threaten engineering workstations and jump servers, where an attacker with a foothold can trivially escalate to SYSTEM and pivot deeper. <span id="rm472537" style="display:none">Patch on your next available window and audit which OT-adjacent Windows boxes lag corporate patching cadence. Also noteworthy: N-able N-central pre-auth RCE (CVE-2026-86218), JFrog Artifactory auth bypass granting admin (CVE-2026-82329), and two SonicWall SMA1000 flaws (SSRF and command injection). RMM tools like N-central and remote-access appliances like SMA1000 are frequently used by integrators and OEMs to reach plant equipment — if a vendor or MSP reaches into your network through any of these, get written confirmation of remediation. The Chromium V8 type-confusion (CVE-2026-85046) affects any embedded browser or thick client using CEF, which quietly sits inside more HMI and vendor apps than people realise.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm472537',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 33 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 37 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-85046</span></td><td>2026-09-04</td><td>Google</td><td>Chromium V8</td><td>Google Chromium V8 Type Confusion Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-59822</span></td><td>2026-09-02</td><td>BerriAI</td><td>LiteLLM</td><td>BerriAI LiteLLM Improper Authentication Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-48710</span></td><td>2026-09-02</td><td>Kludex</td><td>Starlette</td><td>Kludex Starlette HTTP Request/Response Smuggling Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-75650</span></td><td>2026-09-08</td><td>Adobe</td><td>Commerce and Magento</td><td>Adobe Commerce and Magento Improper Neutralization of Special Elements</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-81963</span></td><td>2026-09-08</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Link Following Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-86218</span></td><td>2026-09-08</td><td>N-able</td><td>N-central</td><td>N-able N-central Static Code Injection Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,23 +484,20 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-08 12:01 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-09 12:11 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ADC":"Analog-to-digital converter; converts continuous analog signals to discrete digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APL":"Advanced Process Library; standardized function blocks for industrial automation systems.",
+  "AVEVA":"Leading global provider of industrial software for engineering and operations.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CSF":"Critical Success Factor; essential conditions for achieving objectives in operations.",
+  "CNC":"Computer Numerical Control; automated machine tool controlled by programmed instructions.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized Zone; network segment isolating critical systems from untrusted networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
-  "FDI":"Fault Detection and Isolation; identifies and locates system failures automatically.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
@@ -509,16 +506,18 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; professional organization setting standards.",
+  "IRT":"Isochronous Real-Time; real-time communication protocol for industrial automation networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
+  "LAN":"Local Area Network; computers connected within a limited geographic area.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer; company that produces industrial control equipment.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
@@ -526,16 +525,12 @@ The post North Korean Hackers Deploy New Linux Espionage Toolkit appeared first 
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTP":"Precision Time Protocol; network protocol for synchronizing clocks in control systems.",
-  "RCE":"Remote Code Execution; vulnerability allowing unauthorized command execution on systems.",
-  "RMM":"Remote Monitoring and Management; tools for overseeing distributed industrial systems.",
-  "RS":"Recommended Standard; designates communication protocols like RS-232 and RS-485.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SSRF":"Server-Side Request Forgery; vulnerability exploiting server to make unintended requests.",
-  "ST":"Structured Text; high-level programming language for programmable logic controllers.",
+  "SFC":"Sequential Function Chart; IEC 61131-3 graphical programming language for controllers.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
+  "UA":"OPC Unified Architecture; open standard for industrial data exchange and communication.",
+  "VPN":"Virtual Private Network; encrypted connection for secure remote network access.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
