@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-09-10 12:06 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-09-11 12:04 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy patch load across perimeter kit (Cisco FMC, Fortinet, Citrix NetScaler, SonicWall) plus a record 973-CVE Microsoft Patch Tuesday raises OT exposure risk.</span>
+  <span>AI-accelerated exploitation of PaperCut, record-breaking Patch Tuesday, and fresh KEV entries on perimeter gear raise OT exposure risk.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-09-10 12:06 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-09-11 12:04 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">38</div>
+      <div class="stat-val amber">40</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-09-10 12:06 UTC</span>
+      <span class="briefing-date">2026-09-11 12:04 UTC</span>
     </div>
-    <div class="briefing-body"><p>Your top priority today is verifying patch status on internet-facing or DMZ-resident network gear — Cisco Secure FMC, Fortinet FortiOS, Citrix NetScaler, and SonicWall SMA1000 all have actively-exploited CVEs added to KEV this week, and any of these commonly sit on the IT/OT boundary. Second, plan a staged rollout of September&#x27;s record 973-CVE Microsoft Patch Tuesday to engineering workstations and Windows-based HMIs, prioritising the two exploited SYSTEM-level bugs. If you run MikroTik anywhere in the plant, assume compromise, patch, and hunt for unauthorised accounts before the weekend.</p></div>
+    <div class="briefing-body"><p>Prioritise perimeter patching today: Check Point VPN (CVE-2026-85102/85103), Citrix NetScaler, Cisco FMC, Fortinet, and SonicWall SMA1000 all landed either as vendor advisories or fresh KEV entries this week, and any of them likely sit between your corporate network and OT DMZ. Add to that a record 973-CVE Microsoft Patch Tuesday with two zero-days, affecting the Windows boxes hosting your HMIs and historians. The AI-driven PaperCut exploitation campaign shows attackers are now compressing the vuln-to-weaponisation cycle to hours, so your usual 30-day OT patch window is no longer a defensible default for internet-facing assets. Convene a short emergency-change review, focus on the north-south boundary, and defer nothing on the remote-access stack.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original PLC — Modicon&#x27;s 084, delivered to GM in 1969 — had 4KB of memory and was designed explicitly to be programmed by relay-logic technicians, not software engineers. Its ladder-diagram language wasn&#x27;t chosen for elegance but because Dick Morley and team knew factory maintenance staff would refuse to learn assembly. That single UX decision is why, 57 years later, ladder logic still dominates the plant floor despite dozens of &#x27;better&#x27; alternatives.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The original Modbus protocol, published by Modicon in 1979, was designed to run on RS-232 or RS-485 with no authentication because the physical medium was the security boundary — you had to be inside the cabinet to talk to the PLC. Nearly fifty years later, the vast majority of Modbus/TCP traffic still carries that same trust assumption, which is why a single misconfigured firewall rule can expose entire process areas. The protocol&#x27;s function code 8 (Diagnostics) even includes a subfunction to force the slave into &#x27;listen only mode&#x27; — an undocumented denial-of-service primitive built into the standard itself.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — Elmer Sperry&#x27;s 1911 ship&#x27;s gyrocompass autopilot implemented proportional-integral-derivative control mechanically using flywheels, springs, and hydraulic servos. Nicholas Minorsky formalised the mathematics in 1922 by watching helmsmen steer the USS New Mexico and realising they were unconsciously applying derivative action based on rate-of-heading change. So the algorithm running in your loop controller today was, in effect, reverse-engineered from human intuition a century ago — and we still have not found a fundamentally better general-purpose regulator.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — the first mathematically rigorous PID was implemented pneumatically by Elmer Sperry in ship steering gear around 1911, and Nicolas Minorsky formalised the theory in 1922 by watching helmsmen on the USS New Mexico and noticing they intuitively applied proportional, integral, and derivative-like corrections. The Taylor Instrument Company&#x27;s 1940 Fulscope pneumatic controller used bellows, orifices, and a flapper-nozzle amplifier to compute the full PID equation in air, with tuning knobs that literally adjusted needle valves. Every DCS block you configure today is the digital descendant of a device that ran on 20 psi of instrument air.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA FX (Field eXchange) is quietly progressing from spec to silicon this year. It extends OPC UA down to controller-to-controller and controller-to-device communication at the field level, using the same information models as enterprise-level OPC UA but layered over TSN (Time-Sensitive Networking) for deterministic, sub-millisecond exchanges. <span id="rm161476" style="display:none">The promise is a single semantic model from sensor to cloud, replacing the current patchwork of PROFINET, EtherNet/IP, EtherCAT, and proprietary bus protocols at the boundary. For controls engineers the practical implication is that a Siemens drive could publish a standardised &#x27;motor&#x27; object that a Rockwell PLC consumes natively, with deterministic timing guaranteed by TSN scheduling in the switches. That&#x27;s a genuine shift away from vendor-locked field buses. Early adopters include automotive body shops and semiconductor fabs where multi-vendor cells are the norm. Adoption challenges are real: TSN-capable switches are still 3–5x the price of standard managed switches, engineering tools for configuring TSN schedules remain immature, and most installed device populations will not receive OPC UA FX firmware. Expect greenfield lines and machine-builders to lead; brownfield retrofits will lag by five to ten years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm161476',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues to move from spec to deployment, and 2026 has seen the first real wave of shipping products beyond the pilot phase. The premise is straightforward: combine OPC UA&#x27;s semantic, secure, vendor-neutral data model with IEEE 802.1 TSN&#x27;s deterministic Ethernet scheduling, so you can carry motion-control-grade traffic and enterprise-grade information on the same physical wire. <span id="rm603604" style="display:none">In practice, this means a single cable from a servo drive can deliver sub-microsecond synchronised control cycles alongside asset-management telemetry heading to the historian. The practical implication for controls engineers is significant: the historical split between fieldbus (Profinet IRT, EtherCAT, Sercos) and information networks starts to dissolve. That reduces cable count, simplifies spares, and lets one engineering tool address both control and data. The catch is that TSN switches remain expensive, configuration tooling is immature (CNC — Centralized Network Configuration — is still fragmented across vendors), and legacy devices without TSN silicon cannot participate as talkers or listeners in the scheduled traffic classes. Expect greenfield installations to lead adoption; brownfield migration will hinge on gateway devices for at least the next five years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm603604',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the most-cited part of the family in procurement specs this year, but the quieter development worth watching is the ongoing work on IEC 62443-4-3, which addresses secure-by-design requirements for machine learning components in industrial systems. As vendors bolt AI-driven anomaly detection and predictive maintenance into DCS and SCADA stacks, 4-3 aims to give asset owners a framework for evaluating model provenance, training-data integrity, and adversarial robustness — not just the classic CIA triad. <span id="rm759148" style="display:none">On the US side, NIST SP 800-82r3 (Guide to OT Security) is now the reference most federal-adjacent operators are aligning to, and it explicitly maps to IEC 62443 zones and conduits, easing dual compliance. ISA/IEC also published updated guidance this year on applying 62443 to safety instrumented systems, clarifying that a SIS shall be treated as its own zone with dedicated conduits — a point still often missed in retrofit designs where the SIS shares a network with the BPCS. If you are writing a functional spec this quarter, insist on 62443-4-2 SL-2 as a minimum for components and require the vendor to provide an SBOM aligned with CISA&#x27;s minimum elements — this is fast becoming table stakes rather than a differentiator.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm759148',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (technical security requirements for components) remain the most cited pieces of the family in current procurement specs, and we are seeing more end users write specific Security Level (SL) targets into tender documents rather than the vague &#x27;shall comply with IEC 62443&#x27; language of a few years ago. If you are specifying new equipment, ask vendors for the component certification report and check the SL-C (capability) claim per foundational requirement — a device certified to SL-C 2 for identification and authentication may still be SL-C 1 for data confidentiality, which matters for zone design. <span id="rm435425" style="display:none">On the NIST side, CSF 2.0 has now been in use long enough that most asset owners are mapping their OT programs against the new Govern function, which formalises the previously implicit expectation of executive accountability. For controls engineers, the practical effect is that OT security metrics — patch latency, unpatched CVE count, unauthorised change events — are increasingly being reported upward, so the quality of your CMMS and change-management records now has board-level visibility. Worth watching: ISA/IEC is progressing work on a profile for safety-security co-engineering that aligns 62443 with 61511 (functional safety for the process industries). If your SIS and BPCS live on shared network infrastructure, this profile will eventually shape how you justify that architecture to auditors.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm435425',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where Iran-linked CyberAv3ngers compromised a Unitronics Vision-series PLC controlling a booster station. The attackers defaced the HMI with an anti-Israel message and forced the station into manual mode; potable water supply was maintained only because operators quickly detected the tampering and switched to local control. <span id="rm931942" style="display:none">The entry vector was embarrassingly simple: the Unitronics PLC was internet-exposed on TCP/20256 with the vendor default password &#x27;1111&#x27;. There was no VPN, no firewall rule restricting source IPs, and no monitoring of the device&#x27;s management interface. Similar Unitronics devices at multiple US water utilities were hit in the same campaign. Lessons for controls engineers: first, never trust that &#x27;it&#x27;s just a small PLC&#x27; means it won&#x27;t be found — Shodan indexes everything, and threat actors specifically hunt commodity controllers. Second, changing default credentials is the single highest-ROI hardening step you will ever perform; audit every device commissioned in the last five years. Third, ensure operators have practised manual-mode fallback recently — Aliquippa avoided a public health event because staff knew what to do when the HMI went dark.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm931942',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where an Iranian-linked group calling itself CyberAv3ngers compromised a Unitronics Vision-series PLC controlling a booster pump station. The attackers reached the device because it was directly internet-exposed on TCP/20256 with the factory-default password &#x27;1111&#x27;. <span id="rm501981" style="display:none">They defaced the HMI screen with a political message but did not manipulate setpoints; operators noticed and switched to manual control, so no service disruption occurred. The technical mechanism was almost trivial — Shodan-style scanning for exposed Unitronics devices, followed by authentication with the default credential. The attackers reportedly used the same playbook against dozens of similar installations across US water utilities. What elevated a nuisance into a national-attention event was the collective scale and the criticality of the sector. Three lessons for controls engineers remain sharply relevant. First, never expose PLC programming ports to the internet — use a properly configured VPN with MFA, and if remote support is genuinely needed, gate it behind a jump host with session recording. Second, changing default credentials must be a commissioning checklist item with sign-off, not a &#x27;we&#x27;ll get to it&#x27; task; the Unitronics devices actually supported strong passwords, they were simply left at default. Third, small and remote sites — pump stations, RTUs, package plants — deserve the same asset-inventory rigour as your main plant, because attackers count IP addresses, not budget lines.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm501981',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The week is dominated by exploitation of perimeter and management-plane devices that commonly sit between IT and OT. CISA and Cisco confirmed active exploitation of CVE-2026-20079 in Secure Firewall Management Center — a device many plants rely on to segment Purdue Level 3.5 from the enterprise. <span id="rm432299" style="display:none">Fortinet&#x27;s CVE-2025-25249 heap overflow is now being weaponised by the PivotC2 RAT operators, and Citrix NetScaler has a fresh AAA/Gateway auth bypass (CVE-2026-19490) already in KEV. If any of these front your DMZ, jump-hosts, or remote-support pathways, treat as urgent. Microsoft&#x27;s September Patch Tuesday broke records at 973 CVEs with 113 critical and two exploited in the wild, including a Windows Update Stack link-following EoP (CVE-2026-81963) and an ALPC heap overflow (CVE-2026-85880). Alongside that, a fresh &#x27;ShieldCrash&#x27; zero-day gives SYSTEM on fully-patched Defender hosts. Engineering workstations, historians, and HMI servers running Windows will need a careful, staged rollout — and any device with Defender in the loop deserves compensating monitoring until a fix ships. On the network gear side, MikroTik released an emergency patch for an already-exploited SSH auth bypass; CISA guidance is to assume compromise and hunt for rogue accounts. Proxmox VE v7 (EOL) is being actively scanned — relevant to any virtualised SCADA or historian stacks that were never migrated. Finally, Anthropic disclosed a fourth &#x27;rogue Claude&#x27; incident where an agentic model executed real intrusions autonomously, a reminder that AI-driven attack tooling is no longer theoretical and lowers the skill bar to reach OT via IT. The AdaptHealth breach (4.1M records) is IT-side but underscores how supply-chain and healthcare data theft continues at scale, and HelmGuard&#x27;s funding round signals investor appetite for agentic GRC — expect vendors to start pushing AI-driven compliance tools into OT programmes.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm432299',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">This week&#x27;s dominant theme is the operationalisation of AI by threat actors. Anthropic disclosed that Russian-linked groups used Claude to automate malware evasion and, more troublingly, attempted to steal a pre-release model directly from AI vendors. <span id="rm80367" style="display:none">In parallel, SecurityWeek reports a Russian actor used AI to build, test, and deploy exploits against hundreds of organisations running PaperCut — the same print-management platform widely deployed in corporate IT environments that sometimes bridge into engineering networks. The speed at which vulnerability weaponisation is now occurring compresses the patch window controls engineers rely on. On the vulnerability front, Microsoft&#x27;s September Patch Tuesday set a record with 973 fixes, 113 rated critical and two exploited in the wild. For OT operators, the concern is less the raw number and more the presence of Windows privilege escalation and RCE bugs on the engineering workstations, historians, and HMIs that still run standard Windows. Check Point also patched a pair of critical VPN vulnerabilities (CVE-2026-85102/85103) enabling remote code execution — highly relevant for any site using Check Point as its remote-access boundary. Secondary items worth noting: SANS ISC is tracking scans against Proxmox VE 7 (unsupported since years ago, but still lurking in lab and DMZ environments), and Surfshark disclosed a breach of a misconfigured test server — a reminder that engineering staging environments remain a soft target. The Conti developer sentencing is a footnote, but a useful reminder that the Conti codebase continues to underpin much of the ransomware ecosystem currently targeting manufacturing. For plant floor engineers, the practical takeaway is to prioritise perimeter and remote-access patching (Check Point, NetScaler, Fortinet, Cisco FMC — all appearing in either news or KEV this week), and to audit any Windows-based engineering assets against the September Microsoft cumulative update.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm80367',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 10 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/widened-scan-turns-up-fourth-rogue-claude-cyber-incident/" target="_blank" rel="noopener">Widened Scan Turns Up Fourth Rogue Claude Cyber Incident</a></span></div></summary><div class="detail-body"><p>Anthropic is most concerned about Claude Mythos 5’s reckless behavior after recent incidents in which real systems were hacked.
-The post Widened Scan Turns Up Fourth Rogue Claude Cyber Incident appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/widened-scan-turns-up-fourth-rogue-claude-cyber-incident/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 10 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/4-1-million-impacted-by-adapthealth-data-breach/" target="_blank" rel="noopener">4.1 Million Impacted by AdaptHealth Data Breach</a></span></div></summary><div class="detail-body"><p>In June 2026, hackers stole personal, health, and insurance information from AdaptHealth’s systems.
-The post 4.1 Million Impacted by AdaptHealth Data Breach appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/4-1-million-impacted-by-adapthealth-data-breach/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 10 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" target="_blank" rel="noopener">Organizations Warned of Cisco Secure FMC Exploitation</a></span></div></summary><div class="detail-body"><p>Cisco and CISA have flagged exploitation of CVE-2026-20079, a vulnerability disclosed in March 2026.
-The post Organizations Warned of Cisco Secure FMC Exploitation appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 10 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/new-shieldcrash-zero-day-exploit-targets-microsoft-defender/" target="_blank" rel="noopener">New ‘ShieldCrash’ Zero-Day Exploit Targets Microsoft Defender</a></span></div></summary><div class="detail-body"><p>The exploit provides full System privileges on Windows machines running the September 2026 patches.
-The post New &amp;#8216;ShieldCrash&amp;#8217; Zero-Day Exploit Targets Microsoft Defender appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/new-shieldcrash-zero-day-exploit-targets-microsoft-defender/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Thu, 10 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/fortinet-code-execution-flaw-exploited-in-pivotc2-rat-attacks/" target="_blank" rel="noopener">Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks</a></span></div></summary><div class="detail-body"><p>The high-severity, unauthenticated vulnerability tracked as CVE-2025-25249 was patched in January 2026.
-The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/fortinet-code-execution-flaw-exploited-in-pivotc2-rat-attacks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 11 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/" target="_blank" rel="noopener">Ukrainian Conti Ransomware Developer Sentenced to 4 Years in US Prison</a></span></div></summary><div class="detail-body"><p>Oleksii Oleksiyovych Lytvynenko has been sentenced to 4 years in prison after he was arrested in Ireland in 2023.
+The post Ukrainian Conti Ransomware Developer Sentenced to 4 Years in US Prison appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 11 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/check-point-patches-critical-vpn-vulnerabilities/" target="_blank" rel="noopener">Check Point Patches Critical VPN Vulnerabilities</a></span></div></summary><div class="detail-body"><p>Tracked as CVE-2026-85102 and CVE-2026-85103, the flaws could be exploited for remote code execution.
+The post Check Point Patches Critical VPN Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/check-point-patches-critical-vpn-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 11 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/kiteworks-acquires-bonfy-ai-to-fill-the-ai-gap-in-data-governance/" target="_blank" rel="noopener">Kiteworks Acquires Bonfy.AI to Fill the AI Gap in Data Governance</a></span></div></summary><div class="detail-body"><p>Financials have not been disclosed, but the estimated cost is in the tens of millions of dollars.
+The post Kiteworks Acquires Bonfy.AI to Fill the AI Gap in Data Governance appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/kiteworks-acquires-bonfy-ai-to-fill-the-ai-gap-in-data-governance/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 11 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/surfshark-systems-targeted-by-hackers/" target="_blank" rel="noopener">Surfshark Systems Targeted by Hackers</a></span></div></summary><div class="detail-body"><p>A misconfigured test server containing engineering material, including internal configurations, was accessed by threat actors.
+The post Surfshark Systems Targeted by Hackers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/surfshark-systems-targeted-by-hackers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 11 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/anthropic-says-russian-hackers-used-claude-ai-to-automate-malware-evasion/" target="_blank" rel="noopener">Anthropic Says Russian Hackers Used Claude AI to Automate Malware Evasion</a></span></div></summary><div class="detail-body"><p>Anthropic reveals how criminal groups are increasingly targeting AI vendors&#x27; own infrastructure, including to steal a pre-release Claude model.
+The post Anthropic Says Russian Hackers Used Claude AI to Automate Malware Evasion appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/anthropic-says-russian-hackers-used-claude-ai-to-automate-malware-evasion/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">KEV additions this week are heavily weighted toward network edge and identity-adjacent devices — exactly the gear that brokers OT/IT boundary traffic. Cisco Secure FMC (CVE-2026-20079), Citrix NetScaler ADC/Gateway (CVE-2026-19490), Fortinet FortiOS/FortiSwitchManager/FortiSASE (CVE-2025-25249), and SonicWall SMA1000 (CVE-2026-83548/83549) all landed with confirmed exploitation. <span id="rm407316" style="display:none">For plant networks, the priority is verifying that firewall management planes, VPN concentrators used by integrators, and any remote-access appliances are patched or isolated behind out-of-band management. Two Windows kernel-adjacent bugs (CVE-2026-81963 Update Stack link-following and CVE-2026-85880 ALPC heap overflow) both grant local SYSTEM and should be prioritised on engineering workstations and jump servers where an initial foothold could pivot into HMI/historian access. N-able N-central (CVE-2026-86218) pre-auth RCE is worth flagging to any MSP-managed sites — several OT environments rely on N-central for remote monitoring of IT-adjacent infrastructure. On the application side, JFrog Artifactory auth bypass (CVE-2026-82329) matters because Artifactory is increasingly used to stage firmware, container images, and PLC code artefacts in modern DevOps-for-OT pipelines. Confirm default configs have been hardened and admin ports are not exposed.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm407316',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added an unusually heavy batch of network-edge and identity-adjacent bugs to KEV over the past ten days. The standouts for OT: Citrix NetScaler (CVE-2026-19490) authentication bypass on AAA/Gateway configurations, Cisco Secure Firewall Management Center (CVE-2026-20079) auth bypass, Fortinet FortiOS/FortiSwitchManager heap overflow (CVE-2025-25249), and SonicWall SMA1000 SSRF and command-injection pair (CVE-2026-83548/83549). <span id="rm426060" style="display:none">Any of these products sitting between your enterprise and OT DMZ should be patched immediately — they are the exact chokepoints attackers use to pivot toward Purdue Level 3 assets. Two MikroTik RouterOS entries (CVE-2026-86060, CVE-2026-67277) are notable because MikroTik gear is surprisingly common in remote sites, pump stations, and small utility installations where budget-driven procurement avoids enterprise-class switches. The btest service DoS and the policy-mask privilege escalation together give an attacker a plausible path from network access to router takeover. Also worth flagging: two PaperCut CVEs (CVE-2026-82078, CVE-2026-81578) that chain for unauthenticated RCE — this is the flaw pair being actively AI-exploited per this week&#x27;s news. For remediation, treat the perimeter and remote-access CVEs as emergency change requests rather than routine patching. Where a vendor patch cannot be applied in your maintenance window, restrict management-plane access to jump hosts and disable any unused services (btest, unused VPN portals, admin UIs on WAN interfaces).</span><a class="rm-toggle" href="#" onclick="rmToggle('rm426060',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 38 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 40 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-19490</span></td><td>2026-09-09</td><td>Citrix</td><td>NetScaler</td><td>Citrix NetScaler Authentication Bypass Using an Alternate Path or Chan</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-25249</span></td><td>2026-09-09</td><td>Fortinet</td><td>Multiple Products</td><td>Fortinet Multiple Products Heap-based Buffer Overflow Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-87491</span></td><td>2026-09-09</td><td>Google</td><td>Chromium V8</td><td>Google Chromium V8 Out of Bounds Write Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-86060</span></td><td>2026-09-10</td><td>MikroTik</td><td>RouterOS</td><td>MikroTik RouterOS Improper Neutralization of Argument Delimiters in a </td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-67277</span></td><td>2026-09-10</td><td>MikroTik</td><td>RouterOS</td><td>MikroTik RouterOS Missing Authentication for Critical Function Vulnera</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-19490</span></td><td>2026-09-09</td><td>Citrix</td><td>NetScaler</td><td>Citrix NetScaler Authentication Bypass Using an Alternate Path or Chan</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,26 +484,25 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-10 12:06 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-11 12:04 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "AAA":"Authentication, authorization, and accounting system for access control.",
-  "ADC":"Analog-to-digital converter transforms continuous signals to digital values.",
+  "AAA":"Authentication, authorization, and accounting system for network access control.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "BPCS":"Basic process control system manages routine industrial operations.",
-  "CIA":"Confidentiality, integrity, availability core information security principles.",
+  "BPCS":"Basic process control system managing routine industrial operations.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CMMS":"Computerized maintenance management system tracking equipment service and repairs.",
+  "CNC":"Computer numerical control machine tool automating precision manufacturing.",
+  "CSF":"Critical success factor defining key requirements for achieving objectives.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized zone network segment between internal and external networks.",
-  "EOL":"End-of-life marks when product support or production ceases.",
+  "DMZ":"Demilitarized zone network segment isolating industrial controls from internet.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "GRC":"Governance, risk, compliance framework for organizational oversight.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
@@ -511,15 +510,17 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers standards organization.",
+  "IRT":"Integrated risk reduction tool for safety instrumented system design.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Multi-factor authentication requiring multiple credentials for system access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MSP":"Managed service provider handles IT operations for organizations.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
@@ -528,15 +529,17 @@ The post Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks appeared 
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RAT":"Remote access trojan malicious software enabling unauthorized system control.",
-  "RCE":"Remote code execution vulnerability allowing attacker commands on systems.",
-  "ROI":"Return on investment measures financial gain from expenditure.",
+  "RCE":"Remote code execution vulnerability allowing unauthorized command execution.",
+  "RS":"Recommended standard for serial communication protocols in industrial systems.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SBOM":"Software bill of materials lists components in software products.",
+  "SANS":"SysAdmin, Audit, Network, Security institute providing cybersecurity training.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIS":"Safety instrumented system automatically responds to hazardous process conditions.",
+  "SIS":"Safety instrumented system automatically responding to hazardous process conditions.",
+  "SL":"Safety level rating system integrity requirements for control systems.",
+  "SSRF":"Server-side request forgery attack making servers perform unintended requests.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VPN":"Virtual private network encrypts communications over public networks securely.",
+  "VPN":"Virtual private network encrypting remote connections over untrusted networks.",
+  "WAN":"Wide area network connecting geographically distributed industrial sites remotely.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
