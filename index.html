@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-09-12 11:31 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-09-13 12:35 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy KEV activity across edge/perimeter gear (Citrix, Fortinet, MikroTik, Cisco FMC) plus a Chrome+Windows zero-day exploit chain raise OT pivot risk.</span>
+  <span>Chained Chrome/Windows zero-days in BlueMoon kit, plus a surge of KEV additions hitting perimeter gear commonly bordering OT networks.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-09-12 11:31 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-09-13 12:35 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-09-12 11:31 UTC</span>
+      <span class="briefing-date">2026-09-13 12:35 UTC</span>
     </div>
-    <div class="briefing-body"><p>The single most important item today is the cluster of perimeter-appliance KEVs added this week — Citrix NetScaler, Cisco FMC, Fortinet, and MikroTik all have authentication-bypass or unauthenticated RCE flaws with active or imminent exploitation. If any of these sit on your IT/OT boundary or at remote sites, treat patching as an emergency change over the weekend, not a scheduled Monday task. Secondary priority: audit ConnectWise ScreenConnect and N-able N-central usage by your integrators and OEMs, because both have pre-auth or session-hijack KEVs that turn your trusted remote-support channel into an attacker&#x27;s front door.</p></div>
+    <div class="briefing-body"><p>Perimeter gear is the story this weekend: NetScaler, Cisco FMC, Fortinet, ConnectWise ScreenConnect, and GitLab all landed on CISA KEV in the past week, and every one of them commonly sits between your corporate network and your OT DMZ or is used by your integrators for remote support. Treat this as an unplanned patch window for anything internet-facing that touches Level 3.5, and specifically confirm with your system integrators which ScreenConnect build they are running before Monday. If patching cannot happen immediately, disable external access and require jump-host mediation for any remote engineering session until it can.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The original PID controller predates electronics entirely — Elmer Sperry&#x27;s ship-steering gyrocompass autopilot from 1911 implemented proportional, integral, and derivative action mechanically using gears, springs, and dashpots. Nicholas Minorsky then formalised the mathematics in 1922 by watching helmsmen steer the USS New Mexico, noting that skilled operators anticipated ship response — which he modelled as the derivative term. Every modern loop tuning traces back to sailors, not engineers.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The 4–20 mA current loop that still dominates process instrumentation was standardised in the 1950s specifically because current, unlike voltage, is not attenuated by wire resistance over long runs. The &#x27;4 mA&#x27; live-zero was chosen so that a broken wire reads 0 mA and is instantly distinguishable from a legitimate low-scale reading — a form of intrinsic fault detection baked into the physics of the signal, decades before anyone used the term &#x27;safety instrumented system&#x27;.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The Watt centrifugal governor from 1788 — the spinning-ball flyweight device that regulated steam engine speed — was the first widely deployed feedback controller, but for nearly 80 years nobody could explain why some installations hunted uncontrollably while others were stable. James Clerk Maxwell finally solved it in his 1868 paper &#x27;On Governors,&#x27; which is arguably the founding document of control theory and introduced the idea of analysing system stability via the roots of a characteristic equation. So the mathematical framework you use to tune a modern cascade loop was invented to stop Victorian factories from shaking themselves apart.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller predates electronics entirely — Elmer Sperry&#x27;s gyroscopic ship autopilots in the 1910s implemented proportional, integral, and derivative action mechanically using flyweights, springs, and hydraulic amplifiers. Nicholas Minorsky formalised the mathematics in 1922 by watching helmsmen steer the USS New Mexico and realising they were unconsciously adding a derivative term to anticipate the ship&#x27;s swing. The tuning heuristics Ziegler and Nichols published in 1942 were derived from pneumatic controllers, and remain in use today on digital systems that execute the same algorithm a billion times faster — the maths never changed, only the substrate.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on Model Context Protocol (MCP) servers in industrial environments. MCP, originally an Anthropic specification, is rapidly becoming the standard way to let LLMs query enterprise systems — including historians, CMMS platforms, and increasingly SCADA data layers. <span id="rm670108" style="display:none">Vendors like AVEVA and Cognite are shipping MCP-compatible connectors so that an operator can ask a chatbot &#x27;why did Reactor 3 trip at 02:14?&#x27; and get a synthesised answer drawn from process data, alarms, and maintenance records. The practical appeal is huge: MCP flattens the integration effort that used to require custom OPC-UA clients or REST wrappers. But the CISA KEV list this week includes CVE-2026-59822 (LiteLLM MCP endpoint authentication bypass), which is a warning shot. MCP servers frequently run with broad read access to underlying systems, and early implementations are treating Bearer tokens loosely. If your plant is piloting an AI copilot, insist on network-level segmentation between the MCP server and the process historian, mutual TLS, and per-tag authorisation — not just an API key. Adoption challenges also include prompt-injection risk from tag descriptions and alarm text an attacker might control, and the auditability nightmare of proving what an LLM actually read versus what it summarised.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm670108',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Ethernet-APL (Advanced Physical Layer) is quietly reaching the point where controls engineers need to have a plan for it. It brings 10 Mbit/s Ethernet plus power over a single twisted pair, over distances up to 1,000 m, and — critically — with intrinsic-safety ratings for Zone 0/Division 1 hazardous areas. <span id="rm272989" style="display:none">The point is to run PROFINET, EtherNet/IP, or OPC UA all the way to the field transmitter, replacing HART-over-4-20mA without giving up hazardous-area certification. The practical implication is a shift in how loop diagrams and I/O counts are drawn. Instead of a marshalling cabinet fanning out 4-20 mA loops to a DCS card, you get field switches (APL power switches and field switches) delivering both power and Ethernet to the instrument. Every transmitter becomes an IP endpoint with an FDI package, delivering all diagnostic parameters — not just the primary variable — to asset management and, increasingly, to a cloud-connected historian. Adoption challenges are real. The device ecosystem is still maturing, and most greenfield projects are picking APL for a handful of critical loops rather than the whole plant. There is also a cybersecurity conversation nobody has fully resolved: every field transmitter becoming a routable Ethernet host massively expands the L2 attack surface, and switch-level segmentation and 802.1X on APL ports is only now being seriously discussed by end users.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm272989',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the most frequently misapplied part of the family. In practice, engineers often skip the zone-and-conduit exercise and jump straight to control selection from 62443-3-3, which leads to over- or under-securing specific assets. <span id="rm659303" style="display:none">The standard is explicit that zones should be defined by common security requirements, not by physical location or vendor — a distinction that matters when, say, a safety PLC and a basic process control PLC share a cabinet but need different SL-T targets. Worth noting: ISA/IEC 62443-2-1:2024 (security programme requirements for asset owners) has now been in force long enough that certification bodies are starting to expect evidence of the patch-management, backup, and incident-response processes it mandates. If you&#x27;re preparing for a customer audit or a cyber insurance renewal in Q4, the gap most sites still have is documented evidence of periodic review — the processes exist, but nobody signs off on them quarterly. Fixing that is a low-effort, high-value weekend project. NIST is also finalising updates to SP 800-82 Rev 3 addenda covering AI/ML in OT, expected to clarify expectations around model provenance and inference-time monitoring for systems that influence control decisions. Worth watching if you&#x27;re piloting anomaly-detection tools on your process network.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm659303',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the piece most engineers underuse. Its zone-and-conduit methodology is what auditors increasingly expect to see documented before they will accept any other 62443-3-3 SL claims. <span id="rm16919" style="display:none">If your site has a network diagram but no formal zone/conduit document with target security levels per zone, that is now the single highest-leverage piece of paperwork you can produce, and it does not require any new technology purchases. ISA has also been advancing work on ISA/IEC 62443-4-2 conformance schemes through ISASecure, and more component vendors — including several major PLC and RTU suppliers — are shipping product with certified security levels marked in the datasheet. Worth checking on your next spare-parts order: for equivalent hardware, a CSA-certified variant is usually available and gives you a defensible security baseline without extra engineering. On the NIST side, the Cybersecurity Framework 2.0 &#x27;Govern&#x27; function is starting to appear in insurance questionnaires and customer audits. For OT, this mainly means having named ownership of OT cyber risk (not just IT), and a documented process by which OT-specific risks feed into enterprise risk registers. Many plants still fail this because their OT is invisible to the CISO&#x27;s GRC tooling.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm16919',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s retrospective is the 2021 Oldsmar, Florida water treatment intrusion — still one of the clearest teaching cases for controls engineers. An attacker gained access to the plant&#x27;s HMI via TeamViewer, which was installed on operator workstations for remote support, and briefly increased the sodium hydroxide (lye) setpoint from 100 ppm to 11,100 ppm. <span id="rm864061" style="display:none">An alert operator saw the mouse cursor move and reverted the change within minutes; downstream pH monitoring would likely have caught it regardless before finished water reached consumers. What made it possible: shared TeamViewer credentials across staff, Windows 7 endpoints, no MFA, and direct internet reachability. What made it survivable: a human in the loop who noticed anomalous behaviour, and independent instrumentation (pH analysers) that would have alarmed on the resulting excursion. Three lessons that still apply five years later: first, remote access tools installed &#x27;temporarily&#x27; for a vendor almost never get removed — inventory them this quarter. Second, engineered safeguards (independent analysers, mechanical relief, high-high interlocks) are your last line of defence and should be designed assuming the HMI setpoint is hostile. Third, operator situational awareness is a security control; if your HMI doesn&#x27;t clearly show &#x27;someone else is connected&#x27; or highlight setpoint changes, that&#x27;s a design gap worth raising.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm864061',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where the CyberAv3ngers group compromised a Unitronics Vision-series PLC controlling a booster pump station. The attackers exploited internet-exposed PLCs still using the default password &#x27;1111&#x27; on TCP port 20256, defaced the HMI with an anti-Israel political message, and forced the utility to switch to manual operation. <span id="rm299773" style="display:none">No water quality impact occurred, but the incident triggered a joint CISA/FBI/NSA/EPA advisory and Congressional hearings. The root cause was mundane: a Unitronics PLC placed directly on the public internet with vendor-default credentials, no VPN, and no ACL. The attackers were not sophisticated — they were running a scan-and-exploit campaign against a specific vendor&#x27;s install base because Unitronics is Israeli-manufactured. The victim was chosen for symbolism, not for any specific value. Three lessons remain sharp for controls engineers. First, &#x27;no one would target us&#x27; is not a threat model — geopolitical opportunism means any device attributable to a country of interest is a target. Second, small water and wastewater utilities are chronically under-resourced and any integrator working in that sector should consider default-hardening (change default credentials, disable remote programming, put a firewall in front) as part of standard commissioning. Third, HMI defacement is a leading indicator — if attackers can write to the HMI, they can write to setpoints, and next time they may not announce themselves.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm299773',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">This week&#x27;s headlines are dominated by perimeter and browser exploitation. The BlueMoon exploit kit is chaining recent Chrome and Windows zero-days in espionage-motivated campaigns, and multiple actors are rushing deployments — a familiar pattern that eventually washes into OT engineering workstations that still browse the web or run outdated Edge/Chromium components in HMIs. <span id="rm895063" style="display:none">Combined with the GitLab path-traversal flaw being exploited within a day of disclosure, patch windows are shrinking dramatically for IT-adjacent systems that touch OT source control and CI/CD pipelines producing PLC code. On the AI front, Anthropic disclosed that users in Houthi-held Yemen attempted to use Claude to develop advanced weapons, including a failed guided-rocket test. Separately, SANS ISC reported an attacker using a semi-autonomous coding agent to harvest and re-sell LLM API access by exploiting poorly secured resale gateways. For controls engineers, the takeaway is that AI-assisted attack tooling is maturing rapidly, and any exposed AI/MCP endpoints in the enterprise (increasingly used to summarise alarms or query historians) will be probed. The Trezor/Brevo incident — 347,000 phishing emails sent via a compromised marketing platform — reinforces that supply-chain compromise of SaaS vendors remains the path of least resistance. Plant floor teams often overlook the marketing, CRM, and notification services that their SCADA vendors integrate with for licence renewals, firmware notifications, and support tickets. Finally, SANS noted active scanning for Proxmox VE 7 servers following a recent advisory. Proxmox is quietly popular as a lightweight hypervisor for engineering VMs, historian test benches, and even production HMI virtualisation at smaller sites. If you&#x27;re still on v7, you&#x27;re now in scope for opportunistic scanning.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm895063',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The week&#x27;s dominant story is the BlueMoon exploit kit, which chains recently disclosed Chrome and Windows zero-days and is being deployed hastily by multiple espionage-motivated actors. For controls engineers, the risk vector is the engineering workstation and jump host: an operator browsing vendor documentation or checking a webmail account from a DMZ workstation is exactly the target profile BlueMoon thrives on. <span id="rm268386" style="display:none">Assume any Windows engineering host without this month&#x27;s patches is exposed, and audit whether Chromium-based HMIs or thin clients are pulling updates. GitLab&#x27;s critical path traversal flaw (CVE-2026-85706) was weaponised within a day of disclosure. Many automation shops now use self-hosted GitLab for PLC code, recipe management, and CI/CD to edge devices — an unauthenticated arbitrary file read on that server is effectively a source-code and secrets leak of your controls IP. Patch on-prem instances immediately and rotate any runner tokens or deployment keys stored on disk. SANS ISC continues to flag opportunistic scanning for older Proxmox VE 7 hosts, which are common in small OT virtualisation stacks running historian, OPC, or SCADA VMs. Version 7 has been out of support for years; if you still have it under a control cabinet, treat it as end-of-life and plan replacement, not patching. Separately, the ISC diary on AI agents autonomously harvesting LLM API keys is a preview of what automated recon against exposed OT assets will look like within the next year. On the supply-chain front, the Trezor/Brevo phishing incident (347,000 users emailed via a compromised marketing platform) reinforces that trusted third-party senders remain the most reliable way past mail filtering — worth a reminder to procurement and maintenance staff who receive vendor bulletins.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm268386',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -448,7 +448,7 @@ The post In Other News: InjectEave Attack, SIM Swapper Sentenced, Glasswing Find
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added an unusually large batch of high-impact KEVs relevant to OT perimeter and remote-access infrastructure. Citrix NetScaler (CVE-2026-19490) and Cisco Secure Firewall Management Center (CVE-2026-20079) both have authentication-bypass flaws in appliances that commonly sit between IT and OT DMZs. <span id="rm770123" style="display:none">Fortinet FortiOS/FortiSwitchManager/FortiSASE (CVE-2025-25249) has a heap overflow enabling unauthenticated RCE via crafted packets — patch immediately if these are your IT/OT boundary devices. Two MikroTik RouterOS flaws (CVE-2026-86060, CVE-2026-67277) matter for the many small remote sites and skid-mounted systems that use MikroTik as a cheap cellular/VPN edge. On the remote-access side, ConnectWise ScreenConnect (CVE-2026-84869) allows file transfer and execution during active sessions without host confirmation — directly relevant to any integrator or OEM using ScreenConnect for remote support into your plant. N-able N-central (CVE-2026-86218) has pre-auth RCE, another common MSP tool. JFrog Artifactory has three separate KEVs this cycle affecting authentication and privilege boundaries; if your PLC firmware, HMI images, or Docker containers for edge gateways flow through Artifactory, treat this as a supply-chain-integrity issue and audit repository access logs. Practical action this weekend: inventory every ScreenConnect, N-central, NetScaler, FortiGate, Cisco FMC, and MikroTik device that touches OT, confirm patch status, and rotate credentials on anything that couldn&#x27;t be patched within the disclosure window. The Windows LPC and Update Stack privilege-escalation KEVs (CVE-2026-85880, CVE-2026-81963) should also be prioritised on engineering workstations.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm770123',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions this week are heavily weighted toward perimeter and identity infrastructure that typically sits directly north of the OT DMZ. Citrix NetScaler (CVE-2026-19490) and Cisco Secure FMC (CVE-2026-20079) both carry unauthenticated authentication-bypass flaws, and Fortinet FortiOS/FortiSwitchManager/FortiSASE (CVE-2025-25249) has a heap overflow allowing unauthenticated RCE. <span id="rm523086" style="display:none">If any of these devices terminate remote-engineer VPNs or segment your Purdue Level 3.5, treat this as an emergency patch cycle — historically, NetScaler and Fortinet flaws have been the initial access vector for ransomware crews pivoting into OT. ConnectWise ScreenConnect (CVE-2026-84869) is particularly relevant: it is widely used by system integrators and OEM support organisations for remote assistance into HMIs and engineering stations. The flaw allows unauthorised file transfer and execution over an active session without host confirmation, meaning a compromised integrator could push payloads into your environment silently. Confirm with your integrators which version they run and require MFA plus session-approval controls. Rounding out the list, MikroTik RouterOS gets two additions (privilege escalation and unauthenticated kernel memory disclosure via btest) — MikroTik gear frequently appears in remote pump stations, wind farms, and water sites. JFrog Artifactory has three separate KEV entries this cycle, worth noting for anyone using it to host firmware or container images for edge devices.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm523086',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -484,23 +484,27 @@ The post In Other News: InjectEave Attack, SIM Swapper Sentenced, Glasswing Find
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-12 11:31 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-13 12:35 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "ACL":"List of permissions controlling which users/systems can access specific resources.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "API":"Software interface allowing different applications to communicate and exchange data.",
-  "AVEVA":"Software company providing industrial control and engineering solutions.",
-  "CI":"Continuous Integration; automatically building and testing code changes frequently.",
+  "API":"Interface allowing different software applications to communicate and exchange data.",
+  "CD":"Practice of automatically deploying code changes to production environments.",
+  "CI":"Practice of automatically integrating and testing code changes frequently.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CMMS":"Computerized system for managing maintenance tasks and equipment records.",
+  "CISO":"Executive responsible for organization's information security strategy and governance.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
+  "DMZ":"Network buffer zone between internal network and untrusted external networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
+  "FDI":"Attack where attacker injects false data into industrial control system sensors.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
+  "GRC":"Framework managing governance, risk assessment, and regulatory compliance.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
@@ -512,15 +516,14 @@ The post In Other News: InjectEave Attack, SIM Swapper Sentenced, Glasswing Find
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "LPC":"Low Pressure Cutoff; safety device shutting down systems at dangerously low pressures.",
-  "MCP":"Master Control Program; primary controller managing industrial automation system operations.",
+  "L2":"Data link layer of network communication stack.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for access.",
+  "MFA":"Security requiring multiple verification methods to confirm user identity.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OEM":"Original Equipment Manufacturer; company that produces equipment under its own brand.",
+  "OEM":"Original manufacturer of equipment or components.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
@@ -528,15 +531,13 @@ The post In Other News: InjectEave Attack, SIM Swapper Sentenced, Glasswing Find
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote Code Execution; vulnerability allowing attackers to run code on target systems.",
-  "REST":"Representational State Transfer; web API design using standard HTTP methods.",
+  "RCE":"Vulnerability allowing attacker to execute arbitrary code on remote system.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SANS":"Cybersecurity training and research institute.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SP":"Setpoint; target value for a control system to maintain or achieve.",
-  "TLS":"Transport Layer Security; encryption protocol protecting data transmitted over networks.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "UA":"Unified Architecture; OPC standard for secure industrial data communication.",
-  "VPN":"Virtual Private Network; encrypted connection providing secure remote access to systems.",
+  "UA":"Technique to identify and document all systems and software in use.",
+  "VPN":"Encrypted network tunnel allowing secure remote access over public networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
