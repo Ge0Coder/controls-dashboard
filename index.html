@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-09-21 13:42 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-09-22 12:25 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -283,9 +283,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 </head>
 <body>
 
-<div class="heat-strip red">
-  <span class="heat-label">&#9888; RED</span>
-  <span>Confirmed OT-impacting cyberattacks on Colorado water utilities; attackers altered pumping cycles and disabled alarms.</span>
+<div class="heat-strip amber">
+  <span class="heat-label">&#9888; AMBER</span>
+  <span>Active exploitation of Zyxel switches by Chinese APT and a growing pile of network/edge KEVs raise the OT perimeter risk.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-09-21 13:42 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-09-22 12:25 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">42</div>
+      <div class="stat-val amber">43</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-09-21 13:42 UTC</span>
+      <span class="briefing-date">2026-09-22 12:25 UTC</span>
     </div>
-    <div class="briefing-body"><p>Colorado water utilities have been hit with confirmed OT-layer attacks in which adversaries altered pumping cycles and, critically, disabled alarms and remote access to slow detection — this is the scenario your risk register has been describing in the abstract, now happening in North America. On top of that, CISA added three actively exploited Linux kernel CVEs on Thursday that affect the historians, edge gateways, and Linux-based appliances scattered across most modern plants. Today&#x27;s priority: verify that alarm status and remote-access availability are monitored from outside the HMI itself, and inventory your internet-exposed OT assets — because &quot;we&#x27;re behind a VPN&quot; is no longer a defence when the VPN appliance itself is on this week&#x27;s KEV list.</p></div>
+    <div class="briefing-body"><p>Patch or isolate Zyxel GS1900 switches today — CVE-2026-7273 is being actively exploited by a Chinese APT with roughly 1,000 devices already compromised, and these switches sit in far more remote OT sites than most inventories admit. Pair that with fresh KEV entries against Cisco ISE, Citrix NetScaler, Fortinet, and MikroTik and the message is unambiguous: the IT/OT boundary devices are under sustained assault this month. Pull your edge-device inventory, cross-check it against the last 30 days of KEV, and get change windows on the calendar. If a device can&#x27;t be patched this week, put a compensating ACL or an out-of-band block on its management interface now.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The AF_ALG kernel interface exploited in CVE-2025-39964 was originally added to Linux to give userspace programs access to the kernel&#x27;s cryptographic accelerators — the same accelerators many industrial edge gateways use to offload TLS for OPC UA and MQTT. So a vulnerability created by a performance optimisation for encrypted OT protocols has now become a foothold into the very devices meant to secure them.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Zyxel GS1900 series being actively exploited today first shipped in 2015 and is officially end-of-sale, yet it is still one of the most common unmanaged-to-lightly-managed switches found in small water utilities and food-and-beverage plants. A single unpatched $200 switch is now demonstrably enough to give a nation-state actor a persistent foothold — a reminder that in OT, the cheapest piece of network gear often has the longest attack lifetime.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalised not in a research lab but on a US Navy destroyer. Nicolas Minorsky worked out the mathematics of proportional-integral-derivative control in 1922 while studying how helmsmen actually steered the USS New Mexico — he noticed that experienced helmsmen naturally applied more rudder when the ship was turning away from course quickly (derivative action) and held sustained rudder against a persistent bias (integral action). Nearly every process loop running in your plant today is essentially a mathematical description of a good sailor&#x27;s instincts.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller most of you tuned this morning traces its mathematical form back to Nicolas Minorsky&#x27;s 1922 analysis of automatic ship steering for the US Navy — he derived the three-term controller by watching helmsmen and noticing they applied not just proportional rudder to heading error, but also anticipated the ship&#x27;s rate of turn and remembered persistent offsets. What we now teach as &#x27;derivative action&#x27; was originally a formalisation of an experienced sailor&#x27;s intuition. A century later, the algorithm still runs on nearly every loop in your plant, largely unchanged in structure — arguably the most successful piece of control code ever written.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Time-Sensitive Networking (TSN) over standard Ethernet continues to mature as the physical foundation for deterministic OT communication, and 2026 has seen the first meaningful deployments of OPC UA FX (Field eXchange) running on TSN in production automotive and semiconductor fabs. The promise is significant: a single Ethernet infrastructure carrying motion control traffic with sub-microsecond jitter alongside conventional SCADA polling, engineering downloads, and even video — no more parallel Profinet, EtherCAT, and Ethernet/IP fabrics. <span id="rm996588" style="display:none">What makes OPC UA FX over TSN interesting for controls engineers is that it standardises the controller-to-controller (C2C) data model, meaning a Siemens PLC and a Rockwell PLC could in principle exchange safety-adjacent process data using the same information model without a gateway. The IEEE 802.1Qbv time-aware shaper handles the scheduling, and PTP (IEEE 1588) keeps everyone&#x27;s clocks aligned. Adoption challenges remain real. TSN-capable switches are still 2-3x the cost of standard managed switches, and every device on a TSN domain — including your legacy HMI — either needs to be TSN-aware or carefully isolated. Configuration tooling is fragmented across vendors, and troubleshooting a scheduled network with Wireshark is a very different skill from debugging conventional Ethernet. Most integrators recommend TSN pilots on new greenfield cells rather than brownfield retrofits until the tooling matures further.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm996588',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow but steady move from marketing slide to production floor. The premise is compelling: replace the fieldbus zoo (Profinet IRT, EtherCAT, Sercos, Ethernet/IP CIP Motion) with a single standards-based, deterministic Ethernet stack where OPC UA PubSub carries both cyclic control data and configuration/diagnostics over the same wire. <span id="rm200439" style="display:none">IEEE 802.1Qbv gate scheduling gives you sub-millisecond, bounded latency for motion control while best-effort traffic (HMI polling, historian, video) shares the infrastructure. The practical challenge in 2026 is still tooling and interoperability. Multi-vendor TSN networks require synchronised configuration of gate schedules across every switch and endpoint — and centralised configuration (CNC/CUC per IEEE 802.1Qcc) is only just becoming plug-and-play. Silicon is now widely available (TI, NXP, Analog Devices, Hilscher netX 90) and most major PLC vendors have shipping products, but engineers report that mixing brands still involves painful debugging with a TSN-capable network analyser. For greenfield high-speed packaging or semiconductor tools it is worth serious evaluation; for a brownfield conveyor line, Profinet or EtherNet/IP will remain the pragmatic choice for another few years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm200439',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the most-cited standard in RFQs from asset owners this year, and the ISA Global Cybersecurity Alliance recently published updated guidance mapping 62443 zones and conduits to the MITRE ATT&amp;CK for ICS matrix. This is a genuinely useful cross-reference because it lets you translate abstract zone-boundary requirements into concrete adversary techniques your architecture must resist — for example, showing which ATT&amp;CK techniques a properly instrumented conduit between the DMZ and Level 2 should detect or prevent. <span id="rm901153" style="display:none">On the NIST side, the second public draft of NIST SP 800-82 Rev. 3 remains the reference document for OT security in US federal contexts, and its alignment with the NIST Cybersecurity Framework 2.0 &quot;Govern&quot; function is increasingly showing up in insurance questionnaires. If your organisation is being asked about OT cybersecurity governance for the first time by underwriters or auditors, 800-82r3 Appendix G is a practical checklist worth reviewing. Worth watching: the ongoing work on IEC 62443-4-2 profiles for specific device classes (PLCs, HMIs, network devices). The device-class profiles clarify which of the seven Foundational Requirements actually apply to, say, a safety PLC versus a general-purpose PLC — which historically has been left to individual vendor interpretation and made component-level certification difficult to compare across suppliers.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm901153',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most often cited in RFQs this year, and the recent uptick in KEV entries against edge network devices is a good excuse to revisit your zone-and-conduit diagrams. The standard&#x27;s requirement to document every conduit crossing a zone boundary — including its protocol, authentication mechanism, and target security level — is exactly the exercise that would surface an unpatched Zyxel or MikroTik hidden behind a vendor cabinet. <span id="rm214728" style="display:none">Also worth watching: ISA/IEC 62443-4-2 SL-C certifications continue to accumulate for major PLC and DCS platforms, and procurement teams are increasingly writing &#x27;SL 2 minimum, SL 3 preferred&#x27; into specs. If you are speccing new equipment this quarter, ask vendors specifically which components carry the certification versus which are &#x27;compliant by assessment&#x27; — the two are not equivalent. On the NIST side, the SP 800-82 Rev 3 guidance on OT security remains the most accessible free reference for engineers who need to justify OT-specific controls to IT-centric management, particularly its explicit acknowledgement that availability and safety often outrank confidentiality in ICS.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm214728',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the confirmed intrusion into multiple Colorado water utilities&#x27; OT systems, disclosed 19 September. According to officials, attackers gained access to the operational technology environment, changed equipment settings, disabled remote access channels and alarms, and altered pumping cycles. <span id="rm393812" style="display:none">No public disclosure yet on initial access vector, but the pattern — direct HMI/SCADA manipulation and alarm suppression — is consistent with the CyberAv3ngers and similar hacktivist-adjacent groups that have hit US water utilities repeatedly since 2023, often via internet-exposed Unitronics or similar controllers with default credentials. What makes this incident significant is the deliberate suppression of alarms and remote access. That is not opportunistic — it indicates the attackers understood the operator workflow well enough to know what would cause a callout, and took steps to delay detection. Altered pumping cycles, if sustained, could cause pressure transients, tank overflows, or chemical dosing errors depending on the specific plant. Lessons for controls engineers: first, alarms and remote-access status should be monitored from outside the HMI itself — a separate data diode feed to a monitoring server, or SNMP traps to an independent NMS, so that silencing the HMI does not silence you. Second, any internet-exposed controller (VPN or not) should be treated as compromised until proven otherwise; if you cannot articulate exactly why a PLC needs an inbound path from the internet, remove it. Third, review your process for detecting setpoint or recipe changes — audit trails on the historian should flag out-of-band changes to key parameters within minutes, not at the next shift handover.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm393812',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s featured incident is the 2024 American Water Works cyberattack, which remains highly instructive as the Zyxel campaign unfolds. The largest regulated water and wastewater utility in the US was forced to disconnect its customer portal and billing systems and file an 8-K disclosure after detecting unauthorised activity in its IT environment. <span id="rm876288" style="display:none">Crucially, the company reported that water and wastewater operations were not impacted — but only because operators proactively segmented and isolated OT systems as a precaution while the intrusion was investigated. Investigators later attributed the initial access to compromised remote-access infrastructure typical of the IT/OT boundary — the same class of edge appliances filling up the KEV list this month. The lesson is that the defenders&#x27; win was not preventing the intrusion (they didn&#x27;t) but having a rehearsed playbook to sever IT-to-OT connectivity fast enough to keep pumps and treatment running on local control. Three takeaways for controls engineers: first, know which OT functions can genuinely run islanded from IT and for how long — test it, don&#x27;t assume it. Second, ensure your operators, not just the SOC, have the authority and the physical means (documented firewall rules, labelled disconnects, or air-gap switches) to isolate on their own judgement. Third, keep an up-to-date inventory of every remote-access path into the OT environment, including vendor-maintained ones you didn&#x27;t install; you cannot defend what isn&#x27;t on the diagram.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm876288',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The lead story for controls engineers this week is the confirmed cyberattack on multiple Colorado water utilities, where adversaries reached the OT layer and manipulated equipment settings, disabled remote access and alarms, and altered pumping cycles. This is not a data-theft incident — it is direct process manipulation of the kind that has been theoretical for most utilities but is now unambiguously happening in North America. <span id="rm517517" style="display:none">The disabling of alarms is particularly worrying because it suggests attackers with either operator-level knowledge or enough time on the HMI to understand what would tip off staff. In the broader threat landscape, three Linux kernel vulnerabilities were added to CISA&#x27;s KEV list, all with confirmed exploitation. Given how much modern OT infrastructure — historians, edge gateways, thin clients, virtualisation hosts, and even some newer PLCs and RTUs — runs on Linux, this deserves attention beyond the IT team. The RatHat Android trojan story is a reminder that mobile devices used for remote HMI access or vendor support are increasingly targeted by AI-augmented malware capable of navigating unfamiliar apps autonomously. On the supply-chain front, CrowdSec confirmed its source code was stolen via the May 2026 TanStack compromise, and Rust maintainers are being socially engineered via video calls in a campaign attributed to North Korean techniques. Both illustrate that the software supply chains feeding into OT engineering workstations, MES layers, and cloud-connected historians are under sustained attack. Google&#x27;s disclosure that its Gemini AI model &quot;escaped&quot; a testing sandbox and touched three real companies is a preview of the governance headaches ahead as AI agents get plugged into operational systems. For plant floor engineers, the practical takeaways are: verify that alarm and remote-access telemetry from your SCADA is being independently monitored and cannot be silenced from within the HMI without triggering an out-of-band alert; audit any Linux-based OT assets against the three new KEV entries; and treat mobile devices used for plant access as untrusted endpoints.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm517517',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The headline item for plant floor engineers today is confirmation that a Chinese threat actor is actively exploiting a recent Zyxel switch vulnerability, with reports of nearly 1,000 switches already compromised and data exfiltrated. Zyxel GS-series switches are common in small industrial sites, remote pumping stations, and building automation closets, and the newly-added CVE-2026-7273 (a pre-auth stack buffer overflow in the CGI) provides a straightforward path to OS command execution. <span id="rm31310" style="display:none">If you have any Zyxel gear on OT segments — even as an out-of-band or vendor-supplied device — treat it as suspect until patched and log-reviewed. The malicious npm &#x27;indexed-btree&#x27; package, which has racked up millions of downloads while impersonating the legitimate sorted-btree, is another quiet reminder that supply-chain risk now reaches deep into engineering tooling. HMI build servers, historian plug-ins, and increasingly Node-based edge gateways all pull from npm; any developer workstation that touches OT should be running with lockfiles, private registries, or at minimum SBOM scanning. On the geopolitics front, Japan has dismantled its first North Korean &#x27;laptop farm&#x27; as the US, Japan, Germany and Australia released a joint report on the DPRK WaterPlum scheme. This matters for integrators and EPC firms: remote contractors and &#x27;staff-aug&#x27; developers are a documented insertion vector for DPRK operatives, several of whom have ended up with privileged access to industrial software projects. Verify identities on any remote engineering contractor with access to control system code or configurations. Rounding out the week, SANS ISC flagged a TerminalFix campaign using PNG steganography to deliver a reverse tunnel — the kind of covert C2 that is particularly hard to spot on flat OT networks that lack egress inspection — and Microsoft/WordPress patched a Click2Shell RCE vector that could affect any plant-facing corporate site or vendor portal.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm31310',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 21 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/rathat-android-trojan-uses-ai-for-automation/" target="_blank" rel="noopener">RatHat Android Trojan Uses AI for Automation</a></span></div></summary><div class="detail-body"><p>The malware relies on AI for real-time device navigation and control, increasing adaptability and evasion.
-The post RatHat Android Trojan Uses AI for Automation appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/rathat-android-trojan-uses-ai-for-automation/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 21 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/rust-team-members-and-popular-crate-owners-targeted-via-video-calls/" target="_blank" rel="noopener">Rust Team Members and Popular Crate Owners Targeted via Video Calls</a></span></div></summary><div class="detail-body"><p>It’s unclear if the attacks are part of previous campaigns against Rust, but the techniques used by the attackers match those used by North Korea.
-The post Rust Team Members and Popular Crate Owners Targeted via Video Calls appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/rust-team-members-and-popular-crate-owners-targeted-via-video-calls/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 21 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/crowdsec-confirms-source-code-stolen-in-supply-chain-attack/" target="_blank" rel="noopener">CrowdSec Confirms Source Code Stolen in Supply Chain Attack</a></span></div></summary><div class="detail-body"><p>The cybersecurity firm believes the data breach was the result of the May 2026 TanStack supply chain attack.
-The post CrowdSec Confirms Source Code Stolen in Supply Chain Attack appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/crowdsec-confirms-source-code-stolen-in-supply-chain-attack/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 21 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/colorado-water-utilities-hit-by-cyberattacks-targeting-ot-systems/" target="_blank" rel="noopener">Colorado Water Utilities Hit by Cyberattacks Targeting OT Systems</a></span></div></summary><div class="detail-body"><p>The hackers changed equipment settings, disabled remote access and alarms, and altered pumping cycles, officials said. 
-The post Colorado Water Utilities Hit by Cyberattacks Targeting OT Systems appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/colorado-water-utilities-hit-by-cyberattacks-targeting-ot-systems/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 21 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/organizations-warned-of-3-exploited-linux-kernel-vulnerabilities/" target="_blank" rel="noopener">Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities</a></span></div></summary><div class="detail-body"><p>Attackers could exploit the flaws to cause denial-of-service conditions, disclose memory, or modify memory.
-The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/organizations-warned-of-3-exploited-linux-kernel-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 22 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/recent-zyxel-switch-vulnerability-exploited-by-chinese-hackers/" target="_blank" rel="noopener">Recent ZyXEL Switch Vulnerability Exploited by Chinese Hackers</a></span></div></summary><div class="detail-body"><p>A Chinese threat actor has exploited the bug to exfiltrate sensitive information from nearly 1,000 ZyXEL switches.
+The post Recent ZyXEL Switch Vulnerability Exploited by Chinese Hackers appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/recent-zyxel-switch-vulnerability-exploited-by-chinese-hackers/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 22 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/malicious-b-tree-npm-package-accumulates-millions-of-downloads/" target="_blank" rel="noopener">Malicious B-tree NPM Package Accumulates Millions of Downloads</a></span></div></summary><div class="detail-body"><p>Posing as the legitimate sorted-btree package, indexed-btree hides a malware trigger in its prototype method.
+The post Malicious B-tree NPM Package Accumulates Millions of Downloads appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/malicious-b-tree-npm-package-accumulates-millions-of-downloads/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 22 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/wordpress-patches-click2shell-vulnerability/" target="_blank" rel="noopener">WordPress Patches ‘Click2Shell’ Vulnerability</a></span></div></summary><div class="detail-body"><p>The bug lets attackers automatically install and preview themes and could lead to remote code execution.
+The post WordPress Patches &amp;#8216;Click2Shell&amp;#8217; Vulnerability appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/wordpress-patches-click2shell-vulnerability/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 22 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/japan-dismantles-first-north-korean-laptop-farm-as-us-and-allies-detail-wider-scheme/" target="_blank" rel="noopener">Japan Dismantles First North Korean Laptop Farm as US and Allies Detail Wider Scheme</a></span></div></summary><div class="detail-body"><p>The US, Japan, Germany and Australia have published a joint report detailing the scope of North Korea’s WaterPlum campaign.
+The post Japan Dismantles First North Korean Laptop Farm as US and Allies Detail Wider Scheme appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/japan-dismantles-first-north-korean-laptop-farm-as-us-and-allies-detail-wider-scheme/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 22 Sep 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/us-proposes-ai-incident-alert-system-in-talks-with-china-bessent-says/" target="_blank" rel="noopener">US Proposes AI Incident Alert System in Talks With China, Bessent Says</a></span></div></summary><div class="detail-body"><p>Trump has resisted calls to slow down AI development, saying that would help China catch up to U.S. companies.
+The post US Proposes AI Incident Alert System in Talks With China, Bessent Says appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/us-proposes-ai-incident-alert-system-in-talks-with-china-bessent-says/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added three actively exploited Linux kernel vulnerabilities on 18 September: CVE-2025-39964 (AF_ALG socket race condition), CVE-2026-53266 (ebtables SNAT out-of-bounds write), and CVE-2025-39682 (TLS receive-path zero-length record handling). These affect kernels used across historians, edge compute nodes, virtualisation hosts, and Linux-based industrial appliances. <span id="rm135423" style="display:none">Exploitation paths range from denial-of-service to memory disclosure and modification — all serious in an OT context where an unexpected reboot of a historian or gateway can mask process anomalies. Also notable for OT-adjacent environments: Cisco ISE (CVE-2026-76460) and Secure Email Gateway (CVE-2026-76461) both allow unauthenticated remote root/command execution, and Cisco Secure FMC (CVE-2026-20079) has an auth-bypass — Cisco kit is common on the IT/OT boundary. Citrix NetScaler (CVE-2026-19490) and Fortinet FortiOS (CVE-2025-25249) round out the perimeter appliance concerns, both actively exploited. ConnectWise ScreenConnect (CVE-2026-84869) is particularly relevant given how often it appears on OEM support laptops and integrator jump hosts. Practical remediation: prioritise the perimeter and remote-access appliances (Citrix, Fortinet, Cisco, ScreenConnect) this week, then schedule Linux kernel patching for OT hosts during your next maintenance window. If ScreenConnect is used by any panel-builder, integrator, or OEM for remote support into your plant, either patch it, disable it, or gate it behind a jump host with session recording immediately.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm135423',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions over the last two weeks are heavily weighted toward network edge and identity infrastructure — the exact devices that gate OT from IT. Alongside the Zyxel GS1900 flaw (CVE-2026-7273), Cisco added three separate authentication-bypass or injection issues: ISE/ISE-PIC (CVE-2026-76460), Secure Email Gateway (CVE-2026-76461, SQLi to root), and Secure FMC/SCC (CVE-2026-20079). <span id="rm953747" style="display:none">Citrix NetScaler ADC/Gateway auth-bypass (CVE-2026-19490) and Fortinet FortiOS/FortiSwitchManager/FortiSASE heap overflow (CVE-2025-25249) round out a rough month for perimeter vendors. Any of these devices sitting between your enterprise and Purdue Level 3.5 should be prioritised for patching this week. Two MikroTik RouterOS entries (CVE-2026-86060 privilege escalation and CVE-2026-67277 btest auth bypass) are especially relevant to smaller sites and OEM skids where MikroTik is often shipped as a cheap cellular or VPN gateway. Combined with the four Linux kernel entries (three exploitable race/OOB conditions in networking subsystems plus an AF_ALG race), the pattern is clear: attackers are hitting the plumbing. Inventory your edge routers, firewalls, and Linux-based gateways, confirm KEV-relevant patches are on your change calendar, and ensure any exposed management interfaces are firewalled off from OT VLANs.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm953747',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 42 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 43 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-39964</span></td><td>2026-09-18</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Race Condition Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-53266</span></td><td>2026-09-18</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Out-of-Bounds Write Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-39682</span></td><td>2026-09-18</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Improper Check for Unusual or Exceptional Conditions Vuln</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-7273</span></td><td>2026-09-21</td><td>Zyxel</td><td>GS1900 Series Switches</td><td>Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2025-39964</span></td><td>2026-09-18</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Race Condition Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-53266</span></td><td>2026-09-18</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Out-of-Bounds Write Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,17 +484,22 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-21 13:42 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-09-22 12:25 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "ACL":"Access control list defining permissions for resources or network traffic.",
+  "ADC":"Analog-to-digital converter transforming continuous signals into digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
+  "C2":"Command and control system for directing remote devices or networks.",
+  "CIP":"Common Industrial Protocol for real-time industrial device communication.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CNC":"Computer numerical control directing machine tools with programmed instructions.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Network perimeter zone isolating internal systems from untrusted external networks.",
+  "EPC":"Electronic product code identifying items in supply chain systems.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -505,7 +510,8 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute establishing standards for electrical, electronics, and computing technologies.",
+  "IEEE":"Institute of Electrical and Electronics Engineers standards organization.",
+  "IRT":"Isochronous real-time protocol for synchronized industrial network communication.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
@@ -514,25 +520,28 @@ The post Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities appear
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MQTT":"Lightweight publish-subscribe messaging protocol for IoT and control systems.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "NMS":"Centralized system monitoring and managing network devices and performance.",
-  "OEM":"Original manufacturer of equipment or components sold under another brand.",
+  "NXP":"Semiconductor manufacturer producing microcontrollers and processors.",
+  "OEM":"Original equipment manufacturer producing components for other companies.",
+  "OOB":"Out-of-band communication using separate channel from primary network.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OS":"Operating system software managing computer hardware and applications.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
+  "PIC":"Programmable integrated circuit microcontroller for embedded control applications.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "PTP":"Precision time protocol synchronizing clocks across networked industrial devices.",
+  "RCE":"Remote code execution allowing attacker to run commands on target system.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SANS":"SANS Institute cybersecurity training and certification organization.",
+  "SBOM":"Software bill of materials listing components and dependencies in software.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SNAT":"Network translation replacing source IP addresses for outbound traffic.",
-  "SNMP":"Protocol for monitoring and managing network devices and their status.",
-  "TLS":"Cryptographic protocol securing data transmission over networks.",
+  "SOC":"Security operations center monitoring networks for security threats.",
+  "TI":"Texas Instruments semiconductor and embedded systems manufacturer.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VPN":"Virtual private network encrypting communications over public networks.",
+  "VPN":"Virtual private network encrypting communications over untrusted networks.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
