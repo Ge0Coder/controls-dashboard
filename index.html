@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-10-04 13:04 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-10-05 15:38 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Elevated IT-adjacent risk: active exploitation of Cisco SD-WAN, Citrix NetScaler, F5 BIG-IP and Fortinet edge devices commonly bordering OT networks.</span>
+  <span>Heavy KEV activity on perimeter gear (Citrix NetScaler, Cisco SD-WAN, F5, Check Point) poses elevated risk to OT edge connectivity.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-10-04 13:04 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-10-05 15:38 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">38</div>
+      <div class="stat-val amber">39</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-10-04 13:04 UTC</span>
+      <span class="briefing-date">2026-10-05 15:38 UTC</span>
     </div>
-    <div class="briefing-body"><p>The single most important thing this Sunday: assume the perimeter devices in front of your OT network are being actively probed. Citrix NetScaler, Cisco SD-WAN Manager, F5 BIG-IP APM, Fortinet FortiMail, Check Point gateways, Arista VeloCloud, and MikroTik RouterOS all landed on CISA&#x27;s KEV list in the last two weeks with confirmed exploitation. Walk into Monday with a list of which of these you own, who patches them, and when — and if a vendor VPN terminates on any of them, treat credential rotation as part of the patch, not an afterthought.</p></div>
+    <div class="briefing-body"><p>Your highest-priority action this week is patching internet-facing perimeter gear: CISA added three Citrix NetScaler CVEs (including unauthenticated RCE), Cisco Catalyst SD-WAN Manager, F5 BIG-IP APM, and two Check Point vulnerabilities to KEV in the last two weeks. These are the exact devices adversaries ride through to reach your OT DMZ and engineering workstations, so if any front your industrial zone or vendor remote-access path, treat them as emergency change tickets. Also inventory MikroTik RouterOS and Zyxel GS1900 switches on remote sites — both have new unauthenticated-RCE KEV entries and tend to hide in the plant-floor long tail.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The first documented use of a programmable logic controller in production was at a General Motors Hydramatic plant in 1969, where Modicon&#x27;s 084 replaced a wall of relay logic. The reason GM pushed for it was not reliability or speed — it was the sheer cost and downtime of rewiring the relay panels every model year. The modern practice of &quot;recipe management&quot; in batch control traces its lineage directly to that annual-changeover problem.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The STUN protocol abused by the new ClingSTUN backdoor was originally designed in 2003 to help VoIP phones discover their public IP behind NAT — it was never intended as a secure channel and includes no built-in authentication or encryption. That same NAT-traversal capability is exactly what makes it attractive for malware wanting to punch out through plant firewalls that permit UDP 3478 for legitimate softphones. Many OT firewall rulesets still allow STUN wholesale because voice teams asked for it a decade ago and nobody re-reviewed the rule.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller&#x27;s integral term exists because of a 1920s problem with ship steering. Nicolas Minorsky, observing helmsmen on the USS New Mexico, noticed they instinctively applied rudder based not just on the current heading error but on how long the error had persisted and how fast it was changing — and he formalised that observation mathematically in 1922. Every temperature loop you tune today is, in a very direct sense, imitating a 1920s quartermaster correcting for a wandering bow.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalised not in a lab but on warships: Nicolas Minorsky worked out the mathematics of three-term control in 1922 while analysing automatic steering for the USS New Mexico, observing how an experienced helmsman anticipated the ship&#x27;s inertia rather than just reacting to current heading error. His insight that the helmsman was effectively adding a derivative term predates most industrial applications by decades. Every time you tune a derivative gain to tame overshoot on a slow thermal loop, you&#x27;re applying the same mental model a 1920s quartermaster used to keep a battleship on course.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">APL (Advanced Physical Layer) Ethernet is quietly moving from pilot to real deployment in process plants. Ethernet-APL extends 10BASE-T1L over a single twisted pair up to 1,000 metres with intrinsic-safety-compatible power, meaning a Coriolis flow meter or radar level transmitter in a Zone 1 hazardous area can now speak native Ethernet (and HART-IP, PROFINET, or EtherNet/IP) all the way back to the DCS without a fieldbus gateway in between. <span id="rm613461" style="display:none">The practical implication is enormous: engineers get the full device description, diagnostics, and firmware management of the smart instrument without the HART multiplexer, Foundation Fieldbus H1 segment, or Profibus PA coupler acting as a translation bottleneck. It also collapses the demarcation between instrumentation and network engineering — your field device is now an IP endpoint with a MAC address, which means asset inventory tools can finally see it directly. Adoption challenges are real, though. Trained I&amp;C technicians are not yet comfortable with switch-based topologies in the field, APL field switches cost significantly more than a terminal block, and the cybersecurity model for thousands of newly-IP-addressable sensors is still being written. Expect brownfield projects to be hybrid for a decade; greenfield FEEDs starting now should at least evaluate APL for new unit construction.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm613461',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Deterministic Ethernet via OPC UA over TSN (Time-Sensitive Networking) is quietly moving from pilot to production in 2026, with Siemens, Rockwell, Beckhoff, and B&amp;R all shipping controllers that can act as TSN talkers and listeners using the OPC UA FX (Field eXchange) companion specification. The promise is real: a single Ethernet fabric carrying both bounded-latency controller-to-controller traffic (replacing Profinet IRT or EtherNet/IP CIP Motion) and best-effort engineering and historian traffic, all with vendor-independent semantics. <span id="rm160588" style="display:none">For controls engineers, the practical implication is that your next greenfield line could use standard managed switches with TSN features (IEEE 802.1Qbv scheduled traffic, 802.1AS time sync) instead of proprietary motion backbones. That means lower switch costs, easier integration with IT monitoring, and the ability to span cells without protocol gateways. The catch is that TSN requires end-to-end configuration — every switch and endpoint in the path must support and be configured for the same schedule, and misconfiguration manifests as subtle jitter rather than obvious failure. Adoption challenges remain significant: tooling for TSN stream reservation is still vendor-specific despite the standards, troubleshooting requires time-aware packet capture (regular Wireshark doesn&#x27;t tell you if a frame missed its gate), and most installed-base switches aren&#x27;t TSN-capable. Expect TSN to arrive first in semiconductor, automotive body-in-white, and packaging lines where motion determinism justifies the learning curve.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm160588',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to be the standard most frequently cited in EPC specifications this year, and the ISA Global Cybersecurity Alliance has been pushing hard on the companion 62443-2-1 revision covering the asset owner&#x27;s security program. The 2024 edition of 2-1 reframed the standard around a set of security program elements rather than a prescriptive checklist, which some integrators are still digesting. <span id="rm504468" style="display:none">If your organisation is building or refreshing a CSMS (cyber security management system), 2-1 is the one to map your policies against. Worth watching: NIST is progressing updates to SP 800-82 Rev. 3&#x27;s companion guidance, and the IEC 62443-4-2 component security requirements continue to show up in procurement language from major end users like Shell, Dow, and Saudi Aramco. If you are a controls engineer writing a PLC or HMI specification, requiring the vendor to demonstrate 4-2 Security Level 2 capability (as a minimum) is becoming table stakes — and increasingly, vendors like Siemens, Rockwell, Schneider, and Emerson have the certifications to back the claim. Ask for the certificate, not the marketing slide.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm504468',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (component security requirements) continue to be the practical anchor points for OT security programs, and we&#x27;re seeing more procurement specifications explicitly require 62443-4-2 Security Level 2 certification for new PLCs, drives, and HMIs. If you&#x27;re specifying equipment for a 2027 capital project, ask vendors not just whether they claim compliance but which specific SL and which certification body (TÜV, exida, etc.) issued the certificate — self-attestation is common and not equivalent. <span id="rm859421" style="display:none">On the U.S. side, NIST SP 800-82 Rev 3 (Guide to OT Security) remains the de facto reference for aligning OT practices with the broader Cybersecurity Framework 2.0, and CISA&#x27;s Cross-Sector Cybersecurity Performance Goals (CPGs) now map explicitly to 62443 controls, giving engineers a defensible way to translate between regulator-speak and engineering reality. The pending healthcare cybersecurity legislation in the U.S. Senate is worth watching as a template — similar sector-specific mandates for water and critical manufacturing have been discussed and would likely lean heavily on these same reference frameworks. For those working internationally, note that the EU NIS2 directive&#x27;s national transpositions are now in enforcement mode, and the Cyber Resilience Act (CRA) obligations for manufacturers of &quot;products with digital elements&quot; — which explicitly includes industrial controllers — start biting from late 2027. Vendors will be pushing SBOMs and vulnerability-handling processes to their customers; expect to receive (and need to act on) a lot more coordinated vulnerability disclosures over the next 18 months.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm859421',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2021 Oldsmar, Florida water-treatment intrusion, which the FBI&#x27;s final reporting later downgraded from &quot;sophisticated cyberattack&quot; to &quot;likely operator error or misconfigured remote access.&quot; Regardless of root cause, the facts are instructive: a TeamViewer session on an HMI was observed moving the sodium hydroxide setpoint from roughly 100 ppm to 11,100 ppm, and an alert operator reverted the change within minutes. Multiple engineering workstations shared a single TeamViewer password, Windows 7 was still in use, and the system was reachable from the internet. <span id="rm549356" style="display:none">The lessons map directly onto what we keep seeing in KEV entries like this week&#x27;s ScreenConnect abuse report. First, remote access to safety-relevant setpoints must be mediated by a jump host with MFA and session recording — never a flat remote-desktop tool with a shared password. Second, independent protection layers matter: a hard-wired high-pH alarm or an interlock on the chemical dosing pump would have caught the setpoint change regardless of how it arrived. Third, operator vigilance is still a control; the HMI mouse moving on its own is exactly the kind of anomaly worth training panel operators to report immediately.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm549356',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2021 Oldsmar, Florida water treatment intrusion, where an attacker used a shared TeamViewer session on an HMI to briefly raise the sodium hydroxide setpoint from 100 ppm to 11,100 ppm. An alert operator noticed the mouse cursor moving on its own and reverted the change before any physical consequence occurred; downstream pH alarms and residence time would likely have caught it anyway, but the near-miss drove home how thin the margin can be. <span id="rm549384" style="display:none">The root causes were depressingly mundane: a flat network with no segmentation between the business LAN and the SCADA HMI, shared credentials for TeamViewer across multiple operators, Windows 7 end-of-life machines directly accessible, and no multifactor authentication on remote access. There was no exotic ICS malware involved — just a legitimate remote-access tool used the way the attacker found it configured. Three lessons remain directly actionable in 2026: first, inventory and consolidate remote-access tooling (the recent SANS ISC note on ScreenConnect abuse echoes exactly this pattern), funneling all vendor and off-hours access through a hardened jump host with MFA and session recording. Second, treat setpoint-change authorization as a safety control, not just a security one — rate limits, dual-approval for safety-critical parameters, and independent instrumented alarms will catch both malicious and fat-finger changes. Third, assume operators will be your last line of defense and train them to recognise and report anomalous HMI behaviour promptly.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm549384',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The quieter weekend news cycle is dominated by IT security stories, but several carry direct implications for plant-floor engineers. Fortra patched critical authentication-bypass and shell-execution flaws in its BoKS access-management product, which many large process industries use to centralise privileged access to Unix hosts, historians, and jump servers bridging Levels 2 and 3. <span id="rm702662" style="display:none">If BoKS underpins your OT remote access, patch validation should move up the queue this week. SANS ISC flagged attackers abusing ScreenConnect clients as a living-off-the-land technique. Remote support tools of this class (ScreenConnect, AnyDesk, TeamViewer, VNC variants) are notoriously common on engineering workstations and vendor laptops, often installed outside IT governance. Inventory your OT endpoints for any unsanctioned remote-support agents and ensure your allow-list on the DMZ firewall does not silently permit their call-home traffic. On the geopolitical front, an alleged Mabna Institute operative was extradited to the US — a reminder that Iranian-nexus actors continue to target universities, research, and industrial IP. Separately, a fake Zoom installer dropping the CloudSyncD backdoor on macOS is relevant because engineering and management staff increasingly use Macs for office work that touches OT documentation and VPN access. The Microsoft X account takeover and crypto-scammer stories are peripheral but illustrate how trusted channels keep being weaponised for social engineering — worth a reminder in your next toolbox talk.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm702662',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The notable item for OT-adjacent IT today is ClingSTUN, a Linux backdoor abusing the STUN protocol for command-and-control while bundling exploits for self-propagation across dozens of known Linux vulnerabilities. Because many industrial gateways, historian servers, thin-client jump hosts, and edge compute nodes now run Linux variants, controls engineers should treat this as a reminder to verify that patch cadence on Linux-based OT infrastructure keeps pace with the enterprise. <span id="rm231002" style="display:none">STUN traffic (UDP 3478) is often permitted outbound for VoIP/WebRTC and is a plausible covert channel through firewalls that aren&#x27;t doing deep application inspection. SecurityWeek also reports active exploitation of an AI-discovered Rejetto HFS flaw (CVE-2026-61500) enabling admin takeover and RCE. HFS is a lightweight HTTP file server occasionally used by integrators to shuttle firmware, PLC programs, or recipe files between offices and plants — if you find it on your network, retire it in favour of an authenticated managed share. The arrest of the alleged ShinyHunters leader in Jordan is operationally interesting; expect short-term disruption to that extortion ecosystem but no lasting dent in overall ransomware pressure on manufacturers. On the policy side, the U.S. Senate passed a bipartisan bill to strengthen healthcare cybersecurity, with breach costs averaging $10M. While healthcare-specific, the pattern of sector-specific legislation is likely to spill into critical manufacturing and water utilities over the next year, so plant engineers should watch for new reporting and baseline-control obligations. SANS ISC continues to highlight ScreenConnect abuse by threat actors — a reminder to audit remote-support tools installed by vendors and integrators on engineering workstations. Finally, Google temporarily narrowing its OSS bug bounty under a flood of AI-generated junk reports is a sign of the times: automated vulnerability discovery is accelerating on both sides, and defenders need better triage tooling rather than more raw findings.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm231002',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Sat, 03 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/doxx-net-raises-38-million-to-prevent-ai-agent-on-the-internet-misadventures/" target="_blank" rel="noopener">doxx.net Raises $38 Million to Prevent AI Agent-on-the-Internet Misadventures</a></span></div></summary><div class="detail-body"><p>doxx.net’s new ADN platform prevents agentic misadventure while the agent is operating under the user’s authority.
-The post doxx.net Raises $38 Million to Prevent AI Agent-on-the-Internet Misadventures appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/doxx-net-raises-38-million-to-prevent-ai-agent-on-the-internet-misadventures/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Sat, 03 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/fortra-patches-critical-vulnerabilities-in-boks/" target="_blank" rel="noopener">Fortra Patches Critical Vulnerabilities in BoKS</a></span></div></summary><div class="detail-body"><p>The bugs could lead to authentication bypass, shell command execution, and memory corruption.
-The post Fortra Patches Critical Vulnerabilities in BoKS appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/fortra-patches-critical-vulnerabilities-in-boks/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 02 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/in-other-news-15k-icloud-spoofing-bugs-ai-policy-experts-phished-adblocker-spies-on-ai-chats/" target="_blank" rel="noopener">In Other News: $15K iCloud Spoofing Bugs, AI Policy Experts Phished, Adblocker Spies on AI Chats</a></span></div></summary><div class="detail-body"><p>Noteworthy stories that might have slipped under the radar: Kiteworks patches over 100 vulnerabilities, Microsoft publishes 2026 Digital Defense Report, AI finds 24 Android app flaws.
-The post In Other News: $15K iCloud Spoofing Bugs, AI Policy Experts Phished, Adblocker Spies on AI Chats appeared first on SecurityWeek</p><a class="read-more" href="https://www.securityweek.com/in-other-news-15k-icloud-spoofing-bugs-ai-policy-experts-phished-adblocker-spies-on-ai-chats/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 02 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/macos-users-targeted-by-fake-zoom-installer-carrying-cloudsyncd-backdoor/" target="_blank" rel="noopener">macOS Users Targeted by Fake Zoom Installer Carrying CloudSyncD Backdoor</a></span></div></summary><div class="detail-body"><p>The dropper “carries a complete universal Mach-O inside itself, roughly 756 KB in the development build, and extracts it at runtime.
-The post macOS Users Targeted by Fake Zoom Installer Carrying CloudSyncD Backdoor appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/macos-users-targeted-by-fake-zoom-installer-carrying-cloudsyncd-backdoor/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Fri, 02 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/crypto-scammers-hijack-microsofts-official-x-account/" target="_blank" rel="noopener">Crypto Scammers Hijack Microsoft’s Official X Account</a></span></div></summary><div class="detail-body"><p>Hackers used the account, which has 13 million followers, to amplify a Clippy-themed cryptocurrency account.
-The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/crypto-scammers-hijack-microsofts-official-x-account/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 05 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/google-narrows-open-source-bug-bounty-amid-wave-of-invalid-automated-reports/" target="_blank" rel="noopener">Google Narrows Open Source Bug Bounty Amid Wave of Invalid Automated Reports</a></span></div></summary><div class="detail-body"><p>Google has temporarily stopped accepting product vulnerability reports through its Open Source Software Vulnerability Reward Program (OSS VRP).
+The post Google Narrows Open Source Bug Bounty Amid Wave of Invalid Automated Reports appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/google-narrows-open-source-bug-bounty-amid-wave-of-invalid-automated-reports/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 05 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/linux-backdoor-abuses-stun-protocol-exploits-dozens-of-flaws/" target="_blank" rel="noopener">Linux Backdoor Abuses STUN Protocol, Exploits Dozens of Flaws</a></span></div></summary><div class="detail-body"><p>ClingSTUN operates as a back-connect proxy backdoor, sets up persistence, and contains exploits for self-propagation.
+The post Linux Backdoor Abuses STUN Protocol, Exploits Dozens of Flaws appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/linux-backdoor-abuses-stun-protocol-exploits-dozens-of-flaws/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 05 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/250000-impacted-by-data-breaches-at-new-jersey-texas-healthcare-firms/" target="_blank" rel="noopener">250,000 Impacted by Data Breaches at New Jersey, Texas Healthcare Firms</a></span></div></summary><div class="detail-body"><p>Hackers stole patient information from Clover Health Investments and AngMar Management Services in July.
+The post 250,000 Impacted by Data Breaches at New Jersey, Texas Healthcare Firms appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/250000-impacted-by-data-breaches-at-new-jersey-texas-healthcare-firms/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 05 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/" target="_blank" rel="noopener">Exploitation Hits Rejetto HFS Vulnerability Discovered by AI</a></span></div></summary><div class="detail-body"><p>CVE-2026-61500 allows attackers to recover the session-cookie signing key and gain administrative access and RCE.
+The post Exploitation Hits Rejetto HFS Vulnerability Discovered by AI  appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Mon, 05 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/senate-passes-bipartisan-bill-to-strengthen-healthcare-cybersecurity/" target="_blank" rel="noopener">Senate Passes Bipartisan Bill to Strengthen Healthcare Cybersecurity</a></span></div></summary><div class="detail-body"><p>More than 730 cyber breaches affected over 270 million Americans last year, costing an average of $10 million per breach.
+The post Senate Passes Bipartisan Bill to Strengthen Healthcare Cybersecurity appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/senate-passes-bipartisan-bill-to-strengthen-healthcare-cybersecurity/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeare
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions over the past two weeks are heavy on the perimeter devices that sit directly in front of, or inside, OT environments. Cisco Catalyst SD-WAN Manager (CVE-2026-76504), Citrix NetScaler ADC/Gateway (CVE-2026-88771/88772), F5 BIG-IP APM (CVE-2026-94127), Fortinet FortiMail (CVE-2026-104286), Check Point Security Gateway with site-to-site/remote-access VPN (CVE-2026-85102 and 93616), and Arista VeloCloud Orchestrator (CVE-2026-93952) are all under active exploitation. <span id="rm43452" style="display:none">Many sites use exactly these products to terminate vendor VPNs, backhaul remote sites, or front engineering portals. All should be treated as emergency change candidates: patch, rotate credentials and certificates, and audit configuration for signs of post-exploitation persistence. Also notable for OT-adjacent infrastructure: MikroTik RouterOS (CVE-2026-67279) is widely deployed in substations, pump stations, and small remote assets as a cheap industrial router; the unauthenticated session/exec flaw there deserves urgent attention. Zyxel GS1900 switches (CVE-2026-7273) are common in SMB plant networks. Three Linux kernel CVEs round out the list — relevant to any Linux-based HMI, historian, or edge gateway where vendors are often slow to ship kernel updates. If your vendor does not publish a patched image promptly, ask them in writing when they will.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm43452',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The last two weeks of KEV additions are dominated by perimeter and remote-access infrastructure that commonly sits in front of OT DMZs: Citrix NetScaler (three CVEs including unauthenticated RCE in CVE-2026-88771/88772 and a DoS in CVE-2026-88779), Cisco Catalyst SD-WAN Manager (CVE-2026-76504, unauthenticated admin access via URI hex-encoding mishandling), F5 BIG-IP APM (CVE-2026-94127, unauthenticated heap overflow RCE when OAuth profiles are in use), and Check Point gateways and management servers (CVE-2026-85102 and CVE-2026-93616). If any of these front-end your industrial zone, Purdue Level 3.5 DMZ, or vendor remote-access path, patching is urgent — these are precisely the devices adversaries pivot through to reach engineering workstations and jump hosts. <span id="rm804472" style="display:none">Two additions are directly relevant to field infrastructure: MikroTik RouterOS (CVE-2026-67279) is widely deployed as cheap industrial routing in remote sites and SCADA backhauls, and Zyxel GS1900 switches (CVE-2026-7273) show up on plant floors as low-cost unmanaged-tier equipment. Both allow unauthenticated command execution; inventory your edge gear and prioritise firmware updates or network isolation. Two Linux kernel entries (CVE-2025-39964 and CVE-2026-53266) matter for Linux-based HMIs, edge gateways, and virtualization hosts running historians. Practical remediation: treat the Citrix, F5, Cisco, and Check Point CVEs as emergency-change candidates this week; snapshot configs, apply vendor hotfixes, and rotate any credentials or session tokens that may have been exposed. For MikroTik and Zyxel, if patching requires an outage window, apply ACLs restricting management-plane access to a dedicated jump host in the meantime.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm804472',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeare
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 38 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 39 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeare
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-102490</span></td><td>2026-10-02</td><td>Zammad GmbH</td><td>Zammad</td><td>Zammad GmbH Zammad Improper Privilege Management Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-102489</span></td><td>2026-10-02</td><td>Zammad GmbH</td><td>Zammad</td><td>Zammad GmbH Zammad Session Fixation Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-104286</span></td><td>2026-10-01</td><td>Fortinet</td><td>FortiMail</td><td>Fortinet FortiMail Path Traversal Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-88779</span></td><td>2026-10-04</td><td>Citrix</td><td>NetScaler</td><td>Citrix NetScaler Improper Restriction of Operations within the Bounds </td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-102490</span></td><td>2026-10-02</td><td>Zammad GmbH</td><td>Zammad</td><td>Zammad GmbH Zammad Improper Privilege Management Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-102489</span></td><td>2026-10-02</td><td>Zammad GmbH</td><td>Zammad</td><td>Zammad GmbH Zammad Session Fixation Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,22 +484,19 @@ The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeare
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-04 13:04 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-05 15:38 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ADC":"Analog-to-Digital Converter; device converting continuous analog signals to digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APL":"Advanced Process Library; software component library for industrial process control.",
-  "APM":"Application Performance Monitoring; tools tracking software application health metrics.",
+  "APM":"Application Performance Monitoring; software tracking application speed and availability metrics.",
+  "CIP":"Common Industrial Protocol; industrial communication protocol for real-time data exchange.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "CSMS":"Cyber Security Management System; framework managing cybersecurity controls and compliance.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DMZ":"Demilitarized Zone; network segment isolating critical systems from direct external access.",
-  "EPC":"Electronic Product Code; standardized identifier for tracking products in supply chains.",
+  "DMZ":"Demilitarized Zone; network segment isolating internal systems from untrusted external networks.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -510,37 +507,37 @@ The post Crypto Scammers Hijack Microsoft&amp;#8217;s Official X Account appeare
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; organization setting standards for technology.",
+  "IRT":"Isochronous Real-Time; real-time communication protocol for industrial automation networks.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
-  "ISC":"Industrial Safety Controller; device managing safety-critical control functions in plants.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "MAC":"Media Access Control; hardware address identifying devices on local network segments.",
+  "LAN":"Local Area Network; network connecting computers within a limited physical area.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
   "MFA":"Multi-Factor Authentication; security requiring multiple verification methods for access.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
+  "NAT":"Network Address Translation; protocol mapping private to public IP addresses.",
+  "NIS2":"Network and Information Security Directive 2; EU cybersecurity regulatory framework.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OSS":"Open Source Software; software with publicly available source code.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PA":"Process Automation; systems automating industrial manufacturing and control processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
+  "RCE":"Remote Code Execution; attack allowing attacker to run code on target system.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "SANS":"Storage Area Network Switch; network equipment managing SAN connectivity and traffic.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SD":"Secure Digital; memory card format used in industrial data logging devices.",
-  "SMB":"Server Message Block; protocol enabling file and resource sharing across networks.",
-  "SP":"Service Pack; cumulative software update bundle for control system platforms.",
+  "STUN":"Session Traversal Utilities for NAT; protocol discovering NAT type and external addresses.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Unified Stealth Services; secure communication protocol for industrial device networks.",
-  "VNC":"Virtual Network Computing; remote desktop protocol for controlling equipment remotely.",
-  "VPN":"Virtual Private Network; encrypted tunnel securing remote connections to industrial networks.",
-  "WAN":"Wide Area Network; geographically distributed network connecting multiple facility sites.",
+  "URI":"Uniform Resource Identifier; standardized format for identifying web resources.",
+  "WAN":"Wide Area Network; network connecting computers across large geographic distances.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
