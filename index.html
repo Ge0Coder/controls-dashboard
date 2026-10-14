@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-10-13 14:51 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-10-14 12:42 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Refrigeration controller attack spoils food across European supermarkets; Citrix NetScaler and F5 BIG-IP flaws added to KEV.</span>
+  <span>Record Microsoft Patch Tuesday with exploited zero-day, plus critical Ivanti, Citrix, Fortinet, and SAP flaws affecting OT-adjacent systems.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-10-13 14:51 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-10-14 12:42 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">30</div>
+      <div class="stat-val amber">31</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-10-13 14:51 UTC</span>
+      <span class="briefing-date">2026-10-14 12:42 UTC</span>
     </div>
-    <div class="briefing-body"><p>The headline story today is a coordinated attack on refrigeration controllers that spoiled food across hundreds of European supermarkets — a reminder that attackers increasingly abuse legitimate control functions rather than exploit CVEs. Combined with the Ahold Delhaize incident, the retail cold-chain sector is clearly being probed at the OT layer. Separately, three Citrix NetScaler CVEs and an unauthenticated F5 BIG-IP APM RCE were added to CISA KEV in the last two weeks — if either sits between your corporate and plant networks, patch under emergency change today. Practical implication: audit every remote-management path into your field controllers this week and confirm that physically consequential commands (defrost, purge, trip) require more than a single reusable credential.</p></div>
+    <div class="briefing-body"><p>Patch management is today&#x27;s priority: Microsoft&#x27;s record 1,413-CVE Patch Tuesday includes an actively exploited Windows Shell flaw (CVE-2026-96951) now on CISA KEV, and Ivanti Connect Secure has another unauthenticated auth-bypass added the same day. If you run Windows HMIs or engineering workstations, or if any Ivanti, Citrix NetScaler, Fortinet, or Cisco SD-WAN device sits in your OT DMZ, pull your asset list against the KEV additions and schedule emergency maintenance windows this week. In the meantime, confirm MFA and jump-host-only access on every remote entry point into Level 3 and below — that is your compensating control until patches land.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The refrigeration-controller attack is a textbook example of why safety and security converge in food and pharma: a defrost command is a perfectly legitimate control action, so there is no &#x27;malware signature&#x27; to catch — the attack is simply an unauthorised but valid setpoint change. This is why NAMUR and ISA-95 increasingly recommend treating setpoint change authority as a security-critical function, logged and rate-limited at the controller level rather than just at the SCADA HMI.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The humble 4–20 mA current loop, still the dominant analogue signalling standard in process plants, was deliberately designed with a live-zero at 4 mA so that a broken wire reads as 0 mA and is instantly distinguishable from a valid low reading. That one design choice, dating to the 1950s, has probably prevented more unsafe process trips than any digital diagnostic since.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The modern PID controller&#x27;s integral and derivative terms were formalised not in a factory but on a US Navy destroyer: Nicolas Minorsky derived them in 1922 while analysing the automatic steering of the USS New Mexico, by watching how a skilled helmsman compensated for a ship&#x27;s lag and overshoot. He essentially reverse-engineered an expert human into mathematics — the helmsman&#x27;s &#x27;anticipate the swing&#x27; became derivative action, and &#x27;remember the persistent list&#x27; became integral action. Nearly every loop you tune today traces its lineage to someone standing at a ship&#x27;s wheel in the Atlantic a century ago.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalised not in a university lab but on US Navy warships in the 1920s, when Nicolas Minorsky analysed how helmsmen steered the USS New Mexico and realised they intuitively applied proportional, integral, and derivative action to the rudder. His 1922 paper described the three-term controller mathematically for the first time, decades before it became the backbone of process control. The next time you tune a loop, you are essentially replicating the muscle memory of a sailor compensating for ocean swell.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Today&#x27;s spotlight is on edge AI inference on PLC-adjacent hardware — specifically the trend of vendors like Siemens (Industrial Edge), Rockwell (FactoryTalk Edge Manager), and Beckhoff (TwinCAT Machine Learning) embedding small neural-network runtimes directly next to the control loop. The idea is to run things like vibration-based bearing fault detection, visual quality inspection, or anomaly detection on process variables without round-tripping to a cloud or even a plant historian. <span id="rm147816" style="display:none">Models are typically trained offline and deployed as ONNX or TensorFlow Lite artefacts into a container running on the same hardware as, or tightly coupled to, the PLC runtime. The practical implication is that controls engineers are increasingly expected to manage model lifecycle — versioning, drift monitoring, and rollback — using tools that look nothing like the ladder-logic workflow they trained on. The current adoption challenges are threefold: trustworthy explainability for safety-adjacent decisions, deterministic execution timing when the inference runtime shares a core with real-time tasks, and now, in light of today&#x27;s Anthropic warning, confidence that the edge compute substrate cannot host anything other than the model you deployed. Expect IEC 62443 and the forthcoming ISA TR on AI in control systems to start addressing exactly these points over the next 12-18 months.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm147816',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">APL — Advanced Physical Layer, or Ethernet-APL — is quietly reshaping how process plants will be wired over the next decade. It extends 10BASE-T1L single-pair Ethernet into hazardous areas, delivering 10 Mbit/s and bus power to field devices over distances up to 1000 m, with intrinsically safe variants for Zone 0/Division 1. <span id="rm861478" style="display:none">In practical terms, that means a Coriolis flowmeter or smart valve positioner can speak native OPC UA or PROFINET straight back to the control system, instead of being stranded behind a HART multiplexer or a Foundation Fieldbus H1 segment. For controls engineers, the appeal is obvious: one cable type from the DCS to the field, full-bandwidth access to device diagnostics, and no more protocol bridging. The implications include richer asset-management data, faster commissioning, and the ability to actually use the digital information that smart field devices have been producing for twenty years but nobody could extract at scale. Adoption challenges are real, though. Field switches and power supplies are still expensive compared to a terminal strip, and installer familiarity with structured Ethernet in Ex areas is limited. Cybersecurity is also a legitimate concern — pushing routable IP all the way to the sensor increases the attack surface, so segmentation, device authentication, and the OPC UA security model become non-negotiable. Expect brownfield uptake to lag greenfield for years, but new builds in chemicals, pharma, and LNG are already specifying APL as default.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm861478',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) and 62443-4-2 (component requirements) remain the pragmatic reference for anyone being asked, in the wake of the supermarket refrigeration incident, to justify segmentation and access-control decisions for building and process controllers. A key but underused clause is CR 1.1 (human user identification and authentication) applied to field devices: many refrigeration and HVAC controllers still ship with a single shared service PIN, which is non-compliant with even SL-1 and is precisely the attack surface being exploited in retail compromises. <span id="rm874900" style="display:none">On the NIST side, SP 800-82 Rev. 3 continues to be the most practical mapping between IT security controls and OT realities, and it pairs well with the NIST Cybersecurity Framework 2.0 Govern function when building a board-level narrative. For engineers working in food, pharma, or any FDA/EMA-regulated space, keep an eye on how ISA-95 (enterprise-control integration) and ISA-88 (batch control) interact with security requirements — specifically around who is authorised to issue recipe or setpoint changes, and whether that authorisation is enforced in the controller or merely in the HMI. The latter is still common and still wrong.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm874900',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2, which covers risk assessment and system design for the zones and conduits model, continues to be the standard most directly cited in asset-owner procurement specifications. If you are writing an FDS or URS this quarter, expect the EPC to ask you which Security Level Target (SL-T) each zone must meet, and to require evidence that the chosen PLC or RTU firmware is certified to the corresponding component standard IEC 62443-4-2. <span id="rm621657" style="display:none">The gap between SL-T 2 and SL-T 3 is where most vendors live or die; the jump requires cryptographic authentication of every control-protocol session, which many legacy PLCs still cannot provide without a bump-in-the-wire module. NIST has continued iterating on the SP 800-82 Rev 3 guide to OT security, and the companion NIST IR 8183 Manufacturing Profile is increasingly referenced by US critical-infrastructure asset owners as a lightweight mapping between NIST CSF 2.0 and shop-floor realities. For engineers, the useful bit is Appendix G of 800-82r3, which gives concrete overlays for safety-instrumented systems — including the long-overdue acknowledgement that an SIS should be treated as a distinct security zone from the BPCS even when they share a vendor platform. On the ISA side, the ISA/IEC 62443-2-1 revision formally published earlier this year reshaped the requirements around the cybersecurity management system (CSMS), aligning its structure much more closely with ISO 27001 Annex A. If your organisation is pursuing both certifications, the overlap is now substantial enough to justify a unified control set rather than running two parallel programmes.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm621657',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the European supermarket refrigeration controller attack reported today. According to initial reporting, attackers reached refrigeration controllers across hundreds of stores and commanded them into defrost mode, spoiling stock across chilled and frozen sections. <span id="rm129078" style="display:none">While attribution and the exact intrusion path are still emerging, the pattern strongly suggests either a compromised remote-management portal operated by a facilities contractor or exposed controllers reachable via internet-facing gateways — both well-documented issues in Shodan scans of retail refrigeration estates. The mechanism matters: no exploit of a CVE was strictly necessary. A defrost command is a legitimate function; the attacker simply needed authenticated (or authentication-bypassed) access to the controller or its supervisory layer. This mirrors the 2021 Oldsmar water incident in that the &#x27;attack&#x27; used the system exactly as designed. Three lessons for controls engineers. First, inventory every remote-access path into field controllers — including vendor and contractor portals you did not procure directly — and require MFA and jump-host mediation. Second, implement rate-limiting and out-of-hours approval on commands that have physical-world consequences (defrost, purge, shutdown, setpoint beyond nominal band); this can often be done in the controller logic itself. Third, ensure your monitoring picks up unusual but valid commands, not just malformed traffic — a sudden fleet-wide defrost across stores should trigger an alarm long before the ice cream melts.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm129078',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">In early 2024, a water utility in Muleshoe, Texas suffered an intrusion attributed to the Russia-aligned group CyberArmyofRussia_Reborn that caused a storage tank to overflow by tens of thousands of gallons. The attackers reached the HMI directly over the internet via a VNC instance protected only by a default or weak password, manipulated setpoints, and the operator discovered the overflow visually before the tank&#x27;s own level logic halted the fill cycle. <span id="rm757630" style="display:none">No safety injury resulted, but the town briefly lost pressure and had to switch to manual operations. The mechanics are depressingly familiar: an engineering remote-access tool exposed to the public internet, no MFA, and no network-level restriction on which source addresses could reach the HMI. Shodan-style discovery is trivial for this class of exposure, and the attackers appeared opportunistic rather than targeted — the utility was simply reachable and poorly defended. Three lessons stand for controls engineers. First, inventory every piece of remote-access software your integrators have left behind on HMIs and engineering stations — TeamViewer, VNC, AnyDesk, RDP exposed through port-forwards on the plant router. Second, assume that any HMI setpoint change can and will be driven to its software limits, and ensure independent protective functions (mechanical overflow weirs, high-high level switches wired to the SIS, pump interlocks) exist in hardware or in a separated logic solver. Third, visual-only detection of abnormal process behaviour is not a control; invest in alarm rationalisation and rate-of-change alerts so the HMI shouts before the tank spills.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm757630',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The most directly OT-relevant story today is a cyberattack targeting refrigeration controllers across hundreds of European supermarkets, forcing freezers and refrigerators into defrost mode and spoiling significant quantities of food. This follows closely on the heels of a cyberattack on grocery giant Ahold Delhaize that forced the company to disconnect systems to contain the intrusion. <span id="rm961361" style="display:none">Together, these incidents highlight how retail cold-chain and store-level control systems — often internet-connected for remote monitoring by facilities contractors — are an exposed and under-defended segment of OT. Controls engineers supporting refrigeration, HVAC, or BMS platforms should urgently review remote-access paths, vendor cloud portals, and default credentials on controllers such as Danfoss, Carel, Eliwell, and Emerson E2/E3 units. Anthropic is warning that small, capable AI models may soon be able to self-replicate across cheap IoT and TV-box class hardware. While this is still an emerging research concern, the implication for OT is real: the same ARM-based compute common in HMIs, edge gateways, and smart sensors could become a substrate for autonomous malware. Expect vendors and auditors to start asking harder questions about what else your edge devices are capable of running. On the IT side, the XWorm RAT has evolved into a full surveillance platform with live audio capture, geolocation, and session hijacking — relevant because engineering workstations frequently sit in dual-homed configurations straddling IT and OT. The IBM commentary on AI accelerating familiar attack chains reinforces that patch windows and detection windows are shrinking. Finally, the $86M crypto heist traced to a hardware implant hidden under a Ledger signer&#x27;s screen is a stark reminder that supply-chain hardware tampering is no longer theoretical — a worthwhile prompt to review receiving and commissioning procedures for any sealed OT devices.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm961361',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">Yesterday&#x27;s Patch Tuesday was one for the record books: Microsoft shipped fixes for 1,413 vulnerabilities, including CVE-2026-96951, a Windows Shell command injection that is already being exploited in the wild and has been added to CISA&#x27;s KEV catalogue. For plant floor environments that still rely on Windows-based engineering workstations, HMIs, and historian servers, this one deserves priority attention even if your usual patch window is months out. <span id="rm873587" style="display:none">Pair that with Chrome and Firefox pushing another 114 browser fixes, and anyone running web-based SCADA front ends has a busy week ahead. The perimeter vendors also had a rough day. Citrix, Fortinet, and Ivanti collectively patched 29 vulnerabilities, several of them critical, covering authentication bypass, remote code execution, and credential disclosure. Ivanti Connect Secure in particular is in the KEV list again (CVE-2026-104935), and Fortinet FortiMail and Citrix NetScaler have multiple recent exploited entries. These are the devices most commonly used to terminate remote vendor access into OT networks, so any delay in patching them translates directly into exposure of your DMZ and jump hosts. SAP has issued critical patches for NetWeaver and S/4HANA that could allow full system compromise. This matters for OT because MES, batch records, and production scheduling increasingly ride on SAP integrations; a compromised ERP can inject bad orders or recipes into the production environment. Separately, SANS published a reminder about VBA macros embedded in AutoCAD .dwg files — a reminder that engineering drawing exchanges with EPCs and vendors remain a credible malware delivery path that bypasses most email filtering assumptions. On the geopolitical and insider-risk side, US authorities raided 40 Texas locations in a crackdown on North Korean IT worker laptop farms, seizing 187 machines. OpenAI reported a listening device found in a conference room, with an employee arrested. Both stories reinforce that supply chain and insider threats are no longer abstract — if you use offshore contract developers or integrators, revisit how you vet them and what they can touch in your control systems network.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm873587',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,16 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
-      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 13 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/small-ai-models-may-soon-be-able-to-self-replicate-on-iot-devices-anthropic-warns/" target="_blank" rel="noopener">Small AI Models Could Soon Self-Replicate on IoT Devices, Anthropic Warns</a></span></div></summary><div class="detail-body"><p>Experiments show cheap TV boxes can run capable AI models, and small models may soon be able to spread across such devices on their own.
-The post Small AI Models Could Soon Self-Replicate on IoT Devices, Anthropic Warns appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/small-ai-models-may-soon-be-able-to-self-replicate-on-iot-devices-anthropic-warns/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 13 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/xworm-rat-evolves-into-surveillance-platform/" target="_blank" rel="noopener">XWorm RAT Evolves Into Surveillance Platform</a></span></div></summary><div class="detail-body"><p>Expanded plugin count allows the malware to monitor users’ location, stream live audio, and interact with authenticated browser sessions.
-The post XWorm RAT Evolves Into Surveillance Platform appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/xworm-rat-evolves-into-surveillance-platform/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 13 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/ai-turns-familiar-cyberattacks-into-a-race-against-time/" target="_blank" rel="noopener">AI Turns Familiar Cyberattacks Into a Race Against Time</a></span></div></summary><div class="detail-body"><p>IBM’s Steve Wallin talks to SecurityWeek on the effect of AI-driven attacks on enterprise defenses.
-The post AI Turns Familiar Cyberattacks Into a Race Against Time appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/ai-turns-familiar-cyberattacks-into-a-race-against-time/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 13 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/" target="_blank" rel="noopener">$86 Million Crypto Heist Linked to Ledger Signer Hardware Implant</a></span></div></summary><div class="detail-body"><p>A small circuit board hidden under the signers’ screens read user data and transmitted it to the attackers.
-The post $86 Million Crypto Heist Linked to Ledger Signer Hardware Implant appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Tue, 13 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/cyberattack-prompts-ahold-delhaize-to-disconnect-systems/" target="_blank" rel="noopener">Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems</a></span></div></summary><div class="detail-body"><p>The company says it took some of its systems offline to contain a security issue within its network.
-The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/cyberattack-prompts-ahold-delhaize-to-disconnect-systems/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+      <div class="news-list"><details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 14 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/us-arrests-two-in-crackdown-on-north-korean-it-worker-laptop-farms/" target="_blank" rel="noopener">US Arrests Two in Crackdown on North Korean IT Worker Laptop Farms</a></span></div></summary><div class="detail-body"><p>Investigators stormed 40 locations in Texas and seized 187 laptops used by North Korean IT workers to hide their location.
+The post US Arrests Two in Crackdown on North Korean IT Worker Laptop Farms appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/us-arrests-two-in-crackdown-on-north-korean-it-worker-laptop-farms/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 14 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/chrome-firefox-updates-patch-114-flaws-as-mozilla-unveils-firefox-enterprise/" target="_blank" rel="noopener">Chrome, Firefox Updates Patch 114 Flaws as Mozilla Unveils Firefox Enterprise</a></span></div></summary><div class="detail-body"><p>Mozilla has introduced Firefox Enterprise for organizations with strict compliance, governance, and security requirements.
+The post Chrome, Firefox Updates Patch 114 Flaws as Mozilla Unveils Firefox Enterprise appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/chrome-firefox-updates-patch-114-flaws-as-mozilla-unveils-firefox-enterprise/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 14 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/citrix-fortinet-ivanti-patch-29-vulnerabilities-across-their-products/" target="_blank" rel="noopener">Citrix, Fortinet, Ivanti Patch 29 Vulnerabilities Across Their Products</a></span></div></summary><div class="detail-body"><p>Critical-severity flaws could lead to authentication bypass, code execution, and sensitive authentication information leaks.
+The post Citrix, Fortinet, Ivanti Patch 29 Vulnerabilities Across Their Products appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/citrix-fortinet-ivanti-patch-29-vulnerabilities-across-their-products/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 14 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" target="_blank" rel="noopener">Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day</a></span></div></summary><div class="detail-body"><p>The most important is CVE-2026-96951, a security feature bypass flaw in Windows that has been exploited in the wild.
+The post Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class=""><span class="dot dg" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">SecurityWeek</span><span style="font-size:.65rem;color:var(--muted)">Wed, 14 Oct 2026</span></div><span class="sum-title"><a href="https://www.securityweek.com/sap-patches-critical-netweaver-s-4hana-vulnerabilities/" target="_blank" rel="noopener">SAP Patches Critical NetWeaver, S/4HANA Vulnerabilities</a></span></div></summary><div class="detail-body"><p>The bugs could allow attackers to invoke internal operations and execute code, completely compromising the system.
+The post SAP Patches Critical NetWeaver, S/4HANA Vulnerabilities appeared first on SecurityWeek.</p><a class="read-more" href="https://www.securityweek.com/sap-patches-critical-netweaver-s-4hana-vulnerabilities/" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -448,7 +448,7 @@ The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems 
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s additions over the past two weeks lean heavily on perimeter and remote-access infrastructure that commonly fronts OT networks. Citrix NetScaler ADC/Gateway received three new KEV entries (CVE-2026-88779, -88772, -88771) covering memory-buffer and input-validation flaws enabling DoS and unauthenticated RCE. <span id="rm356081" style="display:none">F5 BIG-IP APM (CVE-2026-94127) has an unauthenticated heap overflow when OAuth is configured on a virtual server, and Cisco Catalyst SD-WAN Manager (CVE-2026-76504) allows unauthenticated admin access via URI hex-encoding tricks. If any of these sit between corporate and plant networks — a very common pattern — treat patching as emergency change and verify that the management plane is not reachable from the OT side. Two additions are especially relevant to field infrastructure: MikroTik RouterOS (CVE-2026-67279), widely used in remote-site and skid networking, and Arista VeloCloud Orchestrator on-prem (CVE-2026-93952). Fortinet FortiMail (CVE-2026-104286) rounds out the edge set with an unauthenticated arbitrary file-write. The remainder — Apache Struts, BIND, ProFTPD, ONLYOFFICE, WordPress, Adobe Commerce, SharePoint, WSO2 — are mostly IT, but Struts and BIND often lurk inside historian web frontends and OT DNS appliances where nobody has touched them in years. Inventory your Level 3/3.5 Purdue zone and confirm nothing is quietly running a vulnerable embedded stack.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm356081',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added the exploited Windows Shell flaw CVE-2026-96951 and Ivanti Connect Secure CVE-2026-104935 to the KEV catalogue on 13 October. Both have direct OT relevance: Windows is pervasive on engineering workstations and HMIs, while Ivanti Connect Secure is a favourite remote access gateway for third-party integrators. <span id="rm582663" style="display:none">The Ivanti bug is an unauthenticated authentication bypass leading to arbitrary command execution — treat any internet-facing Ivanti appliance as presumed compromised until patched and reviewed for indicators. The past two weeks also saw multiple Citrix NetScaler entries (CVE-2026-88771, 88772, 88779), Fortinet FortiMail (CVE-2026-104286), Cisco Catalyst SD-WAN Manager (CVE-2026-76504), and MikroTik RouterOS (CVE-2026-67279) added. Collectively these cover almost every category of edge device that typically sits between corporate IT and the OT DMZ. If any of these are in your Purdue Level 3.5 or remote site WAN edge, prioritise them above the application-layer vulnerabilities. For OT teams, the practical takeaway is to track KEV additions against your network edge inventory rather than trying to patch everything. Compensating controls — disabling external management interfaces, enforcing jump host–only access, and MFA on all remote entry — buy time when a maintenance window is weeks away. Also note the resurrection of older bugs (BIND 2015, Struts 2016, ProFTPD 2015) in KEV, a reminder that long-lived OT-adjacent Linux systems and historians are still being actively exploited through decade-old flaws.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm582663',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -460,7 +460,7 @@ The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems 
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 30 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 31 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -470,9 +470,9 @@ The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems 
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2015-5477</span></td><td>2026-10-08</td><td>ISC</td><td>BIND</td><td> ISC BIND Data Processing Errors Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2016-3081</span></td><td>2026-10-08</td><td>Apache</td><td>Struts</td><td>Apache Struts Command Injection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2023-22894</span></td><td>2026-10-08</td><td>Strapi</td><td>Strapi</td><td>Strapi Cleartext Storage of Sensitive Information Vulnerability</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-104935</span></td><td>2026-10-13</td><td>Ivanti</td><td>Connect Secure</td><td>Ivanti Connect Secure Authentication Bypass by Spoofing Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-96951</span></td><td>2026-10-13</td><td>Microsoft</td><td>Windows</td><td>Microsoft Windows Command Injection Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2015-5477</span></td><td>2026-10-08</td><td>ISC</td><td>BIND</td><td> ISC BIND Data Processing Errors Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -484,45 +484,44 @@ The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems 
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-13 14:51 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-14 12:42 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
-  "ADC":"Analog-to-digital converter that transforms continuous analog signals into discrete digital values.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "APM":"Application performance monitoring tool that tracks software application health and user experience.",
-  "ARM":"Reduced instruction set computing processor architecture widely used in embedded systems.",
-  "BMS":"Battery management system that monitors and controls rechargeable battery packs.",
+  "APL":"A programming language designed for array manipulation and mathematical operations.",
+  "BPCS":"Basic Process Control System; non-safety automated control systems in industrial plants.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CSMS":"Cybersecurity Management System; framework for managing industrial control system security.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "EMA":"Exponential moving average calculation that weights recent data points more heavily.",
+  "DMZ":"Demilitarized Zone; network segment isolating critical systems from external networks.",
+  "EPC":"Electronic Product Code; standard for identifying products in supply chains.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
-  "FDA":"Food and drug administration regulatory body governing medical device approval.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
+  "H1":"HART Communication Foundation high-speed wired protocol for field device communication.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HVAC":"Heating, ventilation, and air conditioning system for environmental climate control.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
+  "ISO":"International Organization for Standardization; develops industrial and technical standards.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
+  "LNG":"Liquefied Natural Gas; not an industrial controls domain term.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-factor authentication security method requiring multiple verification credentials.",
+  "MFA":"Multi-Factor Authentication; security method requiring multiple verification factors.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NAMUR":"Association of users of measurement and control systems in process industries.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "ONNX":"Open neural network exchange format for interoperable machine learning models.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
@@ -530,10 +529,17 @@ The post Cyberattack Prompts Grocery Giant Ahold Delhaize to Disconnect Systems 
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
+  "RDP":"Remote Desktop Protocol; network protocol for remote system access and control.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SANS":"SysAdmin, Audit, Network, Security; cybersecurity training and certification organization.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "SIS":"Safety Instrumented System; automated safety control systems preventing hazardous events.",
+  "SL":"Safety Level; defined risk reduction capability of safety instrumented functions.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "WAN":"Wide area network connecting multiple geographically distributed sites.",
+  "URS":"User Requirement Specification; document defining functional and technical system requirements.",
+  "VBA":"Visual Basic for Applications; macro language for automating industrial software tasks.",
+  "VNC":"Virtual Network Computing; protocol enabling remote graphical system control.",
+  "WAN":"Wide Area Network; geographically distributed computer network connecting distant facilities.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
