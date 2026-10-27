@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-10-26 13:57 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-10-27 13:01 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy Siemens advisory load including S7-1500 MFP and Software Center (now in KEV); Brotli flaw ripples across runtimes.</span>
+  <span>Heavy Siemens advisory day plus new PHP and PAN-OS KEV entries; maritime sector gets its own OT vuln database.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-10-26 13:57 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-10-27 13:01 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-10-26 13:57 UTC</span>
+      <span class="briefing-date">2026-10-27 13:01 UTC</span>
     </div>
-    <div class="briefing-body"><p>Priority today is the Siemens Software Center DLL hijack (CVE-2026-110936), which hit CISA KEV last week and affects nearly every engineering workstation running TIA Portal, PCS 7, or related tools — patch it before your next software update cycle, because that&#x27;s the exploitation window. Beyond that, review the new S7-1500 MFP advisory and determine whether you actually need the Linux subsystem enabled; most sites don&#x27;t. Keep an eye on vendor advisories for Node.js-based HMIs over the next two weeks as the Brotli (Node2Shell) flaw propagates through SCADA product stacks. Overall threat level is amber: no active OT-targeted campaign, but a dense patch load on engineering-side tooling.</p></div>
+    <div class="briefing-body"><p>Siemens dropped six ICS advisories overnight, with the S7-1500 MFP Linux-subsystem flaws being the one to brief your plant managers on — fixes aren&#x27;t ready yet, so apply the interim network mitigations today. CISA also added two unauthenticated PHP RCE bugs to the KEV catalogue, which likely affect historian and vendor-portal web front-ends in your OT DMZ. If you run Siemens Software Center on engineering workstations, patch it this week; the DLL-hijack CVE is now confirmed exploited. Spend fifteen minutes checking whether any Kiloview or similar NDI video encoders have crept onto your control VLAN — today&#x27;s nine-CVE bulletin makes them a trivial pivot point.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The SIMATIC S7-1500 MFP (Multi-Functional Platform) runs a hardened real-time PLC firmware and a general-purpose GNU/Linux subsystem side-by-side on the same CPU, allowing engineers to deploy C/C++ or containerized apps that exchange data with the control logic through shared memory. It&#x27;s one of the few PLCs that intentionally hosts a Linux attack surface — which is why most of today&#x27;s advisory concerns the Linux side, not the IEC 61131 runtime. For most process installations, that Linux subsystem is unnecessary and can be left disabled, dramatically reducing exposure.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The Siemens S7-1500 MFP (&quot;Multifunctional Platform&quot;) runs a standard GNU/Linux user environment alongside the deterministic PLC runtime on the same CPU hardware, sharing memory and backplane but isolated by a hypervisor-like partition. That means a single physical controller can simultaneously execute your Ladder logic and host a Docker container running Python analytics. It&#x27;s elegant — but it also means a Linux-side CVE now lives inside what used to be a hermetically sealed PLC.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by decades — Elmer Sperry&#x27;s gyroscopic ship autopilots in the 1910s already implemented proportional-plus-derivative action using purely mechanical linkages and hydraulic amplifiers, and the US Navy&#x27;s experiments with them during World War I produced the first empirical tuning rules. Nicholas Minorsky&#x27;s 1922 mathematical analysis of ship steering was essentially a reverse-engineering of what helmsmen were doing intuitively: anticipating the ship&#x27;s inertia. Ziegler and Nichols didn&#x27;t publish their famous tuning rules until 1942, meaning engineers were successfully tuning PID loops for nearly thirty years before anyone wrote down a method for it.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalised not in a university lab but on a US Navy destroyer. Nicolas Minorsky derived the three-term control law in 1922 while analysing the automatic steering of USS New Mexico, observing how a skilled helmsman anticipated the ship&#x27;s yaw rate and residual offset — effectively doing proportional, integral, and derivative action by instinct. His 1922 paper predated Ziegler and Nichols&#x27; famous tuning rules by two decades, meaning the PID loop running in your controller right now traces its lineage directly to a human quartermaster&#x27;s muscle memory.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">Virtual PLCs are quietly moving from vendor demos to production pilots. Siemens&#x27; SIMATIC S7-1500V, Rockwell&#x27;s FactoryTalk Logix Echo-adjacent virtual controller work, Beckhoff&#x27;s TwinCAT running in containers, and CODESYS Virtual Control all take the same IEC 61131 runtime that normally lives on dedicated hardware and run it inside a container or VM on commodity x86 or ARM compute. <span id="rm188935" style="display:none">The pitch is lifecycle flexibility: spin up controllers on demand, patch the underlying OS without touching the engineering project, and consolidate many small cells onto a redundant edge server. The practical catch is determinism. A virtualized runtime depends on CPU pinning, hugepages, PREEMPT_RT kernels, and a well-behaved NIC with TSN or at least proper DPDK offload to hit sub-millisecond cycle times reliably. If your motion or safety loop needs 500µs jitter guarantees, a vPLC on a shared hypervisor is not there yet. Where it does shine today is batch, utilities, water, and discrete manufacturing with 10–50ms cycle budgets. The other elephant is cybersecurity surface. A vPLC inherits the attack surface of the host OS, the orchestrator (Kubernetes, Docker, or vendor-specific), and the virtual networking stack. The S7-1500 MFP advisories today are a preview of what vPLC advisories will routinely look like — Linux CVEs mixed with runtime CVEs — and asset owners will need to decide whether their change-control process can absorb monthly host-OS patching on a controller.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm188935',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">NDI (Network Device Interface) over IP, highlighted by today&#x27;s Kiloview advisory, is quietly spreading from broadcast into industrial applications. Operators are increasingly piping camera feeds from reactors, furnaces, loading bays, and remote substations into control rooms using NDI encoders because the latency (sub-frame) and bandwidth efficiency beat RTSP, and the discovery protocol makes integration almost plug-and-play. <span id="rm34355" style="display:none">In practice this means a Kiloview or BirdDog encoder may sit on the same VLAN as your HMIs, feeding video into a Wonderware or Ignition display. The practical implication of today&#x27;s nine-CVE Kiloview bulletin is that these encoders are full Linux devices with web UIs, SSH, and often default credentials — and they rarely appear in the asset register maintained by the controls team because they were installed by the AV integrator. Treat NDI devices like any other industrial IoT endpoint: segment them to a dedicated video VLAN, disable mDNS/NDI discovery across control VLAN boundaries, and verify firmware is on a current branch. Adoption challenges include the lack of standardised authentication on NDI itself (the stream is unauthenticated by design) and the tendency for integrators to leave management interfaces reachable from the control network.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm34355',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-4-2 certification is becoming a de facto procurement requirement in European utilities and large EPCs, driven partly by NIS2 enforcement that formally began biting across the EU in 2025. If you&#x27;re specifying new controllers or RTUs in 2026, expect bid documents to require 4-2 Security Level 2 as a minimum, with SL3 for safety-adjacent components. <span id="rm496135" style="display:none">The ISA Global Cybersecurity Alliance has been publishing component mapping guidance that helps engineers translate 4-2 CRs (Component Requirements) into concrete tendering language, which is worth reading before your next capital project. On the NIST side, SP 800-82 Revision 3 remains the practical touchstone for OT security program design in North America, and recent CISA cross-sector performance goals (CPGs) continue to align with it. For engineers, the useful bit is Appendix G&#x27;s control overlays — they map NIST 800-53 controls to realistic ICS implementation guidance, including where a control simply cannot apply (e.g., MFA on a legacy HMI) and what compensating controls look like. Quieter but relevant: IEC 62443-3-2 (risk assessment and zone/conduit design) is increasingly cited in insurance underwriting questionnaires. Carriers want evidence that zones and conduits are documented and that risk ratings justify the chosen security levels. If you don&#x27;t already have a zone-and-conduit diagram alongside your P&amp;IDs and network diagrams, that&#x27;s becoming an audit gap.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm496135',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-4-2, which specifies technical security requirements for components (controllers, HMIs, network devices), is the standard most directly relevant to today&#x27;s Siemens advisories. The S7-1500 MFP&#x27;s dual-runtime architecture illustrates a tension 62443-4-2 is still catching up with: how do you certify a device whose attack surface includes both a hard-real-time PLC CPU and a general-purpose Linux instance sharing silicon? <span id="rm192550" style="display:none">Current certification practice treats them as one component, but the threat models are completely different. On the framework side, NIST SP 800-82 Rev. 3 remains the practical reference for aligning OT risk management with the broader Cybersecurity Framework 2.0. Engineers scoping their next assessment should pay attention to the increasing cross-references between 800-82 and 62443-3-3 system requirements — regulators in several sectors are now explicitly accepting 62443-3-3 conformance as evidence toward 800-82 controls, reducing duplicate audit work. If you haven&#x27;t mapped your zone-and-conduit model to both yet, now is a good time; the maritime Blue Initiative database launched this week is explicitly structured around 62443 zones for port and vessel environments, which is a useful template.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm192550',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">A worthwhile re-examination this week is the 2023 Aliquippa, Pennsylvania water authority incident, where the Cyber Av3ngers group compromised a Unitronics Vision series PLC controlling a booster station. The attackers didn&#x27;t exploit a sophisticated zero-day — the PLC was internet-exposed with the default password &quot;1111&quot; on TCP/20256, and they defaced the HMI screen with a political message. <span id="rm581202" style="display:none">Operators noticed because the HMI was unreachable and switched to manual control; no water quality impact occurred, but the station ran in manual for days. What happened technically: Unitronics PLCs expose a proprietary PCOM protocol by default, and many integrators left them port-forwarded for remote support. The attackers scanned Shodan, authenticated with the vendor default, and used legitimate PLC functions to write new display content and stop the program. The lessons remain uncomfortably current. First, inventory your internet-exposed OT — Censys and Shodan still find thousands of PLCs on public IPs, and your remote-support convenience is someone&#x27;s attack path. Second, change vendor defaults as commissioning policy, not as an afterthought; this is a 62443-4-2 CR 1.5 requirement for a reason. Third, assume HMI loss and practice manual-mode operation — the Aliquippa operators recovered quickly because they could, and that muscle memory is a cheap, high-value control.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm581202',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2023 Aliquippa, Pennsylvania water authority incident, where attackers compromised a Unitronics Vision-series PLC controlling a booster station pump. The intrusion was trivially simple: the PLC was internet-exposed on TCP/20256 with the vendor default password &quot;1111&quot;, and the attackers — a group affiliated with Iranian interests — modified the HMI display to show a political message and halted pump operations. <span id="rm422607" style="display:none">Staff caught it quickly and reverted to manual control, so there was no public health impact, but the station was offline for roughly a day. What makes this incident instructive isn&#x27;t sophistication — there was none — but how the device got exposed. The integrator had enabled remote access for commissioning convenience and never closed it; the asset owner didn&#x27;t know the PLC had a public IP. CISA&#x27;s follow-up found hundreds of similarly exposed Unitronics PLCs across US water utilities. Three lessons stand out for controls engineers. First, scan your own public IP ranges for controller protocols (Modbus/502, EtherNet/IP/44818, Unitronics/20256, S7/102) — assume integrators left something exposed. Second, change vendor defaults as part of commissioning sign-off, not as a to-do list item. Third, keep manual-override procedures practised; Aliquippa recovered quickly because operators could run the station without the PLC, which is increasingly rare in modern designs.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm422607',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA published a sizable batch of Siemens advisories today that directly impact plant-floor fleets. The headline item is multiple vulnerabilities in the GNU/Linux subsystem of the SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP firmware V3.1.7 (including SIPLUS variants). <span id="rm214137" style="display:none">Fixes are still being prepared, so Siemens is pointing operators to interim mitigations — segment these MFP CPUs behind cell firewalls, restrict access to the Linux-side services, and treat the MFP&#x27;s app runtime as a hostile boundary against the real-time core. Also notable: the Industrial Edge App Publisher has a certificate-validation plus unescaped-rendering chain that enables full RCE on an engineering workstation via a man-in-the-middle, and the Siemens Software Center DLL hijack (CVE-2026-110936) has been added to CISA KEV, meaning federal timelines now apply and the exploitation risk is confirmed. Rounding out the Siemens set are Capital Embedded AR Classic (OOB read affecting AUTOSAR-based ECU software), a SENTRON 3NA COM Fuse DoS triggered by a malformed network-management message (recovery may require re-establishing the network — relevant for anyone deploying the communicating NH fuse monitoring in LV switchgear), and a Kiloview E3 NDI Encoder bundle of nine CVEs that fully compromises the device. The Kiloview advisory is a reminder that AV/broadcast gear is increasingly part of OT networks in utilities and transport control rooms, and is rarely patched. On the IT-adjacent side, SANS and SecurityWeek wound down a hectic PHP2Shell week: honeypot operators observed real shells landing from two IPs on 24 October, confirming the vulnerability is reliably exploitable in the wild. Any Linux-based HMI, historian web front end, or vendor portal running PHP should be verified patched. Separately, Node2Shell — an out-of-bounds write in Google&#x27;s Brotli decoder — is now driving coordinated patching across Node.js, .NET, PowerShell and Python packages. Many SCADA vendors ship Node.js runtimes inside their HMI or dashboard products; expect vendor advisories to trickle out over the next fortnight. Finally, Dutch police arrested two suspects behind an NFC relay fraud scheme that drained over $400,000 from bank accounts via a malicious app and social engineering. Not OT, but a useful reminder for engineers using NFC-based badge access to control cabinets or MFA tokens that relay attacks against contactless credentials are now operational, not theoretical.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm214137',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">Siemens dominated today&#x27;s CISA ICS advisory feed with six separate bulletins. The most consequential for plant floor engineers is the SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP advisory, which flags multiple vulnerabilities in the embedded GNU/Linux subsystem of firmware V3.1.7 (including SIPLUS variants). <span id="rm59034" style="display:none">Fixes are still in preparation, so operators relying on the MFP&#x27;s Linux side for edge workloads should apply Siemens&#x27; interim mitigations and treat the Linux partition as a hostile network boundary rather than an extension of the control CPU. Separately, the Industrial Edge App Publisher has a certificate-validation plus unescaped-response chain that permits a network-adjacent attacker to impersonate the management server and achieve RCE through Node.js integration — a reminder that engineering tooling, not just controllers, is now a prime target. Two lower-severity but operationally relevant Siemens items also landed: a DLL search-path hijack in Siemens Software Center (CVE-2026-110936, already on CISA KEV as of 20 October) and an out-of-bounds read in Capital Embedded AR Classic R20-11 affecting AUTOSAR-based ECU codebases. The SENTRON 3NA COM Fuse DoS requires network re-establishment to recover — worth noting for anyone using these intelligent fuses in power distribution monitoring. Finally, the Kiloview E3 NDI encoder advisory bundles nine CVEs allowing full device compromise; these show up in broadcast and increasingly in industrial video-over-IP applications. Outside the ICS feed, a maritime coalition launched Blue Initiative, a free vulnerability database indexing nearly 30,000 IT/OT vulnerabilities relevant to ships and ports, with 37 specific to maritime products. For engineers working on port cranes, bunkering systems, or vessel automation this fills a real gap left by generic NVD searches. Apple&#x27;s monthly round shipped fixes for 286–304 vulnerabilities including a backported CoreGraphics zero-day — relevant mainly to engineering workstations and iPads used on the plant floor as HMIs. SecurityWeek also flagged ongoing NetScaler zero-day churn; if your remote-access path to the OT DMZ traverses NetScaler, keep patch windows warm.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm59034',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -456,7 +456,7 @@ The products listed below contain an out-of-bounds read vulnerability that could
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">The KEV catalog gained Siemens Software Center (CVE-2026-110936) on 20 October — a DLL search-path hijack requiring local authenticated access, which sounds minor until you remember the Software Center is the install/update tool for most Siemens engineering software. A compromised engineer laptop plus this flaw equals arbitrary code execution during the next TIA Portal or PCS 7 update cycle. <span id="rm485899" style="display:none">Patch the Software Center on all engineering workstations, and audit who has local admin on those machines. Also freshly added and OT-relevant: Arista VeloCloud Orchestrator SQLi (CVE-2026-114625) affecting SD-WAN deployments that increasingly front remote sites and substations; Cisco Secure Email Gateway path traversal (CVE-2026-76519); Palo Alto PAN-OS authenticated code injection (CVE-2026-0322); Ivanti Connect Secure auth bypass (CVE-2026-104935); and BeyondTrust Remote Support auth bypass (CVE-2026-102764) — the latter is widely used for third-party vendor access into OT environments and should be prioritized. For plant engineers, the practical takeaway is to focus patching cycles this week on the perimeter and remote-access stack (Ivanti, PAN-OS, BeyondTrust, VeloCloud) and on the engineering-workstation toolchain (Siemens Software Center). The appearance of older vulns like ISC BIND CVE-2015-5477 and Apache Struts CVE-2016-3081 in recent KEV updates also indicates attackers are still finding unpatched legacy infrastructure — a reminder to sweep DMZ and historian-adjacent Linux boxes.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm485899',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added two PHP vulnerabilities to KEV on 26 October (CVE-2026-109618 out-of-memory corruption and CVE-2026-109619 stale request-state), both allowing unauthenticated RCE. PHP underpins a surprising amount of OT-adjacent tooling — historian web front-ends, vendor support portals, and some HMI web interfaces — so inventory any PHP installations exposed even to the IT/OT DMZ and patch urgently. <span id="rm739412" style="display:none">Earlier in the month, Palo Alto PAN-OS (CVE-2026-0322, authenticated root-level code injection) and Ivanti Connect Secure (CVE-2026-104935, unauthenticated auth bypass to command execution) were added; both commonly front OT remote-access paths and warrant immediate attention from site network teams. Also notable: the Siemens Software Center DLL hijack (CVE-2026-110936) joined KEV on 20 October — this affects engineering workstations where Siemens tooling is installed, and the fix is to update the Software Center and restrict write access to directories in its search path. Cisco Secure Email Gateway (CVE-2026-76519) and BeyondTrust Remote Support (CVE-2026-102764) round out the list of perimeter products with active exploitation. Finally, CISA re-added CVE-2015-5477 (ISC BIND TKEY DoS) — a decade-old flaw now being exploited, which should prompt a quick check that any BIND instances in the OT DMZ are modern.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm739412',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -478,9 +478,9 @@ The products listed below contain an out-of-bounds read vulnerability that could
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-114625</span></td><td>2026-10-23</td><td>Arista</td><td>VeloCloud Orchestrator</td><td>Arista VeloCloud Orchestrator SQL Injection Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-110447</span></td><td>2026-10-23</td><td>Collabora</td><td>Collabora Online – Built-in CODE Server</td><td>Collabora Online – Built-in CODE Server OS Command Injection Vulnerabi</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-106931</span></td><td>2026-10-20</td><td>EG Secure Solutions</td><td>SiteGuard Server Edition</td><td>EG Secure Solutions SiteGuard Server Edition OS Command Injection Vuln</td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-109618</span></td><td>2026-10-26</td><td>PHP Group</td><td>PHP</td><td>PHP Memory Corruption Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-109619</span></td><td>2026-10-26</td><td>PHP Group</td><td>PHP</td><td>PHP Stale Internal Request-State Vulnerability</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-114625</span></td><td>2026-10-23</td><td>Arista</td><td>VeloCloud Orchestrator</td><td>Arista VeloCloud Orchestrator SQL Injection Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -492,23 +492,22 @@ The products listed below contain an out-of-bounds read vulnerability that could
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-26 13:57 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-27 13:01 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ARM":"Processor architecture commonly used in industrial controllers and embedded systems.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "COM":"Serial communication port interface for connecting industrial devices.",
-  "CPU":"Central processing unit executing control logic and calculations.",
+  "COM":"Component Object Model; Microsoft standard for software component interaction and communication.",
+  "CPU":"Central Processing Unit; primary processor executing instructions in a controller.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DLL":"Dynamic library file containing reusable code functions.",
-  "DMZ":"Network zone isolating industrial systems from external networks.",
-  "DP":"PROFIBUS DP industrial field bus protocol for real-time communication.",
-  "ECU":"Electronic control unit managing engine or system functions.",
+  "DLL":"Dynamic Link Library; executable file containing reusable code and functions for programs.",
+  "DMZ":"Demilitarized Zone; network segment separating internal systems from untrusted external networks.",
+  "DP":"PROFIBUS DP; industrial fieldbus protocol for real-time distributed I/O communication.",
+  "ECU":"Electronic Control Unit; microprocessor-based device controlling specific industrial machinery functions.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
@@ -523,35 +522,30 @@ The products listed below contain an out-of-bounds read vulnerability that could
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "LV":"Low voltage industrial power distribution and control systems.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multiple factor authentication securing user access to systems.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "NIC":"Network interface card enabling device communication on networks.",
-  "NIS2":"EU cybersecurity directive requiring industrial control system protection.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
-  "OOB":"Out-of-band communication channel independent from main system.",
+  "NVD":"National Vulnerability Database; U.S. government repository of security vulnerability information.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
-  "OS":"Operating system managing hardware and application execution.",
+  "OS":"Operating System; software managing hardware resources and application execution.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PCS":"Power conversion system converting electrical power for industrial use.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
-  "PN":"PROFINET industrial Ethernet protocol for real-time automation.",
+  "PN":"PROFINET; industrial Ethernet protocol for real-time automation and control.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote code execution vulnerability allowing unauthorized command execution.",
+  "RCE":"Remote Code Execution; security vulnerability allowing unauthorized command execution on systems.",
+  "RTSP":"Real Time Streaming Protocol; network protocol for streaming audio and video.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
-  "S7":"Siemens S7 PLC series programmable logic controller.",
+  "S7":"SIMATIC S7; Siemens programmable logic controller family.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SIPLUS":"Siemens industrial product line rated for extended temperature ranges.",
-  "TIA":"Siemens TIA Portal integrated software for industrial automation engineering.",
+  "SIPLUS":"Siemens industrial-grade extended-temperature component series for harsh environments.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "VM":"Virtual machine simulating hardware for software testing.",
-  "WAN":"Wide area network connecting geographically distant industrial sites.",
+  "USS":"Universelle Serielle Schnittstelle; Siemens serial protocol for drive communication.",
+  "VLAN":"Virtual Local Area Network; logical network segment isolating traffic on shared infrastructure.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
