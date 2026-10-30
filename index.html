@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-10-29 13:58 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-10-30 13:53 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Heavy Siemens and Mitsubishi ICS advisories, plus actively exploited Cisco firewall/SD-WAN zero-days tied to Volt Typhoon.</span>
+  <span>Multiple ICS advisories hit Siemens, Hitachi Energy, Mitsubishi, and EPICS Base; GitLab and Cisco ASA zero-days added to KEV.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-10-29 13:58 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-10-30 13:53 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">33</div>
+      <div class="stat-val amber">34</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-10-29 13:58 UTC</span>
+      <span class="briefing-date">2026-10-30 13:53 UTC</span>
     </div>
-    <div class="briefing-body"><p>Two things need your attention today. First, CISA dropped a sweeping Mitsubishi advisory covering the entire GENESIS/ICONICS HMI and historian family with authentication bypass flaws — if you run ICONICS anywhere, start the patch conversation this morning. Second, a second actively exploited Cisco ASA/FTD VPN zero-day is being chained with Volt Typhoon-linked SD-WAN activity targeting the IT/OT boundary, so verify your perimeter patch status and rotate any credentials or keys on edge devices you can&#x27;t immediately confirm clean.</p></div>
+    <div class="briefing-body"><p>Today&#x27;s priority is patch triage: CISA dropped a stack of ICS advisories covering Siemens SIMATIC IPCs (Secure Boot bypass), Siemens Mendix SAML (auth bypass), Hitachi Energy TRO600 radios (RCE), Mitsubishi/Iconics GENESIS and Hyper Historian, and EPICS Base. In parallel, actively exploited GitLab (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) flaws just hit the KEV — both commonly sit between your corporate network and the plant. Check whether any of these touch your remote-access or engineering-workstation path first; a compromised ASA or GitLab is a direct ticket into Level 3.</p></div>
   </div>
 </div>
 
@@ -356,7 +356,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="sh-icon">&#128225;</span><h2>Vendor Threat Radar</h2></div>
-      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">4 mentions</div></div>
+      <div class="vendor-grid"><div class="vendor-node active"><div class="vendor-indicator"></div><div class="vendor-name">Siemens</div><div class="vendor-count">3 mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Rockwell</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">Schneider</div><div class="vendor-count">No mentions</div></div>
 <div class="vendor-node"><div class="vendor-indicator"></div><div class="vendor-name">ABB</div><div class="vendor-count">No mentions</div></div>
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The GENESIS/ICONICS codebase being patched today traces back to software originally written in the 1980s for Windows-based process visualization, and still ships with COM/DCOM interop layers underneath its modern HTML5 front end. That decades-long backward compatibility is exactly why a single advisory can span GENESIS32, GENESIS64, and the brand-new GENESIS product line simultaneously — shared ancestry means shared bugs.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The EPICS (Experimental Physics and Industrial Control System) framework underpinning today&#x27;s advisory runs some of the largest control systems on Earth — including CERN&#x27;s accelerator complex, ITER, and most major synchrotrons — yet it was originally developed in the late 1980s at Los Alamos and Argonne as a toolkit for a single accelerator project. It uses a publish/subscribe &#x27;Channel Access&#x27; protocol that predates OPC and still outperforms many modern alternatives for sub-millisecond determinism across tens of millions of process variables.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller as we know it was formalized not in a chemical plant or power station but on US Navy ships in the 1920s. Nicolas Minorsky worked out the mathematics of three-term control while studying how to automatically steer the USS New Mexico, publishing his analysis in 1922 after observing how a skilled helmsman anticipated the ship&#x27;s yaw — essentially performing derivative action in his head. Every temperature loop you tune today owes its structure to a human quartermaster&#x27;s intuition about an 32,000-ton battleship.</p></div>
+        <div class="curiosity-body ai-text"><p>The modern PID controller owes its tuning rules to a 1942 paper by John Ziegler and Nathaniel Nichols at Taylor Instrument Companies — but what&#x27;s less well known is that their work was driven by WWII-era anti-aircraft gun directors, where closing the loop fast enough on a maneuvering bomber was literally a matter of life and death. The same quarter-amplitude-decay heuristic you still see baked into DCS auto-tuners traces its lineage to the servo-mechanisms that aimed Bofors guns over the English Channel. Control theory and ballistics have been quietly entangled ever since Norbert Wiener formalised &#x27;cybernetics&#x27; from the same wartime problem.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">OPC UA over TSN (Time-Sensitive Networking) continues its slow march from standards documents into real plants. The idea is simple on paper: combine OPC UA&#x27;s semantic, secure, vendor-neutral data model with deterministic Ethernet from IEEE 802.1 TSN, so you can run motion control, safety, and SCADA data on the same wire with guaranteed latency. <span id="rm546664" style="display:none">In practice it replaces the fragmented world of PROFINET IRT, EtherCAT, Sercos, and CC-Link IE with a converged network — at least in theory. The practical implication for controls engineers is that your next greenfield line could genuinely use one physical network from the drive to the cloud, with QoS classes carrying 1 ms cyclic motion data alongside historian trends and video. Siemens, Beckhoff, B&amp;R, and Rockwell all have shipping TSN-capable hardware now, and the OPC Foundation&#x27;s FLC (Field Level Communications) spec is maturing. Adoption challenges are real: TSN requires end-to-end switch support with synchronized clocks (IEEE 802.1AS), configuration tooling is still vendor-specific despite the open standards, and troubleshooting a converged network when a servo drops out is genuinely harder than diagnosing a dedicated fieldbus. Most sites are piloting TSN on isolated cells rather than ripping out working PROFINET backbones — and that caution is probably correct for the next two to three years.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm546664',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">Deterministic Ethernet via Time-Sensitive Networking (TSN) continues to inch toward production reality in process plants, with the IEEE 802.1 TSN profile for industrial automation (IEC/IEEE 60802) now near final publication. In plain terms, TSN lets you carry hard-real-time cyclic traffic — think EtherNet/IP CIP Motion or PROFINET IRT — alongside ordinary IT traffic on the same switched Ethernet, by using synchronised clocks (gPTP) and scheduled gates on every switch port. <span id="rm437309" style="display:none">The promise is converged networks: no more parallel control, safety and video LANs. For controls engineers, the practical implication is twofold. First, TSN-capable switches and PLC CPUs are becoming the default on new product lines from Rockwell, Siemens, B&amp;R and Schneider, so greenfield designs should at least specify TSN-ready hardware even if you don&#x27;t enable scheduling day one. Second, troubleshooting changes: when a flow misses its cycle, the fault may not be a cable or a storm but a misconfigured schedule or a drifted PTP grandmaster. Expect to add gPTP health, CNC (Centralised Network Configuration) tooling, and schedule-aware packet captures to your diagnostic toolkit. Adoption is still being slowed by the shortage of multi-vendor interop testing and by brownfield switches that lack the required hardware queues.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm437309',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443 continues to be the center of gravity for OT cybersecurity standards, and the recent wave of ICS advisories is a reminder of why the Security Level (SL) targeting process in 62443-3-2 matters. The Siemens Industrial Edge App Publisher RCE chain — improper certificate validation combined with unescaped backend data — is a textbook case for applying 62443-4-1 secure development lifecycle requirements and 62443-4-2 component requirements around authentication and session integrity. <span id="rm352912" style="display:none">If you&#x27;re specifying new systems, requiring vendor evidence of 62443-4-1 certification (not just product-level 4-2) is becoming the practical bar. On the US side, NIST SP 800-82 Revision 3 remains the go-to guidance document for OT security program design, and increasingly it&#x27;s being referenced in insurance questionnaires and regulatory audits rather than just internal policy. The CISA Cross-Sector Cybersecurity Performance Goals (CPGs) are also showing up in vendor contracts — particularly the requirements around unique credentials, MFA on remote access, and asset inventory. Worth noting: the CPGs explicitly call out eliminating default passwords on OT devices, which is still shockingly common in practice. For engineers writing specs this quarter, the most immediately useful move is referencing ISA/IEC 62443-2-4 for integrator and service provider requirements. It gives you concrete contractual language to require patch management SLAs, secure remote access controls, and incident notification from your SIs — exactly the gaps that today&#x27;s Cisco and BeyondTrust KEV entries exploit.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm352912',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">ISA/IEC 62443 continues its gradual expansion with the ongoing work on 62443-2-2 (Security Protection Scheme ratings) and refinements to 62443-3-2 on risk assessment and zone/conduit definition. If you haven&#x27;t revisited your zone-and-conduit model recently, it&#x27;s worth noting that regulators and insurers are increasingly asking for the artefacts 3-2 prescribes — a documented SuC definition, initial risk assessment, zone diagram, and target security level per zone — not just a general &#x27;we follow 62443&#x27; statement. <span id="rm417372" style="display:none">In parallel, NIST SP 800-82r3 (Guide to OT Security) remains the de facto reference in North America and now explicitly maps its controls back to the CSF 2.0 Govern function, which was added last year. For engineers, the most useful change is the new emphasis on &#x27;engineering-informed cyber&#x27; — treating safety instrumented systems, process hazard analyses and cyber risk as a single integrated discipline. Also worth watching: the EU Cyber Resilience Act transition period, with product manufacturers facing conformity obligations from late 2027, meaning the PLCs and HMIs you specify in 2026 projects should already have a documented SBOM and vulnerability-handling process.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm417372',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">The Volt Typhoon &#x27;Silent Train&#x27; revelation this week is worth dwelling on. Lumen and Cisco Talos together described how China-nexus actors used a Cisco SD-WAN zero-day to steal cryptographic keys, then used that access to maintain persistent, low-noise footholds in networks connecting enterprise IT to operational environments. <span id="rm697417" style="display:none">This is the same actor group CISA and NSA warned in 2023 and 2024 was pre-positioning in US water, energy, and transportation networks — not to steal data, but to enable disruptive attacks during a geopolitical crisis. What makes Silent Train notable is the tradecraft: compromise edge network gear (SD-WAN, firewalls, routers), extract keys and certificates, then blend into legitimate encrypted traffic between sites. For a controls engineer this means the attacker may already be inside the WAN tunnel between your corporate data center and plant DMZ, with no malware on any Windows host to detect. Three lessons: first, your Purdue Level 3.5 DMZ is only as strong as the network device terminating the WAN on either side — patch SD-WAN and firewall appliances with the same urgency you&#x27;d give a PLC in a safety loop. Second, assume keys and certificates on edge devices can be stolen and rotate them after any suspected compromise, not just patch the CVE. Third, monitor east-west traffic between IT and OT for anomalies in protocol and timing, not just signatures — Volt Typhoon&#x27;s whole point is that they look like normal admin traffic.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm697417',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful incident to revisit this week is the 2024 Nova Scotia Power / Emera breach disclosed in mid-2025, where attackers maintained access to the utility&#x27;s IT environment for roughly six weeks before being discovered during the Easter weekend. Although the utility publicly stressed that generation, transmission and distribution OT systems were not directly affected, customer billing, meter data, and sensitive personal information were exfiltrated, and some business operations — including meter reading and bill generation — were disrupted for weeks. <span id="rm427873" style="display:none">The root cause pattern was familiar: IT-side intrusion through corporate access paths, lateral movement, and prolonged dwell time before detection. What makes it instructive for OT is the dependency chain revealed when AMI and billing systems went offline: field crews reverted to manual reads, outage management workflows were strained, and customer trust took a measurable hit even without a single relay misoperation. Three lessons for controls engineers: first, inventory the IT systems your OT operations silently depend on — historian replication targets, AD domain controllers, certificate authorities, ticketing — because an &#x27;IT-only&#x27; incident often has OT consequences through these links. Second, rehearse degraded-mode operations for AMI, EMS and DMS without their IT dependencies; tabletop exercises uncover gaps that architecture diagrams hide. Third, assume dwell times measured in weeks, not days, and ensure your OT logging retention and historian baselines are long enough to support retrospective hunting.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm427873',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA released a dense batch of ICS advisories today, dominated by Siemens and Mitsubishi Electric. The Mitsubishi advisory covers the entire GENESIS/ICONICS family — GENESIS64, GENESIS32, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64 and BizViz — with authentication bypass (CVE-2026-16436/16437) and arbitrary operation flaws (CVE-2026-16438) that can lead to tampering, data destruction, or DoS. <span id="rm299540" style="display:none">If you run ICONICS-based HMIs or historians anywhere in your plant, treat this as priority patching. Siemens has three separate advisories: a DLL search-path flaw in Siemens Software Center (local privilege escalation), a serious RCE chain in Industrial Edge App Publisher via improper certificate validation plus Node.js integration, and an out-of-bounds read in Capital Embedded AR Classic affecting AUTOSAR Classic deployments in automotive/embedded control stacks. EPICS Base ≤7.0.10 received an advisory covering four new CVEs ranging from memory corruption to possible RCE — relevant to anyone running experimental physics, accelerator, or large-scale distributed control systems. The Kiloview E3 NDI Encoder advisory lists nine CVEs that together allow full device compromise; while NDI encoders are more commonly found in broadcast, they also appear in control room video walls and remote monitoring setups. On the IT side with direct OT impact: Cisco is dealing with two actively exploited zero-days. A Remote Access SSL VPN flaw in ASA/FTD lets unauthenticated attackers force firewalls to reload — the second ASA zero-day since August. Separately, Talos has linked an SD-WAN key-stealing campaign to infrastructure overlapping Volt Typhoon&#x27;s &#x27;Silent Train&#x27; network, the China-nexus actor repeatedly tied to pre-positioning in US critical infrastructure. If Cisco ASA, FTD, or SD-WAN sits between your enterprise and plant networks, assume active targeting and verify patch status urgently. Adobe, Veeam, and Juniper also pushed critical patches this week — Veeam in particular matters because many plants rely on it for engineering workstation and historian backups, and a compromised backup server is a pivot point into OT.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm299540',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">Today&#x27;s CISA ICS advisory batch is unusually dense and touches a wide swath of plant-floor and substation equipment. Hitachi Energy published two advisories: the CoreTec product line is affected by OS command injection and &#x27;Dirty Frag&#x27; flaws impacting confidentiality, integrity and availability, while the TRO600 series wireless gateways — widely deployed in distribution automation and remote telemetry — carry multiple RCE and information-disclosure vulnerabilities. <span id="rm492659" style="display:none">Operators of substation automation and SCADA radio networks should prioritise firmware reviews, especially for TRO600 devices exposed to any form of routable network. Siemens received two advisories as well. The Mendix SAML module has an authentication bypass allowing an unauthenticated attacker to replay a valid IdP-initiated SAML assertion — a serious risk for anyone using Mendix low-code apps as HMI or MES front-ends. Separately, several SIMATIC IPC models shipped with a test signing key still trusted by UEFI, enabling Secure Boot bypass. The IPC issue is particularly relevant because these industrial PCs often host WinCC, PCS 7 engineering stations, or edge gateways where boot integrity is the last line of defence against persistent malware. Mitsubishi Electric and Iconics Digital Solutions issued a sweeping advisory covering GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz. The flaws include arbitrary code execution via the libwebp CVE-2023-4863, two authentication bypasses, and an arbitrary-operation issue — in combination, enough to compromise historians and HMI servers that are typically trusted deep inside the process network. Finally, EPICS Base ≤7.0.10 — the backbone of large physics and accelerator control systems — has four new CVEs ranging from DoS to potential RCE. On the broader IT side, a max-severity GitLab integer overflow (CVE-2026-97229) is being actively exploited against Alpine Linux build infrastructure, and a TeamViewer flaw (CVE-2026-111585) can let a malicious host take over the support technician&#x27;s machine — directly relevant to vendors who dial into plants for remote support. Treat inbound TeamViewer sessions from unknown endpoints with the same scrutiny as outbound ones.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm492659',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -431,7 +431,16 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
         <span class="sh-icon">&#128240;</span>
         <h2>Today&#39;s Feed &mdash; 18 articles</h2>
       </div>
-      <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 27 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02" target="_blank" rel="noopener">Mitsubishi Electric GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz</a></span></div></summary><div class="detail-body"><p>View CSAF
+      <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 29 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03" target="_blank" rel="noopener">Hitachi Energy CoreTec Product</a></span></div></summary><div class="detail-body"><p>View CSAF
+Summary
+Hitachi Energy is aware of OS command injection and Dirty Frag vulnerabilities that affect CoreTec product versions listed in this document. Successful exploitation of these vulnerabilities could result in impact on confidentiality, integrity and availability of the product. Please refer to the Recomm</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 29 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-02" target="_blank" rel="noopener">Hitachi Energy TRO600 series products</a></span></div></summary><div class="detail-body"><p>View CSAF
+Summary
+Hitachi Energy is aware of multiple vulnerabilities that affect the TRO600 series product versions listed in this document. These vulnerabilities can be exploited for remote code execution (RCE) to carry out further attacks and disclosure of sensitive information. Please refer to the Recommended Immed</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-02" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 29 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01" target="_blank" rel="noopener">Siemens Mendix SAML Module</a></span></div></summary><div class="detail-body"><p>View CSAF
+Summary
+Mendix SAML module contains an authentication bypass vulnerability that could allow an unauthenticated remote attacker to gain unauthorized access by replaying a valid SAML assertion in IdP-initiated authentication flows. Siemens has released new versions for the affected products and recommends to up</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
+<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 27 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02" target="_blank" rel="noopener">Mitsubishi Electric and Mitsubishi Electric Iconics Digital Solutions GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz</a></span></div></summary><div class="detail-body"><p>View CSAF
 Summary
 Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary code (CVE-2023-4863), bypass authentication (CVE-2026-16436 and CVE-2026-16437), or perform arbitrary operations (CVE-2026-16438), resulting in information disclosure, tampering with, destruction, or deletion</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
 <details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Tue, 27 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01" target="_blank" rel="noopener">EPICS Base</a></span></div></summary><div class="detail-body"><p>View CSAF
@@ -439,19 +448,7 @@ Summary
 Successful exploitation of these vulnerabilities could allow an attacker to cause a denial-of-service condition, corrupt memory, disclose sensitive information, or potentially execute arbitrary code.
 The following versions of EPICS Base are affected:
 
-EPICS Base release &amp;lt;=7.0.10 (CVE-2026-114595, C</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 22 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-03" target="_blank" rel="noopener">Siemens Software Center</a></span></div></summary><div class="detail-body"><p>View CSAF
-Summary
-The affected application loads dynamic-link libraries (DLLs) from an uncontrolled search path. This could allow an authenticated local attacker to place a specially crafted DLL in a directory that the application searches, leading to arbitrary code execution with the privileges of the affected applica</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-03" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 22 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-01" target="_blank" rel="noopener">Kiloview E3 NDI Encoder</a></span></div></summary><div class="detail-body"><p>View CSAF
-Summary
-Successful exploitation of this these vulnerabilities could allow an attacker to fully compromise the device.
-The following versions of Kiloview E3 NDI Encoder are affected:
-
-E3 Firmware &amp;lt;1.30 (CVE-2026-109122, CVE-2026-111100, CVE-2026-96616, CVE-2026-105265, CVE-2026-110491, CVE-2026-107861, CVE-</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-01" target="_blank" rel="noopener">Read more &#8594;</a></div></details>
-<details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 22 Oct 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-02" target="_blank" rel="noopener">Siemens Industrial Edge App Publisher</a></span></div></summary><div class="detail-body"><p>View CSAF
-Summary
-The Industrial Edge App Publisher contains a vulnerability chain involving improper certificate validation and the rendering of unescaped data from backend responses. These issues can be combined to allow an attacker on the network to impersonate the management server and execute arbitrary code (RCE) </p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-02" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
+EPICS Base release &amp;lt;=7.0.10 (CVE-2026-114595, C</p><a class="read-more" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01" target="_blank" rel="noopener">Read more &#8594;</a></div></details></div>
     </section>
   </div>
 
@@ -459,7 +456,7 @@ The Industrial Edge App Publisher contains a vulnerability chain involving impro
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA added a steady stream of entries to the KEV catalog over the last two weeks. Of direct OT relevance, CVE-2026-110936 (Siemens Software Center DLL hijacking) is now listed as actively exploited — this is an engineering-workstation-class problem, since Software Center is how many sites manage TIA Portal and other Siemens tool installations. <span id="rm267458" style="display:none">The Broadcom VMware ESX logging flaw (CVE-2026-41709) and the Linux kernel issue (CVE-2026-46300) affect the virtualization layer under many SCADA, historian, and MES deployments; the ESX bug lets admin-level actors operate without audit trail, which is a nightmare for incident forensics in regulated environments. Two PHP unauthenticated RCE flaws (CVE-2026-109618 and 109619) and the Brotli memory corruption bug (CVE-2026-111497) have broad reach into any web-facing OT dashboards, vendor portals, or jump hosts. Fortinet path traversal (CVE-2025-61624) and the BeyondTrust Remote Support authentication bypass (CVE-2026-102764) are both likely vectors into OT environments via remote vendor access — audit any BeyondTrust appliances used for third-party integrator support immediately. Practical remediation: prioritize patching anything internet-exposed first, then engineering workstations and jump hosts, then virtualization hosts. For Siemens Software Center, restrict local admin on EWS and audit DLL load paths. For BeyondTrust, consider pulling appliances offline until patched if used for vendor OT access.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm267458',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA added two particularly consequential entries to the KEV catalog this week. CVE-2026-76418 affects Cisco Secure Firewall ASA and FTD software, allowing an unauthenticated remote attacker to trigger a NULL pointer dereference and force a reload — a reliable DoS primitive against perimeter firewalls that frequently segment IT from OT. <span id="rm17148" style="display:none">If your DMZ or Purdue Level 3.5 relies on ASA/FTD, patch now and verify failover behaviour, because an attacker can crash-loop the device to create a maintenance window of their choosing. CVE-2026-97229 in GitLab CE/EE is an unauthenticated RCE being used in the wild. Many OT shops now run GitLab for PLC code version control, IaC for virtualised SCADA, and CI/CD of HMI configurations — a compromised instance is effectively a supply-chain foothold into every project it hosts. Also noteworthy for OT: Siemens Software Center DLL hijack (CVE-2026-110936), BeyondTrust Remote Support authentication bypass (CVE-2026-102764), and Fortinet FortiOS/FortiProxy path traversal (CVE-2025-61624) — all common components in industrial remote access stacks. Prioritise patching anything that provides vendor or integrator access into the plant.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm17148',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -471,7 +468,7 @@ The Industrial Edge App Publisher contains a vulnerability chain involving impro
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 33 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 34 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -481,9 +478,9 @@ The Industrial Edge App Publisher contains a vulnerability chain involving impro
               <th>Vendor</th><th>Product</th><th>Vulnerability</th>
             </tr>
           </thead>
-          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-41709</span></td><td>2026-10-28</td><td>Broadcom</td><td>VMware ESX</td><td>Broadcom VMWare ESX Insufficient Logging Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-46300</span></td><td>2026-10-28</td><td>Linux</td><td>Kernel</td><td>Linux Kernel Missing Initialization of a Variable Vulnerability</td></tr>
-<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-48356</span></td><td>2026-10-27</td><td>Adobe</td><td>Commerce and Magento</td><td>Adobe Commerce and Magento Unrestricted Upload of File with Dangerous </td></tr></tbody>
+          <tbody><tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-97229</span></td><td>2026-10-29</td><td>GitLab</td><td>Community Edition and Enterprise Edition</td><td>GitLab Community Edition and Enterprise Edition Integer Overflow or Wr</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-76418</span></td><td>2026-10-29</td><td>Cisco</td><td>Secure Firewall ASA Software and Cisco Secure FTD Software</td><td>Cisco Secure Firewall ASA Software and Cisco Secure FTD Software Unche</td></tr>
+<tr><td><span class="sev sev-high">HIGH</span></td><td><span class="cve">CVE-2026-41709</span></td><td>2026-10-28</td><td>Broadcom</td><td>VMware ESX</td><td>Broadcom VMWare ESX Insufficient Logging Vulnerability</td></tr></tbody>
         </table>
       </div>
       <div class="sec-foot">
@@ -495,67 +492,71 @@ The Industrial Edge App Publisher contains a vulnerability chain involving impro
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-29 13:58 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-10-30 13:53 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "AD":"Active Directory; network service managing user identities and access permissions.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "ASA":"Adaptive Security Appliance; Cisco firewall device for network security.",
+  "AMI":"Advanced Metering Infrastructure; system for remote monitoring of energy consumption.",
+  "ASA":"Adaptive Security Appliance; Cisco firewall device for network protection.",
+  "CE":"Conformit\u00e9 Europ\u00e9enne; European Union product compliance marking standard.",
+  "CI":"Computational Intelligence; automated systems learning from data to make decisions.",
+  "CIP":"Common Industrial Protocol; industrial automation communication protocol over Ethernet.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
-  "COM":"Component Object Model; Microsoft technology for software component interaction.",
+  "CNC":"Computer Numerical Control; automated machine tool controlled by programmed instructions.",
+  "CSF":"Critical Success Factor; essential element required to achieve project objectives.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
-  "DCOM":"Distributed Component Object Model; enables COM communication over networks.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
-  "DLL":"Dynamic Link Library; Windows file containing reusable code and resources.",
-  "DMZ":"Demilitarized Zone; network segment between internal network and internet.",
-  "EPICS":"Experimental Physics and Industrial Control System; open-source control framework.",
+  "DLL":"Dynamic Link Library; Windows file containing reusable code functions.",
+  "DMS":"Data Management System; software organizing and controlling data storage.",
+  "DMZ":"Demilitarized Zone; network buffer between internal and external systems.",
+  "EE":"Electrical Engineer; professional designing electrical systems and controls.",
+  "EMS":"Energy Management System; software monitoring and controlling power consumption.",
+  "EPICS":"Experimental Physics and Industrial Control System; distributed control system framework.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
-  "ESX":"ESXi hypervisor; VMware virtualization platform for running virtual machines.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
-  "EWS":"Engineering Workstation; computer for industrial control system design and configuration.",
   "FEED":"Front-End Engineering and Design \u2014 the project phase defining scope and cost before detailed design.",
-  "FLC":"Fuzzy Logic Controller; control system using fuzzy logic for decision-making.",
-  "FTD":"Firepower Threat Defense; Cisco advanced threat protection platform.",
   "HART":"Highway Addressable Remote Transducer \u2014 digital communication protocol overlaid on 4-20mA field instrument loops.",
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
-  "HTML5":"HyperText Markup Language 5; latest web markup language standard.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
-  "IE":"Internet Explorer; Microsoft web browser.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
-  "IEEE":"Institute of Electrical and Electronics Engineers; standards organization.",
-  "IRT":"Isochronous Real-Time; real-time communication protocol in PROFINET.",
+  "IEEE":"Institute of Electrical and Electronics Engineers; professional standards organization.",
+  "IPC":"Industrial Personal Computer; rugged computer for factory environments.",
+  "IRT":"Isochronous Real-Time; synchronization protocol for distributed real-time systems.",
   "ISA":"International Society of Automation \u2014 professional body publishing industrial automation standards.",
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
+  "MC":"Motor Control; electrical device starting and regulating motor operation.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
-  "MFA":"Multi-Factor Authentication; security requiring multiple verification methods.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OS":"Operating System; software managing computer hardware and applications.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
-  "PHP":"PHP Hypertext Preprocessor; server-side scripting language for web applications.",
+  "PCS":"Process Control System; automated system regulating industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "RCE":"Remote Code Execution; vulnerability allowing attacker to execute code remotely.",
+  "PTP":"Precision Time Protocol; network synchronization standard for microsecond accuracy.",
+  "RCE":"Remote Code Execution; security vulnerability allowing unauthorized command execution.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
+  "SAML":"Security Assertion Markup Language; XML standard for authentication federation.",
+  "SBOM":"Software Bill of Materials; inventory of software components and dependencies.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
-  "SSL":"Secure Sockets Layer; cryptographic protocol for secure network communication.",
-  "TIA":"Totally Integrated Automation; Siemens automation engineering framework and software.",
+  "SP":"Service Pack; software update bundle fixing bugs and adding features.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "USS":"Unified Stealth Shell; Siemens industrial automation device communication interface.",
-  "VPN":"Virtual Private Network; encrypted connection over public networks.",
-  "WAN":"Wide Area Network; computer network spanning large geographic distances.",
+  "UEFI":"Unified Extensible Firmware Interface; firmware standard replacing legacy BIOS.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
