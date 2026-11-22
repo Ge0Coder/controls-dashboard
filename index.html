@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Controls Engineering Daily &#8212; 2026-11-21 15:08 UTC</title>
+  <title>Controls Engineering Daily &#8212; 2026-11-22 15:06 UTC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>:root{
@@ -285,7 +285,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
 
 <div class="heat-strip amber">
   <span class="heat-label">&#9888; AMBER</span>
-  <span>Multiple ICS advisories (Siemens Node2Shell, OpenPLC, Elecbrakes), AI-driven attacks escalating, and active KEV exploitation of vCenter and Cisco Expressway.</span>
+  <span>Multiple ICS advisories including OpenPLC auth bypass and Siemens Node2Shell; active KEV exploitation of VMware vCenter and Cisco Expressway.</span>
 </div>
 
 <header>
@@ -296,7 +296,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   </div>
   <div class="hero-right">
     <button class="theme-btn" id="themeBtn">&#9728; Light</button>
-    <span class="ts">Built 2026-11-21 15:08 UTC<br>Anthropic Claude</span>
+    <span class="ts">Built 2026-11-22 15:06 UTC<br>Anthropic Claude</span>
   </div>
 </header>
 
@@ -304,7 +304,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128737;</span>
     <div>
-      <div class="stat-val amber">36</div>
+      <div class="stat-val amber">34</div>
       <div class="stat-lbl">KEVs this month</div>
     </div>
   </div>
@@ -325,7 +325,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="stat-card">
     <span class="stat-icon">&#128240;</span>
     <div>
-      <div class="stat-val blue">18</div>
+      <div class="stat-val blue">12</div>
       <div class="stat-lbl">Articles today</div>
     </div>
   </div>
@@ -336,9 +336,9 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="briefing-head">
       <span>&#9728;</span>
       <span class="briefing-label">Morning Briefing</span>
-      <span class="briefing-date">2026-11-21 15:08 UTC</span>
+      <span class="briefing-date">2026-11-22 15:06 UTC</span>
     </div>
-    <div class="briefing-body"><p>The headline today is the Siemens Node2Shell advisories (CVE-2026-111497) affecting a broad range of Industrial and Automation Software Products via a critical Brotli decoder flaw in bundled Node.js — inventory your Siemens engineering tools and plan patching this week. Compound that with CISA adding VMware vCenter (CVE-2026-123890, auth bypass) and Cisco Expressway (hard-coded credentials) to KEV, both common at the IT/OT boundary. Amazon&#x27;s disclosure of autonomous AI agents discovering and exploiting a zero-day in the wild signals that attacker iteration time is collapsing — review whether your engineering workstations, vCenter instances, and jump hosts are reachable from flat IT networks and tighten segmentation before Monday.</p></div>
+    <div class="briefing-body"><p>The headline item for controls engineers heading into Monday is the pair of Siemens advisories covering the Node.js &quot;Node2Shell&quot; Brotli vulnerability across broad Industrial Software and Industrial Automation portfolios — expect patch cycles on engineering workstations and SIMATIC-adjacent tooling. Pair that with an actively exploited VMware vCenter authentication bypass on the CISA KEV list, which likely touches the virtualization layer hosting your historians and HMIs. If you run OpenPLC anywhere — including lab or training rigs — patch or isolate it today due to an unauthenticated admin account creation flaw. Practical implication: this week&#x27;s change window should prioritise the hypervisor and engineering workstation layers over field devices.</p></div>
   </div>
 </div>
 
@@ -367,7 +367,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Knowledge Bite -->
   <section class="s-green">
     <div class="sh"><span class="sh-icon">&#128161;</span><h2>Today&#39;s Knowledge Bite</h2></div>
-    <div class="sb"><div class="fact-box"><p>The MQTT protocol, now ubiquitous in industrial IoT, was invented in 1999 by Andy Stanford-Clark (IBM) and Arlen Nipper (Arcom) specifically to monitor an oil pipeline across the desert over unreliable satellite links. The design goals — tiny code footprint, minimal bandwidth, and tolerance for intermittent connectivity — were pure process-control requirements, which is why it still fits so well on constrained PLCs and edge gateways 27 years later.</p></div></div>
+    <div class="sb"><div class="fact-box"><p>The MQTT protocol, now ubiquitous in IIoT and found in the libumqtt library flagged this week, was invented in 1999 by Andy Stanford-Clark of IBM and Arlen Nipper of Arcom specifically to monitor oil pipelines across satellite links. Its design goal was ruthlessly narrow — minimum bandwidth, battery-sippable, tolerant of intermittent connections — which is exactly why it then conquered everything from Facebook Messenger to smart thermostats two decades later. The &quot;MQ&quot; stood for IBM&#x27;s MQ Series, though MQTT itself has nothing architecturally in common with it.</p></div></div>
   </section>
 
   <!-- Engineering Curiosity -->
@@ -376,7 +376,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <div class="sb">
       <div class="curiosity-box">
         <div class="curiosity-icon">&#9883;</div>
-        <div class="curiosity-body ai-text"><p>The PID controller predates electronics by more than a century: Elmer Sperry&#x27;s gyroscopic ship autopilot in 1911 implemented proportional-integral-derivative action mechanically, using weighted linkages and dashpots to stabilise naval vessels against wave disturbances. The mathematical formalisation we teach today didn&#x27;t arrive until Nicholas Minorsky&#x27;s 1922 analysis of USS New Mexico&#x27;s steering — and Minorsky derived the derivative term by watching helmsmen anticipate the ship&#x27;s roll, essentially codifying human intuition as a transfer function. Every time you tune a loop, you&#x27;re using a control law originally reverse-engineered from a sailor&#x27;s reflexes.</p></div>
+        <div class="curiosity-body ai-text"><p>The PID controller as we know it was effectively reverse-engineered from a human helmsman. In the 1920s, Nicholas Minorsky was studying how experienced sailors held course on the USS New Mexico and noticed they corrected not just for current heading error, but for how fast the error was changing and how long it had persisted — proportional, derivative, and integral action, respectively. The mathematical formalism came after the observation, not before, which is why PID feels so intuitive once you have tuned a loop by hand: you are literally replicating what a competent human operator already does without thinking.</p></div>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Tech Spotlight -->
   <section class="s-blue">
     <div class="sh"><span class="sh-icon">&#128300;</span><h2>Tech Spotlight</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s spotlight is on the Model Context Protocol (MCP), the same technology that triggered the Siemens Mendix Studio Pro advisory. MCP is an open standard introduced by Anthropic in late 2024 that lets AI assistants connect to external tools, data sources, and applications through a standardised client-server interface. <span id="rm207388" style="display:none">Vendors like Siemens are now embedding MCP servers into engineering tools so that an LLM assistant can read project files, query tag databases, or trigger build/deploy actions on behalf of an engineer. For controls engineers, the appeal is obvious: an AI that can actually interact with your PLC project, HMI tags, or Mendix low-code app, rather than just talking about them. The risk, as the Siemens CVE illustrates, is that MCP servers often run with the privileges of the engineering tool itself and may lack hardening typical of industrial protocols. A cross-site request forgery, an unauthenticated endpoint, or a prompt-injection-driven tool call can now map directly to project modification or code execution on an engineering workstation. Adoption challenges are considerable. Most MCP implementations today assume a trusted local environment (localhost only, single user), yet vendors are quietly exposing them over the network for team collaboration. Until there is an IEC 62443-style security profile for MCP — covering authentication, tool authorisation, and audit logging — treat any MCP-enabled engineering tool as you would an unauthenticated web service: segment it, restrict it to loopback where possible, and keep it off shared engineering VLANs.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm207388',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">This week&#x27;s AI-agent exploitation story is a good prompt to look at agentic AI in engineering tools, flagged obliquely by the Siemens Mendix MCP Server advisory. MCP — the Model Context Protocol — is a fast-emerging standard for letting large language models invoke external tools and data sources. <span id="rm430601" style="display:none">Vendors including Siemens, Rockwell, and several SCADA suppliers are embedding MCP servers into engineering IDEs so that an AI assistant can read tag databases, generate ladder logic, or query a historian on request. The practical upside is real: an engineer can ask &quot;show me every analog input scaled outside 4–20 mA range in the last 24 hours&quot; and get an answer without writing a query. The downside, visible in the Mendix advisory, is that MCP servers typically run as local HTTP listeners trusted by the browser and the IDE — meaning a malicious webpage or a CSRF-style attack can potentially drive engineering tools remotely. Early MCP implementations are repeating many of the same trust-boundary mistakes that plagued early OPC DCOM: implicit trust, weak authentication, and broad local privileges. Adoption-wise, expect this everywhere within 18 months. The guidance for now is to treat any MCP-enabled engineering workstation as a privileged asset: no general web browsing from it, strict egress filtering, and keep it on an isolated engineering VLAN until vendor hardening catches up.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm430601',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
       <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -394,7 +394,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Standards Watch -->
   <section class="s-amber">
     <div class="sh"><span class="sh-icon">&#128203;</span><h2>Standards Watch</h2></div>
-    <div class="sb ai-text"><p class="ai-p">IEC 62443-4-2 (component security requirements) continues to gain traction as the de facto baseline for product certification, and vendors are increasingly listing Security Level (SL) ratings in datasheets. If you are specifying new PLCs, RTUs, or network devices for a 2027 project, it is now reasonable to require SL-2 as a procurement minimum and SL-3 for safety-adjacent functions. <span id="rm648165" style="display:none">The companion IEC 62443-3-3 system-level requirements map neatly onto zone-and-conduit designs, so aligning your next network segmentation project to its Foundational Requirements saves rework later. NIST SP 800-82 Revision 3 (Guide to Operational Technology Security), finalised in late 2023, remains the most practical free reference for engineers asked to articulate OT security to IT auditors. It explicitly addresses safety interactions, deterministic performance constraints, and legacy device limitations — language that often wins arguments with IT teams who want to apply IT patch cadence to a DCS. Pair it with the ISA/IEC 62443 series when writing policy, since 800-82 Rev 3 cross-references 62443 extensively. Worth watching: ISA is progressing work on 62443-2-2 (security program ratings) which will give asset owners a way to benchmark their own cybersecurity maturity rather than just products. Early drafts suggest a scoring model similar to the C2M2 approach used in the US energy sector, which should make board-level reporting less of a dark art.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm648165',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">IEC 62443-3-2 (security risk assessment for system design) continues to gain traction as the de-facto bridge between engineering and security teams, and is now being cited in several EU NIS2 implementing guidance documents as an acceptable methodology for demonstrating OT risk management. For sites building zone and conduit diagrams for the first time, pairing 62443-3-2 with the Purdue reference model remains the pragmatic approach — the standard does not prescribe Purdue but it meshes cleanly with it. <span id="rm321809" style="display:none">NIST SP 800-82 Revision 3, released in late 2023, is still the baseline most US-regulated sites reach for, and its mapping tables to the NIST Cybersecurity Framework 2.0 (which added the &quot;Govern&quot; function) are worth revisiting if your site&#x27;s last gap analysis predates CSF 2.0. The CSF 2.0 Govern function explicitly calls out supply chain risk — directly relevant given this week&#x27;s Siemens Node.js advisory, which is fundamentally a transitive dependency problem reaching OT via a JavaScript runtime bundled in engineering software. Finally, ISA/IEC 62443-4-2 component-level certification is showing up more often in procurement specifications. If you are writing RFQs for new PLCs, RTUs, or protocol gateways in 2027, requiring SL-2 or SL-3 certification as a gate rather than a nice-to-have is becoming defensible and increasingly common.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm321809',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.isa.org" target="_blank" rel="noopener">ISA &#8599;</a>
       <a href="https://www.iec.ch" target="_blank" rel="noopener">IEC &#8599;</a>
@@ -405,7 +405,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <!-- Incident of the Week -->
   <section class="s-red">
     <div class="sh"><span class="dot dr pulse"></span><h2>Incident of the Week</h2></div>
-    <div class="sb ai-text"><p class="ai-p">This week&#x27;s incident is the newly disclosed Amazon report on China-linked actors using autonomous AI agents — dubbed &#x27;Cairn&#x27; — to discover and exploit a zero-day in MONAI Label, a medical imaging software framework. While not strictly ICS, the methodology is directly relevant: the attackers delegated vulnerability research, exploit development, and initial access to an AI agent loop rather than human operators. <span id="rm108297" style="display:none">Amazon&#x27;s threat intelligence team observed the agents iteratively probing the target, generating exploit candidates, and refining them based on error responses — compressing a typical weeks-long research cycle into hours. The mechanism matters for OT because the same approach trivially applies to vendor-specific HMI web interfaces, engineering tool REST APIs, or obscure fieldbus gateways where the obscurity itself was previously a form of defence. An AI agent does not care whether a device has 50 users or 50,000; marginal cost per target approaches zero. Combined with the Siemens Mendix MCP advisory, we are seeing both sides of the AI-in-OT coin in the same week. Key lessons for controls engineers: first, &#x27;security through obscurity&#x27; for niche HMI and engineering protocols is dying faster than expected — assume your bespoke vendor interface will be probed. Second, patch windows need rethinking; if attackers can go from CVE disclosure to working exploit in hours via AI, your 90-day OT patch cycle is a liability. Third, invest in detection at the behavioural layer (anomalous command sequences, unusual authentication patterns) rather than signature-based IDS, because AI-generated exploits will not match known signatures.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm108297',this);return false">Read more &rarr;</a></p></div>
+    <div class="sb ai-text"><p class="ai-p">A useful case to revisit this week is the 2021 Oldsmar, Florida water treatment plant intrusion — not because it was sophisticated, but because every detail illustrates a controls engineering lesson. An attacker gained access via TeamViewer running on a plant HMI shared among operators with a common password, then briefly changed the sodium hydroxide setpoint from roughly 100 ppm to 11,100 ppm. <span id="rm275887" style="display:none">An alert operator saw the mouse cursor move and the setpoint change, and reverted it within minutes. Later analysis suggested the risk was partially mitigated by downstream pH monitoring that would have alarmed before chemically altered water reached consumers, but the proximity to harm was uncomfortable. The root causes were a stacked set of ordinary engineering oversights: unsupervised remote access software installed for operator convenience, shared credentials, no MFA, Windows 7 past end-of-support, and a flat network with no segmentation between the HMI and the public internet. None of it required a nation-state actor. Three lessons for controls engineers: first, inventory every remote-access tool on every HMI and engineering workstation — including the ones installed informally by integrators or vendors during commissioning. Second, assume operators will not notice intrusions; rely instead on process-layer safeguards (independent high/high alarms, hard limits in PLC code, downstream analytical interlocks) that make unsafe setpoints physically impossible or immediately detectable. Third, change control for setpoints matters: log every setpoint write with source identity, and alarm on out-of-band changes.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm275887',this);return false">Read more &rarr;</a></p></div>
     <div class="sec-foot">
       <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
     </div>
@@ -415,7 +415,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
   <div class="span2">
     <section class="s-green">
       <div class="sh"><span class="dot dg"></span><h2>ICS / OT News Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA published a cluster of ICS advisories this week with direct relevance to plant floor engineers. Two large Siemens advisories cover the &#x27;Node2Shell&#x27; vulnerability (CVE-2026-111497), a critical out-of-bounds write in the Brotli decoder bundled with Node.js that affects a wide swath of Siemens Industrial and Automation Software Products. <span id="rm420299" style="display:none">Siemens Mendix Studio Pro also received an advisory for multiple flaws in its MCP (Model Context Protocol) Server that could allow remote attackers to execute tools or exfiltrate data by abusing a user&#x27;s browser session — an early sign that AI-integration layers are becoming a new OT attack surface. Autonomy Logic&#x27;s OpenPLC Runtime (&lt;=4.2.4) has a race-condition vulnerability (CVE-2026-126088, CVSS 8.1) that allows creation of multiple unauthenticated admin accounts. Although OpenPLC is often seen in labs and education, it&#x27;s increasingly used in small production deployments and research testbeds, so anyone running it should upgrade immediately. A more unusual advisory covers Elecbrakes trailer brake controllers (EB2, VM1, ELBC2000), where exploitation could let an attacker take control of trailer brakes, disable brake lights, or modify firmware — a sharp reminder that &#x27;IoT-ified&#x27; safety-critical mobile equipment is now firmly in ICS-CERT territory. The libumqtt advisory (CVE-2026-125132, CVSS 8.6) affects an MQTT client library widely embedded in OpenWrt-based gateways and small industrial IoT devices. On the broader threat landscape, Amazon disclosed that China-linked actors used autonomous &#x27;Cairn&#x27; AI agents to discover and exploit a zero-day in MONAI Label medical software — the first well-documented case of AI agents independently finding and weaponising a vulnerability. The European Commission also confirmed an AI-assisted cyberattack forced it to take services offline. For controls engineers, the takeaway is that vulnerability discovery is accelerating faster than most patch cycles, and attackers are no longer rate-limited by human analyst time. Separately, Norwegian energy firms were hit by cyberattacks this week; details remain thin but reinforce continued targeting of European energy infrastructure heading into winter.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm420299',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">CISA released a notable batch of ICS advisories this week with direct relevance to engineering environments. Autonomy Logic&#x27;s OpenPLC Runtime (versions 4.2.4 and earlier) contains a race condition in account creation that permits multiple unauthenticated admin accounts to be created — a concern given OpenPLC&#x27;s widespread use in education, research labs, and some small-scale production deployments. <span id="rm405829" style="display:none">Any internet-exposed OpenPLC instance should be isolated immediately pending patching. Two Siemens advisories cover the widely-publicised Node.js &quot;Node2Shell&quot; Brotli decoder vulnerability (CVE-2026-111497), impacting a broad swath of Siemens Industrial Software and Industrial Automation Software products. This is an out-of-bounds write enabling potential remote code execution via memory corruption. Siemens is rolling out updated versions; engineering workstations running SIMATIC and TIA Portal ecosystems should be reviewed against the advisory list. A separate Mendix Studio Pro advisory covers multiple MCP Server vulnerabilities enabling cross-site request forgery and unauthorised tool execution — an early warning that AI tooling embedded in engineering IDEs is now part of the OT attack surface. Of particular interest to mobile and transport-adjacent engineers, Elecbrakes electronic trailer brake controllers (EB2, VM1, ELBC2000) have severe vulnerabilities allowing an attacker to take control of trailer braking, modify firmware, and disable brake lights or safety interlocks. The libumqtt MQTT client library (≤1.1.1) also has an integer underflow (CVSS 8.6) that could enable DoS or memory corruption in MQTT-based telemetry stacks common in IIoT gateways. On the broader cyber front, Amazon disclosed that China-linked actors used autonomous &quot;Cairn&quot; AI agents to discover and weaponise a MONAI Label zero-day — the clearest public example to date of AI-driven offensive tooling finding real exploitable bugs in operational software. Norwegian energy sector cyberattacks also featured in weekly roundups, reinforcing that energy infrastructure remains a priority target heading into winter.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm405829',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.controleng.com" target="_blank" rel="noopener">Control Engineering &#8599;</a>
         <a href="https://www.automationworld.com" target="_blank" rel="noopener">Automation World &#8599;</a>
@@ -429,7 +429,7 @@ abbr[title]{text-decoration:underline dotted var(--muted);cursor:help;text-under
     <section class="s-green">
       <div class="sh">
         <span class="sh-icon">&#128240;</span>
-        <h2>Today&#39;s Feed &mdash; 18 articles</h2>
+        <h2>Today&#39;s Feed &mdash; 12 articles</h2>
       </div>
       <div class="news-list"><details><summary class="sum-critical"><span class="dot dr pulse" style="flex-shrink:0;margin-top:3px"></span><div style="flex:1;min-width:0"><div class="sum-meta"><span class="sum-badge">CISA ICS Advisories</span><span style="font-size:.65rem;color:var(--muted)">Thu, 19 Nov 26 1</span></div><span class="sum-title"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-03" target="_blank" rel="noopener">libumqtt</a></span></div></summary><div class="detail-body"><p>View CSAF
 Summary
@@ -502,7 +502,7 @@ On October 21, 2026, the Node.js project released security updates addressing a 
   <div class="span2">
     <section class="s-amber">
       <div class="sh"><span class="dot da"></span><h2>CISA Vulnerability Digest</h2></div>
-      <div class="sb ai-text"><p class="ai-p">CISA&#x27;s KEV additions this week include several items with likely OT exposure. Broadcom VMware vCenter (CVE-2026-123890) has an authentication bypass in the Directory Service — vCenter is pervasive in OT DMZs hosting engineering workstations, historians, and virtualised HMIs, and an unauthenticated network-reachable bypass should be patched or isolated this weekend. <span id="rm882724" style="display:none">Cisco Expressway Series (CVE-2026-76466) contains hard-coded credentials allowing root command execution; Expressway often bridges corporate and plant collaboration systems. SAP NetWeaver Enterprise Portal (CVE-2025-42884) rounds out the enterprise trio and matters wherever MES/ERP integration touches plant systems. Several additions target developer and automation infrastructure increasingly found in OT support environments: Perforce Puppet Enterprise (CVE-2026-115731) deserialization, Apache Roller and Apache Axis RCEs, and BerriAI LiteLLM (CVE-2026-40217) — the latter notable as an AI gateway product being folded into operational toolchains. OpenSSH on Linux (CVE-2026-123158) has an authentication bypass that warrants urgent attention on any jump hosts or Linux-based gateways. Barracuda appliances (ESG, WAF, Load Balancer) received two entries including an auth bypass permitting malicious backup restore — review any Barracuda devices at the IT/OT boundary. Practical priorities for the plant: patch vCenter and any Linux OpenSSH exposed to the IT/OT interface first, verify Barracuda and Cisco Expressway firmware, and audit whether Puppet or LiteLLM sit anywhere in your engineering toolchain. For each, if patching requires a change window, compensate with firewall rules restricting management-plane access to a jump host.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm882724',this);return false">Read more &rarr;</a></p></div>
+      <div class="sb ai-text"><p class="ai-p">The most OT-relevant KEV additions this fortnight centre on virtualization and network edge infrastructure that typically sits underneath or adjacent to OT networks. CVE-2026-123890 in VMware vCenter is an authentication bypass in the Directory Service reachable by any attacker with network access to vCenter — and vCenter commonly hosts SCADA historians, HMIs, and engineering VMs in converged data centres. <span id="rm530658" style="display:none">Patching or network-segregating vCenter management interfaces should be treated as urgent. CVE-2026-76466 in Cisco Expressway Series is a hard-coded credentials flaw enabling remote root execution; while Expressway is primarily a collaboration product, it is often dual-homed into corporate zones that touch OT DMZs. Two Barracuda entries (CVE-2026-111560 OS command injection across ESG/WAF/ADC/etc., and CVE-2026-116606 ESG authentication bypass via config import) matter because these appliances often front OT-adjacent email and web traffic. Also notable is CVE-2026-115731 in Puppet Enterprise — a deserialization RCE triggered by any CA-signed agent certificate, which is directly relevant to industrial sites using Puppet to manage engineering workstation or server fleets. Finally, CVE-2026-123158 (OpenSSH on Linux authentication bypass) warrants immediate attention on any jump hosts and Linux-based gateways in OT. Practical remediation priorities: patch vCenter and Expressway first, review Puppet master exposure, then roll Barracuda and OpenSSH updates through change control. For KEV items without immediate patch windows, apply compensating controls at the firewall — restrict management plane access to named jump hosts only.</span><a class="rm-toggle" href="#" onclick="rmToggle('rm530658',this);return false">Read more &rarr;</a></p></div>
       <div class="sec-foot">
         <a href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener">CISA ICS &#8599;</a>
       </div>
@@ -514,7 +514,7 @@ On October 21, 2026, the Node.js project released security updates addressing a 
     <section class="s-red">
       <div class="sh">
         <span class="dot dr pulse"></span>
-        <h2>CISA KEV &mdash; 36 entries &middot; last 30 days</h2>
+        <h2>CISA KEV &mdash; 34 entries &middot; last 30 days</h2>
       </div>
       <div class="sb" style="overflow-x:auto">
         <table>
@@ -538,17 +538,20 @@ On October 21, 2026, the Node.js project released security updates addressing a 
 </main>
 
 <footer>
-  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-11-21 15:08 UTC
+  Controls Engineering Dashboard &nbsp;&bull;&nbsp; 2026-11-22 15:06 UTC
   &nbsp;&bull;&nbsp; Summaries by Anthropic Claude
 </footer>
 
 <script>var ACRONYM_DEFS={
+  "ADC":"Device that converts analog signals to digital data for computer processing.",
   "AI":"Artificial Intelligence \u2014 machine reasoning systems used for process optimisation and diagnostics.",
-  "C2M2":"Cybersecurity Capability Maturity Model for industrial control systems.",
-  "CERT":"Computer Emergency Response Team providing cybersecurity incident response.",
+  "CA":"Trusted entity that issues and verifies digital certificates for security.",
   "CISA":"US Cybersecurity and Infrastructure Security Agency responsible for critical infrastructure security.",
+  "CSF":"Framework providing standards and guidelines for managing cybersecurity risk.",
+  "CSRF":"Attack exploiting user trust to perform unauthorized actions on their behalf.",
   "CVE":"Common Vulnerabilities and Exposures \u2014 a standardised identifier for disclosed security vulnerabilities.",
   "CVSS":"Common Vulnerability Scoring System \u2014 a 0\u201310 score representing software vulnerability severity.",
+  "DCOM":"Microsoft protocol enabling communication between distributed Windows component objects.",
   "DCS":"Distributed Control System \u2014 control architecture distributing processing across multiple plant-floor controllers.",
   "ERP":"Enterprise Resource Planning \u2014 business software managing procurement, finance, and production scheduling.",
   "EtherNet/IP":"Ethernet Industrial Protocol \u2014 industrial network standard using standard Ethernet with the Common Industrial Protocol.",
@@ -557,7 +560,7 @@ On October 21, 2026, the Node.js project released security updates addressing a 
   "historian":"Software (e.g. OSIsoft PI, Aveva) that collects, stores, and retrieves time-series process data.",
   "HMI":"Human-Machine Interface \u2014 the screen or software operators use to interact with a control system.",
   "ICS":"Industrial Control System \u2014 umbrella term for SCADA, DCS, PLCs, and related control technologies.",
-  "IDS":"Intrusion Detection System monitoring networks for malicious activity.",
+  "IDE":"Controller interface standard for connecting storage devices to computers.",
   "IEC":"International Electrotechnical Commission \u2014 global standards body for electrical and electronic technologies.",
   "IEC 62443":"International standard series for securing industrial automation and control systems.",
   "IED":"Intelligent Electronic Device \u2014 a microprocessor-based relay or controller used in power systems.",
@@ -565,25 +568,32 @@ On October 21, 2026, the Node.js project released security updates addressing a 
   "ISA-95":"Standard for integrating enterprise ERP systems with manufacturing and control systems.",
   "IT":"Information Technology \u2014 computer systems and networks used to process and store business data.",
   "KEV":"Known Exploited Vulnerabilities \u2014 CISA's catalog of CVEs confirmed actively exploited in the wild.",
-  "MCP":"Master Control Program or Modular Control Platform in automation.",
+  "MCP":"Industrial protocol for multi-drop communication on serial networks.",
   "MES":"Manufacturing Execution System \u2014 software tracking and managing plant-floor production in real time.",
+  "MFA":"Security method requiring multiple verification factors for user authentication.",
   "ML":"Machine Learning \u2014 data-driven algorithms that improve with experience, used for soft sensors and fault detection.",
   "Modbus":"Serial communication protocol (1979) widely used for PLC communication over RS-485 and TCP/IP.",
   "MPC":"Model Predictive Control \u2014 advanced strategy optimising multiple variables simultaneously against process constraints.",
-  "MQTT":"Message Queuing Telemetry Transport lightweight IoT messaging protocol.",
+  "MQ":"Message queue system enabling asynchronous communication between applications.",
+  "MQTT":"Lightweight publish-subscribe protocol for IoT and industrial messaging.",
+  "NIS2":"European directive establishing cybersecurity requirements for critical infrastructure operators.",
   "NIST":"National Institute of Standards and Technology \u2014 US agency publishing widely-adopted cybersecurity frameworks.",
   "OPC":"OLE for Process Control \u2014 standards for data exchange between Windows software and industrial hardware.",
   "OPC-UA":"OPC Unified Architecture \u2014 a platform-independent industrial data-exchange standard.",
+  "OS":"Software managing hardware resources and providing core system functions.",
   "OT":"Operational Technology \u2014 hardware and software controlling physical devices and industrial processes.",
   "PID":"Proportional-Integral-Derivative controller \u2014 the dominant feedback control algorithm across the process industries.",
   "PLC":"Programmable Logic Controller \u2014 a ruggedised industrial computer that automates electromechanical processes.",
   "Profibus":"Process Field Bus \u2014 fieldbus standard for serial communication in control systems.",
   "Profinet":"Process Field Network \u2014 industrial Ethernet standard for real-time automation communication.",
-  "REST":"Representational State Transfer architectural style for web services.",
+  "RCE":"Vulnerability allowing attackers to execute arbitrary code on target systems.",
   "RTU":"Remote Terminal Unit \u2014 connects physical field equipment to a SCADA system.",
   "SCADA":"Supervisory Control and Data Acquisition \u2014 software for centrally monitoring and controlling industrial processes.",
+  "TIA":"Siemens automation engineering software platform for control system development.",
   "TSN":"Time-Sensitive Networking \u2014 IEEE 802.1 Ethernet extensions for deterministic low-latency communication.",
-  "WAF":"Web Application Firewall protecting applications from cyber attacks.",
+  "USS":"Siemens protocol for communication with frequency drives over serial.",
+  "VLAN":"Logical network segmenting devices within physical infrastructure for isolation.",
+  "WAF":"Security filter protecting web applications from common attacks and threats.",
   "WirelessHART":"Wireless mesh extension of the HART protocol for self-organising networks of field instruments."
 };
 (function(){
